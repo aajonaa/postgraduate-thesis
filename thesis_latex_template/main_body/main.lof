@@ -1,0 +1,47 @@
+\addvspace {10.0pt}
+\addvspace {10.0pt}
+\addvspace {10.0pt}
+\contentsline {figure}{\numberline {3-1}{\ignorespaces The four types of MAs.}}{6}{figure.caption.7}%
+\contentsline {figure}{\numberline {3-2}{\ignorespaces Flowchart of IBSA.}}{17}{figure.caption.8}%
+\contentsline {figure}{\numberline {3-3}{\ignorespaces The wrapper feature selection process.}}{19}{figure.caption.9}%
+\contentsline {figure}{\numberline {3-4}{\ignorespaces (a) 3D plot of functions, (b) balance analysis of IBSA, (c) balance analysis of BSA, (d) diversity analysis of algorithm, (e) convergence curve of IBSA and BSA.}}{25}{figure.caption.10}%
+\contentsline {figure}{\numberline {3-5}{\ignorespaces Average ranking of IBSA and the basic MAs.}}{31}{figure.caption.11}%
+\contentsline {figure}{\numberline {3-6}{\ignorespaces Convergence curves and box plots of the IBSA and other MAs on 10 functions.}}{32}{figure.caption.12}%
+\contentsline {figure}{\numberline {3-7}{\ignorespaces Average ranking of IBSA and advance MAs.}}{36}{figure.caption.13}%
+\contentsline {figure}{\numberline {3-8}{\ignorespaces Convergence curves and box plots of the IBSA and other advance MAs on 10 functions.}}{37}{figure.caption.14}%
+\contentsline {figure}{\numberline {3-9}{\ignorespaces Convergence curves of the bIBSA and other algorithms on 12 datasets.}}{45}{figure.caption.15}%
+\addvspace {10.0pt}
+\contentsline {figure}{\numberline {4-1}{\ignorespaces Four types of MAs.}}{47}{figure.caption.16}%
+\contentsline {figure}{\numberline {4-2}{\ignorespaces Elite Engagement phase of SBO.}}{55}{figure.caption.17}%
+\contentsline {figure}{\numberline {4-3}{\ignorespaces Resource Acquisition phase of SBO.}}{57}{figure.caption.18}%
+\contentsline {figure}{\numberline {4-4}{\ignorespaces Flowchart of SBO.}}{59}{figure.caption.19}%
+\contentsline {figure}{\numberline {4-5}{\ignorespaces (a) 3D plots of functions, (b) balance analysis of SBO, (c) diversity analysis of SBO, (d) convergence curves of SBO.}}{62}{figure.caption.20}%
+\contentsline {figure}{\numberline {4-6}{\ignorespaces (a) 3D plots of functions (b) search history, (c) trajectory of agent, (d) average fitness of all agents.}}{63}{figure.caption.21}%
+\contentsline {figure}{\numberline {4-7}{\ignorespaces Algorithm performance heatmap across four dimensions.}}{68}{figure.caption.22}%
+\contentsline {figure}{\numberline {4-8}{\ignorespaces Convergence curves of SBO and state-of-the-art algorithms for 30-dimensional problems.}}{69}{figure.caption.23}%
+\contentsline {figure}{\numberline {4-9}{\ignorespaces Box plots comparing SBO and state-of-the-art algorithms for 30-dimensional problems.}}{70}{figure.caption.24}%
+\contentsline {figure}{\numberline {4-10}{\ignorespaces Friedman rank result of algorithms across four dimensions.}}{71}{figure.caption.25}%
+\contentsline {figure}{\numberline {4-11}{\ignorespaces Runtime performance of SBO with other algorithms on IEEE CEC 2017.}}{74}{figure.caption.26}%
+\contentsline {figure}{\numberline {4-12}{\ignorespaces Flowchart of bSBO-based wrapper method for feature selection.}}{76}{figure.caption.27}%
+\contentsline {figure}{\numberline {4-13}{\ignorespaces Friedman rank results over three metrics.}}{81}{figure.caption.28}%
+\contentsline {figure}{\numberline {4-14}{\ignorespaces Convergence curves of bSBO and eight binary optimizers over nine datasets.}}{82}{figure.caption.29}%
+\contentsline {figure}{\numberline {4-15}{\ignorespaces Original images and corresponding 2D-histogram.}}{85}{figure.caption.30}%
+\contentsline {figure}{\numberline {4-16}{\ignorespaces Flowchart of multi-threshold image segmentation.}}{86}{figure.caption.31}%
+\contentsline {figure}{\numberline {4-17}{\ignorespaces Heatmap for PSNR, FSIM, and SSIM result over 6 threshold level.}}{86}{figure.caption.32}%
+\contentsline {figure}{\numberline {4-18}{\ignorespaces Convergence curves of the entropy value by 12 threshold level.}}{87}{figure.caption.33}%
+\contentsline {figure}{\numberline {4-19}{\ignorespaces Jet colormap segmentation result of image B over 18 threshold level.}}{88}{figure.caption.34}%
+\addvspace {10.0pt}
+\contentsline {figure}{\numberline {5-1}{\ignorespaces RBF prediction on a 1-dimensional function.}}{111}{figure.caption.35}%
+\contentsline {figure}{\numberline {5-2}{\ignorespaces Flowchart of the BEXEA algorithm.}}{113}{figure.caption.36}%
+\contentsline {figure}{\numberline {5-3}{\ignorespaces Multi-armed bandit-driven adaptive search in BEXEA.}}{116}{figure.caption.37}%
+\contentsline {figure}{\numberline {5-4}{\ignorespaces Illustration of the explainable uncertainty criteria on a 3-dimensional function.}}{118}{figure.caption.38}%
+\contentsline {figure}{\numberline {5-5}{\ignorespaces Convergence curves of BEXEA and its competitors on the IEEE CEC 2022 test suite ($d=20$).}}{121}{figure.caption.40}%
+\contentsline {figure}{\numberline {5-6}{\ignorespaces Combined scatter and rank plots of BEXEA and its competitors on the IEEE CEC 2022 test suite ($d=20$).}}{123}{figure.caption.41}%
+\contentsline {figure}{\numberline {5-7}{\ignorespaces Performance of BEXEA under different $\beta $ settings.}}{127}{figure.caption.45}%
+\contentsline {figure}{\numberline {5-8}{\ignorespaces Performance of BEXEA under different $\mathcal {K}$ settings.}}{127}{figure.caption.46}%
+\contentsline {figure}{\numberline {5-9}{\ignorespaces Convergence curves of BEXEA and other SAEAs on the oil reservoir production optimization problem.}}{129}{figure.caption.48}%
+\addvspace {10.0pt}
+\addvspace {10.0pt}
+\addvspace {10.0pt}
+\addvspace {10.0pt}
+\addvspace {10.0pt}

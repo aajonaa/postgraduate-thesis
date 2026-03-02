@@ -1,0 +1,162 @@
+\documentclass{wzuthesis} % 不填充空白页。如果需要双面打印版，请注释掉本行并启用下一行
+% \documentclass[print-both-sides]{scutthesis} % 使用双面打印版（填充额外空白页以保证每一章开头都在奇数页）
+\usepackage{mathptmx}
+% Note: enumitem, booktabs, graphicx, subcaption, caption, hyperref already loaded by wzuthesis.cls
+\usepackage{bicaption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{float}
+\usepackage{rotating} % for sidewaystable in SBO chapter
+
+\bicaptionsetup[figure]{}{name=Fig.}
+\bicaptionsetup[table]{}{name=Table}
+\setlength{\headheight}{13pt}
+
+% Algorithm helper commands (from BEXEA)
+\newcommand{\Indent}{\State\hspace{\algorithmicindent}}
+\newcommand{\Indentx}{\Statex\hspace{\algorithmicindent}}
+
+\setmainfont{Times New Roman}[
+UprightFont = *,
+BoldFont = * Bold,
+ItalicFont = * Italic,
+BoldItalicFont = * Bold Italic
+]
+
+%%===============论文信息=============================
+% TODO: 填写论文信息
+\ctitle{温州大学研究生学位论文中文标题}
+                                % 中文题目
+\etitle{Graduate Degree Thesis of Wenzhou University English Title}                     % 英文题目
+
+\cauthor{王\ 小\ 明}            % 作者姓名
+\fen{TP391.4}                  % 分类号
+\udc{004.8}                    % UDC
+\id{252036}               % 学号
+\mi{公开}                       % 密级
+\xwlx{学术型}                   %学位类型
+\pylx{全日制统招研究生}         % 培养类型
+\cmajor{计算机科学与技术}       % 专业名称
+\cclass{机器学习}              % 研究方向
+\cmentor{王大明（教授）} % 指导老师
+\cdata{2025年11月8日} %完成时间
+\blindcode{} % 盲审代码
+%%===================================================
+% \def\blind{}       % 盲审版把这条注释打开
+
+
+
+\cabstract{
+% TODO: 填写中文摘要
+中文摘要应该将学位论文的内容要点简短明了地表达出来，应该包含论文中的基本信息，体现科研工作的核心思想。摘要内容应涉及本项科研工作的目的和意义、研究方法、研究成果、结论及意义。
+}
+\ckeywords{元启发式算法, 全局优化, 特征选择, 代理辅助优化}
+
+\eabstract{
+% TODO: 填写英文摘要
+English abstract content goes here.
+}
+% 英文文关键词(每个关键词之间用,分开, 最后一个关键词不打标点符号。)
+\ekeywords{meta-heuristic algorithm, global optimization, feature selection, surrogate-assisted optimization}
+
+\begin{document}
+% 论文前置部分
+\frontmatter
+\makefirstpage
+% 如果不需要图、表目录前往cls文件中将相应的注释掉
+
+% 论文主体部分
+\mainmatter
+
+%%% Chapter 1: 绪论 (Introduction)
+\input{chapters/chapter1}
+
+%%% Chapter 2: 相关理论及技术 (Related Theory and Technology)
+\input{chapters/chapter2}
+
+%%% Chapter 3: IBSA - Elite Leading Mutation Backtracking Search Algorithm
+\input{chapters/chapter3_IBSA}
+
+%%% Chapter 4: SBO - Status-based Optimization Algorithm
+\input{chapters/chapter4_SBO}
+
+%%% Chapter 5: BEXEA - Bandit-Driven Adaptive Search in Surrogate-Assisted EA
+\input{chapters/chapter5_BEXEA}
+
+%%% Chapter 6: 总结与展望 (Conclusion and Outlook)
+\input{chapters/chapter6}
+
+\newpage
+
+\backmatter
+\renewcommand{\chaptermark}[1]{\markboth{\songti #1}{}}
+\makereferences
+\newpage
+
+
+
+{
+    \appendix
+    \renewcommand{\chaptermark}[1]{\markboth{\heiti  附录\thechapter\ ~#1}{}}
+    \chapter{补充材料}
+
+    % TODO: 添加附录内容，例如SBO论文的补充实验数据表格
+    \section{补充实验数据}
+    本附录包含各章节实验的补充数据和详细结果。
+
+    \newclearpage
+}
+\ifdefined\blind  %这个if不要删除
+    % 盲审版没有致谢
+\else
+    \chapter{致谢}
+
+    % TODO: 填写致谢内容
+    致谢内容待填写。
+
+    \vskip 108pt
+    \begin{flushright}
+        王小明\makebox[1cm]{} \\
+        \today
+    \end{flushright}
+    \newpage
+\fi
+\chapter{攻读硕士学位期间取得的主要学术成果}
+
+\section*{1. 已发表的学术论文}
+% TODO: 填写已发表的学术论文
+
+\ifdefined\blind  % 这个if不要删除
+    % 盲审版不透露自己姓名
+    \begin{enumerate}
+        \renewcommand{\labelenumi}{[\arabic{enumi}]}
+        \setlength{\itemindent}{0em}
+        \setlength{\labelsep}{0.5em}
+
+        \item XXX[J]. Journal Name, 20XX, X(X): XXXX-XXXX. SCI收录，已发表，第三章的研究成果.
+        \item XXX[J]. Journal Name, 20XX, X(X): XXXX-XXXX. SCI收录，已发表，第四章的研究成果.
+        \item XXX[J]. Journal Name, 20XX, X(X): XXXX-XXXX. SCI收录，已发表，第五章的研究成果.
+    \end{enumerate}
+\else
+    \begin{enumerate}
+        \renewcommand{\labelenumi}{[\arabic{enumi}]}
+        \setlength{\itemindent}{0em}
+        \setlength{\labelsep}{0.5em}
+
+        % TODO: 填写论文信息
+        \item Wang J, et al. Elite Leading Mutation Backtracking Search Algorithm for High-Dimensional Medical Data Feature Selection[J]. Journal Name, 20XX. 第三章的研究成果.
+        \item Wang J, et al. The Status-based Optimization: Algorithm and Comprehensive Performance Analysis[J]. Journal Name, 20XX. 第四章的研究成果.
+        \item Wang J, et al. Bandit-Driven Adaptive Search in Surrogate-Assisted Evolutionary Algorithm with Explainable Uncertainty Criteria[J]. Journal Name, 20XX. 第五章的研究成果.
+    \end{enumerate}
+\fi
+
+\section*{2. 参与的科研项目}
+% TODO: 填写科研项目
+
+\section*{3. 获奖情况}
+% TODO: 填写获奖情况
+
+%\newpage
+\end{document}
