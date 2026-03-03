@@ -1,45 +1,82 @@
 \addvspace {10.0pt}
 \addvspace {10.0pt}
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {3-1}{\ignorespaces The four types of MAs.}}{6}{figure.caption.7}%
-\contentsline {figure}{\numberline {3-2}{\ignorespaces Flowchart of IBSA.}}{17}{figure.caption.8}%
-\contentsline {figure}{\numberline {3-3}{\ignorespaces The wrapper feature selection process.}}{19}{figure.caption.9}%
-\contentsline {figure}{\numberline {3-4}{\ignorespaces (a) 3D plot of functions, (b) balance analysis of IBSA, (c) balance analysis of BSA, (d) diversity analysis of algorithm, (e) convergence curve of IBSA and BSA.}}{25}{figure.caption.10}%
-\contentsline {figure}{\numberline {3-5}{\ignorespaces Average ranking of IBSA and the basic MAs.}}{31}{figure.caption.11}%
-\contentsline {figure}{\numberline {3-6}{\ignorespaces Convergence curves and box plots of the IBSA and other MAs on 10 functions.}}{32}{figure.caption.12}%
-\contentsline {figure}{\numberline {3-7}{\ignorespaces Average ranking of IBSA and advance MAs.}}{36}{figure.caption.13}%
-\contentsline {figure}{\numberline {3-8}{\ignorespaces Convergence curves and box plots of the IBSA and other advance MAs on 10 functions.}}{37}{figure.caption.14}%
-\contentsline {figure}{\numberline {3-9}{\ignorespaces Convergence curves of the bIBSA and other algorithms on 12 datasets.}}{45}{figure.caption.15}%
+\contentsline {figure}{\numberline {3-1}{\ignorespaces 四类元启发式算法}}{12}{figure.caption.7}%
+\contentsline {figure}{\numberline {3-1}{\ignorespaces The four types of MAs.}}{12}{figure.caption.7}%
+\contentsline {figure}{\numberline {3-2}{\ignorespaces IBSA算法流程图}}{21}{figure.caption.8}%
+\contentsline {figure}{\numberline {3-2}{\ignorespaces Flowchart of IBSA.}}{21}{figure.caption.8}%
+\contentsline {figure}{\numberline {3-3}{\ignorespaces 包裹式特征选择流程}}{23}{figure.caption.9}%
+\contentsline {figure}{\numberline {3-3}{\ignorespaces The wrapper feature selection process.}}{23}{figure.caption.9}%
+\contentsline {figure}{\numberline {3-4}{\ignorespaces (a) 函数三维图, (b) IBSA平衡分析, (c) BSA平衡分析, (d) 算法多样性分析, (e) IBSA与BSA收敛曲线}}{27}{figure.caption.10}%
+\contentsline {figure}{\numberline {3-4}{\ignorespaces (a) 3D plot of functions, (b) balance analysis of IBSA, (c) balance analysis of BSA, (d) diversity analysis of algorithm, (e) convergence curve of IBSA and BSA.}}{27}{figure.caption.10}%
+\contentsline {figure}{\numberline {3-5}{\ignorespaces IBSA与基础元启发式算法的平均排名}}{33}{figure.caption.11}%
+\contentsline {figure}{\numberline {3-5}{\ignorespaces Average ranking of IBSA and the basic MAs.}}{33}{figure.caption.11}%
+\contentsline {figure}{\numberline {3-6}{\ignorespaces IBSA与其他元启发式算法在10个函数上的收敛曲线和箱线图}}{34}{figure.caption.12}%
+\contentsline {figure}{\numberline {3-6}{\ignorespaces Convergence curves and box plots of the IBSA and other MAs on 10 functions.}}{34}{figure.caption.12}%
+\contentsline {figure}{\numberline {3-7}{\ignorespaces IBSA与先进元启发式算法的平均排名}}{38}{figure.caption.13}%
+\contentsline {figure}{\numberline {3-7}{\ignorespaces Average ranking of IBSA and advance MAs.}}{38}{figure.caption.13}%
+\contentsline {figure}{\numberline {3-8}{\ignorespaces IBSA与其他先进元启发式算法在10个函数上的收敛曲线和箱线图}}{39}{figure.caption.14}%
+\contentsline {figure}{\numberline {3-8}{\ignorespaces Convergence curves and box plots of the IBSA and other advance MAs on 10 functions.}}{39}{figure.caption.14}%
+\contentsline {figure}{\numberline {3-9}{\ignorespaces bIBSA与其他算法在12个数据集上的收敛曲线}}{47}{figure.caption.15}%
+\contentsline {figure}{\numberline {3-9}{\ignorespaces Convergence curves of the bIBSA and other algorithms on 12 datasets.}}{47}{figure.caption.15}%
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {4-1}{\ignorespaces Four types of MAs.}}{47}{figure.caption.16}%
-\contentsline {figure}{\numberline {4-2}{\ignorespaces Elite Engagement phase of SBO.}}{55}{figure.caption.17}%
+\contentsline {figure}{\numberline {4-1}{\ignorespaces 四类元启发式算法}}{49}{figure.caption.16}%
+\contentsline {figure}{\numberline {4-1}{\ignorespaces Four types of MAs.}}{49}{figure.caption.16}%
+\contentsline {figure}{\numberline {4-2}{\ignorespaces SBO的精英接触阶段}}{56}{figure.caption.17}%
+\contentsline {figure}{\numberline {4-2}{\ignorespaces Elite Engagement phase of SBO.}}{56}{figure.caption.17}%
+\contentsline {figure}{\numberline {4-3}{\ignorespaces SBO的资源获取阶段}}{57}{figure.caption.18}%
 \contentsline {figure}{\numberline {4-3}{\ignorespaces Resource Acquisition phase of SBO.}}{57}{figure.caption.18}%
-\contentsline {figure}{\numberline {4-4}{\ignorespaces Flowchart of SBO.}}{59}{figure.caption.19}%
+\contentsline {figure}{\numberline {4-4}{\ignorespaces SBO算法流程图}}{60}{figure.caption.19}%
+\contentsline {figure}{\numberline {4-4}{\ignorespaces Flowchart of SBO.}}{60}{figure.caption.19}%
+\contentsline {figure}{\numberline {4-5}{\ignorespaces (a) 函数三维图, (b) SBO平衡分析, (c) SBO多样性分析, (d) SBO收敛曲线}}{62}{figure.caption.20}%
 \contentsline {figure}{\numberline {4-5}{\ignorespaces (a) 3D plots of functions, (b) balance analysis of SBO, (c) diversity analysis of SBO, (d) convergence curves of SBO.}}{62}{figure.caption.20}%
-\contentsline {figure}{\numberline {4-6}{\ignorespaces (a) 3D plots of functions (b) search history, (c) trajectory of agent, (d) average fitness of all agents.}}{63}{figure.caption.21}%
-\contentsline {figure}{\numberline {4-7}{\ignorespaces Algorithm performance heatmap across four dimensions.}}{68}{figure.caption.22}%
+\contentsline {figure}{\numberline {4-6}{\ignorespaces (a) 函数三维图, (b) 搜索历史, (c) 代理轨迹, (d) 所有代理的平均适应度}}{64}{figure.caption.21}%
+\contentsline {figure}{\numberline {4-6}{\ignorespaces (a) 3D plots of functions (b) search history, (c) trajectory of agent, (d) average fitness of all agents.}}{64}{figure.caption.21}%
+\contentsline {figure}{\numberline {4-7}{\ignorespaces 四个维度下的算法性能热力图}}{67}{figure.caption.22}%
+\contentsline {figure}{\numberline {4-7}{\ignorespaces Algorithm performance heatmap across four dimensions.}}{67}{figure.caption.22}%
+\contentsline {figure}{\numberline {4-8}{\ignorespaces SBO与先进算法在30维问题上的收敛曲线}}{69}{figure.caption.23}%
 \contentsline {figure}{\numberline {4-8}{\ignorespaces Convergence curves of SBO and state-of-the-art algorithms for 30-dimensional problems.}}{69}{figure.caption.23}%
+\contentsline {figure}{\numberline {4-9}{\ignorespaces SBO与先进算法在30维问题上的箱线图比较}}{70}{figure.caption.24}%
 \contentsline {figure}{\numberline {4-9}{\ignorespaces Box plots comparing SBO and state-of-the-art algorithms for 30-dimensional problems.}}{70}{figure.caption.24}%
+\contentsline {figure}{\numberline {4-10}{\ignorespaces 四个维度下算法的Friedman排名结果}}{71}{figure.caption.25}%
 \contentsline {figure}{\numberline {4-10}{\ignorespaces Friedman rank result of algorithms across four dimensions.}}{71}{figure.caption.25}%
-\contentsline {figure}{\numberline {4-11}{\ignorespaces Runtime performance of SBO with other algorithms on IEEE CEC 2017.}}{74}{figure.caption.26}%
-\contentsline {figure}{\numberline {4-12}{\ignorespaces Flowchart of bSBO-based wrapper method for feature selection.}}{76}{figure.caption.27}%
-\contentsline {figure}{\numberline {4-13}{\ignorespaces Friedman rank results over three metrics.}}{81}{figure.caption.28}%
-\contentsline {figure}{\numberline {4-14}{\ignorespaces Convergence curves of bSBO and eight binary optimizers over nine datasets.}}{82}{figure.caption.29}%
-\contentsline {figure}{\numberline {4-15}{\ignorespaces Original images and corresponding 2D-histogram.}}{85}{figure.caption.30}%
-\contentsline {figure}{\numberline {4-16}{\ignorespaces Flowchart of multi-threshold image segmentation.}}{86}{figure.caption.31}%
-\contentsline {figure}{\numberline {4-17}{\ignorespaces Heatmap for PSNR, FSIM, and SSIM result over 6 threshold level.}}{86}{figure.caption.32}%
-\contentsline {figure}{\numberline {4-18}{\ignorespaces Convergence curves of the entropy value by 12 threshold level.}}{87}{figure.caption.33}%
-\contentsline {figure}{\numberline {4-19}{\ignorespaces Jet colormap segmentation result of image B over 18 threshold level.}}{88}{figure.caption.34}%
+\contentsline {figure}{\numberline {4-11}{\ignorespaces SBO与其他算法在IEEE CEC 2017上的运行时间性能}}{73}{figure.caption.26}%
+\contentsline {figure}{\numberline {4-11}{\ignorespaces Runtime performance of SBO with other algorithms on IEEE CEC 2017.}}{73}{figure.caption.26}%
+\contentsline {figure}{\numberline {4-12}{\ignorespaces 基于bSBO的包裹式特征选择方法流程图}}{75}{figure.caption.27}%
+\contentsline {figure}{\numberline {4-12}{\ignorespaces Flowchart of bSBO-based wrapper method for feature selection.}}{75}{figure.caption.27}%
+\contentsline {figure}{\numberline {4-13}{\ignorespaces 三个指标的Friedman排名结果}}{80}{figure.caption.28}%
+\contentsline {figure}{\numberline {4-13}{\ignorespaces Friedman rank results over three metrics.}}{80}{figure.caption.28}%
+\contentsline {figure}{\numberline {4-14}{\ignorespaces bSBO与八种二值优化器在九个数据集上的收敛曲线}}{81}{figure.caption.29}%
+\contentsline {figure}{\numberline {4-14}{\ignorespaces Convergence curves of bSBO and eight binary optimizers over nine datasets.}}{81}{figure.caption.29}%
+\contentsline {figure}{\numberline {4-15}{\ignorespaces 原始图像及对应的二维直方图}}{84}{figure.caption.30}%
+\contentsline {figure}{\numberline {4-15}{\ignorespaces Original images and corresponding 2D-histogram.}}{84}{figure.caption.30}%
+\contentsline {figure}{\numberline {4-16}{\ignorespaces 多阈值图像分割流程图}}{85}{figure.caption.31}%
+\contentsline {figure}{\numberline {4-16}{\ignorespaces Flowchart of multi-threshold image segmentation.}}{85}{figure.caption.31}%
+\contentsline {figure}{\numberline {4-17}{\ignorespaces 6个阈值水平下PSNR、FSIM和SSIM结果的热力图}}{85}{figure.caption.32}%
+\contentsline {figure}{\numberline {4-17}{\ignorespaces Heatmap for PSNR, FSIM, and SSIM result over 6 threshold level.}}{85}{figure.caption.32}%
+\contentsline {figure}{\numberline {4-18}{\ignorespaces 12个阈值水平下熵值的收敛曲线}}{86}{figure.caption.33}%
+\contentsline {figure}{\numberline {4-18}{\ignorespaces Convergence curves of the entropy value by 12 threshold level.}}{86}{figure.caption.33}%
+\contentsline {figure}{\numberline {4-19}{\ignorespaces 图像B在18个阈值水平下的Jet色图分割结果}}{87}{figure.caption.34}%
+\contentsline {figure}{\numberline {4-19}{\ignorespaces Jet colormap segmentation result of image B over 18 threshold level.}}{87}{figure.caption.34}%
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {5-1}{\ignorespaces RBF prediction on a 1-dimensional function.}}{111}{figure.caption.35}%
-\contentsline {figure}{\numberline {5-2}{\ignorespaces Flowchart of the BEXEA algorithm.}}{113}{figure.caption.36}%
-\contentsline {figure}{\numberline {5-3}{\ignorespaces Multi-armed bandit-driven adaptive search in BEXEA.}}{116}{figure.caption.37}%
-\contentsline {figure}{\numberline {5-4}{\ignorespaces Illustration of the explainable uncertainty criteria on a 3-dimensional function.}}{118}{figure.caption.38}%
-\contentsline {figure}{\numberline {5-5}{\ignorespaces Convergence curves of BEXEA and its competitors on the IEEE CEC 2022 test suite ($d=20$).}}{121}{figure.caption.40}%
-\contentsline {figure}{\numberline {5-6}{\ignorespaces Combined scatter and rank plots of BEXEA and its competitors on the IEEE CEC 2022 test suite ($d=20$).}}{123}{figure.caption.41}%
-\contentsline {figure}{\numberline {5-7}{\ignorespaces Performance of BEXEA under different $\beta $ settings.}}{127}{figure.caption.45}%
-\contentsline {figure}{\numberline {5-8}{\ignorespaces Performance of BEXEA under different $\mathcal {K}$ settings.}}{127}{figure.caption.46}%
-\contentsline {figure}{\numberline {5-9}{\ignorespaces Convergence curves of BEXEA and other SAEAs on the oil reservoir production optimization problem.}}{129}{figure.caption.48}%
+\contentsline {figure}{\numberline {5-1}{\ignorespaces 一维函数上的RBF预测}}{108}{figure.caption.35}%
+\contentsline {figure}{\numberline {5-1}{\ignorespaces RBF prediction on a 1-dimensional function.}}{108}{figure.caption.35}%
+\contentsline {figure}{\numberline {5-2}{\ignorespaces BEXEA算法流程图}}{109}{figure.caption.36}%
+\contentsline {figure}{\numberline {5-2}{\ignorespaces Flowchart of the BEXEA algorithm.}}{109}{figure.caption.36}%
+\contentsline {figure}{\numberline {5-3}{\ignorespaces BEXEA中多臂赌博机驱动的自适应搜索}}{113}{figure.caption.37}%
+\contentsline {figure}{\numberline {5-3}{\ignorespaces Multi-armed bandit-driven adaptive search in BEXEA.}}{113}{figure.caption.37}%
+\contentsline {figure}{\numberline {5-4}{\ignorespaces 可解释不确定性准则在三维函数上的示意图}}{115}{figure.caption.38}%
+\contentsline {figure}{\numberline {5-4}{\ignorespaces Illustration of the explainable uncertainty criteria on a 3-dimensional function.}}{115}{figure.caption.38}%
+\contentsline {figure}{\numberline {5-5}{\ignorespaces BEXEA与竞争算法在IEEE CEC 2022测试套件上的收敛曲线（$d=20$）}}{118}{figure.caption.40}%
+\contentsline {figure}{\numberline {5-5}{\ignorespaces Convergence curves of BEXEA and its competitors on the IEEE CEC 2022 test suite ($d=20$).}}{118}{figure.caption.40}%
+\contentsline {figure}{\numberline {5-6}{\ignorespaces BEXEA与竞争算法在IEEE CEC 2022测试套件上的散点图和排名图（$d=20$）}}{119}{figure.caption.41}%
+\contentsline {figure}{\numberline {5-6}{\ignorespaces Combined scatter and rank plots of BEXEA and its competitors on the IEEE CEC 2022 test suite ($d=20$).}}{119}{figure.caption.41}%
+\contentsline {figure}{\numberline {5-7}{\ignorespaces 不同$\beta $设置下BEXEA的性能}}{123}{figure.caption.45}%
+\contentsline {figure}{\numberline {5-7}{\ignorespaces Performance of BEXEA under different $\beta $ settings.}}{123}{figure.caption.45}%
+\contentsline {figure}{\numberline {5-8}{\ignorespaces 不同$\mathcal {K}$设置下BEXEA的性能}}{123}{figure.caption.46}%
+\contentsline {figure}{\numberline {5-8}{\ignorespaces Performance of BEXEA under different $\mathcal {K}$ settings.}}{123}{figure.caption.46}%
+\contentsline {figure}{\numberline {5-9}{\ignorespaces BEXEA与其他SAEAs在油藏产量优化问题上的收敛曲线}}{125}{figure.caption.48}%
+\contentsline {figure}{\numberline {5-9}{\ignorespaces Convergence curves of BEXEA and other SAEAs on the oil reservoir production optimization problem.}}{125}{figure.caption.48}%
 \addvspace {10.0pt}
 \addvspace {10.0pt}
 \addvspace {10.0pt}

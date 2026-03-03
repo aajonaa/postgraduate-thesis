@@ -26,22 +26,21 @@ BoldItalicFont = * Bold Italic
 ]
 
 %%===============论文信息=============================
-% TODO: 填写论文信息
-\ctitle{温州大学研究生学位论文中文标题}
+\ctitle{改进元启发式算法及其在特征选择与昂贵优化中的应用研究}
                                 % 中文题目
-\etitle{Graduate Degree Thesis of Wenzhou University English Title}                     % 英文题目
+\etitle{Research on Improved Metaheuristic Algorithms and Their Applications in Feature Selection and Expensive Optimization}                     % 英文题目
 
-\cauthor{王\ 小\ 明}            % 作者姓名
-\fen{TP391.4}                  % 分类号
+\cauthor{王\ 健}            % 作者姓名
+\fen{TP18}                  % 分类号
 \udc{004.8}                    % UDC
-\id{252036}               % 学号
+\id{23451350032}               % 学号
 \mi{公开}                       % 密级
 \xwlx{学术型}                   %学位类型
 \pylx{全日制统招研究生}         % 培养类型
 \cmajor{计算机科学与技术}       % 专业名称
-\cclass{机器学习}              % 研究方向
-\cmentor{王大明（教授）} % 指导老师
-\cdata{2025年11月8日} %完成时间
+\cclass{计算机软件与理论}              % 研究方向
+\cmentor{陈慧灵（教授）} % 指导老师
+\cdata{2025年3月1日} %完成时间
 \blindcode{} % 盲审代码
 %%===================================================
 % \def\blind{}       % 盲审版把这条注释打开
@@ -49,17 +48,27 @@ BoldItalicFont = * Bold Italic
 
 
 \cabstract{
-% TODO: 填写中文摘要
-中文摘要应该将学位论文的内容要点简短明了地表达出来，应该包含论文中的基本信息，体现科研工作的核心思想。摘要内容应涉及本项科研工作的目的和意义、研究方法、研究成果、结论及意义。
+元启发式算法因其无需梯度信息即可求解复杂优化问题的特性，在工程设计、机器学习和科学计算等领域得到广泛应用。然而，现有算法在探索与利用平衡、搜索策略自适应以及昂贵优化场景下的样本效率等方面仍存在不足。本文围绕元启发式优化算法的改进与应用展开研究，提出了三种新型算法，并在多个实际应用场景中验证了其有效性。主要研究工作如下：
+
+（1）针对回溯搜索算法（BSA）固有随机性导致的探索与利用失衡问题，提出了基于精英引导变异策略的改进回溯搜索算法（IBSA）。通过改进变异和交叉算子以充分利用精英个体信息，增强了算法在最优区域附近的局部搜索精度。在IEEE CEC 2017基准函数上与23种先进算法进行对比实验，结果表明IBSA在收敛速度和求解精度方面均优于原始BSA。进一步开发了二值版本bIBSA，将其应用于12个医学数据集的特征选择任务，实验结果验证了bIBSA在二值优化领域的优越性能。
+
+（2）受人类社会地位追求行为启发，提出了一种新型元启发式算法——基于状态的优化算法（SBO）。SBO模拟个体向高地位人物靠拢、学习和获取资源的社会行为模式，将其转化为高效的计算优化方法。在IEEE CEC 2017测试套件的10、30、50和100维问题上进行了全面对比分析。此外，SBO在9个高维数据集的特征选择任务中表现出色，在3阈值水平的乳腺癌组织学图像多阈值分割应用中也展现了优异的性能。
+
+（3）针对昂贵优化问题中现有代理辅助进化算法搜索策略固定、不确定性准则可解释性不足的问题，提出了基于赌博机驱动的自适应搜索代理辅助进化算法（BEXEA）。引入多臂赌博机机制，通过强化学习根据环境反馈自主调整搜索模式，实现探索与利用的动态平衡；同时提出可解释的不确定性准则，将特征差异熵融入期望改进（EI）准则，提升代理模型精度。在两组复杂基准测试集和油藏产量优化实际问题上的数值实验表明，BEXEA优于七种先进的代理辅助进化算法。
 }
-\ckeywords{元启发式算法, 全局优化, 特征选择, 代理辅助优化}
+\ckeywords{元启发式算法, 回溯搜索算法, 特征选择, 代理辅助优化, 多臂赌博机}
 
 \eabstract{
-% TODO: 填写英文摘要
-English abstract content goes here.
+Metaheuristic algorithms have been widely applied in engineering design, machine learning, and scientific computing due to their ability to solve complex optimization problems without requiring gradient information. However, existing algorithms still face challenges in balancing exploration and exploitation, achieving adaptive search strategy selection, and improving sample efficiency in expensive optimization scenarios. This thesis focuses on the improvement and application of metaheuristic optimization algorithms, proposing three novel algorithms and validating their effectiveness across multiple practical application scenarios. The main contributions are as follows:
+
+(1) To address the imbalance between exploration and exploitation caused by the inherent randomness in the Backtracking Search Algorithm (BSA), an Improved Backtracking Search Algorithm (IBSA) with an elite leading mutation strategy is proposed. By modifying the mutation and crossover operators to better utilize elite individual information, the algorithm enhances local search accuracy near optimal regions. Comparative experiments against 23 state-of-the-art algorithms on the IEEE CEC 2017 benchmark functions demonstrate that IBSA outperforms the original BSA in both convergence speed and solution accuracy. A binary version, bIBSA, is further developed and applied to feature selection tasks on 12 medical datasets, confirming its superior performance in the binary optimization domain.
+
+(2) Inspired by the human desire for status advancement, a novel metaheuristic algorithm called Status-based Optimization (SBO) is proposed. SBO emulates how individuals seek proximity to, learn from, and acquire resources from high-status figures, translating these social behavioral patterns into an efficient computational optimization method. Comprehensive comparative analyses are conducted on the IEEE CEC 2017 test suite across problem dimensions of 10, 30, 50, and 100. Furthermore, SBO excels in feature selection tasks on 9 high-dimensional datasets and demonstrates outstanding performance in multi-threshold image segmentation of breast cancer histology images at 3 threshold levels.
+
+(3) To overcome the limitations of fixed search strategies and insufficient interpretability of uncertainty criteria in existing surrogate-assisted evolutionary algorithms (SAEAs) for expensive optimization problems, a Bandit-driven Explainable Evolutionary Algorithm (BEXEA) is proposed. A multi-armed bandit mechanism is introduced to autonomously adjust the search mode based on environmental feedback through reinforcement learning, achieving dynamic balance between exploration and exploitation. Meanwhile, an explainable uncertainty criterion is proposed by incorporating the entropy of feature differences into the Expected Improvement (EI) criterion to enhance surrogate model accuracy. Numerical experiments on two complex benchmark sets and a real-world oil reservoir production optimization problem demonstrate the superiority of BEXEA over seven state-of-the-art SAEAs.
 }
 % 英文文关键词(每个关键词之间用,分开, 最后一个关键词不打标点符号。)
-\ekeywords{meta-heuristic algorithm, global optimization, feature selection, surrogate-assisted optimization}
+\ekeywords{metaheuristic algorithm, backtracking search algorithm, feature selection, surrogate-assisted optimization, multi-armed bandit}
 
 \begin{document}
 % 论文前置部分
@@ -118,7 +127,7 @@ English abstract content goes here.
 
     \vskip 108pt
     \begin{flushright}
-        王小明\makebox[1cm]{} \\
+        王健\makebox[1cm]{} \\
         \today
     \end{flushright}
     \newpage
@@ -135,9 +144,9 @@ English abstract content goes here.
         \setlength{\itemindent}{0em}
         \setlength{\labelsep}{0.5em}
 
-        \item XXX[J]. Journal Name, 20XX, X(X): XXXX-XXXX. SCI收录，已发表，第三章的研究成果.
-        \item XXX[J]. Journal Name, 20XX, X(X): XXXX-XXXX. SCI收录，已发表，第四章的研究成果.
-        \item XXX[J]. Journal Name, 20XX, X(X): XXXX-XXXX. SCI收录，已发表，第五章的研究成果.
+        \item The Status-based Optimization: Algorithm and Comprehensive Performance Analysis[J]. Neurocomputing. SCI收录，已录用，第四章的研究成果.
+        \item Elite Leading Mutation Backtracking Search Algorithm for High-Dimensional Medical Data Feature Selection[J]. 审稿中，第三章的研究成果.
+        \item Bandit-Driven Adaptive Search in Surrogate-Assisted Evolutionary Algorithm with Explainable Uncertainty Criteria[J]. 审稿中，第五章的研究成果.
     \end{enumerate}
 \else
     \begin{enumerate}
@@ -145,18 +154,34 @@ English abstract content goes here.
         \setlength{\itemindent}{0em}
         \setlength{\labelsep}{0.5em}
 
-        % TODO: 填写论文信息
-        \item Wang J, et al. Elite Leading Mutation Backtracking Search Algorithm for High-Dimensional Medical Data Feature Selection[J]. Journal Name, 20XX. 第三章的研究成果.
-        \item Wang J, et al. The Status-based Optimization: Algorithm and Comprehensive Performance Analysis[J]. Journal Name, 20XX. 第四章的研究成果.
-        \item Wang J, et al. Bandit-Driven Adaptive Search in Surrogate-Assisted Evolutionary Algorithm with Explainable Uncertainty Criteria[J]. Journal Name, 20XX. 第五章的研究成果.
+        \item Wang J, Chen Y, Lu C, Heidari A A, Wu Z, Chen H. The Status-based Optimization: Algorithm and Comprehensive Performance Analysis[J]. Neurocomputing. SCI收录，已录用，第四章的研究成果.
+        \item Wang J, Chen Y, Zou H, Lu C, Heidari A A, Liu L, Chen H, Liang G. Elite Leading Mutation Backtracking Search Algorithm for High-Dimensional Medical Data Feature Selection[J]. 审稿中，第三章的研究成果.
+        \item Wang J, Chen Y, Lu C, Heidari A A, Liu L, Chen H. Bandit-Driven Adaptive Search in Surrogate-Assisted Evolutionary Algorithm with Explainable Uncertainty Criteria[J]. 审稿中，第五章的研究成果.
     \end{enumerate}
 \fi
 
-\section*{2. 参与的科研项目}
-% TODO: 填写科研项目
+\section*{2. 知识产权}
+
+\begin{enumerate}
+    \renewcommand{\labelenumi}{[\arabic{enumi}]}
+    \setlength{\itemindent}{0em}
+    \setlength{\labelsep}{0.5em}
+
+    \item 发明专利：一种多阈值图像分割方法、装置、计算机设备及存储介质，申请号：2025110129939，第2发明人，已授权.
+\end{enumerate}
 
 \section*{3. 获奖情况}
-% TODO: 填写获奖情况
+
+\begin{enumerate}
+    \renewcommand{\labelenumi}{[\arabic{enumi}]}
+    \setlength{\itemindent}{0em}
+    \setlength{\labelsep}{0.5em}
+
+    \item 国家级铜奖（团队排名3/15），第十四届"挑战杯"中国大学生创业计划竞赛"一带一路"国际邀请赛，2024年.
+    \item 省级银奖（团队负责人），"建行杯"浙江省国际大学生创新大赛，2024年.
+    \item 校级金奖（团队排名4/15），温州大学第十一届"挑战杯"竞赛，2025年.
+    \item 温州大学一等奖学金，2024年.
+\end{enumerate}
 
 %\newpage
 \end{document}

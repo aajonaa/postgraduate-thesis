@@ -5,235 +5,266 @@
 \chapter{基于精英引导变异策略的改进回溯搜索算法}
 \label{chap:ibsa}
 
-\section{  Introduction}
+\section{引言}
 
-Across the multifaceted landscape of computer science, a diverse array of challenges is characterized as NP-hard problems. These span decision-making [1, 2] as well as combinatorial optimization tasks [3, 4], all of which, to our best understanding, defy resolution within polynomial time. Such problems present significant obstacles due to their inherent complexity and their widespread occurrence across a multitude of disciplines [5, 6]. The expanding fields of data science [7] and machine learning [8] have markedly underscored the urgency for devising robust and efficient algorithms capable of surmounting these NP-hard conundrums.
+在计算机科学的多个领域中，大量问题被归类为NP-hard问题。这些问题涵盖了决策问题\cite{ibsa_ref1,ibsa_ref2}以及组合优化任务\cite{ibsa_ref3,ibsa_ref4}，据目前的认知，它们无法在多项式时间内求解。由于其固有的复杂性及在众多学科中的广泛存在，此类问题构成了重大挑战\cite{ibsa_ref5,ibsa_ref6}。数据科学\cite{ibsa_ref7}和机器学习（Machine Learning）\cite{ibsa_ref8}等领域的快速发展，进一步凸显了设计鲁棒且高效算法以解决这些NP-hard难题的紧迫性。
 
-In illustrating the prevalence of NP-hard challenges, consider the iconic Traveling Salesman Problem (TSP) [9]. As a salient example, the TSP permeates numerous computational areas, influencing sectors from manufacturing, such as circuit board drilling [10] and DNA sequencing [11], to the operations of daily logistical planning [12]. Decades of studious research have reinforced that addressing these problems remains a balancing act between systematic scientific approaches and the artistry of innovation.
+旅行商问题（Traveling Salesman Problem, TSP）\cite{ibsa_ref9}是NP-hard问题普遍性的一个典型例证。作为一个经典案例，TSP渗透到众多计算领域，影响着从制造业（如电路板钻孔\cite{ibsa_ref10}和DNA测序\cite{ibsa_ref11}）到日常物流规划\cite{ibsa_ref12}等诸多领域。数十年的深入研究表明，解决此类问题始终是系统化科学方法与创新艺术之间的平衡。
 
-Nevertheless, the struggle with NP-hard problems extends beyond conventional computational disciplines. Emerging fields, notably machine learning [13], data mining [14], and bioinformatics [15], grapple with the rapid surge in complexity that characterizes these issues. In these spheres, proficiently unravelling NP-hard problems becomes integral, especially for effective data analytics in the era dominated by the vastness of big data.
+NP-hard问题的挑战不仅局限于传统计算学科。机器学习\cite{ibsa_ref13}、数据挖掘（Data Mining）\cite{ibsa_ref14}和生物信息学（Bioinformatics）\cite{ibsa_ref15}等新兴领域同样面临着这些问题日益增长的复杂性。在这些领域中，有效解决NP-hard问题至关重要，尤其是在大数据时代的数据分析方面。
 
-Building upon the escalating intricacy brought forth by big data in fields like machine learning, our research concentrates on a particular subset of NP-hard challenges inherent in global optimization and feature selection. Global optimization is the quest for an ultimate configuration that garners the best possible outcome [16]. This quest becomes even more intricate when coupled with feature selection, a critical process in developing machine learning models that entails selecting a group of significant features [17]. This process spawns a complex assortment of decisions, encapsulating the quintessential nature of NP-hard issues. Amidst the "curse of dimensionality" [18], the task of selecting the most pertinent features within high-dimensional data sets becomes paramount. Traditional approaches to feature selection typically involve two main components: the search mechanism to generate viable feature sets and the corresponding evaluation criterion for these sets. Presently, search mechanisms predominantly employ stochastic methods, which represent a divergence from exhaustive or sequential searching, due to the practical impossibility of reviewing every possible feature subset amidst an exponentially large number of possibilities [19].
+基于大数据在机器学习等领域带来的日益增长的复杂性，本文的研究聚焦于全局优化和特征选择中固有的NP-hard挑战的一个特定子集。全局优化（Global Optimization）是寻求能够获得最优结果的最终配置\cite{ibsa_ref16}。当全局优化与特征选择（Feature Selection）相结合时，这一任务变得更加复杂。特征选择是开发机器学习模型的一个关键过程，涉及选择一组重要特征\cite{ibsa_ref17}，该过程产生的复杂决策组合体现了NP-hard问题的本质特征。在"维数灾难"（Curse of Dimensionality）\cite{ibsa_ref18}的背景下，从高维数据集中选择最相关特征的任务变得尤为重要。传统的特征选择方法通常包含两个主要组成部分：生成可行特征集的搜索机制和相应的特征集评估准则。目前，搜索机制主要采用随机方法，这与穷举搜索或顺序搜索不同，因为在指数级增长的可能性中逐一审查每个可能的特征子集在实际中是不可行的\cite{ibsa_ref19}。
 
-Advancing from the stochastic mechanisms now prevalent in feature selection, we categorize these methods into three distinct types: filter-based, embedded, and wrapper-based approaches. Filter-based methods scrutinize features based on inherent characteristics, independent of any learning algorithm [20]. Embedded methods meld the feature selection process with the classifier training, yielding feature sets directly from the learning classifiers [21]. Contrastingly, wrapper-based methods appraise feature sets by assessing the performance of a classifier specifically trained on those sets. This classifier's performance becomes the metric for the suitability of the feature sets [22, 23]. Notably, wrapper methods take into account feature interdependencies by assessing bundled features, unlike filter approaches that evaluate features in isolation, thereby overlooking potential synergistic or antagonistic interactions. Consequently, this research is dedicated to the development of an advanced wrapper-based algorithm.
+在特征选择中普遍采用的随机搜索机制基础上，可将这些方法分为三种类型：基于过滤的方法（Filter-based）、嵌入式方法（Embedded）和基于包裹的方法（Wrapper-based）。基于过滤的方法根据特征的固有特性对其进行评估，独立于任何学习算法\cite{ibsa_ref20}。嵌入式方法将特征选择过程与分类器训练相融合，直接从学习分类器中产生特征集\cite{ibsa_ref21}。与此不同，基于包裹的方法通过评估在特定特征集上训练的分类器的性能来评估特征集，该分类器的性能成为衡量特征集适用性的指标\cite{ibsa_ref22,ibsa_ref23}。值得注意的是，包裹方法通过评估捆绑特征来考虑特征间的相互依赖性，而过滤方法则孤立地评估单个特征，从而忽略了潜在的协同或拮抗作用。因此，本文致力于开发一种先进的基于包裹的算法。
 
-In the wake of recognizing wrapper-based methods' superior effectiveness and optimization capabilities, the pursuit of developing and refining these algorithms has intensified among researchers keen to meet the challenges of the 'big data era.' In machine learning models, wrapper algorithms typically employ meta-heuristic algorithms (MAs) acclaimed for their robust global optimization capabilities [24]. MAs traditionally fall into four categories, as illustrated in Fig. 1: \eqref{GrindEQ__1_} Biology-inspired, such as Ant Colony Optimization (ACO) [25], Particle Swarm Optimization (PSO) [26], Artificial Bee Colony (ABC) [27], and Slime Mould Algorithm (SMA) [28]; \eqref{GrindEQ__2_} Physics-inspired, including Simulated Annealing (SA) [29], Gravitational Search Algorithm (GSA) [30], Sine Cosine Algorithm (SCA) [31], and Equilibrium Optimizer (EO) [32]; \eqref{GrindEQ__3_} Evolutionary, like Genetic Algorithm (GA) [33], Differential Evolution (DE) [34], Evolution Programming (EP) [35], and Evolution Strategies [36]; and \eqref{GrindEQ__4_} Human behavior-inspired, such as Teaching Learning Based Optimization (TLBO) [37], Political Optimizer (PO) [38], Harmony Search Algorithm (HAS) [39], and Brain Storm Optimization (BSO) [40]. Among these, PSO is exceedingly popular for global optimization due to its swift convergence and minimal parameter tuning, proving invaluable in feature selection tasks [41]. Similarly, Simulated Annealing, which simulates the methodical cooling of materials to minimize structural faults, boasts a wide array of applications across various domains. Abdel-Basset et al. [42] enhanced this technique by integrating it with the Harris Hawk Algorithm (HHO) and applying it to feature selection, achieving improved classification accuracy and computational efficiency. The Genetic Algorithm, drawing on Darwinian evolutionary concepts, has also been prevalent in research. Dong et al. [43] examined how the granularity level can affect classification accuracy and the size of the feature subset in feature selection, leading to the proposition of a granularity-optimized genetic algorithm for this purpose. Furthermore, the pedagogically-inspired TLBO has achieved recognition, with Hosseini et al. [44] introducing a binary version augmented by a mutation operator, successfully applied to feature selection, yielding an optimal feature subset.
+在认识到基于包裹方法的卓越有效性和优化能力后，研究者们加大了开发和改进这些算法的力度，以应对"大数据时代"的挑战。在机器学习模型中，包裹算法通常采用元启发式算法（Meta-heuristic Algorithms, MAs），这些算法以其强大的全局优化能力而著称\cite{ibsa_ref24}。如图\ref{fig:classification_of_MAs}所示，元启发式算法传统上分为四类：\eqref{ibsa_eq_1} 生物启发类，如蚁群优化算法（Ant Colony Optimization, ACO）\cite{ibsa_ref25}、粒子群优化算法（Particle Swarm Optimization, PSO）\cite{ibsa_ref26}、人工蜂群算法（Artificial Bee Colony, ABC）\cite{ibsa_ref27}和黏菌算法（Slime Mould Algorithm, SMA）\cite{ibsa_ref28}；\eqref{ibsa_eq_2} 物理启发类，如模拟退火算法（Simulated Annealing, SA）\cite{ibsa_ref29}、引力搜索算法（Gravitational Search Algorithm, GSA）\cite{ibsa_ref30}、正弦余弦算法（Sine Cosine Algorithm, SCA）\cite{ibsa_ref31}和平衡优化器（Equilibrium Optimizer, EO）\cite{ibsa_ref32}；\eqref{ibsa_eq_3} 进化类，如遗传算法（Genetic Algorithm, GA）\cite{ibsa_ref33}、差分进化算法（Differential Evolution, DE）\cite{ibsa_ref34}、进化规划（Evolution Programming, EP）\cite{ibsa_ref35}和进化策略（Evolution Strategies）\cite{ibsa_ref36}；以及\eqref{ibsa_eq_4} 人类行为启发类，如教学优化算法（Teaching Learning Based Optimization, TLBO）\cite{ibsa_ref37}、政治优化器（Political Optimizer, PO）\cite{ibsa_ref38}、和声搜索算法（Harmony Search Algorithm, HSA）\cite{ibsa_ref39}和头脑风暴优化算法（Brain Storm Optimization, BSO）\cite{ibsa_ref40}。其中，PSO因其收敛速度快和参数调节要求低而在全局优化中极为流行，在特征选择任务中具有重要价值\cite{ibsa_ref41}。同样，模拟退火算法通过模拟材料的系统冷却过程以最小化结构缺陷，在各个领域拥有广泛的应用。Abdel-Basset等\cite{ibsa_ref42}通过将该技术与Harris鹰算法（HHO）相结合并应用于特征选择，提高了分类精度和计算效率。基于达尔文进化概念的遗传算法在研究中也非常普遍。Dong等\cite{ibsa_ref43}研究了粒度水平如何影响特征选择中的分类精度和特征子集大小，进而提出了一种粒度优化遗传算法。此外，受教学启发的TLBO也获得了广泛认可，Hosseini等\cite{ibsa_ref44}提出了一种增强了变异算子的二值版本，成功应用于特征选择，获得了最优特征子集。
 
-The scope of these MAs extends well beyond mere optimization, their deployment in feature selection is pivotal across a spectrum of applications, spanning from nuanced medical diagnostics to the complexities of image analysis [45], the sculpting of neural networks [46], and the deciphering of natural language processing [47]. The impetus behind adopting these sophisticated algorithms transcends the reduction of computational demands, it envisions enhancing model clarity and mitigating the perils of overfitting [48]. Illustratively, Reddy et al. [49] introduced an innovative Adaptive Genetic Algorithm with Fuzzy Logic (AGAFL), targeting the early detection of heart disease. Their model boasts superior performance over existing methodologies, attributed to its adeptness at pinpointing critical features and finely-tuning classification criteria utilizing UCI datasets.
+这些元启发式算法的应用范围远不止于优化本身，它们在特征选择中的部署对于从精细化医学诊断到复杂图像分析\cite{ibsa_ref45}、神经网络构建\cite{ibsa_ref46}以及自然语言处理\cite{ibsa_ref47}等广泛应用至关重要。采用这些先进算法的动因不仅在于降低计算需求，更在于增强模型的可解释性并减轻过拟合风险\cite{ibsa_ref48}。例如，Reddy等\cite{ibsa_ref49}提出了一种创新的自适应遗传算法与模糊逻辑相结合的方法（AGAFL），用于心脏病的早期检测。该模型利用UCI数据集，通过精准定位关键特征和精细调整分类标准，展现出优于现有方法的性能。
 
-Yet, the journey through the extensive search space of feature subsets is not without tribulations. While the promise is vast, the practical application of these MAs often grapples with an excessive dependence on computational resources, a critical sensitivity to parameter calibration, and issues of run-time efficiency that cannot be overlooked [50, 51]. Moreover, the field's progression beyond the well-trodden path of single-objective feature selection methodologies calls for an increasingly nuanced approach. The objective now is not simply to curtail feature numbers but to achieve a concurrent maximization of model accuracy---a delicate balancing act necessitating more intricate strategies [52].
+然而，在特征子集的广阔搜索空间中的探索并非一帆风顺。尽管前景广阔，但这些元启发式算法在实际应用中常常面临对计算资源的过度依赖、对参数校准的高度敏感性以及不可忽视的运行时效率问题\cite{ibsa_ref50,ibsa_ref51}。此外，该领域在超越传统单目标特征选择方法方面也需要更加精细的方法。目标不再仅仅是减少特征数量，而是同时实现模型精度的最大化——这种微妙的平衡需要更为复杂的策略\cite{ibsa_ref52}。
 
-In response to these multifaceted challenges, our paper is firmly directed at refining the innovative backtracking search algorithm---categorized under evolution-based approaches---that addresses global optimization. We endeavor to adapt this algorithm to a binary context, applying a v-shaped function specifically tailored for the task of feature selection. The performance and resilience of our proposed algorithm are meticulously scrutinized by contrasting it with a total of 23 prominent algorithms in CEC 2017 benchmark functions and 8 binary optimizers dedicated to feature selection tasks. The contributions articulated in this paper unfold as follows:
+为了应对这些多方面的挑战，本文致力于改进创新的回溯搜索算法（Backtracking Search Algorithm, BSA）——该算法属于基于进化的方法——以解决全局优化问题。本文将该算法适配为二值环境，采用专门为特征选择任务设计的V型函数。通过将所提算法与CEC 2017基准函数上的23种著名算法以及8种专用于特征选择任务的二值优化器进行对比，对所提算法的性能和鲁棒性进行了严格的验证。本文的贡献概括如下：
 
 \begin{enumerate}
-\item  We pioneer an elite leading mutation strategy built upon the foundational BSA algorithm, distinguishing the elite individual and leveraging elite information to enhance local exploitation and the accuracy of solutions.
+\item  本文在基础BSA算法的基础上首创了一种精英引导变异策略，识别精英个体并利用精英信息增强局部开发能力和解的精度。
 
-\item  Innovative operators, inspired by the introduced vector $m$, are devised to augment the local exploitation capabilities of non-elite individuals.
+\item  受引入的向量$m$启发，设计了创新算子以增强非精英个体的局部开发能力。
 
-\item  To navigate the trade-off between exploration and exploitation adeptly, a self-adaptive parameter $s$ is integrated, orchestrating the shift between global and local crossover operators.
+\item  为了有效平衡探索与开发之间的权衡，引入了自适应参数$s$，协调全局和局部交叉算子之间的切换。
 
-\item  The efficacy of our proposed algorithm in global optimization, along with its binary adaptation for feature selection, is corroborated through extensive experimental evaluation.
+\item  通过广泛的实验评估，验证了所提算法在全局优化中的有效性及其用于特征选择的二值化改编。
 \end{enumerate}
 
-This paper is organized as follows: Section 2 presents an extensive literature review, highlighting significant research and emerging trends pertinent to enhancing the BSA for NP-hard problems. Section 3 introduces the motivation behind our research and provides detailed information about the proposed algorithm---including its binary version---and analyzes its computational complexity. Section 4 offers a rigorous quality analysis and global optimization performance validation of our proposed algorithm by comparison with 23 recently proposed MAs. Section 5 explores practical applications in real-life engineering problems, employing the binary version of our proposed algorithm for feature selection tasks and comparing its performance against eight classical binary optimizers. Finally, Section 6 draws conclusions from our findings and discusses potential future directions for this research.
+本章的组织结构如下：第\ref{chap:ibsa}章第2节进行了详尽的文献综述，重点介绍了与改进BSA以解决NP-hard问题相关的重要研究和新兴趋势。第3节介绍了研究动机，并详细阐述了所提算法（包括其二值版本）及其计算复杂度分析。第4节通过与23种近期提出的元启发式算法进行比较，对所提算法进行了严格的质量分析和全局优化性能验证。第5节探索了在实际工程问题中的应用，采用所提算法的二值版本进行特征选择任务，并将其性能与8种经典二值优化器进行了比较。最后，第6节总结了本章的研究发现并讨论了未来可能的研究方向。
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter3/fig1_classification_of_MAs.png}
-  \caption{The four types of MAs.}
+  \bicaption{四类元启发式算法}{The four types of MAs.}
   \label{fig:classification_of_MAs}
 \end{figure}
 
 
-\section{ Literature review}
+\section{文献综述}
 
-Introduced by Civicioglu in 2013, the BSA [53] has garnered attention for its uncomplicated yet effective architecture, particularly famed for its distinct memory strategies, which set it apart from Differential Evolution (DE) [34] and its acclaimed successors---JDE [54], JADE [55], and SADE [56]. The BSA's robust global search capability, stemming from its tolerance to variations in the parameter $F$, offers adaptability across diverse problems---users have the latitude to tune $F$ in alignment with the specific challenge at hand.
+BSA由Civicioglu于2013年提出\cite{ibsa_ref53}，因其简洁而有效的架构而受到广泛关注，尤其以其独特的记忆策略著称，这使其有别于差分进化算法（DE）\cite{ibsa_ref34}及其著名的后继版本——JDE \cite{ibsa_ref54}、JADE \cite{ibsa_ref55}和SADE \cite{ibsa_ref56}。BSA强大的全局搜索能力源于其对参数$F$变化的容忍度，这为不同问题提供了适应性——用户可以根据具体问题调整$F$的取值。
 
-In its essence, BSA employs a single operator to engender a trial population, standing as the sole mechanism for population renewal within the evolutionary process. This operator harnesses the power of the existing population, in tandem with a direct search matrix, to amplify diversity---an attribute cherishing ease of use and accounting for BSA's widespread application. Nevertheless, this simplicity also surfaces as a constraint, as the algorithm's exploratory prowess overshadows its exploitative efficiency, impeding its quest for precise solutions [57].
+BSA的核心是采用单一算子来生成试验种群，作为进化过程中种群更新的唯一机制。该算子利用当前种群与直接搜索矩阵的结合来增强多样性——这一特性便于使用，也是BSA广泛应用的原因。然而，这种简洁性也带来了局限，因为算法的探索能力过强而开发效率不足，影响了其寻找精确解的能力\cite{ibsa_ref57}。
 
-Building upon the initial exposition of BSA's attributes, current research trends can be categorized into three distinctive strands, each aimed at overcoming continuous optimization challenges. Firstly, modifications to the original BSA are being explored to enhance algorithmic performance. Secondly, hybridization attempts are underway, melding BSA with other MAs to amalgamate their strengths and mitigate inherent weaknesses. Lastly, BSA's performance is being augmented through the integration of efficacious mechanisms and strategies. A detailed summarization of these research endeavors is presented below.
+在BSA特性的基础上，当前的研究趋势可以分为三个不同的方向，每个方向都旨在克服连续优化挑战。首先，对原始BSA进行修改以提升算法性能。其次，将BSA与其他元启发式算法进行混合，以融合各自优势并弥补固有不足。最后，通过集成有效的机制和策略来增强BSA的性能。以下对这些研究进行了详细总结。
 
-Continuing the discourse on BSA's evolution, a noteworthy adaptation is Zhang et al.'s [58] BSARDVs---an enhancement that capitalizes on the reutilization of differential vectors, eliminating the need for a central control parameter. This innovation positions it as a method unburdened by fine-tuning, boasting both efficiency and user-friendliness. When put to the test across three photovoltaic (PV) models, the BSARDVs demonstrated superior performance, outstripping competing algorithms with fewer function evaluations. Despite these advancements, the BSARDVs model has its own Achilles' heel: an exclusive reliance on historical populations and past differential vectors in its search strategy, without drawing on current population insights. This could inadvertently heighten the risk of convergence on local optima, particularly when addressing intricate optimization challenges.
+在BSA的发展进程中，Zhang等\cite{ibsa_ref58}提出的BSARDVs是一项值得注意的改进——该方法利用差分向量的重用机制，消除了对中心控制参数的需求。这一创新使其成为一种无需参数微调的方法，兼具效率和易用性。在三个光伏（PV）模型的测试中，BSARDVs以更少的函数评估次数展现出优于其他竞争算法的性能。然而，BSARDVs也存在其局限性：搜索策略仅依赖于历史种群和过去的差分向量，而未利用当前种群的信息。这可能会增加收敛于局部最优的风险，特别是在处理复杂优化问题时。
 
-Building on the modifications to BSA, Nama et al. [59] introduced a variant they christened gQR-BSA. This methodology harnesses the power of quantum Gaussian mutations alongside quasi-reflection-based jumps, a combination poised to deepen search efficiency within optimization problems. gQR-BSA, by reconfiguring the coordinate structure ingrained in the original BSA, seeks to transcend the rigidities of pre-established frameworks, augmenting the thoroughness of search space exploration which could pave the way for a leap in problem-solving efficacy. Despite these promising advancements, gQR-BSA does not escape scrutiny. The very act of balancing exploration with exploitation continues to be a delicate tightrope walk. Furthermore, the method grapples with computational complexity, an obstacle intrinsically woven into its fabric. These aspects beckon careful consideration as we chart the algorithm's trajectory in optimization realms.
+在BSA修改的基础上，Nama等\cite{ibsa_ref59}提出了一种名为gQR-BSA的变体。该方法结合了量子高斯变异和准反射跳跃，旨在深化优化问题的搜索效率。gQR-BSA通过重新配置原始BSA中固有的坐标结构，力图超越预设框架的局限性，增强搜索空间探索的全面性。尽管取得了这些进展，gQR-BSA仍面临探索与开发之间的微妙平衡问题。此外，该方法在计算复杂度方面也存在挑战，这是其固有的障碍。
 
-Tsai et al. [60] delve into enhancements of the BSA, bringing forth ten distinct mutation tactics, each subjected to a comparative performance analysis. Alongside this array of strategies, the study carves out new parameters that draw upon historical averages and peak positions. A unidimensional crossover approach is also woven into the framework, serving as a bulwark against premature convergence. Yet, this innovative method is not without its trade-offs---introducing additional parameters puts a damper on user-friendliness and encumbers its ability to be seamlessly generalized across a spectrum of intricate optimization challenges.
+Tsai等\cite{ibsa_ref60}对BSA进行了增强，提出了十种不同的变异策略，并对每种策略进行了比较性能分析。在这些策略之外，该研究还引入了基于历史平均值和峰值位置的新参数。单维交叉方法也被纳入框架，以防止过早收敛。然而，这种创新方法也存在权衡——引入额外参数降低了用户友好性，并限制了其在复杂优化问题中的泛化能力。
 
-In an effort to overcome one of the original BSA's shortcomings---the inability to learn from optimal individuals---Zhao et al. [61] introduced a Hierarchical Knowledge Guided BSA (HKBSA). This innovative approach is inspired by the patterns observed in nature, where living beings return to fruitful hunting grounds at sporadic junctures, thus increasing their chances of success. HKBSA weaves together self-learning and elite-learning strategies into the individual generation sequence, significantly enriching the diversity of the algorithm's population and bolstering its proficiency in learning and adaptation.
+为了克服原始BSA无法从最优个体学习的不足，Zhao等\cite{ibsa_ref61}提出了分层知识引导的BSA（HKBSA）。该方法受自然界中生物在不定期返回丰富猎场以提高成功率的现象启发，将自学习和精英学习策略融入个体生成过程，显著丰富了算法种群的多样性并增强了其学习和适应能力。
 
-Zaman [62] masterminded a synergy between PSO (Particle Swarm Optimization) and BSA algorithms to birth PSOBSA---a hybrid with the intent to marry PSO's swift convergence with BSA's potent global exploration capacity. Tweaks to the mutation and crossover operators of BSA were strategized, aimed at honing convergence precision while avoiding the pitfalls of local optima. The hybrid's prowess in global optimization was put to the test across a suite of benchmark problems, attesting to its effectiveness. Nonetheless, the composite nature of PSOBSA does come with heightened complexity when juxtaposed with either algorithm alone, and a more intricate parameter tuning ordeal as well as heightened parameter sensitivity appear to be par for the course.
+Zaman \cite{ibsa_ref62}巧妙地将PSO和BSA算法相结合，创建了PSOBSA混合算法——旨在将PSO的快速收敛与BSA强大的全局探索能力相结合。该方法对BSA的变异和交叉算子进行了调整，以提高收敛精度同时避免局部最优的陷阱。该混合算法在一系列基准问题上验证了其全局优化的有效性。然而，PSOBSA的复合特性确实带来了比单独使用任一算法更高的复杂度，以及更复杂的参数调整和更高的参数敏感性。
 
-Chen et al. [63] cast light on an advanced iteration of the BSA, known as the Adaptive BSA with Knowledge Learning (KLBSA), which was conceived to amplify the algorithm's overall efficacy. This variant introduces an adaptive control parameter that leverages both global and local swarm intelligence, delicately calibrating the algorithm's exploration and exploitation competences. In addition, a groundbreaking mutation strategy is unveiled, aiming to boost the optimization function. To further escalate proficiency, a multi-population tactic is adopted, ensuring a rigorous probe across diverse search regions while safeguarding the variety within the population. However, the addition of multiple new strategies and parameters to KLBSA inevitably ratchets up the algorithm's complexity and may infuse the computational process with significant expense.
+Chen等\cite{ibsa_ref63}提出了一种BSA的高级版本，称为自适应知识学习BSA（KLBSA），旨在提升算法的整体效能。该变体引入了一种利用全局和局部群体智能的自适应控制参数，精细地校准算法的探索和开发能力。此外，还提出了一种突破性的变异策略以增强优化功能。为进一步提高效率，采用了多种群策略，确保对不同搜索区域进行严格探查的同时保护种群的多样性。然而，KLBSA中多种新策略和参数的添加不可避免地增加了算法的复杂性，并可能带来显著的计算开销。
 
-In their quest to bridge the divide between theoretical exploration and practical application, Lu et al. [64] bring forth a Hybrid Multi-Objective Backtracking Search Algorithm (HMOBSA) targeting the Permutation Flow Shop Scheduling Problem (PFSP) with a special focus on energy efficiency. This innovation underscores the often-neglected setup and transportation times, heralding sustainable manufacturing practices. The efficacy of HMOBSA is corroborated through its application in an authentic case scenario from a manufacturing firm. Nonetheless, it's important to note that the algorithm's sophistication and computational demands escalate due to the implementation of a dual population strategy and a self-adaptive selection mechanism. These attributes, while raising the complexity, concurrently augment the diversity and efficiency of the algorithm.
+在理论探索与实际应用之间架起桥梁的工作中，Lu等\cite{ibsa_ref64}提出了一种混合多目标回溯搜索算法（HMOBSA），针对以节能为重点的置换流水车间调度问题（PFSP）。该创新强调了常被忽视的准备和运输时间，倡导可持续制造实践。HMOBSA的有效性通过其在某制造企业的实际案例中的应用得到了验证。然而，需要注意的是，由于双种群策略和自适应选择机制的实施，算法的复杂性和计算需求有所增加。
 
-Diving into the realm of BSA research reveals a bounty of applications and enhancements. Nevertheless, to our cognizance, there is a conspicuous absence of studies employing BSA or its variants in medical data feature selection tasks. Given the exponential growth in big data and technological advancements, the sheer volume and complexity of medical data present a formidable obstacle in the patient treatment process. Addressing this lacuna, our paper introduces an augmented BSA variant that refines the original algorithm through sophisticated mutation and crossover modifications. This new strategy, dubbed the elite leading mutation strategy, is designed to amplify the inherent randomness of the original BSA and bolster the local exploitation prowess, distinguishing elite individuals from the rest to home in on more precise solutions. The enhanced model's efficacy and resilience have been substantiated against both the IEEE CEC 2017 benchmark suite and the intricate, real-world engineering challenge of high dimensional medical data feature selection.
-
-
-\section{ Proposed methods}
+深入BSA研究领域可以发现大量的应用和改进。然而，据本文所知，目前尚缺乏将BSA或其变体应用于医学数据特征选择任务的研究。鉴于大数据的指数级增长和技术进步，医学数据的巨大体量和复杂性给患者诊疗过程带来了巨大挑战。为填补这一空白，本文提出了一种增强的BSA变体，通过复杂的变异和交叉修改来改进原始算法。这种名为精英引导变异策略的新方法旨在增强原始BSA的固有随机性并加强局部开发能力，将精英个体与其余个体区分开来以获得更精确的解。该增强模型的有效性和鲁棒性已通过IEEE CEC 2017基准测试套件以及高维医学数据特征选择这一复杂的实际工程问题得到了验证。
 
 
-\subsection{ motivation}
+\section{所提方法}
 
-The steadfast constants or probability constants are pivotal elements ingrained within MAs, serving as the cornerstone for harmonizing the crucial balance between exploration and exploitation. These parameters are traditionally dialed in through empirical experimentation, a process that can be exceedingly labor-intensive [65]. Yet, it's not a one-size-fits-all scenario, these constants may necessitate alterations to adapt to varying circumstances, such as distinct engineering conundrums. For instance, in the SA algorithm, a multitude of components like the normalization constant, initial temperature, cooling factor, and iteration count all sway its performance. Similarly, the crossover and mutation rates are critical knobs in the DE, demanding meticulous calibration for optimal efficacy. Furthermore, the Cuckoo Search Algorithm (CSA) [66] hinges on a switch parameter initially pegged at 0.25 to regulate local and global random walks, although it has fewer parameters compared to other MAs, CSA's success is tightly intertwined with this singular setting, calling for adjustments tailored to the specific problem domain.
 
-This shared trait among various MAs has captivated a growing number of researchers to forge methodical solutions over the past two decades. A myriad of parameter-tuning methods have emerged as a result. Nevertheless, these approaches are not without their pitfalls. The omnipresent snag of non-universality and the necessity for numerous iterations across a gamut of parameters for each problem instance dampen these tuning methods' appeal, curtailing their application's scope. It's this ubiquitous challenge---the stringent requirements for algorithm parameter tuning - that stands as a formidable hurdle for other population-based optimization algorithms as well.
+\subsection{研究动机}
 
-The BSA is ingeniously engineered to navigate through a diverse spectrum of problem landscapes, resorting to strategic backtracking as necessary to zero in on prime solutions---a trait that singularly marks its territory in the domain of evolutionary algorithms. At the core of BSA, five cardinal facets operate in concert: initialization, Selection I, Mutation, Crossover, and Selection II. These components coalesce to facilitate the algorithm's quest in the solution exploration, showcasing BSA as an adept and potent tool adept for deciphering the complexities of various problem areas.
+在元启发式算法中，固定常数或概率常数是关键要素，作为协调探索与开发之间重要平衡的基石。这些参数传统上通过经验实验来调整，这一过程可能极为费力\cite{ibsa_ref65}。然而，这并非一刀切的场景——这些常数可能需要根据不同情况（如不同的工程问题）进行调整。例如，在SA算法中，归一化常数、初始温度、冷却因子和迭代次数等众多参数都会影响其性能。类似地，交叉率和变异率是DE中的关键参数，需要精细校准以获得最优效果。此外，布谷鸟搜索算法（Cuckoo Search Algorithm, CSA）\cite{ibsa_ref66}依赖一个初始设为0.25的切换参数来调控局部和全局随机游走；尽管与其他元启发式算法相比参数较少，CSA的成功与这一单一设置密切相关，需要根据具体问题领域进行调整。
 
-\begin{enumerate}
-\item  \textbf{Initialization:} This stage serves the vital purpose of spawning the initial population that speckles the vast solution space. The genesis of the initial population is governed by Eq. \eqref{GrindEQ__1_}.
-\end{enumerate}
+这一元启发式算法的共同特征在过去二十年中吸引了越来越多的研究者开发系统化的解决方案，由此产生了大量参数调优方法。然而，这些方法并非没有缺陷。非通用性的普遍问题以及需要对每个问题实例进行大量参数迭代等因素降低了这些调优方法的吸引力，限制了其应用范围。正是这一普遍性挑战——算法参数调优的严格要求——也是其他基于种群的优化算法面临的一个重大障碍。
 
-\begin{tabular}{|p{0.5in}|p{3.0in}|p{0.4in}|} \hline 
- & $X_i,_j=U(low_j,\ up_j)$ & (1) \\ \hline 
-\end{tabular}
-
-Here, $X$ stands for the swarm of candidate solutions. The variable $i$ indexes the individual members of this swarm, numbering from 1 to $N$, where $N$ denotes the total count of search agents within the population. Meanwhile, $j$ represents individual dimensions of the particular problem, which range from 1 to $D$, with $D$ signifying the problem's total dimensions. The terms $low$ and $up$ define the lower and upper bounds for the variables, respectively.
+BSA被巧妙地设计用于导航各种问题场景，在必要时进行策略性回溯以定位最优解——这一特性使其在进化算法领域独树一帜。BSA的核心包含五个基本组成部分协同工作：初始化、选择I、变异、交叉和选择II。这些组件共同促进算法在解空间中的探索，展现了BSA作为解决各种问题领域复杂性的高效工具。
 
 \begin{enumerate}
-\item  \textbf{Selection I: }Within the BSA framework lies the critical Selection I phase, which plays an instrumental role in setting up the historical population. This historical population is a repository of accumulated information amassed throughout the evolutionary journey, serving as the foundational dataset for crafting the trial population during the mutation stage. This repository, symbolized as $OldX$, is computed through Eq. \eqref{GrindEQ__2_} and subsequently refined using Eq. \eqref{GrindEQ__3_} and Eq. \eqref{GrindEQ__4_}.
+\item  \textbf{初始化：}该阶段的核心目的是生成分布在广阔解空间中的初始种群。初始种群的生成由公式\eqref{ibsa_eq_1}控制。
 \end{enumerate}
 
-\begin{tabular}{|p{0.5in}|p{3.0in}|p{0.4in}|} \hline 
- & $OldX_i,_j=U(low_j,\ up_j)$ & (2) \\ \hline 
-\end{tabular}
+\begin{equation}
+\label{ibsa_eq_1}
+X_i,_j=U(low_j,\ up_j)
+\end{equation}
 
-The historical figures $OldX$ undergo an update, which unfolds as follows:
+其中，$X$表示候选解的群体。变量$i$索引群体中的各个成员，编号从1到$N$，$N$表示种群中搜索代理的总数。$j$表示特定问题的各个维度，范围从1到$D$，$D$表示问题的总维数。$low$和$up$分别定义了变量的下界和上界。
 
-\begin{tabular}{|p{0.5in}|p{3.0in}|p{0.4in}|} \hline 
- & $OldX=\ \left\{ \begin{array}{c}
+\begin{enumerate}
+\item  \textbf{选择I：}在BSA框架中，选择I阶段起着至关重要的作用，负责建立历史种群。历史种群是在整个进化过程中积累的信息库，作为在变异阶段构建试验种群的基础数据集。该信息库表示为$OldX$，通过公式\eqref{ibsa_eq_2}计算，并随后通过公式\eqref{ibsa_eq_3}和公式\eqref{ibsa_eq_4}进行更新。
+\end{enumerate}
+
+\begin{equation}
+\label{ibsa_eq_2}
+OldX_i,_j=U(low_j,\ up_j)
+\end{equation}
+
+历史种群$OldX$的更新过程如下：
+
+\begin{equation}
+\label{ibsa_eq_3}
+OldX=\ \left\{ \begin{array}{c}
 X\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ a<b \\ 
 OldX\ \ \ \ \ \ \ \ \ \ \ \ \ \ Otherwise \end{array}
-\right.$ & (3) \\ \hline 
-\end{tabular}
+\right.
+\end{equation}
 
-In this context, $a$ and $b$ are randomly spawned numbers within the bracket of 0 to 1. This randomization injects a much-needed degree of variability into the process.
+其中，$a$和$b$是在0到1之间随机生成的数。这种随机化为过程注入了必要的变异性。
 
-\begin{tabular}{|p{0.5in}|p{3.0in}|p{0.4in}|} \hline 
- & $OldX=permuting\left(OldX\right)$ & (4) \\ \hline 
-\end{tabular}
+\begin{equation}
+\label{ibsa_eq_4}
+OldX=permuting\left(OldX\right)
+\end{equation}
 
-The term $permuting(\cdot )$ encapsulates the action of shuffling the positions of the search agents within the population in a random fashion. This permutation plays a crucial role in fueling diversity within the population while also staving off the premature convergence of the algorithm toward subpar solutions.
-
-\begin{enumerate}
-\item  \textbf{Mutation:} The mutation phase plays a pivotal role within the BSA algorithm, where it employs both the historical and the current populations to spearhead the creation of the $Mutant$ population. This newly formed $Mutant$ set acts as the progenitor for the trial population. The mathematical operation defining this mutation is encapsulated by Eq. \eqref{GrindEQ__5_}.
-\end{enumerate}
-
-\begin{tabular}{|p{0.5in}|p{2.9in}|p{0.6in}|} \hline 
- & $Mutant=X+F\mathrm{\times }\left(oldX-X\right)$ & (5) \\ \hline 
-\end{tabular}
-
-In this equation, $F$ stands as a crucial amplitude control factor that notably sways the stretching of the $Mutant$ population. It achieves this by modulating the director matrix, which springs from the interplay between the historical $(OldX)$ and current $(X)$ populations. The chosen value for $F$ is derived from the expression $3\ *\ rndn$, wherein $rndn$ aligns with a standard normal distribution.
+$permuting(\cdot )$表示以随机方式打乱种群中搜索代理位置的操作。这种置换在促进种群多样性的同时，也防止了算法过早收敛到次优解。
 
 \begin{enumerate}
-\item  \textbf{Crossover:} Post the mutation, we arrive at the creation of the final trial population, a crucial moment where crossover mechanics come into play. This is where two distinct parts become relevant. To commence, we establish a binary integer matrix, known as the $map$, with dimensions $N\ *\ D$ that initially contains only zeros. This $map$ is poised for an upgrade---a choice between two evolutionary paths influenced by either Eq \eqref{GrindEQ__6_}, the global crossover, or Eq \eqref{GrindEQ__7_}, the local crossover. In global crossover, numerous decision variables are simultaneously altered, whereas in local crossover, modification is restricted to a solitary decision variable within each solution. These pathways are not fixed but are rather randomly selected during each cycle of population generation, determining the crossover method to be applied to the trial population borne out of the mutation phase. The overarching aim is to either revitalize multiple facets of the solution or fine-tune singular aspects for optimized results. Defined by Eq \eqref{GrindEQ__8_}, elements of the final trial population $T$ are meticulously selected from the $Mutant$ and current populations based on the $map$ generated earlier.
+\item  \textbf{变异：}变异阶段在BSA算法中起着关键作用，它利用历史种群和当前种群来生成$Mutant$种群。新生成的$Mutant$集合作为试验种群的前体。定义该变异操作的数学表达式由公式\eqref{ibsa_eq_5}给出。
 \end{enumerate}
 
-\begin{tabular}{|p{0.3in}|p{3.2in}|p{0.4in}|} \hline 
- & $map_i,_{u\left(1:\left\lceil M\mathrm{\times }rand\mathrm{\times }D\right\rceil \right)}=1\mathrm{\mid }u=permuting\left(1,2,3,\dots ,\ D\right),\ rand\in \left(0,\ 1\right)$ & (6) \\ \hline 
- & $map_i,_{randi\left(D\right)}=1$ & (7) \\ \hline 
- & $T\mathrm{=}\left\{ \begin{array}{c}
+\begin{equation}
+\label{ibsa_eq_5}
+Mutant=X+F\mathrm{\times }\left(oldX-X\right)
+\end{equation}
+
+在该公式中，$F$是一个关键的幅度控制因子，显著影响$Mutant$种群的扩展。它通过调节由历史种群$(OldX)$和当前种群$(X)$交互产生的方向矩阵来实现这一目的。$F$的取值由表达式$3\ *\ rndn$导出，其中$rndn$服从标准正态分布。
+
+\begin{enumerate}
+\item  \textbf{交叉：}变异完成后，进入最终试验种群的创建阶段，此时交叉机制发挥关键作用。这里涉及两个不同的部分。首先，建立一个维度为$N\ *\ D$且初始值全为零的二值整数矩阵$map$。该$map$将根据公式\eqref{ibsa_eq_6}（全局交叉）或公式\eqref{ibsa_eq_7}（局部交叉）进行更新。在全局交叉中，多个决策变量被同时修改；而在局部交叉中，每个解中仅修改单个决策变量。这些路径并非固定，而是在每个种群生成周期中随机选择，决定应用于变异阶段产生的试验种群的交叉方法。总体目标是更新解的多个方面或微调单个方面以获得优化结果。由公式\eqref{ibsa_eq_8}定义，最终试验种群$T$的元素根据先前生成的$map$从$Mutant$和当前种群中精心选择。
+\end{enumerate}
+
+\begin{equation}
+\label{ibsa_eq_6}
+map_i,_{u\left(1:\left\lceil M\mathrm{\times }rand\mathrm{\times }D\right\rceil \right)}=1\mathrm{\mid }u=permuting\left(1,2,3,\dots ,\ D\right),\ rand\in \left(0,\ 1\right)
+\end{equation}
+
+\begin{equation}
+\label{ibsa_eq_7}
+map_i,_{randi\left(D\right)}=1
+\end{equation}
+
+\begin{equation}
+\label{ibsa_eq_8}
+T\mathrm{=}\left\{ \begin{array}{c}
 Mutant_i,_j\mathrm{,\ \ }map_i,_j=1 \\ 
 X_i,_j\mathrm{,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }map_i,_j=0 \end{array}
-\right.$ & (8) \\ \hline 
-\end{tabular}
+\right.
+\end{equation}
 
-The notation $\mathrm{\textrm{┌}}\mathrm{\ }\mathrm{\textrm{┐}}$ signifies the ceiling function, which effectively rounds up any real numbers to the nearest integer. The variable $M$ denotes the mix rate, serving as a control parameter that affects the extent of crossover for each search agent's decision variables. The function $permuting(\cdot )$ shuffles the order of decision variables, injecting an element of randomness into the process and enhancing the algorithm's robustness.
+符号$\mathrm{\textrm{┌}}\mathrm{\ }\mathrm{\textrm{┐}}$表示上取整函数，将任何实数向上取整到最近的整数。变量$M$表示混合率，作为控制参数影响每个搜索代理决策变量的交叉程度。函数$permuting(\cdot )$打乱决策变量的顺序，为过程注入随机性元素并增强算法的鲁棒性。
 
 \begin{enumerate}
-\item  \textbf{Selection II}: At this juncture within the BSA algorithm, we reach the Selection II phase, which hinges on the principle of greedy selection. Here, a decisive evaluation occurs between each corresponding member of the current population and their final trial counterpart. The one showcasing superior performance, as per a metric of choice, is retained, thus shaping the forthcoming generation. The criterion for selection within this phase is encapsulated by Eq \eqref{GrindEQ__9_}.
+\item  \textbf{选择II}：在BSA算法的这一阶段，我们进入选择II阶段，该阶段基于贪婪选择原则。在此，对当前种群的每个成员与其对应的最终试验个体进行决定性评估。根据选定的度量标准表现更优的个体被保留，从而塑造下一代。该阶段的选择准则由公式\eqref{ibsa_eq_9}给出。
 \end{enumerate}
 
-\begin{tabular}{|p{0.4in}|p{2.9in}|p{0.5in}|} \hline 
- & $X_i=\ \left\{ \begin{array}{c}
+\begin{equation}
+\label{ibsa_eq_9}
+X_i=\ \left\{ \begin{array}{c}
 T_i\ \ \ \ \ \ \ \ \ \ \ \ \ \ f\left(T_i\right)<f\left(X_i\right) \\ 
 X_i\ \ \ \ \ \ \ \ \ \ \ \ \ \ Otherwise \end{array}
-\right.$ & (9) \\ \hline 
-\end{tabular}
+\right.
+\end{equation}
 
-In this formula,$\ f(\textrm{·})$ denotes the objective function---a measure designed to assess the quality of an individual solution. The terms  $T_i$ and $X_i$ correspond to the respective individuals from the final trial and the current populations. The process ensures that only those individuals who offer improved outcomes, as determined by the objective function, will progress into the next population. This method of selection is critical for fostering continuous improvement within the population, steering it towards ever-more-optimal solutions.
+在该公式中，$\ f(\textrm{·})$表示目标函数——用于评估单个解质量的度量。$T_i$和$X_i$分别对应最终试验种群和当前种群中的个体。该过程确保只有那些按目标函数评判提供更优结果的个体才会进入下一代种群。这种选择方法对于促进种群的持续改进至关重要，引导其朝着越来越优化的解演化。
 
- We can conclude from the five components of the BSA that it only has one extra control parameter in the process of optimization. It will make the parameter-tuning process be more easy to tackle, and there may have a way to make the BSA a parameter-free algorithm so as to widen the application of BSA. Moreover, the BSA can not well balance the trades-off between the exploration and exploitation since the crossover of the basic trail population are randomly selected from two of the mapping operator [63]. So, the trail population only gather the information of the historical population and current population, and the elite information is not so well used. As we all know, we maintain the population diversity to decrease the possibility of trapping into local optimal. The BSA population use the historical information and current information to explore the promising area of the solution space. However, the precision of the solution is somewhat lost if the elite individual does not have a specific local search enhanced ability [67]. Besides, the basic trail population $Mutant$ have a critical influence of updating the BSA population location, but the historical population that guided the search direction are randomly selected. From the above analysis we can conclude although the BSA is elaborate designed, but there still have room to improve it and so as to make it can be used to solve real life problem without parameter-tuning more efficient. Based on the analysis we have made, this research proposed an elite leading mutation strategy which not only change the historical population selection decision but also separate the two crossover mechanism so as to balance the trade-off of exploration and exploitation and craft the solution accuracy.
+从BSA的五个组成部分可以得出，它在优化过程中仅有一个额外的控制参数。这使得参数调优过程更加容易，并且有可能使BSA成为无参数算法，从而拓宽BSA的应用范围。此外，由于基本试验种群的交叉是从两个映射算子中随机选择的，BSA无法很好地平衡探索与开发之间的权衡\cite{ibsa_ref63}。因此，试验种群仅收集了历史种群和当前种群的信息，精英信息未能得到充分利用。众所周知，保持种群多样性是为了降低陷入局部最优的可能性。BSA种群利用历史信息和当前信息来探索解空间中有前景的区域。然而，如果精英个体不具备特定的局部搜索增强能力，解的精度将在一定程度上丢失\cite{ibsa_ref67}。此外，基本试验种群$Mutant$对BSA种群位置的更新有关键影响，但引导搜索方向的历史种群是随机选择的。从以上分析可以得出，尽管BSA设计精巧，但仍有改进空间，以使其在无需参数调优的情况下更高效地解决实际问题。基于以上分析，本文提出了一种精英引导变异策略，不仅改变了历史种群的选择决策，而且分离了两种交叉机制，以平衡探索与开发之间的权衡并提高解的精度。
 
-In summarizing the essence of the BSA's structure, it becomes apparent that this system is characterized by its minimalistic approach to control parameters during the optimization process. This streamlined design facilitates a simpler parameter-tuning experience, hinting at the potential evolution of BSA towards a parameter-free model, which could significantly broaden its applicability. However, despite its ingenuity, BSA does not inherently ensure an equilibrium between exploration and exploitation---a result of its reliance on the random selection of crossover processes from two mapping operators [63]. Consequently, the trial population mainly incorporates data from historical and current populations, neglecting the valuable insights of the elite.
+总结BSA结构的本质，该系统的特点是在优化过程中采用最少的控制参数。这种精简的设计使参数调优体验更加简单，暗示BSA有向无参数模型演进的潜力，这将显著拓宽其适用性。然而，尽管设计巧妙，BSA并不能固有地确保探索与开发之间的平衡——这是由于其依赖于从两个映射算子中随机选择交叉过程\cite{ibsa_ref63}。因此，试验种群主要包含来自历史和当前种群的数据，而忽略了精英的宝贵信息。
 
-Preserving diverse genetic variety within the population is a universally recognized tactic to stave off convergence to local optima. While BSA adeptly navigates towards promising regions of the solution space by utilizing historical and present information, it regrettably sacrifices solution precision when elite individuals lack enhanced local search capabilities [67]. Moreover, the basic trial population, dubbed $Mutant$, significantly impacts the evolution of the populace's location, yet the guidance furnished by the historical population is randomized.
+保持种群内的基因多样性是一种公认的避免收敛到局部最优的策略。虽然BSA通过利用历史和当前信息能够有效地导航到解空间的有前景区域，但当精英个体缺乏增强的局部搜索能力时，解的精度会有所降低\cite{ibsa_ref67}。此外，被称为$Mutant$的基本试验种群对种群位置的演化有重大影响，但历史种群提供的引导是随机的。
 
-From this analysis, we discern that despite the thoughtfully crafted BSA, there exists an opportunity for refinement to further potentiate its efficacy in solving practical problems with greater efficiency and without the necessity for parameter-tuning. In alignment with our critical examination, the present study introduces an elite leading mutation Strategy, designed to not only refine the historical population's selection process but also to discretely unravel the dual crossover mechanisms. And aim to judiciously balance the scales of exploration and exploitation and to finetune the acuity of the solution.
+从这一分析中可以看出，尽管BSA经过了精心设计，但仍存在改进的机会，以进一步增强其在解决实际问题时的效率，而无需参数调优。基于对BSA的关键分析，本文提出了一种精英引导变异策略，该策略不仅改进了历史种群的选择过程，还将双交叉机制分离，旨在合理平衡探索与开发的天平并提高解的精度。
 
 
-\subsection{ The Elite Leading Mutation Strategy}
+\subsection{精英引导变异策略}
 
- In the progression of our exposition on refinement strategies, we now divert our attention to section 3.2 encapsulating the elite leading mutation strategy. The conventional BSA is recognized for its intricate crossover approach, surpassing several of its evolutionary counterparts. However, it lacks the propensity to consistently employ fitness-superior individuals for exploration, as previously deliberated [53]. Notably, the erratic nature of map selection during crossover, coupled with the unpredictability in choosing the historical population, cultivates an environment of uncertainty, which particularly hampers the algorithm's precision in high-dimensional problems.
+在改进策略的阐述中，本节介绍精英引导变异策略。传统BSA以其精细的交叉方法而著称，超越了其若干进化算法同类。然而，如前所述\cite{ibsa_ref53}，它缺乏持续利用适应度优良个体进行探索的倾向。值得注意的是，交叉过程中$map$选择的随机性以及历史种群选择的不确定性，营造了一种不确定的环境，这特别影响了算法在高维问题中的精度。
 
- In an innovative twist, inspired by the Random Spare Reinforced Whale Optimization Algorithm [68], a self-regulating parameter $s$ is introduced to refine the distinction between the current population and the optimal solution. As the population converges on a local optimum---indicated by stagnation in the location of the best search agent---the parameter $s$ dynamically increases, reciprocally decrementing to its square root upon discovering a superior solution. This parameter plays a pivotal role in defining the parameter $p$ which gauges the suitable mechanism for updating the $Mutant$, directed by Eq. \eqref{GrindEQ__11_}. The balanced trade-off between exploration and exploitation is achieved through the responsiveness of $s$, as elucidated in Eq. \eqref{GrindEQ__10_}. Here's the mathematical expression to update $s$ and $p$:
+作为一种创新方法，受随机稀疏增强鲸鱼优化算法\cite{ibsa_ref68}启发，本文引入了一个自调节参数$s$来改进当前种群与最优解之间的区分。当种群收敛于局部最优时——表现为最佳搜索代理位置的停滞——参数$s$动态增加；发现更优解时，$s$则相应递减至其平方根。该参数在定义参数$p$中起关键作用，$p$由公式\eqref{ibsa_eq_11}确定，用于评估更新$Mutant$的合适机制。探索与开发之间的平衡权衡通过$s$的响应性实现，如公式\eqref{ibsa_eq_10}所述。以下是更新$s$和$p$的数学表达式：
 
-\begin{tabular}{|p{0.4in}|p{2.9in}|p{0.5in}|} \hline 
- & $s=\ \left\{ \begin{array}{c}
+\begin{equation}
+\label{ibsa_eq_10}
+s=\ \left\{ \begin{array}{c}
 sqrt(s)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ elite\ updated \\ 
 s+1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Otherwise \end{array}
-\right.$ & (10) \\ \hline 
- & $p\ =\frac{sqrt\left(\frac{t}{Max\_FEs}\right)}{1\ +\ exp\left(-s\right)}$ & (11) \\ \hline 
-\end{tabular}
+\right.
+\end{equation}
 
-Moving forward, the historical population selection is intricately entwined with the information derived from the crossover process. When a global crossover strategy substantially modifies the mutation population, it is strategically beneficial to employ this extensive information to direct future search trajectories. In this scenario, the historical population is selected, fostering an enhanced understanding of the solution space and thus improving the probability of identifying the optimal solution. Eq. \eqref{GrindEQ__12_} outlines the formulation of $OldX$, with $flag$ being determined by Eq. \eqref{GrindEQ__13_}:
+\begin{equation}
+\label{ibsa_eq_11}
+p\ =\frac{sqrt\left(\frac{t}{Max\_FEs}\right)}{1\ +\ exp\left(-s\right)}
+\end{equation}
 
-\begin{tabular}{|p{0.4in}|p{2.9in}|p{0.5in}|} \hline 
- & $OldX=\ X\ \ \ if\ flag==1$ & (12) \\ \hline 
- & $flag=\ \left\{ \begin{array}{c}
+进一步地，历史种群的选择与交叉过程中获取的信息密切相关。当全局交叉策略对变异种群进行大幅修改时，利用这些丰富的信息来指导未来的搜索轨迹具有战略优势。在这种情况下，选择历史种群可以促进对解空间的更深入理解，从而提高找到最优解的概率。公式\eqref{ibsa_eq_12}描述了$OldX$的构建，其中$flag$由公式\eqref{ibsa_eq_13}确定：
+
+\begin{equation}
+\label{ibsa_eq_12}
+OldX=\ X\ \ \ if\ flag==1
+\end{equation}
+
+\begin{equation}
+\label{ibsa_eq_13}
+flag=\ \left\{ \begin{array}{c}
 1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ global\ crossover \\ 
 0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Otherwise \end{array}
-\right.$ & (13) \\ \hline 
-\end{tabular}
+\right.
+\end{equation}
 
- Additionally, a vector $m$ is allocated to non-elite individuals within the population. The magnitude of $m$ oscillates between -1 and +1, tapering to null as the evolutionary process matures, as defined in Eq. \eqref{GrindEQ__14_}. This measure ensures that the mutation's scope is localized, diversifying as warranted by the evolving conditions and contributing to the BSA's capacity to deftly navigate the exploration-exploitation continuum.
+此外，向量$m$被分配给种群中的非精英个体。$m$的幅度在-1和+1之间波动，随着进化过程的推进趋向于零，如公式\eqref{ibsa_eq_14}所定义。这一措施确保变异的范围被局部化，根据不断变化的条件进行多样化，有助于BSA在探索-开发连续体中灵活导航。
 
-\begin{tabular}{|p{0.3in}|p{3.4in}|p{0.3in}|} \hline 
- & $m_i=\ \left\{ \begin{array}{c}
+\begin{equation}
+\label{ibsa_eq_14}
+m_i=\ \left\{ \begin{array}{c}
 1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ rand>\left(\frac{t}{Max\_FEs}\right)\wedge 3 \\ 
 unifrnd(-\frac{t}{Max\_FEs},\frac{t}{Max\_FEs})\ \ \ \ \ \ \ \ \ \ \ \ Otherwise \end{array}
-\right.$ & (14) \\ \hline 
-\end{tabular}
+\right.
+\end{equation}
 
- This strategically nuanced vector $m$ not only bolsters the BSA's explorative prowess but also disentangles elite from average individuals, endowing the former with a superior capability to pinpoint more precise solutions. Nevertheless, despite the enhancement it brings to the utilization of elite information, it does come at the cost of increased algorithmic complexity. The $Mutant$ operator adapts in accordance with Eq. \eqref{GrindEQ__15_}, and the elite are consequently refreshed as outlined by Eq. \eqref{GrindEQ__16_}.
+这一策略性设计的向量$m$不仅增强了BSA的探索能力，还将精英个体与普通个体区分开来，赋予前者更强的精确定位解的能力。尽管如此，对精英信息利用的增强确实以算法复杂度的增加为代价。$Mutant$算子根据公式\eqref{ibsa_eq_15}进行调整，精英个体则按照公式\eqref{ibsa_eq_16}进行更新。
 
-\begin{tabular}{|p{0.3in}|p{3.4in}|p{0.3in}|} \hline 
- & ${\mathrm{Mutant}}_{\mathrm{i}}=m_i*\left(X_i+F*map_i\ .*\left(OldX_i-X_i\right)\right)\ \ \ if\ i\sim =BestX\_idx$ & (15) \\ \hline 
- & ${\mathrm{Mutant}}_{\mathrm{i}}=BestX+F*\left(OldX_i-X_i\right)\ \ \ if\ i==BestX\_idx$ & (16) \\ \hline 
-\end{tabular}
+\begin{equation}
+\label{ibsa_eq_15}
+{\mathrm{Mutant}}_{\mathrm{i}}=m_i*\left(X_i+F*map_i\ .*\left(OldX_i-X_i\right)\right)\ \ \ if\ i\sim =BestX\_idx
+\end{equation}
 
-Here, the subscript $i$ denotes the $i$th element respective to each variable, with matrix notations indicating row vectors and scalar notations representing individual elements. The $F$ value is defined as thrice the random number $rndn$ ranging between 0 to 1. 
+\begin{equation}
+\label{ibsa_eq_16}
+{\mathrm{Mutant}}_{\mathrm{i}}=BestX+F*\left(OldX_i-X_i\right)\ \ \ if\ i==BestX\_idx
+\end{equation}
 
-Lastly, the pseudo-code for the Elite Leading Mutation Strategy is presented in \textbf{Algorithm 1} to visually convey the implementation details.
+其中，下标$i$表示各变量的第$i$个元素，矩阵表示行向量，标量表示单个元素。$F$值定义为三倍的0到1之间的随机数$rndn$。
+
+最后，精英引导变异策略的伪代码如\textbf{Algorithm 1}所示，以直观地传达其实现细节。
 
 \begin{tabular}{|p{3.9in}|} \hline 
 \textbf{Algorithm }1 Pseudo-code of Elite Leading Mutation Strategy \\ \hline 
 Initialize $BestX,\ map,\ s,\ \ flag$; \\ \hline 
 \textbf{If} $BestX$ updated \\ \hline 
-    U$p$date $s$ by Eq. \eqref{GrindEQ__10_}; \\ \hline 
+    U$p$date $s$ by Eq. \eqref{ibsa_eq_10}; \\ \hline 
 \textbf{End If} \\ \hline 
 \textbf{If} $flag$ updated \\ \hline 
-    Update $OldX$ by Eq. \eqref{GrindEQ__12_}; \\ \hline 
+    Update $OldX$ by Eq. \eqref{ibsa_eq_12}; \\ \hline 
 \textbf{End} \\ \hline 
 $OldX\ =\ permuting(OldX)$; \\ \hline 
-Calculate $p$ by Eq. \eqref{GrindEQ__11_}; \\ \hline 
+Calculate $p$ by Eq. \eqref{ibsa_eq_11}; \\ \hline 
 \textbf{If} p $\mathrm{>}$ rand \\ \hline 
-    Update $flag$ by Eq. \eqref{GrindEQ__13_}; \\ \hline 
-    Update \textit{m} by Eq. \eqref{GrindEQ__14_}; \\ \hline 
+    Update $flag$ by Eq. \eqref{ibsa_eq_13}; \\ \hline 
+    Update \textit{m} by Eq. \eqref{ibsa_eq_14}; \\ \hline 
     \textbf{For} $i\ =\ 1:N$ \\ \hline 
         \textbf{If} $i\ \sim =\ \boldsymbol{BestX}\boldsymbol{\_}\boldsymbol{idx}$ \\ \hline 
-            Update $map$ by Eq. \eqref{GrindEQ__6_}; \\ \hline 
-            Update Mutant by Eq. \eqref{GrindEQ__15_}; \\ \hline 
+            Update $map$ by Eq. \eqref{ibsa_eq_6}; \\ \hline 
+            Update Mutant by Eq. \eqref{ibsa_eq_15}; \\ \hline 
         \textbf{Else} \\ \hline 
-            Update $Mutant$ by Eq. \eqref{GrindEQ__16_}; \\ \hline 
+            Update $Mutant$ by Eq. \eqref{ibsa_eq_16}; \\ \hline 
         \textbf{End If} \\ \hline 
     \textbf{End} \textbf{For} \\ \hline 
     \textbf{Else} \\ \hline 
-\textbf{        }Update flag by Eq. \eqref{GrindEQ__13_}; \\ \hline 
+\textbf{        }Update flag by Eq. \eqref{ibsa_eq_13}; \\ \hline 
 \textbf{        For }$i\ =\ 1:N$ \\ \hline 
-            Update $map$ by Eq. \eqref{GrindEQ__7_}; \\ \hline 
-            Update Mutant by Eq. \eqref{GrindEQ__5_} and Eq. \eqref{GrindEQ__8_}; \\ \hline 
+            Update $map$ by Eq. \eqref{ibsa_eq_7}; \\ \hline 
+            Update Mutant by Eq. \eqref{ibsa_eq_5} and Eq. \eqref{ibsa_eq_8}; \\ \hline 
         \textbf{End For} \\ \hline 
     \textbf{End If} \\ \hline 
     Boundary control for $Mutant$; \\ \hline 
@@ -243,51 +274,51 @@ Calculate $p$ by Eq. \eqref{GrindEQ__11_}; \\ \hline
 
 
 
-\subsection{ The Proposed IBSA}
+\subsection{IBSA算法}
 
-In this section, we delve into the intricacies of the proposed IBSA, a refined version of the original BSA enhanced by integrating the elite leading mutation strategy. This advanced IBSA is tailored to mitigate the inherent randomness and uncertainties observed in the foundational BSA's framework.
+本节深入阐述所提出的IBSA算法，这是通过集成精英引导变异策略对原始BSA进行改进的优化版本。该IBSA旨在缓解基础BSA框架中固有的随机性和不确定性。
 
-Reflecting on Civicioglu's optimization approach for BSA, it becomes evident that the historical population $(OldX)$, utilized for crafting the direction matrix, is conventionally derived from a random selection within the evolutionary lineage. This distinctive method sets BSA apart as a dual-population algorithm and starkly contrasts it with the deterministic designs of PSO, Covariance Matrix Adaptation Evolution Strategy (CMAES) [69], ABC, DE, and their variants. However, the haphazard method of historical sampling has been a pronounced downside, blurring the line between global exploration and exploitation due to the lack of directed search strategies.
+回顾Civicioglu对BSA的优化方法，可以看出用于构建方向矩阵的历史种群$(OldX)$传统上是从进化过程中随机选择的。这种独特的方法使BSA成为一种双种群算法，与PSO、协方差矩阵自适应进化策略（Covariance Matrix Adaptation Evolution Strategy, CMAES）\cite{ibsa_ref69}、ABC、DE及其变体的确定性设计形成鲜明对比。然而，历史种群的随机抽样方式一直是一个明显的缺点，由于缺乏有向搜索策略，模糊了全局探索与开发之间的界限。
 
-To address these shortcomings, this research eschews random population selection in favor of clear-cut decision-making processes, establishing more predictable and dynamic trade-offs between exploration and exploitation. Whenever a global crossover incites considerable changes within the mutation population, suggesting an enhanced understanding of the solution space, the freshly-minted population assumes the role of $OldX$. Additionally, the newly introduced parameter $s$ plays a pivotal role in ascertaining the likelihood of the population becoming ensnared in local optima; it oscillates accordingly with mutation strategy probabilities, shaped into a non-linear curve exhibiting a steeper gradient at lower $s$ values and stabilizing as $s$ surpasses a certain threshold. Global crossovers are favored when $s$ and consequently $p$ are lower, supported by the design of $p$, which employs a modified sigmoid function for a nonlinear mapping from $s$ to a range between 0 and 1---a thoughtful adjustment ensuring a balanced interplay of mutation operators. As the evolutionary cycle matures, the focus drifts towards local crossover, with the randomized $rand$ metric determining the potential switch back to a global crossover stance.
+为解决这些不足，本文放弃了随机种群选择，转而采用明确的决策过程，建立更可预测和动态的探索与开发权衡。每当全局交叉引发变异种群的显著变化（表明对解空间的理解增强）时，新生成的种群将承担$OldX$的角色。此外，新引入的参数$s$在确定种群陷入局部最优的可能性方面起关键作用；它随变异策略的概率相应波动，形成一条在较低$s$值时梯度较陡、$s$超过某一阈值后趋于稳定的非线性曲线。当$s$和$p$较低时，倾向于全局交叉，这得益于$p$的设计——采用修改后的sigmoid函数将$s$非线性映射到0和1之间——这一精心调整确保了变异算子的平衡交互。随着进化周期的成熟，焦点转向局部交叉，随机化的$rand$度量决定是否切换回全局交叉。
 
-Furthermore, both global mutation and crossover methodologies have been fine-tuned to reinforce local exploitation capabilities and capitalize on elite information for precision results.
+此外，全局变异和交叉方法都经过了精细调整，以增强局部开发能力并利用精英信息获得精确结果。
 
-IBSA is operationalized through a structured process:
+IBSA通过一个结构化过程实现：
 
-In summary, the IBSA framework consists of the following key steps:
+概括而言，IBSA框架包含以下关键步骤：
 
 \begin{enumerate}
-\item  Initialization:
+\item  初始化：
 
-\item  Preparing variables $X$, $OldX$, $BestFitness$, $PreBestFitness$, $BestX$, $map$, $s$, and $flag$.
+\item  准备变量$X$、$OldX$、$BestFitness$、$PreBestFitness$、$BestX$、$map$、$s$和$flag$。
 
-\item  Selection-I:
+\item  选择-I：
 
-\item  Calculating $s$ by subjecting $BestFitness$ with $PreBestFitness$.
+\item  通过比较$BestFitness$和$PreBestFitness$来计算$s$。
 
-\item  Deciding on historical population guided by $flag$.
+\item  根据$flag$决定历史种群。
 
-\item  Mutation and Crossover:
+\item  变异和交叉：
 
-\item  Determining $p$ from $s$.
+\item  由$s$确定$p$。
 
-\item  Electing mutation strategy (global or local) informed by $rand$ comparison with $p$, influencing flag accordingly.
+\item  通过$rand$与$p$的比较选择变异策略（全局或局部），并相应影响$flag$。
 
-\item  Selection-II:
+\item  选择-II：
 
-\item  Iteratively refining $X$ through fitness comparison of each individual and the trial population.
+\item  通过每个个体与试验种群的适应度比较迭代更新$X$。
 
-\item  Udating $BestX$ and $BestFitness$.
+\item  更新$BestX$和$BestFitness$。
 \end{enumerate}
 
-This sequence repeats until cessation criteria are attained, embodying the algorithm's intent to seek out finely tuned solutions via enhanced exploitation, escape from local optima, and judicious use of elite agents within the population.
+该过程重复执行直到满足终止条件，体现了算法通过增强开发、逃离局部最优以及合理利用种群中精英代理来寻求精细调优解的目标。
 
-The IBSA aims to significantly enhance the BSA's local search and exploitation capabilities while fully leveraging the elite information for more precise outcomes during the optimization process. The introduction of parameters $p$, which are intricately adjusted based on parameter $s$, are specifically designed to help the BSA population avoid becoming trapped in local optima. The use of vector $m$ further improves the local exploitation ability within the algorithm.
+IBSA旨在显著增强BSA的局部搜索和开发能力，同时充分利用精英信息在优化过程中获得更精确的结果。参数$p$的引入——基于参数$s$进行精细调整——专门设计用于帮助BSA种群避免陷入局部最优。向量$m$的使用进一步提高了算法内部的局部开发能力。
 
-The mutation operator, thanks to the vector $m$, undergoes key modifications to distinguish elite individuals from the rest of the population, allowing for more tailored use of elite agent information. This differentiation facilitates strategic operation for each group, strengthening the algorithm's overall effectiveness.
+由于向量$m$的引入，变异算子经历了关键修改，将精英个体与种群其余部分区分开来，允许更有针对性地利用精英代理信息。这种区分为每个群体提供了策略性操作，增强了算法的整体有效性。
 
-To illustrate these changes, IBSA's procedural intricacies are codified within pseudo-code, designated as \textbf{Algorithm 2}, while a comprehensive flowchart detailing the steps and decision points of the algorithm is presented in Fig. 2. These tools serve to provide a clear visual understanding of IBSA's operational framework and the enhancements it brings to the BSA.
+为了说明这些变化，IBSA的过程细节编码在伪代码中，命名为\textbf{Algorithm 2}，而算法步骤和决策点的综合流程图如图\ref{fig:flowchart_IBSA}所示。这些工具旨在提供对IBSA操作框架及其对BSA改进的清晰直观理解。
 
 \begin{tabular}{|p{3.9in}|} \hline 
 \textbf{Algorithm }2 Pseudo-code of IBSA \\ \hline 
@@ -298,7 +329,7 @@ Initialize $X,\ OldX,\ BestFitness,\ PreBestFitness,\ BestX,\ map,\ s,\ \ flag$;
     Update $BestFitness,\ PreBestFitness,\ BestX,\ BestX\_idx$; \\ \hline 
 \textbf{    Carry out Elite Leading Mutation Strategy;} \\ \hline 
     Calculate fitness of $Mutant$; \\ \hline 
-    Update $X$ by Eq. \eqref{GrindEQ__9_}; \\ \hline 
+    Update $X$ by Eq. \eqref{ibsa_eq_9}; \\ \hline 
     $t\ =\ t\ +\ 1$; \\ \hline 
 \textbf{End While} \\ \hline 
 \textbf{Return} \textit{B}$estFitness,\ BestX$. \\ \hline 
@@ -309,174 +340,188 @@ Initialize $X,\ OldX,\ BestFitness,\ PreBestFitness,\ BestX,\ map,\ s,\ \ flag$;
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter3/fig2_flowchart_IBSA.png}
-  \caption{Flowchart of IBSA.}
+  \bicaption{IBSA算法流程图}{Flowchart of IBSA.}
   \label{fig:flowchart_IBSA}
 \end{figure}
 
 
-\subsection{ Binary IBSA for FS problem}
+\subsection{用于特征选择的二值IBSA}
 
-In this section, we turn our attention to the binary IBSA (bIBSA), ingeniously designed for binary discrete problem spaces, with a particular application to feature selection tasks in this study. The intricacies of bIBSA are geared towards effectively navigating the combinatorial challenges presented by feature subset selection, which, given $n$ features, results in potentially $2^n$ combinations.
+本节介绍二值IBSA（bIBSA），该算法专为二值离散问题空间设计，在本研究中特别应用于特征选择任务。bIBSA的设计旨在有效应对特征子集选择带来的组合挑战，给定$n$个特征，可能产生$2^n$种组合。
 
-To manage the complexity of evaluating such an extensive array of feature subsets, the bIBSA is teamed up with the KNN classifier [70] as an integral component of each iteration within the algorithm. A detailed diagram, Fig. 3, visualizes the overarching wrapper method process, highlighting its role in the decision-making pathway. The necessity for a discerning filter becomes clear here---without it, the evaluation phase would impose an impractical computational burden.
+为了处理评估如此大量特征子集的复杂性，bIBSA与KNN分类器\cite{ibsa_ref70}相结合，作为算法每次迭代的组成部分。图\ref{fig:wrapper_feature_selection}展示了包裹方法的整体流程，突出了其在决策路径中的作用。此处过滤器的必要性显而易见——如果没有它，评估阶段将带来不切实际的计算负担。
 
-Leveraging the IBSA's robust capabilities in exploration and its advancements in exploitation, we incorporate a v-shaped transfer function [71] that succinctly transforms the algorithm into its binary counterpart bIBSA. This adaptation is crucial in narrowing down the subsets needing assessment by the classifier, hence conserving computational effort. Within the binary domain, the bIBSA exhibits a heightened level of straightforwardness relative to its continuous counterpart. This stems from the binary limitation of each feature dimension that oscillates strictly between 0 and 1, shaping a hypercubic search space wherein the algorithm's agents explore discrete corners by bit-by-bit shifts.
+利用IBSA在探索方面的强大能力及其在开发方面的改进，本文采用V型转换函数\cite{ibsa_ref71}将算法简洁地转换为其二值版本bIBSA。这一改编对于缩小需要分类器评估的子集范围至关重要，从而节省计算量。在二值域中，bIBSA相对于其连续版本表现出更高的直接性。这源于每个特征维度严格在0和1之间振荡的二值限制，形成了一个超立方体搜索空间，算法代理通过逐位移动在其中探索离散角点。
 
-The forthcoming segment promises a comprehensive revelation of the IBSA-to-bIBSA transition, elucidating the decision logic that underpins these agents' searches. The fitness function, relying on the KNN classifier, serves as the evaluative compass for bIBSA, directing it towards an ideal balance of precision and succinctness in feature selection. The dual aims of maximizing accuracy while minimizing feature count are the hallmarks of this optimization pursuit.
+后续部分将全面揭示IBSA到bIBSA的转换过程，阐明支撑这些代理搜索的决策逻辑。基于KNN分类器的适应度函数作为bIBSA的评估指南，引导其在特征选择中实现精确性和简洁性的理想平衡。在最大化精度的同时最小化特征数量是这一优化追求的核心目标。
 
-The v-shaped transfer function is meticulously tailored to meet the needs of the Binary Improved Backtracking Search Algorithm, optimizing its performance for binary search spaces. Renowned for its distinctive characteristics, the function also sees wide application in fields such as signal processing and control systems. The transition of IBSA search agents' positions is governed by the rule defined in Eq. \eqref{GrindEQ__18_}.
+V型转换函数经过精心设计以满足二值改进回溯搜索算法的需求，优化其在二值搜索空间中的性能。该函数以其独特特性著称，在信号处理和控制系统等领域也有广泛应用。IBSA搜索代理位置的转换由公式\eqref{ibsa_eq_18}中定义的规则控制。
 
-A salient benefit of employing the v-shaped function in bIBSA is its gentle approach to binary decision-making. It does not rigidly impose binary values upon the decision variables, rather, it nudges them towards a binary state by incentivizing the flipping of a dimension's value if a more promising location is likely, according to Eq. \eqref{GrindEQ__17_}. Conversely, if no better prospects are detected, the algorithm permits the value to remain as is, leveraging the current position of the search agent to inform this decision.
+在bIBSA中采用V型函数的一个显著优势是其对二值决策采取渐进方式。它不会将二值强加于决策变量，而是通过激励维度值的翻转来引导它们趋向二值状态——如果根据公式\eqref{ibsa_eq_17}更有前景的位置可能存在。相反，如果没有检测到更好的前景，算法允许值保持不变，利用搜索代理的当前位置来做出决策。
 
-This transitionary mechanism between continuous and binary domains conserves the core functional operators of the original IBSA. Thus, the bIBSA retains the essence of IBSA's operation, despite the shift in the problem domain. The operators' continuity ensures that the bIBSA upholds the pioneering characteristics of IBSA, while it embarks on the exploration within the binary hypercube.
+这种连续域与二值域之间的转换机制保留了原始IBSA的核心功能算子。因此，尽管问题域发生了变化，bIBSA仍保留了IBSA操作的本质。算子的连续性确保bIBSA在二值超立方体中进行探索的同时，保持了IBSA的开创性特征。
 
-\begin{tabular}{|p{0.4in}|p{2.9in}|p{0.5in}|} \hline 
- & $V\left(X^j_i\left(t\right)\right)=\left|\frac{2}{π}*\mathrm{atan}\mathrm{}(\frac{π}{2}*X^j_i\left(t\right))\right|$ & (17) \\ \hline 
- & $X^j_i\left(t+1\right)\mathrm{=}\left\{ \begin{array}{c}
+\begin{equation}
+\label{ibsa_eq_17}
+V\left(X^j_i\left(t\right)\right)=\left|\frac{2}{π}*\mathrm{atan}\mathrm{}(\frac{π}{2}*X^j_i\left(t\right))\right|
+\end{equation}
+
+\begin{equation}
+\label{ibsa_eq_18}
+X^j_i\left(t+1\right)\mathrm{=}\left\{ \begin{array}{c}
 1\mathrm{,\ \ }\ r\ \ge V\left(P^j_i\left(t\right)\right) \\ 
 0\mathrm{,\ \ }\ r<V\left(P^j_i\left(t\right)\right) \end{array}
-\right.$ & (18) \\ \hline 
-\end{tabular}
+\right.
+\end{equation}
 
-Here, $X^j_i\left(t\right)$ represents the position of the $i$th search agent in the $j$th dimension at the $t$th iteration. The outcome of Eq. \eqref{GrindEQ__17_} remains a continuous value, which then, pursuant to Eq. \eqref{GrindEQ__18_}, is converted into a binary number if it exceeds the designated threshold.
+其中，$X^j_i\left(t\right)$表示第$i$个搜索代理在第$t$次迭代中第$j$维的位置。公式\eqref{ibsa_eq_17}的输出仍为连续值，然后根据公式\eqref{ibsa_eq_18}，如果该值超过指定阈值则转换为二值数。
 
-The pursuit of optimizing features within a binary search space invariably presents itself as a multi-objective quest where the primary objectives are to minimize the number of selected features and simultaneously enhance classification accuracy to the greatest extent possible. This delicate balance underscores the essence of feature selection and is the driving force behind the refinement of solutions within bIBSA.
+在二值搜索空间中优化特征不可避免地表现为一个多目标追求，其主要目标是最小化所选特征数量的同时尽可能提高分类精度。这种微妙的平衡体现了特征选择的本质，也是bIBSA中解优化的驱动力。
 
-Each solution uncovered by bIBSA undergoes a rigorous evaluative process by a fitness function intrinsically linked to a KNN classifier. This fitness function plays an instrumental role in weighing the two critical aspects of feature selection---quantity and quality---the number of features and their collective predictive accuracy, respectively. The function, denoted by Eq. \eqref{GrindEQ__19_}, is integral to the assessment of each potential solution visited by the algorithm.
+bIBSA发现的每个解都经过一个与KNN分类器内在关联的适应度函数的严格评估。该适应度函数在权衡特征选择的两个关键方面——特征数量和集体预测精度——中发挥着重要作用。该函数由公式\eqref{ibsa_eq_19}表示，是算法访问的每个潜在解评估的核心。
 
-\begin{tabular}{|p{0.4in}|p{2.9in}|p{0.5in}|} \hline 
- & $Fitness=α\cdot γ_R\left(N\right)+β\cdot \frac{\left|R\right|}{\left|N\right|}$ & (19) \\ \hline 
-\end{tabular}
+\begin{equation}
+\label{ibsa_eq_19}
+Fitness=α\cdot γ_R\left(N\right)+β\cdot \frac{\left|R\right|}{\left|N\right|}
+\end{equation}
 
-Here, $γ_R(\cdot )$ signifies the function responsible for computing the error rate associated with the selected feature subset, $R$. Meanwhile, $R$ and $N$ denote the currently selected features and the total number of features in the dataset, respectively. To tailor the evaluation in alignment with our dual objectives --- selecting the smallest feature set and ensuring its high accuracy---we rely on two coefficients, $α$ and $β$. Their role is to apportion the appropriate weights to each component of the fitness equation to achieve an optimal balance.
+其中，$γ_R(\cdot )$表示计算所选特征子集$R$相关错误率的函数。$R$和$N$分别表示当前选择的特征和数据集中的总特征数。为了使评估与选择最小特征集和确保高精度的双重目标相一致，本文使用两个系数$α$和$β$，它们的作用是为适应度方程的每个组成部分分配适当的权重以实现最优平衡。
 
-Through experimental calibration, the coefficient $α$ has been set at 0.5, establishing a baseline for how much emphasis to place on either goal. Consequently, its counterpart $β$ assumes the value of $1-α$, which, based on our setup, culminates in a figure of 0.95 [72]. This ratio essentially dictates the trade-off between the feature subset size and the classification accuracy, with each variable weighed according to its defined coefficient, guiding bIBSA towards the most favorable feature selection outcome.
+通过实验校准，系数$α$设定为0.5，建立了对两个目标之间重视程度的基线。相应地，$β$取$1-α$的值，根据本文的设置，最终值为0.95 \cite{ibsa_ref72}。该比率本质上决定了特征子集大小和分类精度之间的权衡，每个变量按其定义的系数加权，引导bIBSA朝着最有利的特征选择结果前进。
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter3/fig3_wrapper_feature_selection.png}
-  \caption{The wrapper feature selection process.}
+  \bicaption{包裹式特征选择流程}{The wrapper feature selection process.}
   \label{fig:wrapper_feature_selection}
 \end{figure}
 
 
 
 
-\subsection{ Computational complexity analysis}
+\subsection{计算复杂度分析}
 
-In the dissection of the computational complexity of the IBSA, we take into account multiple pivotal parameters: the size of the population $(N)$, the dimensionality of the optimization problem $(D)$, and the upper bound of iterations $(T)$, denoting the maximum evaluations permitted for the objective function. These variables collectively influence the termination criterion for the algorithm.
+在分析IBSA的计算复杂度时，需要考虑多个关键参数：种群规模$(N)$、优化问题的维度$(D)$以及迭代次数上限$(T)$，即目标函数允许的最大评估次数。这些变量共同影响算法的终止条件。
 
-IBSA's architecture encompasses five distinct phases: initialization, selection-I, mutation, crossover, and selection-II. Notably, with the exception of initialization, the subsequent four phases are engulfed within the ambit of the elite leading mutation strategy. Consequently, to appraise the total computational load, we focus on the initialization phase and the holistic elite leading mutation strategy.
+IBSA的架构包含五个不同的阶段：初始化、选择I、变异、交叉和选择II。值得注意的是，除初始化外，其余四个阶段都包含在精英引导变异策略的范围内。因此，为评估总计算负载，本文重点关注初始化阶段和整体精英引导变异策略。
 
-Commencing with the initialization phase, we acknowledge that both the population and historical population's magnitude bear the dimensionality of $N*D$, thus commanding a significant portion of the computational resources as compared to other preparatory activities. Therefore, the complexity of this phase, $O(initialization)$, is denoted as $O(N*D)$.
+从初始化阶段开始，种群和历史种群的规模均为$N*D$维，因此与其他准备工作相比占用了大量计算资源。该阶段的复杂度$O(initialization)$表示为$O(N*D)$。
 
-Proceeding to the elite leading mutation strategy, we dissect the intricacies of its composite parts: selection-I, mutation, crossover, and selection-II. For the selection-I phase within this strategy, its role is largely to select the historical population based on a predefined $flag$, leading to a negligible computational load denoted as constant, and henceforth, can be omitted from our intensive complexity analysis.
+进入精英引导变异策略，本文分析其组成部分的细节：选择I、变异、交叉和选择II。对于该策略中的选择I阶段，其角色主要是根据预定义的$flag$选择历史种群，计算负载可忽略不计表示为常数，因此可从复杂度分析中省略。
 
-Addressing the mutation and crossover phases, these operations form the cornerstone of IBSA's functionality. Due to their interwoven nature, it is more coherent to analyze their complexity in tandem, not in isolation. Within these phases, three operatives are engaged to cultivate the trail population, distinctly sorting the elite individuals from the general populace. This sorting incurs a time complexity of $O(log(N))$. Post-sorting, varying mutation strategies are executed, accruing a computational load of $O(T*N*D)$.
+对于变异和交叉阶段，这些操作构成IBSA功能的核心。由于其交织的特性，将它们的复杂度联合分析比单独分析更为连贯。在这些阶段中，三个算子被用于构建试验种群，明确地将精英个体从普通种群中区分出来。这种排序产生$O(log(N))$的时间复杂度。排序后，执行不同的变异策略，产生$O(T*N*D)$的计算负载。
 
-Finally, the selection-II phase operates as a comparative filter, distinguishing and retaining superior individuals from the juxtaposition of current and mutated populations. This phase imparts a time complexity of $O($$T*N)$.
+最后，选择II阶段作为比较过滤器，从当前种群和变异种群的对比中区分并保留优秀个体。该阶段的时间复杂度为$O($$T*N)$。
 
-Bringing these analyses together, the overarching computational complexity of IBSA is synthesized as the sum of the initialization phase and the elite leading mutation strategy, encapsulated by $O(initialization)\ +\ O(elite\ leading\ mutation\ strategy)$. Expressing this in formal terms translates to a complexity of $O(N*D+log(N)+(T*N)*(D+1))$, encapsulating the algorithm's total computational expenditure.
-
-
-\section{ Analysis and comparison of IBSA}
-
-In this pivotal section, we embark on a series of rigorous experiments designed to rigorously evaluate the efficacy of the IBSA algorithm, particularly spotlighting the Elite Leading Mutation Strategy. These tests are crucial in determining the viability and effectiveness of our proposed modifications to the Backtracking Search Algorithm.
-
-Initially, a thorough quality analysis is conducted, laying out a comparison between the balance and diversity offered by IBSA and the baseline BSA algorithm across select functions from the CEC 2017 suite. This comparison not only highlights the advantages of our proposed IBSA but also serves to underline the incremental gains achieved through the elite leading mutation strategy.
-
-In alignment with this analysis, convergence curves are plotted to provide a visual and statistical representation of the optimization trajectory followed by both algorithms. These curves are a revealing indicator of the speed at which each algorithm converges to a solution, as well as the precision of the solutions they ultimately yield. The inclusion of convergence curves in our analysis provides compelling evidence of the substantial improvements that the elite leading mutation strategy lends to IBSA's performance.
-
-It's crucial, however, to preface the upcoming detailed exploration of IBSA's balance and diversity with an introduction to the metrics and indicators that are employed to quantify these attributes. By establishing a clear understanding of these evaluative tools, we set the stage for a more informed and meaningful comparison between IBSA and BSA.
-
-In just a moment, I will delineate the respective matrices and performance indicators that underpin our analysis of algorithmic balance and diversity. The insights gleaned from this groundwork will enhance our comprehension of how the elite leading mutation strategy optimizes the selection pressures and search space exploration within IBSA, bringing to the fore the algorithm's enhanced performance metrics.
-
-Following the completion of the quality analysis, we proceed to juxtapose IBSA with an array of classic nature-inspired algorithms, spotlighting its superior capabilities in the realm of global optimization within continuous problem domains. These comparative experiments are meticulously structured: each algorithm, including IBSA, is consistently configured to address problems of 30 dimensions, and their performance is gauged over 30 runs on a single benchmark function to ensure robustness.
-
-A population size of 30 is uniformly established across all algorithms, further reinforcing the consistency of the experimental conditions. Additionally, each algorithm embarks on a journey of 10,000 iterations, with an upper bound set at 300,000 evaluations of the objective function $(Max\_FEs)$.
-
-Our comparative landscape spans a comprehensive roster of 23 algorithms, segmented into 12 traditional algorithms and 11 modern, state-of-the-art variants. The ensuing data from these rigorous trials will illuminate the allure of IBSA's optimization prowess. Two statistics---the average function value (Avg) and the standard deviation (Std)---are deployed to discern the performance of each algorithm.
-
-For ease of interpretation and enhanced readability, the best results gleaned from the algorithms are spotlighted in boldface. This formatting choice intuitively guides the reader's attention to the most competitive outcomes. Subsequent to these statistical comparisons, both the convergence curves and coherent box plots are presented to articulate the convergence speed and the solution accuracy of IBSA in relation to its contenders.
-
-The narrative continues with the presentation of average ranking values, visualized through histogram graphs, to convey a comparative synopsis of IBSA alongside both the foundational and advanced algorithms. Undertaking a deeper statistical analysis, the Wilcoxon signed-rank test, and a non-parametric test [73] are harnessed to establish statistical significance. A p-value threshold of 0.05 serves as our yardstick: a value beneath this threshold heralds IBSA's statistical dominance, whereas a value above it denotes parity or subpar performance in comparison with other algorithms. The succinct notations '+/=/-' are adopted to crisply communicate these statistical outcomes.
-
-Supplementing this battery of tests, the robustness of IBSA is further scrutinized through the Friedman test [74], assessing its steadfastness against its contemporaries.
-
-The computational experiments are executed on an environment underpinned by Matlab 2018a, running on a Windows Server 2016 Standard infrastructure. This setup boasts 128GB of random-access memory and harnesses the computational might of two Intel(R) Xeon(R) Silver 4210R CPUs, each clocked at 2.40GHz.
+综合以上分析，IBSA的总计算复杂度是初始化阶段和精英引导变异策略之和，表示为$O(initialization)\ +\ O(elite\ leading\ mutation\ strategy)$。用形式化语言表达，复杂度为$O(N*D+log(N)+(T*N)*(D+1))$，涵盖了算法的总计算开销。
 
 
-\subsection{ Measure metrics of balance and diversity}
+\section{IBSA的分析与比较}
 
-This part encompasses a detailed exposition of the metrics utilized for quantifying balance and diversity---a dichotomy representing the exploration and exploitation rates within the search space, as well as the degree of heterogeneity amongst the algorithm's population. These metrics are paramount in orchestrating an effective optimization process that judiciously balances exploration with exploitation---a harmony that is critical to prevent the pitfalls of both slow convergence and premature stagnation at local optima, as suggested by [75].
+在本节中，通过一系列严格的实验来全面评估IBSA算法的有效性，特别关注精英引导变异策略。这些测试对于确定所提修改对回溯搜索算法的可行性和有效性至关重要。
 
-The act of exploration is conceptualized as a quest for novel solutions within the search space. This strategic process is designed to canvas a broad region of the solution landscape to unearth innovative outcomes, irrespective of their immediate optimality. From the perspective of the algorithm's population, exploration fosters diversity, propelling individuals to venture into varied areas within the search space. This minimizes the risk of early and unwelcomed convergence to inferior solutions. The exploration rate [76] is encapsulated by Eq. \eqref{GrindEQ__20_}, a formula that frames exploration as a function of dimension-wise diversity at a given time $t$ relative to the maximum diversity recorded during the evolutionary process.
+首先，进行了全面的质量分析，将IBSA与基线BSA算法在CEC 2017套件的选定函数上的平衡性和多样性进行了比较。这一比较不仅突出了所提IBSA的优势，也展示了通过精英引导变异策略获得的增量改进。
 
-\begin{tabular}{|p{0.4in}|p{2.9in}|p{0.5in}|} \hline 
- & $Exploration=\frac{Div\left(t\right)}{{Div}_{max}}\times 100\%$ & (20) \\ \hline 
-\end{tabular}
+与此分析一致，绘制了收敛曲线以提供两种算法所遵循的优化轨迹的可视化和统计表示。这些曲线直观地表明了每种算法收敛到解的速度以及最终获得解的精度。收敛曲线的纳入为精英引导变异策略对IBSA性能的显著改进提供了有力证据。
 
-Here, $Div(t)$ denotes the dimension-wise diversity measurement, which is calculated through Eq. \eqref{GrindEQ__21_}. 
+然而，在详细探索IBSA的平衡性和多样性之前，有必要先介绍用于量化这些属性的度量指标。通过建立对这些评估工具的清晰理解，为IBSA和BSA之间更有意义的比较奠定基础。
 
-\begin{tabular}{|p{0.4in}|p{2.9in}|p{0.5in}|} \hline 
- & $Div\left(t\right)=\frac{1}{D}\int^D_{j=1}{\frac{1}{N}\int^N_{i=\ 1}{\left|\mathrm{median}\left(X^j\left(t\right)\right)-X^j_i\left(t\right)\right|}}$ & (21) \\ \hline 
-\end{tabular}
+接下来将描述支撑算法平衡性和多样性分析的相关矩阵和性能指标。从这些基础工作中获得的见解将增强对精英引导变异策略如何优化IBSA中的选择压力和搜索空间探索的理解，突出算法增强的性能指标。
 
-where $X^j_i\left(t\right)$ represents the $j$th dimension of the $i$th individual at iteration $t$.
+在完成质量分析后，将IBSA与一系列经典自然启发式算法进行比较，突出其在连续问题域全局优化领域的卓越能力。这些比较实验经过精心设计：每种算法（包括IBSA）都统一配置为解决30维问题，并在单个基准函数上运行30次以确保鲁棒性。
 
- Conversely, exploitation embodies the algorithm's focused effort on the iterative enhancement of solutions within known propitious regions. This component gravitates towards optimizing discovered regions to achieve optimal, or near-optimal, localities. Exploitation streamlines the population's evolution by ushering individuals towards zones of higher fitness, thus employing information pre-accumulated in the search. The process is most efficiently wielded through the selection and amalgamation of promising individuals and is quantitatively expressed in Eq. \eqref{GrindEQ__22_}.
+所有算法统一设置种群规模为30，进一步加强了实验条件的一致性。此外，每种算法进行10,000次迭代，目标函数评估次数上限$(Max\_FEs)$设为300,000。
 
-\begin{tabular}{|p{0.4in}|p{2.9in}|p{0.5in}|} \hline 
- & $Exploitation=\frac{\left|Div\left(t\right)-{Div}_{max}\right|}{{Div}_{max}}\times 100\%$ & (22) \\ \hline 
-\end{tabular}
+本文的比较范围涵盖23种算法，分为12种传统算法和11种最先进的现代变体。这些严格试验产生的数据将展示IBSA的优化实力。两个统计量——平均函数值（Avg）和标准差（Std）——用于判别各算法的性能。
 
-The notion of diversity within the IBSA population encapsulates the assortment and variability amongst individual solutions. Diversity is a critical element for an evolutionary and optimization algorithm's vitality, ensuring the exploration of multiple search space sectors and warding off hasty convergences to subpar solutions. This attribute is a reflection of the spread of solutions across the search space, and a high diversity implies a comprehensive coverage of the solution possibilities. The evaluation of diversity commonly relies on distance-based measures such as Euclidean distance, or entropy-based metrics like Shannon entropy. In the current context, the choice is Euclidean distance for diversity assessment, as defined by Eq. \eqref{GrindEQ__23_}. And the determination of the center of mass, or the average feature value, is presented in Eq. \eqref{GrindEQ__24_}.
+为了便于解释和提高可读性，各算法获得的最佳结果以粗体标注。这种格式直观地引导读者关注最具竞争力的结果。在统计比较之后，呈现收敛曲线和箱线图，以阐述IBSA相对于其竞争者的收敛速度和解精度。
 
-\begin{tabular}{|p{0.4in}|p{2.9in}|p{0.5in}|} \hline 
- & ${\mathrm{I}}_{\mathrm{C}}\left(\mathrm{t}\right)\mathrm{=}\sqrt{\int^{\mathrm{N}}_{\mathrm{i=1}}{\int^{\mathrm{D}}_{\mathrm{j=1}}{{\left(X^j_i\left(t\right)-C^j\mathrm{(t)}\right)}^{\mathrm{2}}}}}$ & (23) \\ \hline 
- & $C^j\mathrm{(t)}\mathrm{=}\frac{\mathrm{1}}{D}\int^N_{i\mathrm{=1}}{X^j_i\left(t\right)}$ & (24) \\ \hline 
-\end{tabular}
+接着展示通过直方图可视化的平均排名值，以传达IBSA与基础算法和先进算法的比较概要。在更深层次的统计分析中，采用Wilcoxon符号秩检验——一种非参数检验\cite{ibsa_ref73}来建立统计显著性。p值阈值设为0.05：低于该阈值表明IBSA具有统计优势，高于该阈值则表示与其他算法性能相当或较差。简洁符号"+/=/-"用于清晰地传达这些统计结果。
 
-Here, ${\mathrm{I}}_{\mathrm{C}}\left(\mathrm{t}\right)$ reflects the cumulative Euclidean distance between each individual and the centroid of the population. A larger value denotes a wider dispersion, implying a robust level of diversity among individuals. Conversely, $C^j\mathrm{(t)}$ computes the centrality of the features, where higher values indicate a greater distance from the centroid, thus contributing to the diversity footprint.
+作为补充，通过Friedman检验\cite{ibsa_ref74}进一步审查IBSA的鲁棒性，评估其相对于同类算法的稳定性。
+
+计算实验在Matlab 2018a环境下执行，运行于Windows Server 2016 Standard基础设施上。该配置拥有128GB随机存取内存，并配备两个Intel(R) Xeon(R) Silver 4210R CPU，每个时钟频率为2.40GHz。
 
 
-\subsection{ Qualitative analysis of IBSA}
+\subsection{平衡性和多样性度量指标}
 
-Prior to delving into comparative assessments with state-of-the-art algorithms, it is essential to present a quality analysis. This segment will center upon three principal dimensions: the balance of populations throughout the evolutionary process, the diversity dynamics within successive iterations, and the convergence patterns, which collectively elucidate the influence of the first two dimensions on the algorithm's convergence velocity and precision in solution-finding. Fig. 4 furnishes a five-segment visual array; specifically, Fig. 4(a) displays the benchmark CEC 2017 functions F3, F4, F10, F13, F24, and F26, which collectively span the gamut of potential problem domains. Within this subset, F3 is indicative of single-modal functions, F4 and F10 typify multi-modal functions, F13 represents hybrid functions, and F24 and F26 illustrate composition functions from the CEC 2017 suite. The three-dimensional plots of these functions are exhibited in Fig. 4(a).
+本部分详细阐述了用于量化平衡性和多样性的度量指标——平衡性代表搜索空间内的探索和开发率，多样性代表算法种群之间的异质性程度。这些指标对于协调有效的优化过程至关重要，需要合理平衡探索与开发——这种协调对于避免慢收敛和过早停滞于局部最优的陷阱是关键的，正如文献\cite{ibsa_ref75}所建议的。
 
-Fig. 4(b) concentrates on the balance analysis of the newly proposed IBSA algorithm. The graphical representation offers clear visibility into the evolutionary shifts in exploration and exploitation rates within the IBSA populations. The balance plot comprises three distinct trend lines: the red line delineates the exploration ratio of the IBSA, the blue line characterizes the exploitation ratio, and the green line, an incremental-decremental curve, is employed to signify the interplay between global exploration and local exploitation capacities inherent to the algorithm. An ascending curve suggests that global exploration maintains parity with or surpasses local exploitation; conversely, a descending trend indicates a predominance of local exploitation over global exploration.
+探索被概念化为在搜索空间中寻找新解的过程。这一策略性过程旨在覆盖解空间的广阔区域以发现创新结果，而不论其即时最优性如何。从算法种群的角度来看，探索促进了多样性，推动个体进入搜索空间的不同区域。这最大限度地降低了过早和不希望的收敛到次优解的风险。探索率\cite{ibsa_ref76}由公式\eqref{ibsa_eq_20}给出，将探索表示为给定时间$t$时维度多样性相对于进化过程中记录的最大多样性的函数。
 
-Moving to the comparative dimension, Fig. 4(c) accentuates the balance plot of the original BSA, juxtaposed against Fig. 4(b) to underscore advancements in exploration efficiency afforded by the IBSA's Elite Leading Mutation Strategy. The penultimate visual, the fourth column, provides an analytical snapshot of diversity within the IBSA and BSA populations, where the red line depicts the IBSA's diversity magnitude and the blue line does so for the BSA. The final column graphically presents the convergent trajectories of both algorithms, setting the stage for a more granular discussion of the quality analysis across these four columns, to be elaborated upon in the following sections.
+\begin{equation}
+\label{ibsa_eq_20}
+Exploration=\frac{Div\left(t\right)}{{Div}_{max}}\times 100\%
+\end{equation}
 
-Now it is time elucidates the contents of Fig. 4, commencing with the upper left and focusing on the three-dimensional depiction of the singular single-modal function, F3, from the CEC 2017 suite. Noted for its singularity, F3 allows us to gauge BSA's exploitation prowess during its evolutionary course. Single-modal functions are primarily employed to assess an algorithm's exploitation capabilities, given that their singular optimal solution doubles as the global optimum. The enhanced IBSA, with its elite leading mutation strategy, demonstrates a calculated shift---diminishing exploration rates while magnifying exploitation rates in pursuit of amplified solution precision. A comparative evaluation of solutions acquired through F3 reveals IBSA's superior performance, indicating more accurate solutions as manifested in the visual storyboard's concluding column.
+其中，$Div(t)$表示维度多样性度量，通过公式\eqref{ibsa_eq_21}计算。
 
-Diving into the second segment, we venture into the domain of multi-modal functions, where numerous local optima challenge the algorithm's ability to bypass suboptimal solutions and gravitate toward the global peak. In this sphere, a higher exploration rate is crucial. The second row's analysis of F4 discloses a marked escalation in exploration---up by 8.2\%, bolstering the solution's precision as depicted in the final column. Transitioning to F10, with its myriad of convex peaks, we encounter a complexity that necessitates careful negotiation between exploration and exploitation. Here, BSA's exploration seems excessive at 96.5\%, indicating an overemphasis on exploration. A juxtaposition with the IBSA, where there is a notable 27.3\% increase in exploitation rate to 30.8\%, showcases an improved exploration-exploitation balance with superior results in acquiring more accurate solutions.
+\begin{equation}
+\label{ibsa_eq_21}
+Div\left(t\right)=\frac{1}{D}\int^D_{j=1}{\frac{1}{N}\int^N_{i=\ 1}{\left|\mathrm{median}\left(X^j\left(t\right)\right)-X^j_i\left(t\right)\right|}}
+\end{equation}
 
-The enigmatic hybrid function, F13---a blend of single-modal and multi-modal characteristics---serves as a proving ground for IBSA's refined performance, which successfully navigates such duality. An incremental improvement in exploration of 2.4\% to 10.1\% helps IBSA finesse the balance between exploration and exploitation, which is further substantiated by superior solution outcomes when compared with BSA, even if IBSA operates at a marginally slower convergence rate, it avoids ensnarement in local optima, unlike BSA, which plateaus prematurely.
+其中，$X^j_i\left(t\right)$表示第$i$个个体在第$t$次迭代时第$j$维的值。
 
-Turning our attention to the composition functions F24 and F26, laden with a mixture of convexity and concavity, the figures mandate a judicious balancing of explorative and exploitative tactics to evade local maxima traps. Here, exploitation rates have been notably enhanced---by 7.3\% for F24 to 75.8\% and by 8.4\% for F26 to 79.1\%---demonstrating that a nuanced balance improves the algorithm's ability to uncover superior solutions, spotlighting the fidelity of the IBSA's elite leading mutation strategy in negotiating such trade-offs.
+相反，开发体现了算法在已知有前景区域内对解进行迭代优化的集中努力。该组成部分倾向于优化已发现的区域以达到最优或接近最优的局部解。开发通过引导个体朝向更高适应度的区域来简化种群的演化，从而利用搜索中预先积累的信息。该过程通过选择和合并有前景的个体来最有效地实施，其定量表达式由公式\eqref{ibsa_eq_22}给出。
 
-A pivotal point to consider is that a high exploration rate signifies a broad diversity within the population, whereas high exploitation indicates its diminution. A diverse population is adept at discerning global optima, while a less diverse one is more accurate in solution-finding. This coherent fluctuation of diversity coinciding with the modulation of exploration and exploitation rates is clearly visualized in Fig. 4(d), delineating the progressive adaptability of the IBSA algorithm.
+\begin{equation}
+\label{ibsa_eq_22}
+Exploitation=\frac{\left|Div\left(t\right)-{Div}_{max}\right|}{{Div}_{max}}\times 100\%
+\end{equation}
+
+IBSA种群的多样性概念涵盖了个体解之间的种类和变异性。多样性是进化和优化算法活力的关键要素，确保对搜索空间多个区域的探索并避免过早收敛到次优解。该属性反映了解在搜索空间中的分布程度，高多样性意味着对解可能性的全面覆盖。多样性的评估通常依赖于基于距离的度量（如欧几里得距离）或基于熵的度量（如Shannon熵）。在当前背景下，选择欧几里得距离作为多样性评估方法，如公式\eqref{ibsa_eq_23}所定义。质心（即平均特征值）的确定如公式\eqref{ibsa_eq_24}所示。
+
+\begin{equation}
+\label{ibsa_eq_23}
+{\mathrm{I}}_{\mathrm{C}}\left(\mathrm{t}\right)\mathrm{=}\sqrt{\int^{\mathrm{N}}_{\mathrm{i=1}}{\int^{\mathrm{D}}_{\mathrm{j=1}}{{\left(X^j_i\left(t\right)-C^j\mathrm{(t)}\right)}^{\mathrm{2}}}}}
+\end{equation}
+
+\begin{equation}
+\label{ibsa_eq_24}
+C^j\mathrm{(t)}\mathrm{=}\frac{\mathrm{1}}{D}\int^N_{i\mathrm{=1}}{X^j_i\left(t\right)}
+\end{equation}
+
+其中，${\mathrm{I}}_{\mathrm{C}}\left(\mathrm{t}\right)$反映了每个个体与种群质心之间的累计欧几里得距离。较大的值表示更广泛的分散，意味着个体之间具有较高的多样性水平。$C^j\mathrm{(t)}$计算特征的中心性，较高的值表示距离质心较远，从而贡献于多样性。
+
+
+\subsection{IBSA的定性分析}
+
+在与最先进算法进行比较评估之前，有必要先进行质量分析。本节将围绕三个主要维度展开：进化过程中种群的平衡性、连续迭代中的多样性动态以及收敛模式——这些维度共同揭示了前两个维度对算法收敛速度和解精度的影响。图\ref{fig:balance_and_diversity}提供了一个五部分的可视化展示；具体而言，图\ref{fig:balance_and_diversity}(a)展示了CEC 2017基准函数F3、F4、F10、F13、F24和F26，这些函数涵盖了各种类型的问题域。在该子集中，F3代表单峰函数，F4和F10代表多峰函数，F13代表混合函数，F24和F26代表CEC 2017套件中的组合函数。这些函数的三维图形如图\ref{fig:balance_and_diversity}(a)所示。
+
+图\ref{fig:balance_and_diversity}(b)聚焦于所提IBSA算法的平衡性分析。图形表示清晰地展示了IBSA种群中探索率和开发率的进化变化。平衡图包含三条不同的趋势线：红色线描绘IBSA的探索率，蓝色线表征开发率，绿色线（一条递增-递减曲线）用于表示算法固有的全局探索和局部开发能力之间的相互作用。上升曲线表示全局探索与局部开发保持平衡或超过后者；反之，下降趋势表示局部开发占主导。
+
+转向比较维度，图\ref{fig:balance_and_diversity}(c)突出了原始BSA的平衡图，与图\ref{fig:balance_and_diversity}(b)并列以凸显IBSA精英引导变异策略在探索效率方面的改进。第四列提供了IBSA和BSA种群多样性的分析快照，红色线描绘IBSA的多样性幅度，蓝色线描绘BSA的多样性幅度。最后一列以图形方式呈现了两种算法的收敛轨迹，为后续各列质量分析的更深入讨论奠定了基础。
+
+以下阐述图\ref{fig:balance_and_diversity}的内容，从左上角开始，关注CEC 2017套件中唯一的单峰函数F3的三维描绘。F3以其单一性著称，使我们能够评估BSA在进化过程中的开发能力。单峰函数主要用于评估算法的开发能力，因为其唯一的最优解即为全局最优。增强后的IBSA凭借其精英引导变异策略，展示了一种有计划的转变——降低探索率同时提高开发率以追求更高的解精度。通过F3获得的解的比较评估表明IBSA性能更优，如可视化展示的最后一列所示，获得了更精确的解。
+
+进入第二部分，本文涉足多峰函数领域，其中众多局部最优挑战算法绕过次优解并趋向全局最优的能力。在这一领域，更高的探索率至关重要。第二行对F4的分析显示探索率显著提高了8.2\%，提升了解的精度，如最后一列所示。转向F10，其大量凸峰带来的复杂性需要仔细协调探索和开发。BSA的探索率过高达96.5\%，表明过度强调探索。与之对比，IBSA的开发率显著提高了27.3\%达到30.8\%，展示了改善的探索-开发平衡和获取更精确解的优越结果。
+
+混合函数F13——融合了单峰和多峰特征——作为IBSA改进性能的试验场，成功应对了这种二重性。探索率增加了2.4\%达到10.1\%，帮助IBSA精细调整了探索与开发之间的平衡，这一点通过与BSA相比更优的解结果得到进一步证实。尽管IBSA的收敛速度略慢，但它避免了陷入局部最优，而BSA则过早停滞。
+
+关注组合函数F24和F26，这些函数包含凸性和凹性的混合，要求合理平衡探索和开发策略以避开局部最优陷阱。在此，开发率得到了显著提高——F24提高了7.3\%达到75.8\%，F26提高了8.4\%达到79.1\%——表明细致的平衡提高了算法发现更优解的能力，凸显了IBSA精英引导变异策略在协调这些权衡方面的可靠性。
+
+需要考虑的关键一点是，高探索率意味着种群内的广泛多样性，而高开发率则表示多样性的减少。多样的种群善于辨别全局最优，而较少多样性的种群在解精度方面更为准确。这种多样性与探索和开发率调节一致的协调波动在图\ref{fig:balance_and_diversity}(d)中清晰可见，展示了IBSA算法的渐进适应性。
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter3/fig4_balance_and_diversity.png}
-  \caption{(a) 3D plot of functions, (b) balance analysis of IBSA, (c) balance analysis of BSA, (d) diversity analysis of algorithm, (e) convergence curve of IBSA and BSA.}
+  \bicaption{(a) 函数三维图, (b) IBSA平衡分析, (c) BSA平衡分析, (d) 算法多样性分析, (e) IBSA与BSA收敛曲线}{(a) 3D plot of functions, (b) balance analysis of IBSA, (c) balance analysis of BSA, (d) diversity analysis of algorithm, (e) convergence curve of IBSA and BSA.}
   \label{fig:balance_and_diversity}
 \end{figure}
 
 
 
-This meticulous analysis illuminates the dynamic modulation capabilities of the proposed Elite Leading Mutation Strategy, pivotal in fine-tuning the exploration-exploitation trade-off within the algorithm. Such incisive adjustments lead to the identification of more precise solutions across the various challenges presented by the CEC 2017 function suite. Moreover, it provides a compelling display of the enhanced global optimization prowess inherent in the proposed IBSA, further affirming its effectiveness and superiority in tackling complex optimization problems.
+这一细致的分析揭示了所提精英引导变异策略的动态调控能力，这对于微调算法内的探索-开发权衡至关重要。这些精准的调整使得在CEC 2017函数套件提出的各种挑战中都能找到更精确的解。此外，它令人信服地展示了所提IBSA固有的增强全局优化能力，进一步肯定了其在解决复杂优化问题中的有效性和优越性。
 
 
-\subsection{ Comparison with basic MAs}
+\subsection{与基础元启发式算法的比较}
 
-This section presents a comparative examination of the proposed IBSA and other state-of-the-art algorithms being used in the field. Ensuring a fair comparison, the parameter settings for all algorithms, as outlined in Table 1, mirror those suggested in their respective original papers for optimal performance. The IEEE 2017 function suite [78] serves as an experimental benchmark. Notably, the population size for all algorithms is fixed at 30, and problem dimensions are also set at 30. To mitigate the inherent randomness of algorithm performance, the maximum number of objective function evaluations has been set to 300,000 across 30 runs.
+本节展示了所提IBSA与该领域其他最先进算法的比较分析。为确保公平比较，所有算法的参数设置如表1所示，反映了各自原始论文中建议的最优性能参数。IEEE 2017函数套件\cite{ibsa_ref78}作为实验基准。值得注意的是，所有算法的种群规模固定为30，问题维度也设定为30。为减轻算法性能的固有随机性，目标函数的最大评估次数在30次运行中设定为300,000。
 
-To further elucidate any performance variance between the algorithms, the non-parametric Wilcoxon signed-rank test [73] will be applied. In addition, the Friedman test [74] will work as an extension of the Wilcoxon signed-rank, deployed to rank the algorithms quantitatively using the Average Ranking Value (ARV). The symbols '+', '=', and '-' will be employed to indicate whether the proposed IBSA performs significantly better, equal to, or worse than its counterparts. The threshold for establishing statistical significance in these tests is set to p$\mathrm{<}$0.05.
+为进一步阐明算法之间的性能差异，将应用非参数Wilcoxon符号秩检验\cite{ibsa_ref73}。此外，Friedman检验\cite{ibsa_ref74}将作为Wilcoxon符号秩检验的扩展，使用平均排名值（ARV）对算法进行定量排序。符号"+"、"="和"-"将用于指示所提IBSA的性能是否显著优于、等于或劣于其对比算法。这些检验中建立统计显著性的阈值设为p$\mathrm{<}$0.05。
 
-This experimental segment entails a comparative analysis of IBSA in relation to 12 fundamental metaheuristic algorithms, encompassing BSA [53], SMA [28], DE [34], PSO [26], GSA [30], Bat Algorithm (BA) [79], SCA [31], CSA [66], WOA [80], Gray Wolf Optimization (GWO) [81], Moth-Flame Optimization (MFO) [82], and HHO [83]. To maintain a level playing field, all algorithms underwent evaluation under homogeneous parameter configurations, as stated in Table 1, grounded in their founding propositions as enumerated in their respective papers. Table 2 reflects the outcome of this rigorous line of experimentation, depicting tangible results extrapolated from benchmarking IBSA against traditional metaheuristics using the CEC2017 benchmark. For thoroughness, the table further unveils the findings of the Wilcoxon signed-rank test and the Friedman test.
+本实验部分涉及IBSA与12种基础元启发式算法的比较分析，包括BSA \cite{ibsa_ref53}、SMA \cite{ibsa_ref28}、DE \cite{ibsa_ref34}、PSO \cite{ibsa_ref26}、GSA \cite{ibsa_ref30}、蝙蝠算法（Bat Algorithm, BA）\cite{ibsa_ref79}、SCA \cite{ibsa_ref31}、CSA \cite{ibsa_ref66}、鲸鱼优化算法（Whale Optimization Algorithm, WOA）\cite{ibsa_ref80}、灰狼优化算法（Gray Wolf Optimization, GWO）\cite{ibsa_ref81}、蛾焰优化算法（Moth-Flame Optimization, MFO）\cite{ibsa_ref82}和HHO \cite{ibsa_ref83}。为保持公平竞争，所有算法在均匀的参数配置下进行评估，如表1所述，基于各自论文中的原始设置。表2反映了这一严格实验的结果，展示了IBSA与传统元启发式算法在CEC2017基准上的对比结果。为全面起见，表中还公布了Wilcoxon符号秩检验和Friedman检验的结果。
 
 \begin{tabular}{|p{1.1in}|p{2.8in}|} \hline 
 \multicolumn{2}{|p{1in}|}{\textbf{Table }1\textbf{.} Parameters setting for involved algorithms} \\ \hline 
@@ -497,13 +542,13 @@ HHO & $C\ =\ \left[0,2\right];E=\left[-2,2\right]$\textit{} \\ \hline
 
 
 
-Table 2 presents the Avg and Std for multiple algorithms taking part in the IEEE CEC2017 function tests. Cases where a particular algorithm yielded the best result among all its peers are denoted in bold font within the Avg and Std columns. The final row dedicates itself to showing the output from the Friedman test.
+表2展示了参与IEEE CEC2017函数测试的多种算法的Avg和Std值。某算法在所有同类算法中取得最佳结果的情况在Avg和Std列中以粗体标注。最后一行展示了Friedman检验的结果。
 
-Upon examining Table 2, we can discern the formidable presence of our proposed IBSA algorithm. It asserts its excellence by achieving first place across many functions, including F1, F6, F7, F12, F17, F18, F20, and F22 to F29. These functions correspond to four distinct categories, including single-modal function F1, multi-modal functions F6 and F7, hybrid functions F12, F17, F18, and F20, as well as composition functions ranging from F22 to F29. This result underscores the superior global optimization potential inherent in IBSA, illuminating its robust and effective optimization abilities amongst other algorithms under comparison.
+通过分析表2，可以看到所提IBSA算法的强大表现。它在多个函数上取得第一名，包括F1、F6、F7、F12、F17、F18、F20以及F22至F29。这些函数对应四个不同的类别，包括单峰函数F1、多峰函数F6和F7、混合函数F12、F17、F18和F20，以及组合函数F22至F29。这一结果凸显了IBSA固有的卓越全局优化潜力，展示了其在比较算法中强大而有效的优化能力。
 
-In addition, IBSA manifests noteworthy performance by attaining second place in functions F4, F5, F8, F10, F11, F13, F14, F15, F19, F21, and securing a third place for function F30. This showcases its astonishingly close approximation to optimal solutions. The remarkable performance of IBSA is further corroborated by the Wilcoxon signed-rank test and Friedman test results listed towards the end of Table 2.
+此外，IBSA在函数F4、F5、F8、F10、F11、F13、F14、F15、F19、F21上获得第二名，在函数F30上获得第三名，展现了其对最优解的惊人逼近能力。IBSA的卓越性能进一步得到了表2末尾Wilcoxon符号秩检验和Friedman检验结果的证实。
 
-A more detailed exploration of the Wilcoxon signed-rank test will occur in the succeeding paragraph, whereas the Friedman test results are encapsulated visually in Fig. 5 for ease of comprehension. A glance at the Friedman test result chart reveals that IBSA's average value is strikingly low compared to the 12 state-of-the-art algorithms, standing at 1.7586---a significantly superior ranking when contrasted with the second-best algorithm, BSA, which had an average value of 3.1379.
+Wilcoxon符号秩检验的更详细分析将在后续段落中进行，而Friedman检验结果以图\ref{fig:friedman_ranking_basic}的可视化形式呈现以便理解。从Friedman检验结果图中可以看到，IBSA的平均值与12种最先进算法相比极低，为1.7586——显著优于排名第二的BSA算法的3.1379。
 
 \begin{tabular}{|p{0.2in}|p{0.2in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|} \hline 
 \multicolumn{13}{|p{4.5in}|}{\textbf{Table }2\textbf{. }Comparison results of IBSA and the basic MAs\textbf{}} & \textbf{} & \textbf{} \\ \hline 
@@ -573,11 +618,11 @@ A more detailed exploration of the Wilcoxon signed-rank test will occur in the s
 
 
 
-Table 3 houses the outcomes of the Wilcoxon signed-rank test, which assesses the empirical validity of the experiments that pit the IBSA against notable benchmark algorithms such as BSA, SMA, DE, PSO, GSA, BA, SCA, CS, WOA, GWO, MFO, and HHO. The garnered p-values and associated '+/=/-' symbols underscore the relative efficacy of the IBSA against these formidable state-of-the-art algorithms.
+表3列出了Wilcoxon符号秩检验的结果，该检验评估了IBSA与BSA、SMA、DE、PSO、GSA、BA、SCA、CS、WOA、GWO、MFO和HHO等著名基准算法对比实验的经验有效性。获得的p值和相关的"+/=/-"符号突出了IBSA相对于这些优秀最先进算法的相对效能。
 
-In the context of the CEC 2017 function suite, the IBSA outperforms the benchmarks in 10, 20, 25, 27, 25, 26, 29, 26, 27, 29, 29, and 27 functions in comparisons with BSA, SMA, DE, PSO, GSA, BA, SCA, CS, WOA, GWO, MFO, and HHO, respectively. Furthermore, the number of functions where the IBSA showed inferior performance were restricted to 5, 2, 1, 1, 1, 1, 0, 2, 0, 0, 0, and 2, respectively. Additionally, it manifested equal functionality in 14, 7, 3, 1, 3, 2, 0, 1, 2, 0, 0, and 7 functions respectively when compared to each benchmark.
+在CEC 2017函数套件中，IBSA在与BSA、SMA、DE、PSO、GSA、BA、SCA、CS、WOA、GWO、MFO和HHO的比较中分别在10、20、25、27、25、26、29、26、27、29、29和27个函数上优于对比算法。此外，IBSA表现较差的函数数量分别仅限于5、2、1、1、1、1、0、2、0、0、0和2个。此外，在与各基准算法的比较中，IBSA分别在14、7、3、1、3、2、0、1、2、0、0和7个函数上表现出同等性能。
 
-These findings showcase the competitive edge of IBSA in terms of global optimization prowess relative to its peer algorithms. Detailed information about these comparisons are meticulously catalogued in Table 3.
+这些发现展示了IBSA在全局优化方面相对于同类算法的竞争优势。关于这些比较的详细信息已在表3中详细记录。
 
 \begin{tabular}{|p{0.3in}|p{0.7in}|p{0.2in}|p{0.7in}|p{0.2in}|p{0.7in}|p{0.2in}|p{0.5in}|p{0.2in}|p{0.5in}|p{0.2in}|p{0.6in}|p{0.2in}|} \hline 
 \multicolumn{13}{|p{5.3in}|}{\textbf{Table }3\textbf{. }P-value of Wilcoxon test obtained from comparison with basic MAs} \\ \hline 
@@ -650,39 +695,39 @@ Fun & \multicolumn{2}{|p{0.9in}|}{IBSA vs SCA} & \multicolumn{2}{|p{0.9in}|}{IBS
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter3/fig5_friedman_ranking_basic.png}
-  \caption{Average ranking of IBSA and the basic MAs.}
+  \bicaption{IBSA与基础元启发式算法的平均排名}{Average ranking of IBSA and the basic MAs.}
   \label{fig:friedman_ranking_basic}
 \end{figure}
 
 
 
-To better illustrate the effectiveness of the IBSA algorithm, two types of visual displays, namely the convergence curve and the box plot, are deployed in Fig. 6. These visuals focus on selected representative functions spanning all four types of problems encountered in the CEC 2017 function suite. The selected functions include the single-modal function F1, multi-modal functions F6 and F7, hybrid functions F12, F17, F18, F20, and composition functions F22, F23, and F27.
+为更好地展示IBSA算法的有效性，图\ref{fig:convergence_basic_MAs}采用了两种可视化方式：收敛曲线和箱线图。这些可视化聚焦于涵盖CEC 2017函数套件中所有四类问题的代表性函数。所选函数包括单峰函数F1、多峰函数F6和F7、混合函数F12、F17、F18、F20以及组合函数F22、F23和F27。
 
-These functions exemplify the potent exploration and well-balanced capabilities of IBSA to converge and diversify when addressing disparate problems. The box plot further substantiates the robustness of our proposed IBSA. Aside from a slightly larger fluctuation in IBSA than BSA for the hybrid function F17, IBSA consistently maintains a superior average fitness value compared to BSA. This points towards the potent influence of the proposed elite leading mutation strategy on enhancing the overall performance of IBSA.
+这些函数展示了IBSA在处理不同问题时收敛和多样化的强大探索能力和良好的平衡能力。箱线图进一步证实了所提IBSA的鲁棒性。除了在混合函数F17上IBSA的波动略大于BSA外，IBSA始终保持着优于BSA的平均适应度值。这表明所提精英引导变异策略对提升IBSA整体性能的强大影响。
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter3/fig6_convergence_basic_MAs.png}
-  \caption{Convergence curves and box plots of the IBSA and other MAs on 10 functions.}
+  \bicaption{IBSA与其他元启发式算法在10个函数上的收敛曲线和箱线图}{Convergence curves and box plots of the IBSA and other MAs on 10 functions.}
   \label{fig:convergence_basic_MAs}
 \end{figure}
 
 
 
 
-\subsection{ Comparison with enhanced MAs variants}
+\subsection{与改进元启发式算法变体的比较}
 
-This section is devoted to a meticulous comparison between our enhanced IBSA algorithm and other advanced swarm intelligence algorithms. The aim is to underscore the robust global optimization prowess of IBSA.
+本节致力于将所提IBSA算法与其他先进群智能算法进行细致的比较。目的是强调IBSA强大的全局优化能力。
 
-The algorithms selected for this comparison are as follows: Cooperatively Coevolving Particle Swarms Optimization (CGPSO) [84], Self-Adaptive Differential Evolution (SADE) [56], Reinforced Whale Optimization Algorithm (RDWOA) [68], Comprehensive Learning Particle Swarm Optimization (CLPSO) [85], Cross-Adaptive Gray Wolf Optimization (CAGWO) [86], Sine Cosine Algorithm Differential Evolution (SCADE) [87], Improved Gray Wolf Optimization (IGWO) [88], Differential Evolution based on Chaotic Local Search (DECLS) [89], PSO with Aging Leader and Challengers (ALCPSO) [90], Compact Bat Algorithm (CBA) [91], and Success-History Based Parameter Adaptation Differential Evolution (SHADE) [92].
+用于此次比较的算法包括：协同进化粒子群优化算法（Cooperatively Coevolving Particle Swarms Optimization, CGPSO）\cite{ibsa_ref84}、自适应差分进化算法（Self-Adaptive Differential Evolution, SADE）\cite{ibsa_ref56}、增强鲸鱼优化算法（Reinforced Whale Optimization Algorithm, RDWOA）\cite{ibsa_ref68}、综合学习粒子群优化算法（Comprehensive Learning Particle Swarm Optimization, CLPSO）\cite{ibsa_ref85}、交叉自适应灰狼优化算法（Cross-Adaptive Gray Wolf Optimization, CAGWO）\cite{ibsa_ref86}、正弦余弦差分进化算法（Sine Cosine Algorithm Differential Evolution, SCADE）\cite{ibsa_ref87}、改进灰狼优化算法（Improved Gray Wolf Optimization, IGWO）\cite{ibsa_ref88}、基于混沌局部搜索的差分进化算法（Differential Evolution based on Chaotic Local Search, DECLS）\cite{ibsa_ref89}、带老化领导者和挑战者的粒子群优化算法（PSO with Aging Leader and Challengers, ALCPSO）\cite{ibsa_ref90}、紧凑蝙蝠算法（Compact Bat Algorithm, CBA）\cite{ibsa_ref91}和基于成功历史的参数自适应差分进化算法（Success-History Based Parameter Adaptation Differential Evolution, SHADE）\cite{ibsa_ref92}。
 
-Before delving into the statistical analysis, it is necessary to mention the outcomes summarized in Table 4, which evaluates the performance of our algorithm against these established ones using the IEEE CEC2017 function suite. The exceptional performance of IBSA is clearly presented in the last row of Table 4 using the Friedman test, where with an average ranking of 1.8621, it marks a significant superiority, being substantially lower than the second-ranked value of 3.9310. The demonstration of this superiority is further visualized through the average ranking chart of the Friedman test result depicted in Fig. 7.
+在进入统计分析之前，有必要介绍表4中总结的结果，该表使用IEEE CEC2017函数套件评估了本文算法与这些成熟算法的性能。IBSA的卓越性能在表4的最后一行通过Friedman检验清晰呈现，其平均排名为1.8621，显著优于排名第二的3.9310。这一优越性通过图\ref{fig:friedman_ranking_advanced}中描绘的Friedman检验结果平均排名图进一步可视化。
 
-Moving onto Table 5, this table employs the Wilcoxon signed-rank test to reinforce the comparative analysis. The results from this statistical test indicate that IBSA demonstrates significant advantages over a number of established algorithms. Specifically, IBSA outperforms CGPSO, SADE, RDWOA, CLPSO, CAGWO, SCADE, IGWO, DECLS, ALCPSO, CBA, and SHADE in several cases, achieving superiority in 26, 14, 22, 19, 27, 23, 28, 25, 28, 28, and 14 instances, respectively. The statistical significance of these outcomes is confirmed by the p-value, which is below 0.05, validating the overall dominance of IBSA.
+转到表5，该表采用Wilcoxon符号秩检验来加强比较分析。该统计检验的结果表明，IBSA相对于多个成熟算法展现出显著优势。具体而言，IBSA在与CGPSO、SADE、RDWOA、CLPSO、CAGWO、SCADE、IGWO、DECLS、ALCPSO、CBA和SHADE的比较中，分别在26、14、22、19、27、23、28、25、28、28和14个实例中取得优势。这些结果的统计显著性通过低于0.05的p值得到确认，验证了IBSA的总体优势。
 
-However, there are instances when IBSA's performance aligns closely with that of the comparative algorithms. Specifically, with CGPSO, SADE, RDWOA, CLPSO, CAGWO, SCADE, IGWO, DECLS, ALCPSO, CBA, and SHADE, it exhibits comparable results in 2, 5, 0, 1, 0, 0, 1, 2, 0, 1, and 11 instances, respectively.
+然而，在某些情况下，IBSA的性能与对比算法较为接近。具体而言，与CGPSO、SADE、RDWOA、CLPSO、CAGWO、SCADE、IGWO、DECLS、ALCPSO、CBA和SHADE相比，IBSA分别在2、5、0、1、0、0、1、2、0、1和11个实例中表现出相当的结果。
 
-Nevertheless, there are minimal scenarios wherein IBSA slightly lags behind certain algorithms---namely CGPSO, SADE, RDWOA, CLPSO, CAGWO, SCADE, IGWO, DECLS, ALCPSO, and CBA---evidenced in 1, 10, 7, 9, 2, 6, 0, 2, 1, and 4 cases, respectively. The specific details of these performances are thoroughly elucidated in Table 5.
+尽管如此，IBSA略逊于某些算法的情况极少——即CGPSO、SADE、RDWOA、CLPSO、CAGWO、SCADE、IGWO、DECLS、ALCPSO和CBA——分别在1、10、7、9、2、6、0、2、1和4个案例中。这些性能的具体细节在表5中有详尽阐述。
 
 \begin{tabular}{|p{0.2in}|p{0.2in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|} \hline 
 \multicolumn{13}{|p{4.5in}|}{\textbf{Table }4\textbf{. }Comparison results of IBSA and the advance MAs\textbf{}} & \textbf{} \\ \hline 
@@ -823,43 +868,43 @@ Fun & \multicolumn{4}{|p{0.8in}|}{IBSA vs CGPSO} & \multicolumn{3}{|p{0.8in}|}{I
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter3/fig7_friedman_ranking_advanced.png}
-  \caption{Average ranking of IBSA and advance MAs.}
+  \bicaption{IBSA与先进元启发式算法的平均排名}{Average ranking of IBSA and advance MAs.}
   \label{fig:friedman_ranking_advanced}
 \end{figure}
 
 
 
-In observing the performance of IBSA across a range of test functions, we are able to identify several notable strengths, as illustrated in Fig. 8. In single-modal functions, such as F1, we may observe that despite IBSA's convergence speed being somewhat slower than that of SHADE, both do obtain the same optimal solution, highlighting IBSA's competitive ability.
+在观察IBSA在一系列测试函数上的性能时，可以识别出若干显著优势，如图\ref{fig:convergence_advanced_MAs}所示。在单峰函数F1上，尽管IBSA的收敛速度略慢于SHADE，但两者获得了相同的最优解，突显了IBSA的竞争力。
 
-When considering multi-modal function F6, the convergence speed and solution accuracy of IBSA aligns with that of peers CLPSO and DECLS. Notably, in hybrid functions, namely F11, F13, F14, F15, and F19, IBSA's exceptional performance is evident as it maintains the top rank. Even though the convergence speed might be marginally slower than some algorithms, it's important to keep in mind that solution quality should take precedence over convergence speed.
+在多峰函数F6上，IBSA的收敛速度和解精度与CLPSO和DECLS相当。值得注意的是，在混合函数F11、F13、F14、F15和F19上，IBSA表现出色，保持了第一名的排名。尽管收敛速度可能略慢于某些算法，但需要强调的是，解的质量应优先于收敛速度。
 
-In dealing with composition functions such as F23, F27, and F29, IBSA's stellar performance is evident from the convergence image, as it obtains a far superior solution compared to its counterparts. Notably, in the function F29, IBSA's performance is on par with SCADE.
+在处理组合函数F23、F27和F29时，IBSA的优异性能从收敛图中清晰可见，它获得了远优于同类算法的解。值得注意的是，在函数F29上，IBSA的性能与SCADE相当。
 
-Further, the box plot, situated next to the convergence curve, offers insight into the impressive robustness of the proposed IBSA. It displays minimal fluctuation rate and maintains the smallest fitness value over 30 runs, in comparison to the competitor algorithms. This detailed comparison effectively underscores the formidable capability of the IBSA algorithm.
+此外，收敛曲线旁的箱线图提供了对所提IBSA令人印象深刻的鲁棒性的洞察。与竞争算法相比，它在30次运行中显示出最小的波动率并保持最小的适应度值。这一详细比较有效地凸显了IBSA算法的强大能力。
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter3/fig8_convergence_advanced_MAs.png}
-  \caption{Convergence curves and box plots of the IBSA and other advance MAs on 10 functions.}
+  \bicaption{IBSA与其他先进元启发式算法在10个函数上的收敛曲线和箱线图}{Convergence curves and box plots of the IBSA and other advance MAs on 10 functions.}
   \label{fig:convergence_advanced_MAs}
 \end{figure}
 
 
 
 
-\section{ bIBSA for feature selection}
+\section{bIBSA用于特征选择}
 
-In this section, we touch upon the transformation [71] that has been applied to establish the binary version of IBSA, referred to as bIBSA. This version is set to be used to handle real-life engineering problems, more specifically, feature selection.
+本节介绍了将转换函数\cite{ibsa_ref71}应用于建立IBSA的二值版本（称为bIBSA）的过程。该版本将用于处理实际工程问题，特别是特征选择。
 
-For our study, we selected 12 datasets from the publically available UCI dataset [93]. These datasets vary in dimensions, with the smallest dataset being 326 dimensions and the largest being 12,601. Out of these 12 datasets, nine have dimensions exceeding 5,000, and two have dimensions above 2,000. Only the penglung dataset, with a dimension count of 326, fell below these numbers.
+在本研究中，从公开可用的UCI数据集\cite{ibsa_ref93}中选取了12个数据集。这些数据集的维度各不相同，最小的为326维，最大的为12,601维。在这12个数据集中，9个维度超过5,000，2个维度超过2,000。仅有penglung数据集的维度为326，低于上述标准。
 
-These datasets, all hailing from the medical field, span a range of 2 to 7 classes and encompass various types and degrees of cancers and other diseases, each with distinct sample sizes, features, and class labels. It's essential to note that our study's central focus is to validate the performance of the proposed bIBSA in the binary problem domain. For a more detailed breakdown, Table 6 further elaborates on the specifics of these datasets.
+这些数据集均来自医学领域，涵盖2至7个类别，包括各种类型和程度的癌症及其他疾病，每个数据集具有不同的样本量、特征数和类别标签。需要强调的是，本研究的核心焦点是验证所提bIBSA在二值问题域中的性能。表6进一步详细说明了这些数据集的具体信息。
 
-As per the intricate details divulged in Table 6, it's evident that the datasets employed span a diverse range of medical conditions, including brain tumors, CNS, colon cancer, leukemia, lung cancer, and prostate tumors. The breadth of these conditions allows us to assess the robustness of bIBSA across various health domains.
+从表6的详细信息可以看出，所使用的数据集涵盖了多种医学疾病，包括脑肿瘤、中枢神经系统疾病、结肠癌、白血病、肺癌和前列腺肿瘤。这些疾病的广泛性使我们能够在各种健康领域评估bIBSA的鲁棒性。
 
-Furthermore, the sheer diversity in feature numbers, ranging from 326 to 12,601, presents a unique opportunity to evaluate the algorithm's performance with both lower-dimensional and higher-dimensional data. This aids in gaining insight into the algorithm's handle on different feature spaces.
+此外，特征数量从326到12,601的巨大差异提供了评估算法在低维和高维数据上性能的独特机会。这有助于深入了解算法对不同特征空间的处理能力。
 
-It's noteworthy to highlight that some datasets incorporate multiple classes, granting the ability to assess the proficiency of the algorithm in managing multi-class classification problems.
+值得注意的是，某些数据集包含多个类别，使我们能够评估算法在多类分类问题中的表现能力。
 
 \begin{tabular}{|p{1.0in}|p{1.0in}|p{1.0in}|p{1.0in}|} \hline 
 \multicolumn{4}{|p{1in}|}{\textbf{Table }6\textbf{.} Description of the datasets used} \\ \hline 
@@ -880,11 +925,11 @@ SRBCT & 83 & 2390 & 4 \\ \hline
 
 
 
-Performance evaluation of IBSA involved comparing it with eight diverse algorithms, each holding unique parameter configurations as detailed in Table 7. Standardized parameters, such as dimensionality $(D)$ which represents the count of attributes within individual datasets, were effectively used across all evaluations. Additionally, the population size $(N)$ was set consistently at 20 for all the algorithms being compared.
+IBSA的性能评估涉及与八种不同算法的比较，每种算法具有独特的参数配置，如表7所述。标准化参数（如表示各数据集属性数量的维度$(D)$）在所有评估中统一使用。此外，所有比较算法的种群规模$(N)$统一设为20。
 
-In our pursuit of a fair evaluation of bIBSA's effectiveness in Feature Selection (FS), we deployed a meticulous 10-fold cross-validation technique [94]. This method partitions the dataset into ten equally-sized subsets, setting aside one as a test portion while utilizing the remaining nine as training segments over numerous iterations.
+为了公平评估bIBSA在特征选择中的有效性，本文采用了严格的10折交叉验证技术\cite{ibsa_ref94}。该方法将数据集分为十个大小相等的子集，在多次迭代中将其中一个作为测试部分，其余九个作为训练部分。
 
-We conducted these comparative experiments within the MATLAB R2018a operation environment to maintain identical conditions throughout the testing processes.
+这些比较实验在MATLAB R2018a运行环境下进行，以确保整个测试过程中条件一致。
 
 \begin{tabular}{|p{1.1in}|p{2.8in}|} \hline 
 \multicolumn{2}{|p{1in}|}{\textbf{Table }7\textbf{.} Setup of control parameter} \\ \hline 
@@ -900,70 +945,74 @@ BWOA & $a\ =\ \left[0,2\right]$ \\ \hline
 \end{tabular}
 
 
-\subsection{ Evaluation metrics for bIBSA performance}
+\subsection{bIBSA性能评估指标}
 
-In this section, to effectively measure the performance of bIBSA in addressing feature selection challenges across various datasets, we've made use of specific evaluation metrics. These metrics allow us to assess the algorithm's performance in precise domains. Several crucial criteria, detailed in [95], were selected for this purpose which include average fitness, classification error rate, the average number of selected features by the optimizer, and average runtime. Together, these metrics provide a holistic understanding of bIBSA's performance in handling feature selection tasks across a range of datasets.
-
-\begin{enumerate}
-\item  \textbf{Average Fitness:}
-\end{enumerate}
-
-The average fitness value represents the overall fitness of bIBSA over $L$ independent runs on each dataset. It's calculated as shown in Eq. \eqref{GrindEQ__25_}.
-
-\begin{tabular}{|p{0.4in}|p{2.9in}|p{0.5in}|} \hline 
- & $Fitness\mathrm{=\ }\frac{1}{L}\int^L_{i=1}{fitness\left(i\right)}$ & (25) \\ \hline 
-\end{tabular}
-
-Here $L$ denotes total runs of bIBSA, $Fitness$ is the average fitness value across $L$ runs, and $fitness\left(i\right)$ is the fitness value obtained from the $i$th run.
+本节中，为有效衡量bIBSA在不同数据集上解决特征选择挑战的性能，使用了特定的评估指标。这些指标使我们能够在精确的领域评估算法的性能。根据文献\cite{ibsa_ref95}，选择了以下几个关键标准：平均适应度、分类错误率、优化器选择的平均特征数和平均运行时间。这些指标共同提供了对bIBSA在处理不同数据集特征选择任务中性能的全面理解。
 
 \begin{enumerate}
-\item  \textbf{Average Classification Error Rate:}
+\item  \textbf{平均适应度：}
 \end{enumerate}
 
-The classification accuracy of bIBSA was assessed by calculating the average classification error rate over $L$ runs, as shown in Eq. \eqref{GrindEQ__26_}.
+平均适应度值表示bIBSA在每个数据集上$L$次独立运行的整体适应度。计算方法如公式\eqref{ibsa_eq_25}所示。
 
-\begin{tabular}{|p{0.4in}|p{2.9in}|p{0.5in}|} \hline 
- & $Error=\ \frac{1}{L}\int^L_{i=1}{\left(1-Accuracy\left(i\right)\right)\ }$ & (26) \\ \hline 
-\end{tabular}
+\begin{equation}
+\label{ibsa_eq_25}
+Fitness\mathrm{=\ }\frac{1}{L}\int^L_{i=1}{fitness\left(i\right)}
+\end{equation}
 
-Here $L$ is the total runs, $Error$ is the average classification error rate, and $Accuracy\left(i\right)$ refers to the classification accuracy from the $ith$ run.
+其中，$L$表示bIBSA的总运行次数，$Fitness$为$L$次运行的平均适应度值，$fitness\left(i\right)$为第$i$次运行获得的适应度值。
 
 \begin{enumerate}
-\item  \textbf{Average Number of Features Selected:}
+\item  \textbf{平均分类错误率：}
 \end{enumerate}
 
-The average count of features picked by bIBSA across $L$ runs was calculated to understand feature selection tendencies of the algorithm, represented in Eq. \eqref{GrindEQ__27_}.
+bIBSA的分类准确率通过计算$L$次运行的平均分类错误率来评估，如公式\eqref{ibsa_eq_26}所示。
 
-\begin{tabular}{|p{0.4in}|p{2.9in}|p{0.5in}|} \hline 
- & $Features\_num\mathrm{=\ }\frac{1}{L}\int^L_{i=1}{Size\left(i\right)}$ & (27) \\ \hline 
-\end{tabular}
+\begin{equation}
+\label{ibsa_eq_26}
+Error=\ \frac{1}{L}\int^L_{i=1}{\left(1-Accuracy\left(i\right)\right)\ }
+\end{equation}
 
-Here $Features\_num$ denotes average number of features selected, $Size\left(i\right)$ shows the number of features selected in the $ith$  run, and $L$ is the total runs.
+其中，$L$为总运行次数，$Error$为平均分类错误率，$Accuracy\left(i\right)$指第$i$次运行的分类准确率。
 
 \begin{enumerate}
-\item  \textbf{Average Run-time:}
+\item  \textbf{平均选择特征数：}
 \end{enumerate}
 
-The computational efficiency of bIBSA was evaluated by calculating its average run-time over $L$ runs as expressed in Eq. \eqref{GrindEQ__28_}.
+bIBSA在$L$次运行中选择的平均特征数如公式\eqref{ibsa_eq_27}所示，用于了解算法的特征选择趋势。
 
-\begin{tabular}{|p{0.4in}|p{2.9in}|p{0.5in}|} \hline 
- & $Time=\ \frac{1}{L}\int^L_{i=1}{Runtime\left(i\right)}$ & (28) \\ \hline 
-\end{tabular}
+\begin{equation}
+\label{ibsa_eq_27}
+Features\_num\mathrm{=\ }\frac{1}{L}\int^L_{i=1}{Size\left(i\right)}
+\end{equation}
 
-Here $Time$ denotes average run-time for $L$  runs and $Runtime\left(i\right)$ is the time taken by bIBSA in the $i$th run.
+其中，$Features\_num$表示选择的平均特征数，$Size\left(i\right)$表示第$i$次运行中选择的特征数，$L$为总运行次数。
+
+\begin{enumerate}
+\item  \textbf{平均运行时间：}
+\end{enumerate}
+
+bIBSA的计算效率通过计算$L$次运行的平均运行时间来评估，如公式\eqref{ibsa_eq_28}所示。
+
+\begin{equation}
+\label{ibsa_eq_28}
+Time=\ \frac{1}{L}\int^L_{i=1}{Runtime\left(i\right)}
+\end{equation}
+
+其中，$Time$表示$L$次运行的平均运行时间，$Runtime\left(i\right)$为bIBSA在第$i$次运行中所用的时间。
 
 
-\subsection{ Experimental results and analysis of bIBSA}
+\subsection{bIBSA的实验结果与分析}
 
-In this section, the efficacy of bIBSA in Feature Selection is scrutinized through a comprehensive comparative analysis, pitting it against eight prominent optimization techniques---BMFO [96], BGWO [97], BGSA [98], BPSO [99], Binary Ant Lion Optimization (BALO) [100], Binary Bat Algorithm (BBA) [101], Binary Salp Swarm Algorithm (BSSA) [102], and BWOA [103]. This evaluation is conducted across a diverse set of 12 UCI datasets [93], examining a host of performance metrics including average fitness value, average number of features selected, average run-time, and average accuracy rate.
+本节通过全面的比较分析来审视bIBSA在特征选择中的效能，将其与八种著名的优化技术进行比较——BMFO \cite{ibsa_ref96}、BGWO \cite{ibsa_ref97}、BGSA \cite{ibsa_ref98}、BPSO \cite{ibsa_ref99}、二值蚁狮优化算法（Binary Ant Lion Optimization, BALO）\cite{ibsa_ref100}、二值蝙蝠算法（Binary Bat Algorithm, BBA）\cite{ibsa_ref101}、二值樽海鞘群算法（Binary Salp Swarm Algorithm, BSSA）\cite{ibsa_ref102}和BWOA \cite{ibsa_ref103}。该评估在12个UCI数据集\cite{ibsa_ref93}上进行，考察了平均适应度值、平均选择特征数、平均运行时间和平均准确率等多项性能指标。
 
-The assessment unfolded over 50 iterations executed using a 10-fold cross-validation [94] on each dataset. Detailed results for average fitness value, feature count, run-time, and error rate are diligently presented in Tables 8 to 11. The objective of this stringent evaluation was to assess the accuracy and robustness of bIBSA in identifying pertinent features from datasets of various dimensions.
+评估在每个数据集上使用10折交叉验证\cite{ibsa_ref94}执行了50次迭代。平均适应度值、特征数、运行时间和错误率的详细结果分别在表8至表11中呈现。此次严格评估的目标是评估bIBSA在从不同维度数据集中识别相关特征时的准确性和鲁棒性。
 
-Feature Selection performs a pivotal role in machine learning applications, immensely affecting the accuracy of predictive models and computational efficiency. This comprehensive investigation aims to provide an extensive evaluation of bIBSA's performance in Feature Selection, casting light on its strengths and possible limitations when compared against existing algorithms.
+特征选择在机器学习应用中发挥着关键作用，极大地影响预测模型的准确性和计算效率。本次全面调查旨在提供对bIBSA特征选择性能的广泛评估，揭示其与现有算法相比的优势和可能的局限性。
 
-The comparative results in Table 8 reveal that the proposed bIBSA achieved the best fitness outcomes across all 12 datasets. Aside from a slightly larger Std when evaluating the Brain\_Tumor1, CNS, leukemia1, and penglung datasets compared to BPSO, overall, the results of bIBSA displayed significant efficacy. Against BWOA, a prominent method, bIBSA also exhibited comparatively larger Std results. Moreover, when considering the SRBCT dataset, bIBSA's performance matches BWOA in terms of fitness, but bIBSA significantly surpasses BWOA in terms of Std.
+表8的比较结果显示，所提bIBSA在所有12个数据集上取得了最佳适应度结果。除了在评估Brain\_Tumor1、CNS、leukemia1和penglung数据集时Std略大于BPSO外，bIBSA的总体结果表现出显著的有效性。与表现突出的BWOA相比，bIBSA也展现出相对较大的Std结果。此外，在SRBCT数据集上，bIBSA在适应度方面与BWOA持平，但在Std方面bIBSA显著优于BWOA。
 
-This evidence indicates that the proposed bIBSA showcases robust optimization performance when compared with traditional binary optimizers. This is a key finding, demonstrating the considerable potential of bIBSA in the realm of binary optimization and considerably broadening the implications for practical application.
+这一证据表明，与传统二值优化器相比，所提bIBSA展现出强大的优化性能。这是一个关键发现，展示了bIBSA在二值优化领域的巨大潜力，并显著拓宽了其实际应用的意义。
 
 \begin{tabular}{|p{0.6in}|p{0.3in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|} \hline 
 \multicolumn{10}{|p{1in}|}{\textbf{Table }8\textbf{. }Comparison between bIBSA and other algorithms on average fitness values\textbf{}} & \textbf{} \\ \hline 
@@ -996,13 +1045,13 @@ This evidence indicates that the proposed bIBSA showcases robust optimization pe
 
 
 
-Table 9 reveals the average feature selection from 30 runs on a single dataset. A careful look at the results, especially those highlighted in bold, underscores the strong performance of our proposed solution, bIBSA, across different datasets. Remarkably, bIBSA selected the fewest features on average across all 12 datasets, demonstrating its strong optimization ability consistent with global under continuous optimization problems.
+表9展示了在单个数据集上30次运行的平均特征选择结果。仔细观察结果，特别是以粗体标记的部分，可以看出所提bIBSA在不同数据集上的优秀性能。值得注意的是，bIBSA在所有12个数据集上平均选择了最少的特征，展示了其与连续优化问题中全局优化一致的强大优化能力。
 
-However, we do observe slightly larger fluctuations with the datasets Brain\_Tumor1, CNS, leukemia1, and Lung\_Cancer, judging by the Std values presented in the table. It's important to note, though, that a bit more fluctuation with more selected features does not necessarily imply an ineffective optimizer, given that the number of features selected and accuracy are the key indicators of a feature selection optimizer's effectiveness.
+然而，从表中的Std值来看，Brain\_Tumor1、CNS、leukemia1和Lung\_Cancer数据集确实存在略大的波动。需要注意的是，选择更多特征时稍大的波动并不一定意味着优化器无效，因为所选特征数量和准确率是衡量特征选择优化器有效性的关键指标。
 
-With reference to Table 10, which provides error rates for each feature selection method, the optimal optimizer should choose the fewest feature numbers in the dataset while maintaining the lowest error rate. Given that error occurrence is almost unavoidable, it's crucial to minimize the error rate as far as possible.
+参考表10（提供了每种特征选择方法的错误率），最优的优化器应在保持最低错误率的同时选择数据集中最少的特征数。鉴于错误的发生几乎不可避免，尽可能降低错误率至关重要。
 
-From the results, it's evident that bIBSA performs exceptionally well when compared with its peers. Although its Std value is slightly larger than that of BWOA, both of them recorded the lowest error rates. When considered across all 12 datasets, bIBSA's robustness is significantly evident.
+从结果可以看出，bIBSA与同类算法相比表现出色。尽管其Std值略大于BWOA，但两者都记录了最低的错误率。综合所有12个数据集来看，bIBSA的鲁棒性非常显著。
 
 \begin{tabular}{|p{0.6in}|p{0.3in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|} \hline 
 \multicolumn{10}{|p{1in}|}{\textbf{Table }9\textbf{. }Comparison between bIBSA and other algorithms on average of selected features\textbf{}} & \textbf{} \\ \hline 
@@ -1066,11 +1115,11 @@ From the results, it's evident that bIBSA performs exceptionally well when compa
 
 
 
-Owing to the use of a v-shaped transformation function [71] and the efficient Elite Leading Mutation Strategy, our proposed bIBSA continues to hold a competitive edge in terms of execution time compared to the eight classical feature selection counterparts. Detailed data from Table 11 also corroborates this, revealing that bIBSA achieved the shortest run-time across all 12 datasets.
+得益于V型转换函数\cite{ibsa_ref71}的使用和高效的精英引导变异策略，所提bIBSA在执行时间方面与八种经典特征选择对比算法相比仍保持竞争优势。表11的详细数据也证实了这一点，显示bIBSA在所有12个数据集上均取得了最短的运行时间。
 
-Although the Std for some datasets appears somewhat unstable, it is the Avg value statistic that is of primary importance. The Avg value results for bIBSA reflect clear advantages, including comparatively less time required to select the optimal features.
+尽管某些数据集的Std显得有些不稳定，但最重要的是Avg值统计。bIBSA的Avg值结果反映了明显的优势，包括选择最优特征所需的时间相对更少。
 
-This translates to more efficiency in processing a variety of datasets and a significant reduction in computational resources. This is an aspect that offers immense potential value, particularly in a big-data context where efficient resource utilization is critical.
+这意味着在处理各种数据集时具有更高的效率，并显著减少了计算资源的消耗。这一方面具有巨大的潜在价值，特别是在大数据环境下高效资源利用至关重要的场景中。
 
 \begin{tabular}{|p{0.6in}|p{0.3in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|} \hline 
 \multicolumn{10}{|p{1in}|}{\textbf{Table }11\textbf{. }Comparison between bIBSA and other algorithms on average of run time\textbf{}} & \textbf{} \\ \hline 
@@ -1103,25 +1152,25 @@ This translates to more efficiency in processing a variety of datasets and a sig
 
 
 
-To more effectively present the results attained by the eight feature selection optimizers, Fig. 9 provides the convergence curves corresponding to all 12 datasets. The graph clearly demonstrates that our proposed bIBSA consistently outperforms its peers in terms of fitness value and solution accuracy.
+为更有效地展示八种特征选择优化器获得的结果，图\ref{fig:convergence_feature_selection}提供了所有12个数据集对应的收敛曲线。图形清晰地表明，所提bIBSA在适应度值和解精度方面始终优于同类算法。
 
-Most of the feature selection peers tend to converge to a higher fitness value quite early on, whereas our bIBSA significantly maintains and even improves its gained fitness value over time. This further highlights the advantages of incorporating the elite leading mutation strategy into the bIBSA algorithms.
+大多数特征选择同类算法倾向于较早收敛到较高的适应度值，而bIBSA则能够持续保持甚至随时间改进其获得的适应度值。这进一步凸显了将精英引导变异策略融入bIBSA算法的优势。
 
-Notably, while there is only a marginal advantage for bIBSA over BWOA on datasets such as CNS, leukemia1, penglung, and SRBCT, a detailed inspection of the plotted graph reveals superior results achieved by bIBSA. This strongly signifies the optimization capability of the elite leading mutation strategy implemented in bIBSA.
+值得注意的是，虽然bIBSA在CNS、leukemia1、penglung和SRBCT等数据集上相对于BWOA仅有微弱优势，但对绘制图形的详细检查表明bIBSA取得了更优的结果。这有力地表明了bIBSA中实施的精英引导变异策略的优化能力。
 
-Validating bIBSA through both benchmark global optimization tests and real-life engineering problem feature selection further underscores the solution's optimization capability. Given its potential, it is plausible to anticipate the algorithm's application in future research directions such as image segmentation, road planning, and recommender systems.
+通过基准全局优化测试和实际工程问题特征选择两方面对bIBSA进行验证，进一步凸显了该方法的优化能力。鉴于其潜力，可以预见该算法未来在图像分割、路径规划和推荐系统等研究方向中的应用前景。
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter3/fig9_convergence_feature_selection.png}
-  \caption{Convergence curves of the bIBSA and other algorithms on 12 datasets.}
+  \bicaption{bIBSA与其他算法在12个数据集上的收敛曲线}{Convergence curves of the bIBSA and other algorithms on 12 datasets.}
   \label{fig:convergence_feature_selection}
 \end{figure}
 
 
-\section{ Conclusion and future direction}
+\section{本章小结}
 
-The primary aim of this research was to enhance the original BSA algorithm, particularly by mitigating its inherent randomness. Specifically, the random selection of historical populations and mutation strategies presented potential obstacles to predictable search direction and, consequently, to the quality improvement of later population generations. Especially given that the information inherent in the original BSA's historical populations and mutation strategies have proved to be proficient in contributing to the strong exploration ability of BSA. Therefore, this study notably focuses on modifying the original BSA to separate the elite individuals from the rest of the population, facilitating better utilization of the elite individuals' information for an improved optimal solution. Modifications include the selection processes between the historical populations and mutation operators. Additionally, to better implement the elite leading mutation strategy, a vector $m$ was proposed for the mutation operator during the global crossover phase, and a specific elite mutation operator was introduced to enhance the local exploitation of the elite individuals, ultimately improving solution accuracy. This modification led to a new strategy called the elite leading mutation strategy. Our comprehensive experimentation involved using the IEEE CEC 2017 suite, excluding function F2 due to the author's assertion of its instability. Impressive performance was evident as the proposed IBSA competed with a total of 23 peers, including 12 basic state-of-the-art algorithms and 11 advanced state-of-the-art algorithms. Following the benchmark global optimization testing of IBSA, we further explored its optimization capability in binary problem domains, using a v-shaped transformation function to convert the proposed IBSA to a binary version (bIBSA) and applying it to real-life engineering problem feature selection on 12 UCI public datasets. The results demonstrated bIBSA's superior performance over eight other feature selection optimizers in terms of the number and accuracy of features selected. Further value was evident in bIBSA's performance on high-dimensional datasets and in its competitive overall running time as compared to the eight classical optimizers. This means that using the proposed bIBSA algorithm for feature selection tasks promises to save significant computational resources.
+本章研究的主要目的是改进原始BSA算法，特别是缓解其固有的随机性。具体而言，历史种群和变异策略的随机选择对可预测的搜索方向以及后续种群代的质量提升构成了潜在障碍。特别值得注意的是，原始BSA中历史种群和变异策略所包含的信息已被证明能够有效贡献于BSA强大的探索能力。因此，本文特别关注修改原始BSA以将精英个体与其余种群分离，促进对精英个体信息的更好利用以改进最优解。修改包括历史种群与变异算子之间的选择过程。此外，为更好地实施精英引导变异策略，在全局交叉阶段为变异算子提出了一个向量$m$，并引入了一个特定的精英变异算子以增强精英个体的局部开发能力，最终提高解的精度。这一修改产生了一种名为精英引导变异策略的新策略。本文的综合实验使用了IEEE CEC 2017套件，由于原作者断言F2的不稳定性而排除了函数F2。所提IBSA与共计23种同类算法进行了竞争，包括12种基础最先进算法和11种先进最先进算法，表现令人印象深刻。在IBSA的基准全局优化测试之后，本文进一步探索了其在二值问题域中的优化能力，使用V型转换函数将所提IBSA转换为二值版本（bIBSA），并将其应用于12个UCI公共数据集上的实际工程问题特征选择。结果表明，bIBSA在所选特征的数量和精度方面优于其他八种特征选择优化器。在高维数据集上的表现以及与八种经典优化器相比具有竞争力的总体运行时间方面，bIBSA的价值进一步得到体现。这意味着使用所提bIBSA算法进行特征选择任务有望节省大量计算资源。
 
-Although this research paper provides substantial evidence for IBSA's robust capabilities in global optimization and feature selection within a 30-dimension framework, it is constrained by its scope. It warrants further investigation into higher dimensional spaces, such as 50 or 100 dimensions, to more comprehensively evaluate the powerful potential of IBSA. The application of the proposed IBSA algorithm has demonstrated impressive results in medical data feature selection, presenting a leap forward in the handling of high-dimensional datasets and streamlining data processing in healthcare settings. Looking ahead, there's a promising avenue for expanding the use of IBSA to tackle engineering challenges [104] and to refine machine learning methodologies [105], where its capabilities could lead to significant improvements in energy efficiency and parameter optimization. The insights gained from this study pave the way for future explorations that will unlock the untapped potentials of the BSA algorithm.
+尽管本章为IBSA在30维框架下的全局优化和特征选择方面的强大能力提供了充分证据，但其范围仍有局限。需要进一步研究更高维度空间（如50或100维），以更全面地评估IBSA的强大潜力。所提IBSA算法在医学数据特征选择中的应用展示了令人印象深刻的结果，为处理高维数据集和简化医疗场景中的数据处理提供了重要进步。展望未来，将IBSA扩展到解决工程挑战\cite{ibsa_ref104}和优化机器学习方法\cite{ibsa_ref105}是一个充满前景的方向，其能力可能在能源效率和参数优化方面带来显著改进。本研究的发现为未来的探索铺平了道路，将释放BSA算法尚未开发的潜力。
 

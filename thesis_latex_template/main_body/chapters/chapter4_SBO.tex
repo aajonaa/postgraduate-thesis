@@ -5,182 +5,183 @@
 \chapter{基于状态的优化算法}
 \label{chap:sbo}
 
-\section{  Introduction}
+\section{引言}
 
-The growing complexity of modern optimization problems demands far more than what traditional deterministic methods can deliver [1]. While these conventional approaches are effective for simple, linear problems, they often struggle significantly with the high-dimensional, dynamic, and frequently chaotic nature of real-world challenges. [2]. Such problems routinely involve vast search spaces, conflicting objectives, and relentlessly evolving constraints [3, 4]. This significant deficiency has driven a paradigm shift toward meta-heuristic algorithms (MAs), which offer adaptive, stochastic, and inherently resilient solutions compared to rigid deterministic techniques. [5, 6]. Unlike their predecessors, MAs thrive in uncertainty, consistently delivering near-optimal solutions where traditional methods falter. Today, their adoption is not just beneficial but crucial for tackling the daunting complexities of global optimization. 
+现代优化问题日益增长的复杂性对传统确定性方法提出了远超其能力范围的挑战\cite{sbo_ref1}。虽然这些传统方法对于简单的线性问题是有效的，但它们在面对现实世界挑战中高维、动态且经常混沌的特性时往往显得力不从心\cite{sbo_ref2}。此类问题通常涉及庞大的搜索空间、相互冲突的目标以及不断演变的约束条件\cite{sbo_ref3,sbo_ref4}。这一重大缺陷推动了向元启发式算法（Meta-heuristic Algorithms，MAs）的范式转变，与僵化的确定性技术相比，元启发式算法提供了自适应、随机且具有内在鲁棒性的解决方案\cite{sbo_ref5,sbo_ref6}。与其前身不同，MAs在不确定性环境中表现出色，能够在传统方法失效的情况下持续提供近最优解。如今，采用元启发式算法不仅是有益的，而且对于应对全局优化的复杂性至关重要。
 
 \noindent 
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter4/fig01_classification_of_MAs.png}
-  \caption{Four types of MAs.}
+  \bicaption{四类元启发式算法}{Four types of MAs.}
   \label{fig:sbo_classification_of_MAs}
 \end{figure}
 
-Considering the critical role of MAs in addressing modern optimization challenges, it is essential to explore their diverse forms, each employing unique, nature-inspired strategies to navigate complex problem landscapes. While MAs offer significant adaptability and robustness, they are commonly constrained by a substantial need for intricate parameter tuning. This requirement hinders scalability and real-world deployment, where optimal configurations are rarely static. Regardless of whether they are Evolutionary Algorithms (EAs) mimicking natural selection, Swarm Intelligence (SI) models replicating collective behavior, or even physics- and human-inspired heuristics, all these approaches face this fundamental constraint, thus raising questions about their practicality in dynamic environments.
+鉴于MAs在应对现代优化挑战中的关键作用，有必要探索其多样化的形式，每种形式都采用独特的自然启发策略来应对复杂的问题空间。虽然MAs具有显著的适应性和鲁棒性，但它们通常受到复杂参数调整需求的制约。这一要求阻碍了可扩展性和实际部署，因为最优配置很少是静态的。无论是模拟自然选择的进化算法（Evolutionary Algorithms，EAs）、复制集体行为的群体智能（Swarm Intelligence，SI）模型，还是物理和人类行为启发的启发式算法，所有这些方法都面临这一基本约束，因此对其在动态环境中的实用性提出了质疑。
 
-Fig. 1 shows these four categories, each having distinct advantages and challenges, further showing the need for better optimization methods. In exploring this topic further, we will focus on how parameter tuning affects the balance between exploration and exploitation, aiming to enhance the effectiveness of MAs across diverse complex optimization scenarios. EAs play a key role within the range of MAs, using the principles of natural selection and survival of the fittest. Starting with the Genetic Algorithm (GA) [7], which copies genetic inheritance and mutation processes, the field of EAs has grown to include variations such as Genetic Programming (GP) [8], Evolutionary Strategies (ES) [9], and Differential Evolution (DE) [10]. EAs are known for their broad uses and ability to find global optima via an repeating selection process, crossover, and mutation [11]. Despite their strengths, EAs face a big problem: they are very sensitive to the tuning of settings, namely the mutation rate and crossover probability. The need to carefully adjust these parameters to suit different optimization environments has led to research into creating adaptive and self-tuning evolutionary algorithms [12, 13]. This focus seeks to make easier parameter calibration while also improving the flexibility of EAs in addressing a wide range of optimization problems.
+图1展示了这四个类别，每个类别都具有不同的优势和挑战，进一步说明了需要更好的优化方法。在进一步探讨这一主题时，本文将重点关注参数调整如何影响探索与开发之间的平衡，旨在增强MAs在各种复杂优化场景中的有效性。EAs在MAs的范围内发挥着关键作用，利用自然选择和适者生存的原理。从模仿遗传继承和突变过程的遗传算法（Genetic Algorithm，GA）\cite{sbo_ref7}开始，EAs领域已发展到包括遗传规划（Genetic Programming，GP）\cite{sbo_ref8}、进化策略（Evolutionary Strategies，ES）\cite{sbo_ref9}和差分进化（Differential Evolution，DE）\cite{sbo_ref10}等变体。EAs以其广泛的应用和通过迭代选择、交叉和变异过程寻找全局最优的能力而闻名\cite{sbo_ref11}。尽管具有这些优势，EAs面临一个重大问题：它们对参数设置（即突变率和交叉概率）的调整非常敏感。需要仔细调整这些参数以适应不同的优化环境，这促使研究人员致力于创建自适应和自调整的进化算法\cite{sbo_ref12,sbo_ref13}。这一研究方向旨在简化参数校准，同时提高EAs在解决各种优化问题时的灵活性。
 
-SI algorithms use ideas from the collective and self-organizing behaviors observed among social organisms. Methods such as Particle Swarm Optimization (PSO) [14], Ant Colony Optimization (ACO) [15], and Grey Wolf Optimization (GWO) [16] show these principles. PSO models the dynamic interaction seen in bird flocking. On the other hand, ACO copies the path-finding behavior of ants, while GWO simulates the collaborative hunting tactics of grey wolves. In the GWO method, each wolf within the virtual pack updates its position based on the influence of the alpha, beta, and delta wolves, which stand for the first, second, and third best solutions obtained so far, respectively. Through repeated steps, the wolf pack moves closer to a potential optimum, showing how well it works of the GWO as an optimization technique [17]. Swarm intelligence algorithms operate on the principle that a population of simple agents, following basic interaction rules, can together show complex and globally effective behaviors capable of addressing complicated optimization problems [18]. By emulating social behaviors, these algorithms efficiently explore the problem space through a basis in cooperation and information exchange among all search agents. Despite their built-in flexibility and robust parallel search capabilities, these algorithms face challenges related to parameter configuration. Key settings, including the number of agents involved, the interaction rules, and the convergence criteria, play a key part in determining the algorithms' performance and convergence rates [19].
+SI算法借鉴了社会性生物中观察到的集体和自组织行为的思想。粒子群优化（Particle Swarm Optimization，PSO）\cite{sbo_ref14}、蚁群优化（Ant Colony Optimization，ACO）\cite{sbo_ref15}和灰狼优化（Grey Wolf Optimization，GWO）\cite{sbo_ref16}等方法体现了这些原理。PSO模拟了鸟群中观察到的动态交互。另一方面，ACO模仿了蚂蚁的路径寻找行为，而GWO则模拟了灰狼的协作狩猎策略。在GWO方法中，虚拟狼群中的每只狼根据alpha、beta和delta狼的影响更新其位置，这三只狼分别代表迄今为止获得的第一、第二和第三最优解。通过重复迭代，狼群逐渐接近潜在的最优解，展示了GWO作为优化技术的有效性\cite{sbo_ref17}。群体智能算法基于这样一个原理运行：一群遵循基本交互规则的简单代理能够共同展现出复杂且全局有效的行为，从而解决复杂的优化问题\cite{sbo_ref18}。通过模拟社会行为，这些算法通过所有搜索代理之间的合作和信息交换，高效地探索问题空间。尽管这些算法具有内在的灵活性和强大的并行搜索能力，但它们面临与参数配置相关的挑战。关键参数设置，包括参与代理的数量、交互规则和收敛准则，在决定算法性能和收敛速率方面起着关键作用\cite{sbo_ref19}。
 
-Physics/chemistry-inspired methods present a different way to optimization, using the processes and laws of physics and chemistry. This category includes algorithms like Simulated Annealing (SA) [20] and Gravitational Search Algorithm (GSA) [21]. The former is influenced by metallurgical annealing, and the latter based on the principles of gravity and mass interaction. Further, methods such as the Chemical Reaction Optimization (CRO) [22] simulate molecular interactions and energetic exchanges observed in chemical reactions. These algorithms are particularly commended for their ability to evade local optimum [23], achieved through emulating the adaptive and stochastic behaviors present in physical and chemical systems. Despite the innovative exploration strategies introduced by these algorithms, they continue to face challenges related to parameter selection [24], a key issue that influences the balance between exploration and exploitation, ultimately affecting their ability to identify good solutions.
+物理/化学启发方法提供了一种不同的优化途径，利用物理和化学的过程与定律。该类别包括模拟退火（Simulated Annealing，SA）\cite{sbo_ref20}和引力搜索算法（Gravitational Search Algorithm，GSA）\cite{sbo_ref21}等算法。前者受冶金退火启发，后者基于引力和质量相互作用原理。此外，化学反应优化（Chemical Reaction Optimization，CRO）\cite{sbo_ref22}等方法模拟了化学反应中观察到的分子相互作用和能量交换。这些算法因其能够逃避局部最优而受到特别赞誉\cite{sbo_ref23}，这是通过模拟物理和化学系统中存在的自适应和随机行为来实现的。尽管这些算法引入了创新的探索策略，但它们仍然面临与参数选择相关的挑战\cite{sbo_ref24}，这是一个影响探索与开发之间平衡的关键问题，最终影响其找到良好解的能力。
 
-Algorithms based on human behavior demonstrate how incorporating cognitive processes and societal interactions into meta-heuristic optimization frameworks. For instance, algorithms like Teaching-Learning-Based Optimization (TLBO) [25] model the dynamics of educational environments, the Cultural Algorithm (CA) [26] mirrors the evolution and transmission of cultural knowledge, and Brain Storm Optimization (BSO) [27] simulates the collective problem-solving power of brainstorming. These algorithms excel due to copying human-centric problem-solving tactics, which include learning from experience, utilizing memory, and the small effect of social interaction [28]. However, the performance of these algorithms relies heavily on how accurately they simulate complex human behaviors. A key issue lies in the adjustment of parameters governing individual learning and social dynamics, which can greatly affect the algorithms' skill in exploring the search spaces.
+基于人类行为的算法展示了如何将认知过程和社会交互融入元启发式优化框架。例如，教学优化算法（Teaching-Learning-Based Optimization，TLBO）\cite{sbo_ref25}模拟教育环境的动态，文化算法（Cultural Algorithm，CA）\cite{sbo_ref26}反映文化知识的演化和传递，头脑风暴优化（Brain Storm Optimization，BSO）\cite{sbo_ref27}模拟头脑风暴的集体问题解决能力。这些算法因模仿以人为中心的问题解决策略而表现出色，包括从经验中学习、利用记忆以及社会交互的微妙影响\cite{sbo_ref28}。然而，这些算法的性能在很大程度上取决于它们模拟复杂人类行为的准确程度。一个关键问题在于调整控制个体学习和社会动态的参数，这可能极大地影响算法探索搜索空间的能力。
 
-In our effort to improve the meta-heuristic methods, we propose the Status-based Optimization (SBO), an efficient algorithm that models the details of human status progression. The basis of SBO is deeply based on the seemingly invisible yet strong networks of social upward mobility, wherein individuals actively seek connections with and learn from their more skilled peers. The design of SBO shows this natural tendency to aspire towards excellence and gain useful knowledge and resources for self-improvement [29].
+为了改进元启发式方法，本文提出了基于状态的优化算法（Status-based Optimization，SBO），这是一种模拟人类社会地位提升细节的高效算法。SBO的基础深植于看似无形却强大的社会向上流动网络中，其中个体积极寻求与更优秀同伴的联系并向其学习。SBO的设计体现了这种追求卓越、获取有用知识和资源以实现自我提升的自然倾向\cite{sbo_ref29}。
 
-Similarly, climbing social ladders can lead to personal growth and enrichment, the SBO algorithm copies this progression within the optimization field. It shows the exploration phase as an individual's effort to enter a higher-status circle, which, in algorithmic terms, is like searching the most promising areas of the solution space. Following this, the exploitation phase is seen as the individual using the opportunities and connections gained within this advanced circle, like refining the best solutions for optimal performance. Therefore, the SBO algorithm makes a direct comparison between the continuous human effort to improve through engagement aimed at status enhancement and the systematic optimization method. It does this through its great flexibility and carefully designed framework. The main findings of this paper can be summed up as follows:
+类似于攀登社会阶梯可以带来个人成长和丰富，SBO算法在优化领域模拟了这一进步过程。它将探索阶段视为个体努力进入更高地位圈子的过程，在算法术语中，这相当于搜索解空间中最有前景的区域。随后，开发阶段被视为个体利用在这个高级圈子中获得的机会和联系，类似于对最优解进行精炼以获得最佳性能。因此，SBO算法通过其出色的灵活性和精心设计的框架，将人类通过旨在提升地位的互动来持续改进的努力与系统化的优化方法进行了直接类比。本文的主要贡献总结如下：
 
 \begin{enumerate}
-\item  The introduction of the SBO, a new MA that copies human status-seeking behaviors and interactions, provides a new way to heuristic optimization.
+\item  本文提出了SBO，一种模拟人类寻求地位行为和交互的新型MA，为启发式优化提供了新的途径。
 
-\item  Showing strong ability in global optimization, the performance of the SBO algorithm is validated through thorough tests using the IEEE CEC 2017 test suite.
+\item  SBO算法展现出强大的全局优化能力，其性能通过IEEE CEC 2017测试套件的全面测试得到验证。
 
-\item  The reliability of the SBO algorithm's performance is validated through detailed stats tests, including the Wilcoxon signed-rank test and the Friedman test. These tests confirm the statistical significance and reliability of its optimization results.
+\item  SBO算法性能的可靠性通过详细的统计检验得到验证，包括Wilcoxon符号秩检验和Friedman检验。这些检验证实了其优化结果的统计显著性和可靠性。
 
-\item  The usefulness and effectiveness of the SBO algorithm are further demonstrated in high-dimensional feature selection and multi-threshold image segmentation tasks. These results provide evidence of its potential flexibility and indicate its usefulness across various engineering domains.
+\item  SBO算法的实用性和有效性在高维特征选择和多阈值图像分割任务中得到进一步验证。这些结果证明了其潜在的灵活性，表明其在各种工程领域的适用性。
 \end{enumerate}
 
-The structure of this paper is as follows: Section 2 reviews human behavior-inspired meta-heuristic algorithms, setting the base for the detailed look of the SBO in Section 3, which studies its conceptual basis and underlying mathematical model. Section 4 fully tests the SBO's performance against established benchmarks, while Section 5 demonstrates its use to real-world feature selection and multi-threshold image segmentation tasks. Finally, Section 6 summarizes main results and discusses potential future research directions.
+本文的结构安排如下：第2节回顾了人类行为启发的元启发式算法，为第3节中SBO的详细阐述奠定基础，该节研究了其概念基础和底层数学模型。第4节对SBO的性能进行了全面的基准测试，而第5节展示了其在现实世界特征选择和多阈值图像分割任务中的应用。最后，第6节总结了主要结果并讨论了潜在的未来研究方向。
 
 
-\section{ Literature Review}
+\section{文献综述}
 
-Optimization algorithms are divided into two main types: heuristic and meta-heuristic methods. Heuristic algorithms are specialized approaches that use pre-set rules or expert knowledge to find good-enough solutions quickly, though they cannot promise the best possible answer. They're custom-built for specific problems, like greedy algorithms and local search methods.
+优化算法分为两大类型：启发式方法和元启发式方法。启发式算法是利用预设规则或专家知识快速找到足够好的解的专用方法，但它们无法保证找到最优解。它们是针对特定问题定制的，如贪心算法和局部搜索方法。
 
-On the other hand, MAs are flexible problem-solvers that manage the search process to balance wide-ranging exploration and focused improvement. Unlike heuristics, meta-heuristics can tackle many different problems without major changes. They often use random elements and self-adjusting methods to escape local optima, making them better for tough, high-dimensional problems. It's worth noting that many meta-heuristic algorithms include heuristics as part of their solution-improving process, showing how the two types connect.
+另一方面，MAs是灵活的问题求解器，管理搜索过程以平衡广泛的探索和集中的改进。与启发式方法不同，元启发式方法无需重大修改即可处理许多不同的问题。它们通常使用随机元素和自调整方法来逃离局部最优，使其更适合处理困难的高维问题。值得注意的是，许多元启发式算法将启发式方法作为其解改进过程的一部分，展示了两种类型之间的联系。
 
-Our research places the new SBO algorithm in the meta-heuristic category, as it uses adaptive learning inspired by how people seek higher social status to improve search efficiency. Different from traditional heuristic methods that follow fixed rules, SBO changes its search strategy on the fly by sharing information and evaluating resources, boosting both exploration and exploitation. Because human behavior-inspired algorithms have made such an impact in research, we focus our review on key examples in this field. Particularly, TLBO, BSO, Political Optimization (PO), and Human Mental Search (HMS) stand out as strong examples of human-like problem-solving. Studying these not only helps position SBO within existing research but also shows how human-inspired strategies have developed in optimization field.
+本文将新提出的SBO算法归入元启发式类别，因为它利用受人们追求更高社会地位启发的自适应学习来提高搜索效率。与遵循固定规则的传统启发式方法不同，SBO通过信息共享和资源评估动态调整其搜索策略，增强了探索和开发能力。由于人类行为启发算法在研究中产生了重要影响，本文将重点回顾该领域的关键示例。特别是，TLBO、BSO、政治优化（Political Optimization，PO）和人类心智搜索（Human Mental Search，HMS）作为类人问题求解的典型代表脱颖而出。研究这些算法不仅有助于在现有研究中定位SBO，还展示了人类启发策略在优化领域的发展历程。
 
-The TLBO [30] algorithm is one of the most classical human-inspired meta-heuristics, simulating a classroom's teaching--learning process without requiring algorithm-specific parameters. Its simplicity has led to various adaptations: for instance, the Multi-Objective TLBO (MOTLBO) [31] optimizes structural design by efficiently navigating trade-offs between weight and material strength, and the Improved TLBO (ITLBO) [32] has been successfully applied to electrical distribution systems. Further, the Self-adaptive Hybrid Self-learning based TLBO (SHSLTLBO) [33] enhances the basic algorithm by introducing adaptive learning strategies to focus the search on promising regions.
+TLBO\cite{sbo_ref30}算法是最经典的人类启发元启发式算法之一，模拟课堂的教学-学习过程，不需要算法特定的参数。其简单性催生了各种改进：例如，多目标TLBO（MOTLBO）\cite{sbo_ref31}通过有效地平衡重量和材料强度之间的权衡来优化结构设计；改进的TLBO（ITLBO）\cite{sbo_ref32}已成功应用于配电系统。此外，自适应混合自学习TLBO（SHSLTLBO）\cite{sbo_ref33}通过引入自适应学习策略来增强基本算法，将搜索聚焦于有前景的区域。
 
-The Brain Storm Optimization (BSO) algorithm [34] mimics human brainstorming, generating diverse solutions through iterative idea exchange. Enhancements such as the Optima-Identified Framework amalgamated with BSO (OIF-BSO) [35] improve search direction via an optima-identification mechanism, while the Advanced Grid-based BSO (AGBSO) [36] employs alternative search patterns and grid-based operators to navigate uncertain landscapes better.
+BSO算法\cite{sbo_ref34}模拟人类的头脑风暴过程，通过迭代的想法交流产生多样化的解。增强版本如最优识别框架与BSO的融合（OIF-BSO）\cite{sbo_ref35}通过最优识别机制改进搜索方向，而高级基于网格的BSO（AGBSO）\cite{sbo_ref36}则采用替代搜索模式和基于网格的算子来更好地应对不确定环境。
 
-The Political Optimization (PO) [37] draws from the complexities of human political systems, using a multi-agent framework where competitive and cooperative interactions drive the search for optimal solutions. Its effectiveness is further improved in variants like the Improved PO (IPO) [38], which adds sophisticated political strategies to boost performances, and the Quantum Nelder-Mead PO (QNMPO) [39], which hybridizes quantum principles with political optimization to enhance performance in energy systems.
+PO\cite{sbo_ref37}借鉴了人类政治系统的复杂性，使用多代理框架，其中竞争和合作交互驱动最优解的搜索。其有效性在改进的PO（IPO）\cite{sbo_ref38}等变体中得到进一步提升，该变体添加了精密的政治策略以提高性能；量子Nelder-Mead PO（QNMPO）\cite{sbo_ref39}则将量子原理与政治优化相结合以增强能源系统中的性能。
 
-The Human Mental Search (HMS) algorithm [40] captures cognitive and decision-making processes inherent to human problem solving. The Global-Best Guided HMS with Random Clustering Strategy (GBG-HMS-RCS) [41] integrates global-best guidance with stochastic clustering to emulate human attention and awareness. Further, the Multi-Cluster Selection HMS (MCS-HMS) [42] forms multiple cognitive clusters to identify promising solution regions, a strategy that proves effective in complex scenarios such as supply chain management and transport logistics.
+HMS算法\cite{sbo_ref40}捕获了人类问题解决中固有的认知和决策过程。全局最优引导HMS与随机聚类策略（GBG-HMS-RCS）\cite{sbo_ref41}将全局最优引导与随机聚类相结合，模拟人类的注意力和意识。此外，多聚类选择HMS（MCS-HMS）\cite{sbo_ref42}形成多个认知集群以识别有前景的解区域，这一策略在供应链管理和运输物流等复杂场景中证明是有效的。
 
-To summarize, this section has~carefully examined~an array of~important algorithms inspired by~different aspects~of human~behavior. The~teaching-learning~dynamics~shown~in TLBO, the~team-based creativity~in BSO, the~political strategies~in PO, and the~thought processes~in HMS all~turn human behavior~into computational~tools. While these human-inspired algorithms have~worked well~for complex problems, they also have~some weaknesses:
+综上所述，本节仔细考察了受人类行为不同方面启发的一系列重要算法。TLBO中展示的教学-学习动态、BSO中的团队创造力、PO中的政治策略以及HMS中的思维过程，都将人类行为转化为计算工具。虽然这些人类启发算法在处理复杂问题方面表现良好，但它们也存在一些弱点：
 
 \begin{enumerate}
-\item  TLBO~does not need parameters~but~can be slow to converge
+\item  TLBO不需要参数调整，但收敛速度可能较慢
 
-\item  BSO~uses creative search methods~but~may converge too early
+\item  BSO使用创造性搜索方法，但可能过早收敛
 
-\item  PO~can require heavy computation
+\item  PO可能需要大量计算
 
-\item  HMS~often needs careful adjustment~for best results
+\item  HMS通常需要仔细调整才能获得最佳结果
 \end{enumerate}
 
-\noindent Compared to these, the new SBO algorithm offers~key improvements:
+\noindent 与这些算法相比，新提出的SBO算法提供了以下关键改进：
 
 \begin{enumerate}
-\item  Fewer settings to adjust, making it~easier to use
+\item  需要调整的参数更少，使用更加方便
 
-\item  Better balance~between~wide searching~and~local refining, thanks to its~social learning approach
+\item  得益于其社会学习方法，在广泛搜索和局部精炼之间取得了更好的平衡
 
-\item  Faster runtimes, as shown in our tests (Section 4.4), where it~consistently beat~other methods
+\item  运行时间更快，如本文测试（第4.4节）所示，SBO在运行效率上始终优于其他方法
 \end{enumerate}
 
-\noindent These~benefits~make SBO~more useful~for~real-world~and~complex~optimization problems.
+\noindent 这些优势使SBO更适用于现实世界的复杂优化问题。
 
-We developed SBO to combine the best features of these human-inspired approaches while overcoming their limitations. In the coming sections, we'll explain: What inspired SBO, how it works mathematically, and where it can be applied. This will show how SBO fits with other meta-heuristic methods and solves the problems found in current approaches.
-
-
-\section{ Proposed Status-based Optimization}
-
-This section focuses on the SBO algorithm's exposition, detailing its mathematical modeling and computational complexity.
+本文开发SBO的目的是结合这些人类启发方法的最佳特性，同时克服其局限性。在接下来的章节中，本文将阐述：SBO的灵感来源、其数学工作原理以及应用领域。这将展示SBO如何与其他元启发式方法相匹配，并解决现有方法中发现的问题。
 
 
-\subsection{ SBO Inspiration}
+\section{所提基于状态的优化算法}
 
-The SBO algorithm models humanity's essential drive to climb social ladders---a behavior rooted in our need for self-improvement [43]. This ambition mirrors optimization's core goal: iterative refinement. Like people gaining advantages by connecting with successful peers  [44], SBO agents learn from high-performing solutions to enhance search efficiency.
-
-\noindent Research in cognitive science and behavioral economics confirms that learning from high-status individuals improves problem-solving in complex scenarios. SBO translates this into computational terms, creating a collective intelligence where:
-
-\begin{enumerate}
-\item  Agents share knowledge (like human networks)
-
-\item  Diverse strategies emerge naturally
-
-\item  The system balances exploration and exploitation
-\end{enumerate}
+本节重点介绍SBO算法的阐述，详细说明其数学建模和计算复杂度。
 
 
+\subsection{SBO的灵感来源}
 
-In short, we can say this is how SBO works: 
+SBO算法模拟了人类攀登社会阶梯的本质驱动力——一种根植于自我提升需求的行为\cite{sbo_ref43}。这种追求反映了优化的核心目标：迭代精炼。就像人们通过与成功同伴建立联系来获得优势一样\cite{sbo_ref44}，SBO代理从高性能解中学习以提高搜索效率。
+
+\noindent 认知科学和行为经济学的研究证实，向高地位个体学习可以改善复杂场景中的问题求解。SBO将此转化为计算术语，创建了一种集体智能，其中：
 
 \begin{enumerate}
-\item  \textbf{Elite Engagement (Exploration)}
+\item  代理共享知识（类似人类网络）
 
-\begin{enumerate}
-\item  Agents~follow top performers~to~discover promising regions
+\item  多样化策略自然涌现
 
-\item  Analogous to~seeking mentors~in social hierarchies
-\end{enumerate}
-
-\item  \textbf{Resource Phases (Exploitation)}
-
-\begin{enumerate}
-\item  \textbf{Acquisition}: Gather information from elites
-
-\item  \textbf{Evaluation}: Refine solutions~like professionals improving skills
-\end{enumerate}
+\item  系统平衡探索与开发
 \end{enumerate}
 
 
 
-Several optimization algorithms inspired by human status-driven social behaviors and educational interactions have successfully solved complex problems. The Human Behavior-Based Optimization (HBBO) algorithm [45] mimics collective human behaviors such as cooperation, competition, imitation, and social learning. HBBO balances social learning with individual creativity through mechanisms like imitation, innovation, and collaboration, making it suitable for dynamic or multi-objective problems.
-
-Similarly, the Educational Competition Optimizer (ECO) [46] models competitive learning environments where solutions compete and learn from top performers, guided by the best solution, akin to a teacher. This approach promotes rapid convergence and adaptability to constrained optimization scenarios, showcasing its efficiency in applications like academic performance modeling and game theory.
-
-
-
-By formalizing status-seeking behaviors, SBO outperforms predecessors in:
+简而言之，SBO的工作方式如下：
 
 \begin{enumerate}
-\item  Balancing global/local search
+\item  \textbf{精英接触（探索）}
 
-\item  Reducing manual parameter tuning
+\begin{enumerate}
+\item  代理跟随最优个体以发现有前景的区域
 
-\item  Scaling to high-dimensional problems
+\item  类似于在社会层级中寻找导师
+\end{enumerate}
+
+\item  \textbf{资源阶段（开发）}
+
+\begin{enumerate}
+\item  \textbf{获取}：从精英中收集信息
+
+\item  \textbf{评估}：像专业人员提升技能一样精炼解
+\end{enumerate}
 \end{enumerate}
 
 
-\subsection{ Mathematical Modeling of SBO}
 
-Drawing inspiration from~human status-seeking behavior, the SBO algorithm~frames~optimization as~both~a personal and social development process. It begins by generating~two diverse populations of agents---representing individuals from different social backgrounds---who then evolve through~a process~modeled after~seeking mentorship from society's elite.
+已有多种受人类地位驱动的社会行为和教育交互启发的优化算法成功解决了复杂问题。基于人类行为的优化（Human Behavior-Based Optimization，HBBO）算法\cite{sbo_ref45}模拟了合作、竞争、模仿和社会学习等集体人类行为。HBBO通过模仿、创新和协作等机制平衡社会学习与个体创造力，使其适用于动态或多目标问题。
 
-Key Phases are as follows:
+类似地，教育竞争优化器（Educational Competition Optimizer，ECO）\cite{sbo_ref46}模拟了竞争性学习环境，其中解相互竞争并向最优个体学习，由最优解引导，类似于教师。这种方法促进了快速收敛和对约束优化场景的适应性，展示了其在学术成绩建模和博弈论等应用中的效率。
 
-\begin{enumerate}
-\item  \textbf{Elite Pursuit}: Agents~identify and move toward~high-performing solutions (``mentors'')
 
-\item  \textbf{Resource Acquisition}: They~gain~valuable information (social capital)
 
-\item  \textbf{Strategic Integration}: Agents~critically evaluate and adopt~only the most beneficial improvements
-\end{enumerate}
-
-This mirrors how people:
+通过形式化寻求地位的行为，SBO在以下方面优于前述算法：
 
 \begin{enumerate}
-\item  \textbf{Advance socially}~by learning from successful peers
+\item  平衡全局/局部搜索
 
-\item  \textbf{Selectively adopt}~behaviors that enhance their status
+\item  减少手动参数调整
 
-\item  \textbf{Systematically climb}~hierarchies through accumulated advantages
+\item  可扩展至高维问题
 \end{enumerate}
 
-The algorithm culminates by~consolidating these improvements~to deliver~an optimal solution---mathematically representing~the pinnacle of status achievement. (Full mathematical details follow in later sections.)
+
+\subsection{SBO的数学建模}
+
+受人类寻求地位行为的启发，SBO算法将优化框架化为个人和社会发展过程。它首先生成两个多样化的代理种群——代表来自不同社会背景的个体——然后通过模仿向社会精英寻求指导的过程来进化。
+
+关键阶段如下：
+
+\begin{enumerate}
+\item  \textbf{精英追求}：代理识别并向高性能解（"导师"）移动
+
+\item  \textbf{资源获取}：获得有价值的信息（社会资本）
+
+\item  \textbf{策略整合}：代理批判性地评估并仅采用最有利的改进
+\end{enumerate}
+
+这反映了人们如何：
+
+\begin{enumerate}
+\item  通过向成功同伴学习来\textbf{社会进步}
+
+\item  \textbf{选择性采纳}能提升自身地位的行为
+
+\item  通过积累优势来\textbf{系统性攀升}层级
+\end{enumerate}
+
+算法最终通过巩固这些改进来提供最优解——在数学上代表地位成就的顶峰。（完整的数学细节将在后续部分展开。）
 
 \noindent 
-\subsubsection{3.2.1 Initialization}
+\subsubsection{3.2.1 初始化}
 
-The Initialization phase lays the foundation of the SBO algorithm by generating two populations, $X^1$ and $X^2$. In this model, each index $i$ corresponds to a unique family, where the same-indexed individuals across $X^1$ and $X^2$ represent family members with distinct knowledge levels and social standings. This dual-population design ensures that each family is represented by at least two individuals, thereby capturing intra-family diversity and enabling dynamic updating of the elite member as the algorithm iterates.
+初始化阶段通过生成两个种群$X^1$和$X^2$奠定了SBO算法的基础。在该模型中，每个索引$i$对应一个唯一的家庭，其中$X^1$和$X^2$中相同索引的个体代表具有不同知识水平和社会地位的家庭成员。这种双种群设计确保每个家庭至少由两个个体代表，从而捕获家庭内部的多样性，并在算法迭代时能够动态更新精英成员。
 
-\begin{tabular}{|p{0.4in}|p{3.1in}|p{0.4in}|} \hline 
- & $X^1,\ X^2={\left[ \begin{array}{c}
+\begin{equation}
+\label{sbo_eq_1}
+X^1,\ X^2={\left[ \begin{array}{c}
 x_1 \\ 
 \vdots  \\ 
 x_2 \\ 
@@ -192,206 +193,212 @@ x_{1,1} & \cdots  & x_{1,j} & \cdots  & x_{1,N} \\
 x_{i,1} & \cdots  & x_{i,j} & \cdots  & x_{i,D} \\ 
 \vdots  & \ddots  & \vdots  & \ddots  & \vdots  \\ 
 x_{N,1} & \cdots  & x_{N,j} & \cdots  & x_{N,D} \end{array}
-\right]}_{N\times D}$ & $\left(\mathrm{1}\right)$ \\ \hline 
-\end{tabular}
+\right]}_{N\times D}
+\end{equation}
 
 
 
-Each individual's state is defined by Eq. \left(\mathrm{2}\right):
+每个个体的状态由式~\eqref{sbo_eq_2}定义：
 
-\begin{tabular}{|p{0.4in}|p{3.1in}|p{0.4in}|} \hline 
- & $x_{i,j}=U\left(lb_j,\ ub_j\right)$ & $\left(\mathrm{2}\right)$ \\ \hline 
-\end{tabular}
+\begin{equation}
+\label{sbo_eq_2}
+x_{i,j}=U\left(lb_j,\ ub_j\right)
+\end{equation}
 
-where $x_{i,j}$ is the $jth$ decision variable of the $ith$ individual, $D$ is the number of decision variables, and $lb_j$ and $ub_j$ are the lower and upper bounds, respectively. This uniform initialization across the $N\times D$ matrices for both populations establish the problem's dimensional nature and ensures a diverse starting point.
+其中$x_{i,j}$是第$ith$个个体的第$jth$个决策变量，$D$是决策变量的数量，$lb_j$和$ub_j$分别是下界和上界。两个种群在$N\times D$矩阵上的均匀初始化建立了问题的维度特性，并确保了多样化的起始点。
 
-After initialization, a selection process identifies the elite member for each family to form the elite population $X^e$. Specifically, for the $ith$ family,
+初始化后，通过选择过程识别每个家庭的精英成员，以形成精英种群$X^e$。具体而言，对于第$ith$个家庭，
 
-\begin{tabular}{|p{0.4in}|p{3.1in}|p{0.4in}|} \hline 
- & $ \begin{array}{c}
+\begin{equation}
+\label{sbo_eq_3}
+\begin{array}{c}
 x^e_i=\left\{ \begin{array}{c}
 x^1_i\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ fobj\left(x^1_i\right)<fobj\left(x^2_i\right)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \\ 
 x^2_i\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ otherwise\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \end{array}
 \right.\# \end{array}
-$ & $\left(\mathrm{3}\right)$ \\ \hline 
-\end{tabular}
+\end{equation}
 
-where $fobj\left(\cdot \right)$ is the objective function.
+其中$fobj\left(\cdot \right)$是目标函数。
 
-This dual-population approach does more than just find top performers in each group---it mirrors real-world social mobility, where progress depends on both individual merit and strategic connections. The interactions between regular individuals $x_i$ and their elite counterparts $x^e_i$ simulate real-world status-oriented social networks, illustrating how elite figures facilitate progress and resource sharing within and across family units.
+这种双种群方法不仅仅是在每个群体中找到最优表现者——它反映了现实世界的社会流动性，其中进步取决于个人能力和战略联系。普通个体$x_i$与其精英对应体$x^e_i$之间的交互模拟了现实世界中以地位为导向的社会网络，说明了精英人物如何促进家庭单元内部和之间的进步与资源共享。
 
 \noindent 
-\subsubsection{3.2.2 Elite Engagement}
+\subsubsection{3.2.2 精英接触}
 
-In the Elite Engagement phase, the SBO algorithm replicates the complex dynamics of human social status structures to enhance the search for optimal solutions. This phase models individuals seeking guidance from high-status mentors---elite agents in the algorithm---to expedite their progress. Unlike isolated family frameworks, this progression extends beyond self-contained groups by establishing interconnections between different social units, creating a more adaptive and robust search mechanism.
+在精英接触阶段，SBO算法复制了人类社会地位结构的复杂动态，以增强对最优解的搜索。该阶段模拟了个体向高地位导师——算法中的精英代理——寻求指导以加速其进步的过程。与孤立的家庭框架不同，这种进步超越了自包含的群体，通过在不同社会单元之间建立互联来创建更具适应性和鲁棒性的搜索机制。
 
-To emulate this behavior, the SBO algorithm uses the Roulette Wheel selection method [47] to choose an individual from a subset of the population. This subset represents the most successful members across different families. This probabilistic selection process ensures that individuals do not solely rely on a single dominant peer but instead consider multiple influential agents, reflecting the unpredictable yet strategic nature of human networking.
+为模拟这一行为，SBO算法使用轮盘赌选择方法\cite{sbo_ref47}从种群子集中选择一个个体。该子集代表不同家庭中最成功的成员。这种概率选择过程确保个体不仅仅依赖单一的主导同伴，而是考虑多个有影响力的代理，反映了人类社交网络中不可预测但具有战略性的特征。
 
-The selected individual, denoted as $x^e_r$, and the best individual in the population, $x_b$, together define a high-status circle---a metaphorical yet computationally significant region within the solution space that agents aim to integrate into. This dynamic representation of social mobility ensures that individuals systematically transition towards more promising areas of the search space.
+被选中的个体，记为$x^e_r$，与种群中的最优个体$x_b$共同定义了一个高地位圈子——解空间中一个比喻性的但具有计算意义的区域，代理们旨在融入其中。这种社会流动性的动态表示确保个体系统性地向搜索空间中更有前景的区域过渡。
 
-To mathematically articulate this behavior, Eq. \left(\mathrm{4}\right) and Fig. 2 delineate the generation of individuals $x_i$ within the high-status circle---defining the area of promise within the solution space. This high-status circle represents an adaptive region where individuals navigate toward better solutions, balancing both structured progression and exploratory randomness. The movement of an individual is governed by:
+为了在数学上表达这一行为，式~\eqref{sbo_eq_4}和图2描述了高地位圈子内个体$x_i$的生成——定义了解空间中的有前景区域。这个高地位圈子代表一个自适应区域，个体在其中向更优解导航，平衡结构化进步和探索性随机性。个体的移动由以下公式控制：
 
-\begin{tabular}{|p{0.2in}|p{3.5in}|p{0.2in}|} \hline 
- & $x_{i'}=\left\{ \begin{array}{cc}
+\begin{equation}
+\label{sbo_eq_4}
+x_{i'}=\left\{ \begin{array}{cc}
 \left(1-w_1-w_2\right)\times x_i+w_1\times x^e_r+w_2\times x_b & if\ rand<w_3 \\ 
 w_4\times \left(\left(1-w_1-w_2\right)\times x_i+w_1\times x^e_r+w_2\times x_b\right) & Otherwise \end{array}
-\right.$ & $\left(\mathrm{4}\right)$ \\ \hline 
-\end{tabular}
+\right.
+\end{equation}
 
-where $x_i$ represents the $ith$ individual in the population, $x_{i'}$ denotes the next iteration, $x^e_r$ is an elite individual selected via the Roulette Wheel method from the $X^E$ population, and $x_b$ is the best solution found so far. The movement strategy in Eq. \left(\mathrm{4}\right) ensures that individuals are influenced by their own position, a high-performing peer, and the best-known solution.
+其中$x_i$代表种群中的第$ith$个个体，$x_{i'}$表示下一次迭代，$x^e_r$是通过轮盘赌方法从$X^E$种群中选择的精英个体，$x_b$是迄今为止找到的最优解。式~\eqref{sbo_eq_4}中的移动策略确保个体受到自身位置、高性能同伴和已知最优解的影响。
 
-The parameters $w_1$ and $w_2$ are generated using $randn$, providing normally distributed randomness to weight the contributions of $x_i$, $x^e_r$, and $x_b$. These values introduce stochasticity while ensuring the movement remains within a logical bound, fostering a controlled yet diverse search across the solution space.
+参数$w_1$和$w_2$使用$randn$生成，提供正态分布的随机性来加权$x_i$、$x^e_r$和$x_b$的贡献。这些值在确保移动保持在逻辑边界内的同时引入随机性，促进了在解空间中受控但多样化的搜索。
 
-In contrast, $w_3$ and $w_4$ are designed parameters that dynamically adjust the influence of the high-status circle on exploration and exploitation. $w_3$ is calculated as:
+相比之下，$w_3$和$w_4$是设计参数，动态调整高地位圈子对探索和开发的影响。$w_3$的计算方式为：
 
-\begin{tabular}{|p{0.4in}|p{3.1in}|p{0.4in}|} \hline 
- & $ \begin{array}{c}
+\begin{equation}
+\label{sbo_eq_5}
+\begin{array}{c}
 w_3={\mathrm{tanh} \left({\left(\frac{\sqrt{\left|MaxFEs-randn\times FEs\right|}}{i}\right)}^{\frac{FEs}{MaxFEs}}\right)\ }\# \end{array}
-$ & $\left(\mathrm{5}\right)$ \\ \hline 
-\end{tabular}
+\end{equation}
 
-where $MaxFEs$ denotes the maximum number of function evaluations, $FEs$ is the current number of evaluations, and $i$ is the index of the individual. This formulation allows $w_3$ to adapt as optimization progresses, determining whether the standard update rule or a more randomized search should be applied.
+其中$MaxFEs$表示最大函数评估次数，$FEs$是当前评估次数，$i$是个体的索引。这一公式允许$w_3$随着优化进程的推进而自适应调整，决定应用标准更新规则还是更随机化的搜索。
 
-If $rand\ge w_3$, the second formulation in Eq. \left(\mathrm{4}\right) is used, where $w_4$ serves as a scaling factor that generates a uniformly distributed random number between $[-w_3,w_3]$. This mechanism increases exploration diversity by enabling step-size adjustments, particularly when escaping local optima.
+如果$rand\ge w_3$，则使用式~\eqref{sbo_eq_4}中的第二种公式，其中$w_4$作为缩放因子，在$[-w_3,w_3]$之间生成均匀分布的随机数。这种机制通过实现步长调整来增加探索多样性，特别是在逃离局部最优时。
 
-\begin{tabular}{|p{0.4in}|p{3.1in}|p{0.4in}|} \hline 
- & $w_4=unifrnd\left(-w_3,\ w_3\right)$ & $\left(\mathrm{6}\right)$ \\ \hline 
-\end{tabular}
+\begin{equation}
+\label{sbo_eq_6}
+w_4=unifrnd\left(-w_3,\ w_3\right)
+\end{equation}
 
 
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter4/fig02_elite_engagement.png}
-  \caption{Elite Engagement phase of SBO.}
+  \bicaption{SBO的精英接触阶段}{Elite Engagement phase of SBO.}
   \label{fig:elite_engagement}
 \end{figure}
 
 
 
-By integrating these components, the SBO algorithm mirrors real-world decision-making---where individuals pursue successful peers while strategically exploring unconventional paths to optimize outcomes. The initial formulation in Eq. \left(\mathrm{4}\right) strategically calculates an optimal position within the high-status circle, mirroring how individuals gain access to influential networks for better prospects. Through evolutionary computation, solutions progressively improve, moving toward more promising regions of the search space.
+通过整合这些组件，SBO算法反映了现实世界的决策过程——个体追随成功同伴的同时战略性地探索非常规路径以优化结果。式~\eqref{sbo_eq_4}中的初始公式战略性地计算高地位圈子内的最优位置，反映了个体如何获得进入有影响力网络的机会以获得更好的前景。通过进化计算，解逐步改进，向搜索空间中更有前景的区域移动。
 
-In contrast, the second formulation introduces a randomized scaling factor ranging from $[-w_3,w_3]$, allowing the algorithm to explore beyond the immediate promising area. This feature prevents premature convergence while enabling SBO to discover potentially superior solutions in unexplored areas. This balance reflects human decision-making. People sometimes diverge from established paths, whether through career changes or innovative ventures, to find opportunities missed by conventional approaches.
+相比之下，第二种公式引入了范围为$[-w_3,w_3]$的随机缩放因子，允许算法探索直接有前景区域之外的空间。这一特性防止了过早收敛，同时使SBO能够在未探索区域中发现潜在的更优解。这种平衡反映了人类的决策过程。人们有时会偏离既定路径，无论是通过职业变更还是创新尝试，来寻找传统方法可能忽略的机会。
 
-By combining structured learning and exploratory flexibility, SBO achieves an optimal balance between exploitation and exploration. This allows the algorithm to adapt effectively to complex optimization landscapes. The resulting approach improves solution quality while maintaining robustness across diverse problems, proving SBO's capability for high-performance optimization.
+通过结合结构化学习和探索灵活性，SBO实现了开发和探索之间的最佳平衡。这使算法能够有效适应复杂的优化环境。由此产生的方法在保持跨不同问题鲁棒性的同时提高了解的质量，证明了SBO的高性能优化能力。
 
 \noindent 
-\subsubsection{3.2.3 Resource Acquisition}
+\subsubsection{3.2.3 资源获取}
 
-The Resource Acquisition phase is crucial in transitioning from exploration to exploitation by acquiring and utilizing valuable insights---like social capital in human networks. In this phase, a $flag$ vector is created for all individuals in the $X$ population, initially set to 1 to indicate tentative status-related success. This flag later updates during the Resource Evaluation phase, serving as a dynamic indicator of each individual's efficacy in status improvement.
+资源获取阶段在从探索到开发的转换中至关重要，通过获取和利用有价值的见解——如同人类网络中的社会资本。在该阶段，为$X$种群中的所有个体创建一个$flag$向量，初始设为1以表示暂时的地位相关成功。该标志稍后在资源评估阶段更新，作为每个个体地位改善效果的动态指标。
 
-The resource acquisition mechanism varies based on status-related success. For socially successful individuals, resources are acquired selectively by averaging inputs from two sources: one from the elite individual within the same family unit and another from the overall best individual in the population. This process, captured by
+资源获取机制根据地位相关的成功情况而有所不同。对于社会上成功的个体，资源通过平均两个来源的输入来选择性获取：一个来自同一家庭单元的精英个体，另一个来自种群中的整体最优个体。这一过程由以下公式描述：
 
-\begin{tabular}{|p{0.4in}|p{3.1in}|p{0.4in}|} \hline 
- & $x^s_{i,j_1}=\frac{x^e_{i,j_2}+x_{b,j_3}}{2}$ & $\left(\mathrm{7}\right)$ \\ \hline 
-\end{tabular}
+\begin{equation}
+\label{sbo_eq_7}
+x^s_{i,j_1}=\frac{x^e_{i,j_2}+x_{b,j_3}}{2}
+\end{equation}
 
-with $j_{idx}=randi\left(D\right)$ for $idx=1,2,3$, reflects the blend of familial and external elite influences.
+其中$j_{idx}=randi\left(D\right)$（$idx=1,2,3$），反映了家庭内部和外部精英影响的融合。
 
-Conversely, socially unsuccessful individuals rely solely on familial resources. Their resource update follows
+相反，社会上不成功的个体仅依赖家庭资源。其资源更新遵循以下公式：
 
-\begin{tabular}{|p{0.4in}|p{3.1in}|p{0.4in}|} \hline 
- & $ \begin{array}{cc}
+\begin{equation}
+\label{sbo_eq_8}
+\begin{array}{cc}
 x^s_{i,j}=x^e_{i,j} & if\ m_j=1 \end{array}
-$ & $\left(\mathrm{8}\right)$ \\ \hline 
-\end{tabular}
+\end{equation}
 
-where the row vector $m$ is initially zero and updated prior to social interactions by
+其中行向量$m$初始为零，在社会交互之前通过以下方式更新：
 
-\begin{tabular}{|p{0.4in}|p{3.1in}|p{0.4in}|} \hline 
- & $m\left(u\left(1:ceil\left(rand\times D\right)\right)\right)=1$ & $\left(\mathrm{9}\right)$ \\ \hline 
-\end{tabular}
+\begin{equation}
+\label{sbo_eq_9}
+m\left(u\left(1:ceil\left(rand\times D\right)\right)\right)=1
+\end{equation}
 
-where $u=randperm(D)$ providing a random permutation of decision variable indices.
+其中$u=randperm(D)$提供决策变量索引的随机排列。
 
-As shown in~Fig. 3, this phase~directs~the population toward promising regions of the solution space~to maximize~exploitation.
+如图3所示，该阶段将种群引导至解空间中有前景的区域以最大化开发。
 
 \begin{enumerate}
-\item  Fig. 3(a)\textbf{:}~Successful individuals~refine~their positions by~using~resources from higher-status agents
+\item  图3(a)\textbf{：}成功个体通过利用来自更高地位代理的资源来精炼其位置
 
-\item  Fig. 3(b)\textbf{:}~Struggling individuals~reposition~themselves through familiar resource 
+\item  图3(b)\textbf{：}困难个体通过家庭资源重新定位
 \end{enumerate}
 
-\noindent 
+\noindent
 
-The algorithm replicates status-driven social dynamics, where resource-rich individuals naturally attract more opportunities, to systematically guide the population toward better solutions, thereby significantly boosting exploitation and enhancing overall optimization performance.
+该算法复制了地位驱动的社会动态，其中资源丰富的个体自然地吸引更多机会，系统性地引导种群走向更优解，从而显著提升开发能力并增强整体优化性能。
 
 
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter4/fig03_resource_acquisition.png}
-  \caption{Resource Acquisition phase of SBO.}
+  \bicaption{SBO的资源获取阶段}{Resource Acquisition phase of SBO.}
   \label{fig:resource_acquisition}
 \end{figure}
 
 
-\subsubsection{3.2.4 Resource Evaluation}
+\subsubsection{3.2.4 资源评估}
 
-During the Resource Evaluation phase, the algorithm assesses whether acquired resources enhance an individual's fitness. Using the flag vector established earlier, it tracks progress:
+在资源评估阶段，算法评估获取的资源是否增强了个体的适应度。使用之前建立的标志向量，跟踪进展情况：
 
 \begin{enumerate}
-\item  1 = Fitness improvement (success)
+\item  1 = 适应度改善（成功）
 
-\item  0 = No improvement (failure)
+\item  0 = 无改善（失败）
 \end{enumerate}
 
 
 
-In practice, if the objective function value of the updated individual $x^s_i$ is better than that of the original $x_i$, the new state is retained:
+实际上，如果更新后个体$x^s_i$的目标函数值优于原始$x_i$，则保留新状态：
 
-\begin{tabular}{|p{0.4in}|p{3.1in}|p{0.4in}|} \hline 
- & $ \begin{array}{cc}
+\begin{equation}
+\label{sbo_eq_10}
+\begin{array}{cc}
 x_i=x^s_i & if\ fobj\left(x^s_i\right)<fobj\left(x_i\right) \end{array}
-$ & $\left(\mathrm{10}\right)$ \\ \hline 
-\end{tabular}
+\end{equation}
 
-Simultaneously, the flag vector is refreshed as follows:
+同时，标志向量按如下方式更新：
 
-\begin{tabular}{|p{0.4in}|p{3.1in}|p{0.4in}|} \hline 
- & $flag_i=\left\{ \begin{array}{cc}
+\begin{equation}
+\label{sbo_eq_11}
+flag_i=\left\{ \begin{array}{cc}
 1 & if\ fobj\left(x^s_i\right)<fobj\left(x_i\right) \\ 
 0 & Otherwise \end{array}
-\right.$ & $\left(\mathrm{11}\right)$ \\ \hline 
-\end{tabular}
+\right.
+\end{equation}
 
-Individuals showing no improvement maintain their current positions, while successful ones relocate to superior locations. This selective process mirrors real-world social advancement, where only valuable resources, those demonstrably improving an agent's status, are retained. This refinement progressively steers the search toward optimal solutions.
+未表现出改善的个体保持其当前位置，而成功的个体则迁移到更优位置。这种选择性过程反映了现实世界的社会进步，其中只有有价值的资源——那些明显改善代理地位的资源——才被保留。这种精炼过程逐步将搜索引向最优解。
 
 \noindent 
-\subsubsection{3.2.5 Consolidation}
+\subsubsection{3.2.5 巩固}
 
-The Consolidation phase activates when termination criteria are met, either after reaching maximum function evaluations or achieving a sufficiently optimized solution (verified by enhancement metrics). Prior to this, the algorithm repeatedly cycles through its core phases:
+巩固阶段在满足终止条件时激活，即达到最大函数评估次数或获得足够优化的解（通过改进指标验证）。在此之前，算法反复循环其核心阶段：
 
 \begin{enumerate}
-\item  \textbf{Elite Engagement}
+\item  \textbf{精英接触}
 
-\item \textbf{ Resource Acquisition}
+\item \textbf{资源获取}
 
-\item \textbf{ Resource Evaluation}
+\item \textbf{资源评估}
 \end{enumerate}
 
 
 
-Each phase~simulates status-driven interactions to~progressively improve~solutions.
+每个阶段模拟地位驱动的交互以逐步改进解。
 
-\textbf{Implementation Details}:
+\textbf{实现细节}：
 
 \begin{enumerate}
-\item  \textbf{Algorithm 1}~provides pseudo-code
+\item  \textbf{算法1}提供伪代码
 
-\item  \textbf{Fig. 4}~shows the workflow
+\item  \textbf{图4}展示工作流程
 \end{enumerate}
 
 \noindent \textbf{}
 
-During Consolidation, the algorithm:~
+在巩固阶段，算法：
 
 \begin{enumerate}
-\item  \textbf{Compiles and assesses}~results against objectives
+\item  根据目标\textbf{汇编和评估}结果
 
-\item  \textbf{Produces}~a final solution~embodying~status-based heuristics
+\item  \textbf{产生}体现基于地位启发式的最终解
 
-\item  \textbf{Ensures}~efficient resource use~and~detailed documentation~for~analysis/application
+\item  \textbf{确保}资源的高效利用和用于分析/应用的详细文档
 \end{enumerate}
 
 
@@ -407,18 +414,18 @@ Initialization: \\ \hline
     Select $x^e_r$ from $X^e$ by Rolette Wheel; \\ \hline 
     Elite Engagement: \\ \hline 
         Update $w_1,\ w_2,\ w_3,\ and\ w_4$; \\ \hline 
-        Update $X$ by Eq. \left(\mathrm{4}\right); \\ \hline 
+        Update $X$ by Eq.~\eqref{sbo_eq_4}; \\ \hline 
         Apply Boundary control to $X$; \\ \hline 
         Initialize $X^s$ as $X$; \\ \hline 
     Resource Acquisition: \\ \hline 
         Initialize row vector $m$ as 0; \\ \hline 
-        Update $m$ by Eq. \left(\mathrm{9}\right);\newline         \textbf{For} each $x^s$ in $X^s$:\newline             \textbf{If} $x^s$ is successful: \\ \hline 
-                Update $x^s$ by Eq. \left(\mathrm{7}\right); \\ \hline 
+        Update $m$ by Eq.~\eqref{sbo_eq_9};\newline         \textbf{For} each $x^s$ in $X^s$:\newline             \textbf{If} $x^s$ is successful: \\ \hline 
+                Update $x^s$ by Eq.~\eqref{sbo_eq_7}; \\ \hline 
             \textbf{Else}:\textbf{} \\ \hline 
-                Update $x^s$ by Eq. \left(\mathrm{8}\right);\newline        \textbf{ End For} \\ \hline 
+                Update $x^s$ by Eq.~\eqref{sbo_eq_8};\newline        \textbf{ End For} \\ \hline 
     Resource Evaluation:\textbf{} \\ \hline 
-        Update $X$ by Eq. \left(\mathrm{10}\right); \\ \hline 
-        Update $flag$ by Eq. \left(\mathrm{11}\right); \\ \hline 
+        Update $X$ by Eq.~\eqref{sbo_eq_10}; \\ \hline 
+        Update $flag$ by Eq.~\eqref{sbo_eq_11}; \\ \hline 
     Consolidation: \\ \hline 
 \textbf{        }Update $X^e$ and $x_b$;\textit{} \\ \hline 
 \textbf{        }Increment\textbf{ }$FEs=FEs+2N$; \\ \hline 
@@ -431,98 +438,112 @@ Initialization: \\ \hline
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter4/fig04_flowchart_SBO.png}
-  \caption{Flowchart of SBO.}
+  \bicaption{SBO算法流程图}{Flowchart of SBO.}
   \label{fig:flowchart_SBO}
 \end{figure}
 
 
 
 
-\subsection{ Computational Complexity Analysis of SBO}
+\subsection{SBO的计算复杂度分析}
 
-The computational complexity of the SBO algorithm is primarily determined by the population size ($N$), the problem dimension ($D$), and the maximum number of iterations ($T$), which collectively define its termination criterion. In this analysis, we focus on the algorithm's most computationally demanding operations while omitting less impactful vector updates. The Initialization phase, involving the generation of two populations of size $N\times D$, requires $O(2ND)$ time. The Elite Engagement phase updates the solution in $O(ND)$ per iteration, culminating in a total complexity of $O(TND)$ over $T$ iterations. Both the Resource Acquisition and Resource Evaluation phases operate in $O(N)$ time per iteration, contributing $O(TN)$ cumulatively, while the Consolidation phase, which entails sorting, adds $O(TNlogN)$ to the overall cost. Summing these contributions, the total computational complexity of SBO is expressed as $O(TND+TN+TNlogN)$, a formulation that encapsulates the sequential and interdependent nature of its core operations. This analysis provides a concise quantitative estimate of the algorithm's efficiency and scalability in addressing a range of optimization challenges.
-
-
-\section{ Performance Evaluation of SBO}
-
-The sections below furnish an in-depth quality evaluation of the proposed SBO algorithm through a benchmark comparison involving 13 state-of-the-art algorithms and the 29 functions outlined by IEEE CEC 2017 [48]. These benchmark functions were carefully selected for their diversity and comprehensiveness---they include unimodal, multimodal, hybrid, and composition functions that collectively encapsulate a wide range of optimization challenges encountered in real-world problems. This rigorous benchmark suite, widely recognized and utilized in the optimization community, offers a robust framework for assessing the unique features of SBO, such as the balance and diversity in its search dynamics and the patterns of agent trajectories observed through detailed examination.
-
-Performance metrics for this comparison are based on 30 independent runs per function, with average fitness values (Avg) and standard deviations (Std) serving as the primary indicators of algorithmic competence. All experiments were conducted in a controlled environment to ensure fairness and reproducibility. 
-
-Specifically, all algorithms were evaluated on a Windows Server 2016 platform equipped with an Intel{\circledR} Xeon{\circledR} Silver 4210R CPU and 128 GB of RAM, using a population size of 30 and a maximum of 300,000 objective evaluations per run. The MATLAB R2018a ecosystem provided a reliable and standardized computational backbone for this extensive comparative study.
+SBO算法的计算复杂度主要由种群大小（$N$）、问题维度（$D$）和最大迭代次数（$T$）决定，它们共同定义了终止条件。在本分析中，本文关注算法中计算量最大的操作，同时忽略影响较小的向量更新。初始化阶段涉及生成两个大小为$N\times D$的种群，需要$O(2ND)$的时间。精英接触阶段在每次迭代中以$O(ND)$的时间更新解，在$T$次迭代中总计复杂度为$O(TND)$。资源获取和资源评估阶段在每次迭代中均以$O(N)$的时间运行，累计贡献$O(TN)$，而涉及排序的巩固阶段增加了$O(TNlogN)$的整体成本。汇总这些贡献，SBO的总计算复杂度表示为$O(TND+TN+TNlogN)$，该公式概括了其核心操作的顺序和相互依赖特性。该分析为算法在解决各种优化挑战时的效率和可扩展性提供了简洁的定量估计。
 
 
-\subsection{ Quality Analysis of SBO}
+\section{SBO的性能评估}
 
-This section evaluates SBO's ability to balance exploration and exploitation---key aspects for an effective metaheuristic. We assess its capacity to shift from a broad global search to a focused local refinement while managing population diversity, as revealed by the historical distribution and trajectories of its search agents. This analysis highlights the interplay between diversification and convergence, offering insights into SBO's efficiency in navigating complex solution landscapes.
+以下各节通过涉及13种最先进算法和IEEE CEC 2017\cite{sbo_ref48}所定义的29个函数的基准测试比较，对所提SBO算法进行了深入的质量评估。这些基准函数因其多样性和全面性而被精心选择——它们包括单峰、多峰、混合和组合函数，共同涵盖了现实世界问题中遇到的广泛优化挑战。这套严格的基准测试套件在优化社区中被广泛认可和使用，为评估SBO的独特特性提供了稳健的框架，例如其搜索动态中的平衡性和多样性，以及通过详细检查观察到的代理轨迹模式。
 
-To quantify this balance, we use metrics that measure exploration (the search for new areas, which increases diversity) and exploitation (refining known good solutions, which decreases diversity). A practical algorithm typically exhibits strong early exploration, followed by intensified exploitation. We employ a dimension-wise diversity measure [49]:
+本次比较的性能指标基于每个函数30次独立运行，平均适应度值（Avg）和标准差（Std）作为算法能力的主要指标。所有实验均在受控环境中进行，以确保公平性和可重复性。
 
-\begin{tabular}{|p{0.4in}|p{3.1in}|p{0.4in}|} \hline 
- & $Div=\frac{1}{D}\int^D_{j=1}{Div_j}$ & $\left(\mathrm{12}\right)$ \\ \hline 
- & $Div_j=\frac{1}{N}\int^N_{i=1}{\left|X^j_i-mean\left(X^j\right)\right|}$ & $\left(\mathrm{13}\right)$ \\ \hline 
- & $mean\left(X^j\right)=\frac{1}{N}\int^N_{i=1}{X^j_i}$ & $\left(\mathrm{14}\right)$ \\ \hline 
-\end{tabular}
+具体而言，所有算法均在配备Intel{\circledR} Xeon{\circledR} Silver 4210R CPU和128 GB RAM的Windows Server 2016平台上进行评估，种群大小为30，每次运行最大目标评估次数为300,000。MATLAB R2018a生态系统为这项广泛的比较研究提供了可靠且标准化的计算基础。
 
-where, $Div_j$ is the diversity in the $jth$ dimension, $D$ is the problem dimension, and $X^j_i$ is the $jth$ coordinate of the $ith$ solution. Based on this, we define the exploration and exploitation rates as follows:
 
-\begin{tabular}{|p{0.4in}|p{3.1in}|p{0.4in}|} \hline 
- & $Exploration=\frac{Div\left(t\right)}{Div_{max}}\times 100\%$ & $\left(\mathrm{15}\right)$ \\ \hline 
- & $Exploitation=\frac{\left|Div\left(t\right)-Div_{max}\right|}{Div_{max}}\times 100\%$ & $\left(\mathrm{16}\right)$ \\ \hline 
-\end{tabular}
+\subsection{SBO的质量分析}
 
-where $Div(t)$ is the diversity at iteration $t$ and $Div_{max}$ is the maximum diversity observed.
+本节评估SBO平衡探索与开发的能力——这是有效元启发式算法的关键方面。本文评估其从广泛的全局搜索转向聚焦的局部精炼的能力，同时管理种群多样性，这通过其搜索代理的历史分布和轨迹来揭示。该分析突出了多样化和收敛之间的相互作用，为SBO在导航复杂解空间中的效率提供了见解。
 
-For our experiments, we set the population size $N=30$, problem dimension $D=30$, and allow up to 300,000 evaluations. Fig. 5 displays the exploration rate, exploitation rate, population diversity, and convergence curves for eight functions from the IEEE CEC 2017 suite.
+为量化这种平衡，本文使用测量探索（搜索新区域，增加多样性）和开发（精炼已知良好解，减少多样性）的指标。一个实用的算法通常表现为早期强探索，随后加强开发。本文采用逐维度多样性度量\cite{sbo_ref49}：
 
-The functions selected for analysis span all four categories of the IEEE CEC 2017 suite. Specifically, we consider the unimodal function F1, multimodal functions F3 and F9, hybrid functions F11, F13, F16, and F19, and the composition function F26. Their three-dimensional distributions are illustrated in Fig. 5(a). Unimodal functions, with a single global optimum, primarily test an algorithm's convergence and exploratory efficiency. In contrast, multimodal functions assess the ability to escape local optima, while hybrid and composition functions, formed through combinations, rotations, and shifts, challenge the algorithm to balance exploration and exploitation effectively.
+\begin{equation}
+\label{sbo_eq_12}
+Div=\frac{1}{D}\int^D_{j=1}{Div_j}
+\end{equation}
 
-Fig. 5(b) demonstrates that SBO exhibits high exploration in the early iterations, transitioning to dominant exploitation in later stages. The incremental--decremental trend in the balance curve reflects this shift: an initial rise indicates vigorous global exploration, whereas the subsequent decline points to focused local exploitation. For example, with F1, the exploitation rate reaches 93.9\%, highlighting SBO's proficiency in refining toward the optimal solution.
+\begin{equation}
+\label{sbo_eq_13}
+Div_j=\frac{1}{N}\int^N_{i=1}{\left|X^j_i-mean\left(X^j\right)\right|}
+\end{equation}
 
-Further, Fig. 5(b) and Fig. 5(c) reveal that SBO's population diversity steadily decreases before stabilizing, signifying ongoing improvements in solution quality. Multimodal functions F3 and F9 exhibit a similar pattern to F1, albeit with a slightly higher exploration rate due to their complexity. In the case of hybrid functions, a noticeable increase in the exploration rate, which peaks at 23.3\% for F13, coupled with marked fluctuations in diversity results in slower convergence compared to unimodal and multimodal cases. Nevertheless, the convergence curves in Fig. 5(d) confirm that SBO effectively avoids local optima by progressively refining solutions. For the composition function F26, an exploration rate of 12.7\% and a gradual decline in diversity underscore SBO's adept balance between global exploration and local exploitation, characterized by an initial surge in exploratory activity followed by a focused refinement phase.
+\begin{equation}
+\label{sbo_eq_14}
+mean\left(X^j\right)=\frac{1}{N}\int^N_{i=1}{X^j_i}
+\end{equation}
+
+其中$Div_j$是第$jth$维度的多样性，$D$是问题维度，$X^j_i$是第$ith$个解的第$jth$坐标。基于此，本文定义探索率和开发率如下：
+
+\begin{equation}
+\label{sbo_eq_15}
+Exploration=\frac{Div\left(t\right)}{Div_{max}}\times 100\%
+\end{equation}
+
+\begin{equation}
+\label{sbo_eq_16}
+Exploitation=\frac{\left|Div\left(t\right)-Div_{max}\right|}{Div_{max}}\times 100\%
+\end{equation}
+
+其中$Div(t)$是迭代$t$时的多样性，$Div_{max}$是观察到的最大多样性。
+
+在实验中，本文设置种群大小$N=30$，问题维度$D=30$，最多允许300,000次评估。图5展示了IEEE CEC 2017套件中八个函数的探索率、开发率、种群多样性和收敛曲线。
+
+选择用于分析的函数涵盖了IEEE CEC 2017套件的所有四个类别。具体而言，本文考虑了单峰函数F1，多峰函数F3和F9，混合函数F11、F13、F16和F19，以及组合函数F26。它们的三维分布如图5(a)所示。单峰函数具有单一全局最优，主要测试算法的收敛和探索效率。相比之下，多峰函数评估逃离局部最优的能力，而混合和组合函数通过组合、旋转和移位形成，挑战算法有效平衡探索和开发。
+
+图5(b)表明SBO在早期迭代中表现出高探索率，在后期阶段转为以开发为主。平衡曲线中的递增-递减趋势反映了这种转变：初始上升表示强劲的全局探索，而随后的下降指向聚焦的局部开发。例如，对于F1，开发率达到93.9\%，突显了SBO在向最优解精炼方面的能力。
+
+此外，图5(b)和图5(c)揭示SBO的种群多样性在稳定之前稳步下降，表明解的质量持续改善。多峰函数F3和F9表现出与F1类似的模式，但由于其复杂性，探索率略高。在混合函数的情况下，探索率的显著增加（F13最高达到23.3\%）加上多样性的明显波动，导致收敛速度比单峰和多峰情况慢。然而，图5(d)中的收敛曲线确认SBO通过逐步精炼解有效避免了局部最优。对于组合函数F26，12.7\%的探索率和多样性的逐渐下降突显了SBO在全局探索和局部开发之间的灵巧平衡，其特征是初始探索活动的激增，随后进入聚焦精炼阶段。
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter4/fig05_balance_diversity_convergence.png}
-  \caption{(a) 3D plots of functions, (b) balance analysis of SBO, (c) diversity analysis of SBO, (d) convergence curves of SBO.}
+  \bicaption{(a) 函数三维图, (b) SBO平衡分析, (c) SBO多样性分析, (d) SBO收敛曲线}{(a) 3D plots of functions, (b) balance analysis of SBO, (c) diversity analysis of SBO, (d) convergence curves of SBO.}
   \label{fig:balance_diversity_convergence}
 \end{figure}
 
 
 
-To investigate the SBO algorithm, we employed four evaluative metrics over 200 iterations with a constant population size of 30. These metrics enable a comprehensive qualitative assessment of the algorithm's behavior and effectiveness. In particular, the search history of the agents was recorded from the first to the last iteration, providing insights into the algorithm's explorative and exploitative movements throughout the search space. In addition, the trajectory of the best search agent, as indicated by variations in the first-dimensional variable over successive generations, was analyzed to illustrate the progression from initial exploration to subsequent exploitation. The average fitness of the search agents was computed over the entire evolutionary process to capture the algorithm's overall improvement. In contrast, the convergence curve, defined by the best fitness value attained by the population over time, offered a visual representation of the refinement process leading to the optimal solution.
+为了研究SBO算法，本文在200次迭代中采用了四种评估指标，种群大小恒定为30。这些指标能够对算法的行为和有效性进行全面的定性评估。特别是，从第一次到最后一次迭代记录了代理的搜索历史，提供了算法在整个搜索空间中探索和开发运动的见解。此外，分析了最佳搜索代理的轨迹，由连续代际中第一维变量的变化来表示，以说明从初始探索到后续开发的进展。在整个进化过程中计算了搜索代理的平均适应度，以捕获算法的整体改进。相比之下，由种群随时间获得的最佳适应度值定义的收敛曲线，提供了通向最优解的精炼过程的可视化表示。
 
-These metrics were applied to eight functions selected from a set of 23 classical benchmark functions, with their three-dimensional representations depicted in Fig. 6(a). Fig. 6(b) presents the search history of the SBO algorithm's agents, where the optimal solutions are marked by red dots and the individual agents by black dots. The widespread dispersion of agents throughout the search space, coupled with a noticeable clustering near the optimum, underscores the algorithm's robust exploration capabilities and its effective local exploitation. This duality in behavior is attributed to distinct strategic phases inherent in SBO, wherein the exploration is predominantly reinforced during the Elite Engagement phase, and the exploitation is boosted through resource allocation among the most promising individuals.
+这些指标应用于从23个经典基准函数集中选择的八个函数，其三维表示如图6(a)所示。图6(b)展示了SBO算法代理的搜索历史，其中最优解由红点标记，各个代理由黑点标记。代理在整个搜索空间中的广泛分散，加上在最优值附近的明显聚集，突显了算法强大的探索能力及其有效的局部开发。这种行为的双重性归因于SBO中固有的不同战略阶段，其中探索主要在精英接触阶段得到加强，而开发则通过最有前景个体之间的资源分配来提升。
 
-Further analysis is provided by Fig. 6(c), which charts the trajectory of the best search agent's first-dimensional variable. The initial iterations exhibit significant fluctuations that eventually stabilize, reflecting the algorithm's transition from a phase of vigorous exploration to one of focused exploitation. Similarly, Fig. 6(d) illustrates that the average fitness of the agents begins at a higher level and either stabilizes or fluctuates within a narrow range as the process progresses, indicating a gradual convergence toward optimality.
+图6(c)提供了进一步分析，绘制了最佳搜索代理第一维变量的轨迹。初始迭代表现出显著的波动，最终趋于稳定，反映了算法从强力探索阶段到聚焦开发阶段的转变。类似地，图6(d)说明代理的平均适应度从较高水平开始，随着过程的推进而稳定或在窄范围内波动，表明逐渐向最优收敛。
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter4/fig06_search_history_trajectory.png}
-  \caption{(a) 3D plots of functions (b) search history, (c) trajectory of agent, (d) average fitness of all agents.}
+  \bicaption{(a) 函数三维图, (b) 搜索历史, (c) 代理轨迹, (d) 所有代理的平均适应度}{(a) 3D plots of functions (b) search history, (c) trajectory of agent, (d) average fitness of all agents.}
   \label{fig:search_history_trajectory}
 \end{figure}
 
 
 
-The comprehensive performance analysis of the SBO algorithm offers significant insights into its functioning, with particular attention to how candidate solutions evolve and improve throughout the optimization process. This analysis demonstrates the efficacy of SBO's unique strategic phases---Elite Engagement and Resource Acquisition---which are based on human status-seeking behaviors. By replicating the human pursuit of upward social mobility, the algorithm drives extensive exploration of the search space, reflecting the natural drive to advance through connections with accomplished individuals. At the same time, the strategic exchange of information and resources among elite agents enables focused exploitation, improving candidate solutions. This effective integration of exploration and exploitation, rooted in status-driven social dynamics, gives SBO strong capabilities for solving complex optimization challenges.
+对SBO算法的综合性能分析提供了对其功能的重要见解，特别关注候选解在整个优化过程中如何演化和改进。该分析展示了SBO独特战略阶段——精英接触和资源获取——的有效性，这些阶段基于人类寻求地位的行为。通过复制人类追求社会向上流动的行为，算法驱动了对搜索空间的广泛探索，反映了通过与成功个体建立联系来进步的自然驱动力。同时，精英代理之间信息和资源的战略交换实现了聚焦开发，改进了候选解。这种植根于地位驱动社会动态的探索与开发的有效整合，赋予了SBO解决复杂优化挑战的强大能力。
 
 
-\subsection{ Benchmark Comparison of SBO}
+\subsection{SBO的基准测试比较}
 
-The~IEEE CEC 2017 benchmark suite's 29 functions~were used~to thoroughly evaluate the proposed SBO algorithm's performance~across~different dimensions and function types.~Testing covered~dimensions of 10, 30, 50, and 100~to examine~scalability.
+使用IEEE CEC 2017基准测试套件的29个函数对所提SBO算法的性能进行了全面评估，测试覆盖了10、30、50和100的维度以检验可扩展性。
 
-\textbf{Function categories included}:
+\textbf{函数类别包括}：
 
 \begin{enumerate}
-\item  \textbf{Unimodal (F1-F2)}: Tested exploitation and convergence
+\item  \textbf{单峰（F1-F2）}：测试开发和收敛能力
 
-\item  \textbf{Multimodal (F3-F9)}: Assessed local optima avoidance and exploration
+\item  \textbf{多峰（F3-F9）}：评估避免局部最优和探索能力
 
-\item  \textbf{Hybrid (F10-F19)}~and~\textbf{composition (F20-F29)}: Evaluated balance between exploration/exploitation
+\item  \textbf{混合（F10-F19）}和\textbf{组合（F20-F29）}：评估探索/开发之间的平衡
 \end{enumerate}
 
-These carefully selected functions~(detailed in Table 1) create~a rigorous test environment~for analyzing SBO's performance characteristics.
+这些精心选择的函数（详见表1）创建了一个严格的测试环境，用于分析SBO的性能特征。
 
 
 
@@ -564,23 +585,23 @@ F29 & Composition Function 10 (N=3) & Composition & 10,30,50,100 & [-100,100] & 
 
 
 
-To validate the SBO, a comparative analysis was conducted with 13 state-of-the-art algorithms, chosen based on their diversity, relevance, and performance merits in prior studies. These algorithms represent a variety of optimization strategies, including human-behavior-inspired approaches, swarm intelligence, and evolutionary techniques. This selection includes two human-behavior inspired algorithms, namely the renowned TLBO [30] and the widely acknowledged PO [37], as well as two recently proposed algorithms with significant citations: Harris Hawks Optimization (HHO) [48] and a physical-based optimization algorithm, RIME [49]. Additionally, the comparison featured four acclaimed and potent PSO variants: PSO with Aging Leader and Challengers (ALCPSO) [50], Comprehensive Learning Particle Swarm Optimization (CLPSO) [51], Cooperatively Coevolving Particle Swarm Optimization (CGPSO) [52], and A Multi-Swarm Particle Swarm Optimization (MSPSO) [53]. Complementing these were five evolutionary algorithms known for their championship status: Covariance Matrix Adaptation Evolution Strategy (CMAES) [54], Differential Evolution with a Chaotic Local Search (DECLS) [55], Ensemble Sinusoidal Differential Covariance Matrix Adaptation with Euclidean Neighborhood (LSHADE\_cnEpSin) [56], Sine Cosine Algorithm Differential Evolution (SCADE) [57], and Success-History Based Parameter Adaptation for Differential Evolution (SHADE) [58]. Table 2 summarizes the key characteristics and parameter settings for these algorithms.
+为了验证SBO，本文与13种最先进的算法进行了比较分析，这些算法基于其多样性、相关性和在先前研究中的性能优势而被选择。这些算法代表了多种优化策略，包括人类行为启发方法、群体智能和进化技术。选择包括两种人类行为启发算法，即著名的TLBO\cite{sbo_ref30}和广泛认可的PO\cite{sbo_ref37}，以及两种最近提出的具有大量引用的算法：Harris Hawks优化（HHO）\cite{sbo_ref48}和物理启发优化算法RIME\cite{sbo_ref49}。此外，比较还包括四种著名且强大的PSO变体：带老化领导者和挑战者的PSO（ALCPSO）\cite{sbo_ref50}、综合学习粒子群优化（CLPSO）\cite{sbo_ref51}、协作协同进化粒子群优化（CGPSO）\cite{sbo_ref52}和多群粒子群优化（MSPSO）\cite{sbo_ref53}。作为补充的五种进化算法以其冠军地位而著称：协方差矩阵自适应进化策略（CMAES）\cite{sbo_ref54}、带混沌局部搜索的差分进化（DECLS）\cite{sbo_ref55}、集成正弦差分协方差矩阵自适应与欧几里得邻域（LSHADE\_cnEpSin）\cite{sbo_ref56}、正弦余弦算法差分进化（SCADE）\cite{sbo_ref57}和基于成功历史的差分进化参数自适应（SHADE）\cite{sbo_ref58}。表2总结了这些算法的关键特征和参数设置。
 
-To ensure~objective comparison, the parameter settings for each algorithm~followed~the values recommended in their original publications. These settings~maintained consistency~with their intended design and~represented~optimal or near-optimal configurations~as established~in previous studies. All algorithms~operated under identical~computational conditions:
+为确保客观比较，每种算法的参数设置遵循其原始出版物中推荐的值。这些设置保持了与其预期设计的一致性，并代表了先前研究中确立的最优或近最优配置。所有算法在相同的计算条件下运行：
 
 \begin{enumerate}
-\item  Fixed population size: 30
+\item  固定种群大小：30
 
-\item  Maximum function evaluations: 300,000
+\item  最大函数评估次数：300,000
 
-\item  Same~termination criteria
+\item  相同的终止条件
 \end{enumerate}
 
-This standardized approach~ensured~fair~comparisons~while~avoiding~algorithm-specific tuning~due to computational~limitations.
+这种标准化方法确保了公平的比较，同时避免了由于计算限制而对算法进行特定调整。
 
-Analysis results~(Avg and Std over 30 independent runs)~demonstrate~the algorithms' stability and robustness~when solving~the benchmark functions.~While~our methodology~ensures~fairness, we acknowledge that~individual parameter tuning~could further improve performance~and influence~results. Future research~will investigate~this aspect~for more complete~benchmarking.
+分析结果（30次独立运行的Avg和Std）展示了算法在求解基准函数时的稳定性和鲁棒性。虽然本文的方法确保了公平性，但也承认个别参数调整可能进一步提高性能并影响结果。未来的研究将调查这一方面，以实现更完整的基准测试。
 
-Furthermore, statistical assessments, such as the Friedman test [59] and the Wilcoxon signed-rank test [60], were employed to analyze the results due to the stochastic nature of the algorithms. These statistical tests, complemented by the average value and standard deviation, ascertained the overall performance and benchmarked the statistical significance of the comparative results. Notably, the significance threshold was set at 0.05, with the resulting p-values indicative of statistical significance between the proposed SBO and its competitors. Tables will subsequently illustrate the comprehensive comparison of p-values across the four distinct dimensions following the benchmark results.
+此外，由于算法的随机性质，采用了Friedman检验\cite{sbo_ref59}和Wilcoxon符号秩检验\cite{sbo_ref60}等统计评估来分析结果。这些统计检验与平均值和标准差相辅相成，确定了整体性能并对比较结果的统计显著性进行了基准测试。值得注意的是，显著性阈值设为0.05，由此产生的p值表明所提SBO与其竞争对手之间的统计显著性。后续表格将在基准结果之后展示四个不同维度下p值的综合比较。
 
 \noindent 
 
@@ -605,33 +626,33 @@ SHADE & $\left|A\right|=2\times NP,p=0.1$ \\ \hline
 
 
 
-\subsection{ Benchmark Results and Statistical Analysis}
+\subsection{基准测试结果与统计分析}
 
-The SBO algorithm was comprehensively evaluated against 13 state-of-the-art algorithms using the IEEE CEC 2017 benchmark suite, which includes 29 functions spanning unimodal, multimodal, hybrid, and composition types. These functions were tested across four dimensions (10, 30, 50, and 100) to assess SBO's scalability, robustness, and adaptability to varying problem complexities. The comparative results, including Avg and Std across 30 independent runs, are provided in Table A. 1\textbf{--A.4}, with corresponding p-values detailed in Table A. 5\textbf{--A.8}. Statistical tests, including the Friedman test and Wilcoxon signed-rank test, were performed to evaluate the significance of the results, and their summarized statistics are presented in Table 3.
+SBO算法使用IEEE CEC 2017基准测试套件与13种最先进的算法进行了综合评估，该套件包含29个函数，涵盖单峰、多峰、混合和组合类型。这些函数在四个维度（10、30、50和100）上进行测试，以评估SBO的可扩展性、鲁棒性和对不同问题复杂度的适应性。比较结果包括30次独立运行的Avg和Std，详见表A. 1\textbf{--A.4}，对应的p值详见表A. 5\textbf{--A.8}。进行了Friedman检验和Wilcoxon符号秩检验等统计检验以评估结果的显著性，其汇总统计数据见表3。
 
-SBO demonstrated strong and consistent performance across all dimensions, achieving average first-place rankings in 36\% of the benchmark functions. Its strengths were particularly evident in hybrid and composition functions, where balancing exploration and exploitation is critical. A heatmap (Fig. 7) visualizes the normalized performance of all algorithms across functions and dimensions, with warmer colors indicating superior results. In this visualization, SBO frequently stands out as one of the top-performing algorithms, particularly for higher-dimensional hybrid and composition functions, showcasing its adaptability to complex optimization problems.
+SBO在所有维度上表现出强劲且一致的性能，在36\%的基准函数中获得平均第一名排名。其优势在混合和组合函数中尤为明显，这些函数中平衡探索和开发至关重要。热力图（图7）可视化了所有算法在各函数和维度上的归一化性能，较暖的颜色表示更优的结果。在此可视化中，SBO频繁脱颖而出，成为表现最优的算法之一，特别是在高维混合和组合函数上，展示了其对复杂优化问题的适应性。
 
 
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter4/fig07_performance_heatmap.png}
-  \caption{Algorithm performance heatmap across four dimensions.}
+  \bicaption{四个维度下的算法性能热力图}{Algorithm performance heatmap across four dimensions.}
   \label{fig:performance_heatmap}
 \end{figure}
 
 
 
-In unimodal functions (F1--F2), which focus on exploitation and precision, SBO ranked competitively but was slightly outperformed by precision-focused algorithms such as CMAES, LSHADE\_cnEpSin, and LSHADE. On average, SBO secured fourth place in this category across all dimensions, demonstrating its robustness despite a minor trade-off in precision. For multimodal functions (F3--F9), SBO exhibited strong exploratory capabilities, consistently avoiding local optima and achieving competitive rankings. For example, it secured fourth place in F5 while maintaining high stability across the category. The algorithm's performance was most pronounced in hybrid (F10--F19) and composition functions (F20--F29), where it consistently achieved first-place rankings in functions such as F13, F14, and F22--F29. These results highlight SBO's ability to adapt effectively to dynamic landscapes that require a balance between exploration and exploitation.
+在单峰函数（F1--F2）中，这些函数侧重于开发和精度，SBO排名具有竞争力，但略逊于注重精度的算法如CMAES、LSHADE\_cnEpSin和LSHADE。SBO在所有维度上该类别中平均获得第四名，展示了其鲁棒性，尽管在精度上存在轻微的权衡。对于多峰函数（F3--F9），SBO表现出强大的探索能力，持续避免局部最优并获得有竞争力的排名。例如，它在F5中获得第四名，同时在该类别中保持了较高的稳定性。算法的性能在混合（F10--F19）和组合函数（F20--F29）中最为突出，在F13、F14和F22--F29等函数中持续获得第一名。这些结果突显了SBO有效适应需要平衡探索和开发的动态环境的能力。
 
-The 30-dimensional results provide deeper insights into SBO's performance, particularly its convergence behavior and robustness. Convergence curves (Fig. 8) for selected benchmark functions illustrate SBO's steady improvement in solution quality over iterations. For unimodal functions like F1 and F2, SBO maintained consistent convergence rates, closely trailing CMAES and LSHADE in precision. In hybrid and composition functions, such as F13, F14, and F29, SBO demonstrated superior convergence speed, reflecting its ability to identify promising regions of the search space while avoiding premature stagnation. Additionally, box plots (Fig. 9) of SBO's performance across 30 independent runs reveal its low variance compared to algorithms like TLBO and PO, which exhibited higher variability. This stability underscores SBO's reliability, particularly for hybrid and composition functions, where consistent performance is crucial.
+30维结果为SBO的性能提供了更深入的见解，特别是其收敛行为和鲁棒性。选定基准函数的收敛曲线（图8）说明了SBO在迭代过程中解质量的稳定改善。对于F1和F2等单峰函数，SBO保持了一致的收敛率，在精度上紧随CMAES和LSHADE。在F13、F14和F29等混合和组合函数中，SBO展示了优越的收敛速度，反映了其识别搜索空间中有前景区域同时避免过早停滞的能力。此外，SBO在30次独立运行中性能的箱线图（图9）揭示了其与TLBO和PO等算法相比方差较低，后者表现出较高的变异性。这种稳定性突显了SBO的可靠性，特别是对于一致性能至关重要的混合和组合函数。
 
 
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter4/fig08_convergence_curves_30dim.png}
-  \caption{Convergence curves of SBO and state-of-the-art algorithms for 30-dimensional problems.}
+  \bicaption{SBO与先进算法在30维问题上的收敛曲线}{Convergence curves of SBO and state-of-the-art algorithms for 30-dimensional problems.}
   \label{fig:convergence_curves_30dim}
 \end{figure}
 
@@ -640,26 +661,26 @@ The 30-dimensional results provide deeper insights into SBO's performance, parti
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter4/fig09_box_plots_30dim.png}
-  \caption{Box plots comparing SBO and state-of-the-art algorithms for 30-dimensional problems.}
+  \bicaption{SBO与先进算法在30维问题上的箱线图比较}{Box plots comparing SBO and state-of-the-art algorithms for 30-dimensional problems.}
   \label{fig:box_plots_30dim}
 \end{figure}
 
 
 
-The competitive advantage of SBO is further validated by the statistical analyses. As visualized in Fig. 10, the Friedman test results indicate that SBO achieved the lowest average rank across all dimensions, with values of 3.90, 4.07, 4.38, and 4.48 for 10, 30, 50, and 100 dimensions, respectively. These rankings highlight SBO's scalability and its consistent ability to perform well across varying problem complexities. The Wilcoxon signed-rank test results, summarized in Table 3, reveal that SBO outperformed TLBO, PO, HHO, and RIME in over 70\% of the benchmark functions, with p-values below the significance threshold \eqref{GrindEQ__0_05_}. While its advantage against LSHADE\_cnEpSin and LSHADE was less pronounced, SBO maintained competitiveness, outperforming them in a subset of functions.
+统计分析进一步验证了SBO的竞争优势。如图10所示，Friedman检验结果表明SBO在所有维度上获得了最低的平均排名，10、30、50和100维度的值分别为3.90、4.07、4.38和4.48。这些排名突显了SBO的可扩展性及其在不同问题复杂度下持续良好表现的能力。表3中总结的Wilcoxon符号秩检验结果显示，SBO在超过70\%的基准函数中优于TLBO、PO、HHO和RIME，p值低于显著性阈值（$\alpha = 0.05$）。虽然其相对于LSHADE\_cnEpSin和LSHADE的优势不太明显，但SBO保持了竞争力，在部分函数中优于它们。
 
 
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter4/fig10_friedman_rank.png}
-  \caption{Friedman rank result of algorithms across four dimensions.}
+  \bicaption{四个维度下算法的Friedman排名结果}{Friedman rank result of algorithms across four dimensions.}
   \label{fig:friedman_rank}
 \end{figure}
 
 
 
-The SBO algorithm's outstanding performance stems from its faithful modeling of status-seeking social behaviors, particularly learning from high-performing peers and strategically retaining beneficial information. These mechanisms enable SBO to achieve an effective balance between exploration and exploitation, allowing it to perform well across both low- and high-dimensional problems. The resource retention strategy of SBO specifically provides it with an advantage in hybrid and composition functions, enabling both rapid convergence and remarkable stability across different runs. Although SBO's performance on unimodal functions was marginally below that of precision-focused algorithms, its overall adaptability, stability, and scalability establish it as a highly capable solution for diverse optimization tasks.
+SBO算法的卓越性能源于其对寻求地位的社会行为的忠实建模，特别是向高性能同伴学习和战略性保留有益信息。这些机制使SBO能够在探索和开发之间实现有效平衡，使其在低维和高维问题中均能表现良好。SBO的资源保留策略特别为其在混合函数和组合函数中提供了优势，实现了快速收敛和跨不同运行的显著稳定性。尽管SBO在单峰函数上的性能略低于精度优先算法，但其整体适应性、稳定性和可扩展性使其成为多种优化任务的高效解决方案。
 
 \noindent 
 
@@ -696,19 +717,19 @@ Dimension & Item & CGPSO & MSPSO & CMAES & DECLS & LSHADE\_cnEpSin & SCADE & SHA
 
 
 
-\subsection{ Runtime Performance Analysis}
+\subsection{运行时间性能分析}
 
-To comprehensively evaluate the runtime performance of the proposed SBO algorithm, we conducted experiments using the IEEE CEC 2017 benchmark suite, consisting of 29 distinct functions. Each algorithm, including SBO and 13 state-of-the-art competitors, was executed 30 times independently for each benchmark function across four dimensions: 10, 30, 50, and 100. The runtime performance was measured as the average runtime (in seconds) across all 30 runs for the 29 functions at each dimension. The results are summarized in Table 4 and visualized in Fig. 11.
+为全面评估所提SBO算法的运行时间性能，本文使用包含29个不同函数的IEEE CEC 2017基准测试套件进行了实验。每种算法，包括SBO和13种最先进的竞争算法，在四个维度（10、30、50和100）下对每个基准函数独立执行30次。运行时间性能以每个维度下29个函数30次运行的平均运行时间（秒）来衡量。结果总结在表4中并在图11中可视化。
 
-The algorithms considered in the comparison include TLBO, PO, HHO, a physics-based algorithm RIME, four PSO variants (ALCPSO, CLPSO, CGPSO, and MSPSO), and five evolutionary algorithms (CMAES, DECLS, LSHADE\_cnEpSin, SCADE, and SHADE).
+纳入比较的算法包括TLBO、PO、HHO、物理启发算法RIME、四种PSO变体（ALCPSO、CLPSO、CGPSO和MSPSO）以及五种进化算法（CMAES、DECLS、LSHADE\_cnEpSin、SCADE和SHADE）。
 
-The runtime results reveal that SBO demonstrates competitive performance across all tested dimensions. At the smallest dimension ($D=10$), SBO achieves the second-fastest runtime (28.08 seconds), trailing only CGPSO (27.57 seconds). As the problem dimension increases, SBO consistently ranks as the fastest algorithm, achieving the shortest runtime for dimensions $D=30$, $D=50$, and $D=100$, with average runtimes of 74.25, 151.24, and 478.73 seconds, respectively.
+运行时间结果表明SBO在所有测试维度上均展现出有竞争力的性能。在最小维度（$D=10$）下，SBO获得第二快的运行时间（28.08秒），仅落后于CGPSO（27.57秒）。随着问题维度的增加，SBO始终排名为最快的算法，在维度$D=30$、$D=50$和$D=100$下获得最短运行时间，平均运行时间分别为74.25、151.24和478.73秒。
 
-Compared to slower algorithms, such as LSHADE\_cnEpSin and SCADE, SBO exhibits significantly better scalability. The results suggest that SBO's computational efficiency becomes increasingly pronounced in higher dimensions. This improvement can be attributed to the efficient mechanisms employed by SBO, which reduce unnecessary computational overhead during resource evaluation and updates.
+与LSHADE\_cnEpSin和SCADE等较慢的算法相比，SBO展现出显著更好的可扩展性。结果表明SBO的计算效率在更高维度下愈加显著。这一改善归因于SBO采用的高效机制，减少了资源评估和更新过程中不必要的计算开销。
 
-The visualization in Fig. 11 highlights SBO's runtime performance across dimensions, showcasing its consistency and scalability. While some algorithms, such as TLBO and ALCPSO, remain competitive, SBO's superior runtime at higher dimensions reinforces its suitability for large-scale optimization tasks.
+图11中的可视化突显了SBO在各维度下的运行时间性能，展示了其一致性和可扩展性。虽然TLBO和ALCPSO等算法仍具竞争力，但SBO在更高维度下的优越运行时间证实了其对大规模优化任务的适用性。
 
-Despite these findings, it is important to note that runtime performance may vary across computational environments due to differences in hardware and software configurations. Future studies will aim to standardize additional runtime evaluations across diverse platforms to validate these results further.
+尽管有这些发现，需要注意的是，由于硬件和软件配置的差异，运行时间性能可能因计算环境而异。未来的研究将致力于在不同平台上标准化额外的运行时间评估，以进一步验证这些结果。
 
 \noindent 
 
@@ -732,75 +753,81 @@ Dimension & CGPSO & MSPSO & CMAES & DECLS & LSHADE\_cnEpSin & SCADE & SHADE \\ \
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter4/fig11_runtime_performance.png}
-  \caption{Runtime performance of SBO with other algorithms on IEEE CEC 2017.}
+  \bicaption{SBO与其他算法在IEEE CEC 2017上的运行时间性能}{Runtime performance of SBO with other algorithms on IEEE CEC 2017.}
   \label{fig:runtime_performance}
 \end{figure}
 
 
 
 
-\section{ Experimental Verification}
+\section{实验验证}
 
-This section applies the SBO framework to two important optimization applications: feature selection and multi-threshold image segmentation. To solve the classic discrete optimization challenge of feature selection, SBO is converted into its binary variant, bSBO. This adaptation builds upon SBO's demonstrated efficiency in global optimization within continuous spaces, supporting its potential for discrete applications. The bSBO is engineered to optimize feature selection by selecting the most relevant attributes while eliminating redundancy, thereby improving predictive model performance through optimal feature selection. The proposed bSBO is then combined with the KNN classifier to validate performance. Finally, bSBO is benchmarked against 8 state-of-the-art binary optimizers across 9 high-dimensional UCI datasets, proving its competitive advantage in discrete optimization.
+本节将SBO框架应用于两个重要的优化应用：特征选择和多阈值图像分割。为解决特征选择这一经典离散优化挑战，将SBO转换为其二值变体bSBO。这一改编建立在SBO在连续空间全局优化中已证明的效率基础上，支持了其在离散应用中的潜力。bSBO旨在通过选择最相关的属性同时消除冗余来优化特征选择，从而通过最优特征选择提高预测模型性能。随后将所提bSBO与KNN分类器结合以验证性能。最后，bSBO在9个高维UCI数据集上与8种最先进的二值优化器进行基准测试，证明了其在离散优化中的竞争优势。
 
-Moving beyond feature selection; we also evaluate SBO's performance in multi-threshold image segmentation---a continuous optimization task requiring precise threshold determination for accurate image analysis. For this assessment, SBO competes against 7 advanced meta-heuristic algorithms using 9 breast cancer histology images from Invasive Ductal Carcinoma (IDC) dataset to measure segmentation quality improvements. By maintaining an optimal exploration-exploitation balance, SBO proves highly adaptable across both discrete and continuous problem domains, confirming its versatility for various real-world optimization challenges.
-
-
-
-
-\subsection{ Feature Selection}
-
-Feature selection is a critical process in dataset analysis that involves picking the most influential and significant features to reduce data dimensionality and omitting redundant and unrelated attributes [61]. This selective extraction not only enhances the generality and robustness of the model trained on these features but also streamlines the computational efficiency. Predominantly, there are three recognized methodologies for feature selection: the filter method [62], the embedded method [63], and the wrapper method [64]---each characterized by distinct selection procedures.
-
-The filter method evaluates feature relevance using statistical metrics, such as the Pearson correlation coefficient [65] for linear feature-target relationships, the Chi-squared test [66] for information gain, and variance thresholding [67] to discard low variance features. These assessments are uniquely machine learning algorithm-independent. In contrast, the embedded method conducts selection intrinsically during the model training phase, integrating feature importance evaluation into the optimization process, with popular techniques including Lasso Regression [68], known as L1 Regularization, which penalizes regression coefficients' absolute value to zero out less significant features, and tree-based methods [69] that automatically determine feature importance. Unlike both approaches, the wrapper method evaluates feature subsets through iterative model training, selecting those that maximize performance based on evaluation metrics, making this method more computationally intensive but often more accurate.
-
-This paper specifically focuses on the bSBO---an MA that iteratively searches for the optimal feature subset, assessed against a fitness-function-based evaluation metric. Given the exponential increase of potential feature combinations with every additional feature, MAs like the proposed bSBO become helpful for managing the combinatorial nature of the feature selection issue, thereby making wrapper-based feature selection an increasingly popular choice in current practices for dataset dimensionality reduction.
-
-
-\subsubsection{ bSBO-based Wrapper method}
-
-In this section, we present the wrapper-based feature selection method that integrates a KNN classifier (with K set to 5) with the bSBO. A detailed flowchart in Fig. 12 outlines the process for selecting an effective feature subset.
-
-The fitness function is formulated to achieve a trade-off between minimizing the number of selected features and reducing the classifier's error rate. Let $E$ represent the error rate of the KNN classifier, $|S|$ denote the number of features selected by the bSBO, and $|A|$ the total number of features in the dataset. The fitness function is defined in Eq. \left(\mathrm{17}\right). With the parameters set to $α=0.05$ and $β=0.95$, ensuring that more emphasis is placed on the error rate. This formulation guides the optimizer to favor solutions that maintain high predictive accuracy while selecting a compact feature subset.
-
-\begin{tabular}{|p{0.4in}|p{3.1in}|p{0.4in}|} \hline 
- & $f_{obj}=α\times E+β\times \frac{\left|S\right|}{\left|A\right|}$ & $\left(\mathrm{17}\right)$ \\ \hline 
-\end{tabular}
+超越特征选择，本文还评估了SBO在多阈值图像分割中的性能——这是一项需要精确阈值确定以实现准确图像分析的连续优化任务。在该评估中，SBO使用来自浸润性导管癌（Invasive Ductal Carcinoma，IDC）数据集的9张乳腺癌组织学图像与7种先进的元启发式算法进行竞争，以衡量分割质量的改善。通过保持最优的探索-开发平衡，SBO证明了其在离散和连续问题域中的高度适应性，确认了其在各种现实世界优化挑战中的通用性。
 
 
 
-The process begins with data preprocessing. The dataset is divided into ten folds and normalized to the range [$\mathrm{-}$1,1]. Each candidate solution is represented as a vector of continuous values, which are then transformed into binary decisions to indicate whether a feature is selected. This conversion is achieved through a V-type transfer function defined as:
 
-\begin{tabular}{|p{0.4in}|p{3.1in}|p{0.4in}|} \hline 
- & $T\left(x_{i,j}\right)=\left|erf\left(sqrt\left(\frac{π}{2}\right)\times x_{i,j}\right)\right|$ & $\left(\mathrm{18}\right)$ \\ \hline 
- & $erf\left(x\right)=\frac{2}{sqrt\left(π\right)}\int^x_0{e^{-t^2}}dt$ & $\left(\mathrm{19}\right)$ \\ \hline 
-\end{tabular}
+\subsection{特征选择}
 
-where $x_{i,j}$ is the continuous value of the $jth$ component of the $ith$ candidate solution. The resulting value is then thresholded at 0.5 to yield a binary decision for feature selection.
+特征选择是数据集分析中的关键过程，涉及挑选最有影响力和最重要的特征以降低数据维度，并忽略冗余和不相关的属性\cite{sbo_ref61}。这种选择性提取不仅增强了基于这些特征训练的模型的泛化性和鲁棒性，还提高了计算效率。目前主要有三种公认的特征选择方法：过滤法（Filter Method）\cite{sbo_ref62}、嵌入法（Embedded Method）\cite{sbo_ref63}和包裹法（Wrapper Method）\cite{sbo_ref64}——每种方法都具有不同的选择流程。
 
-Following the transformation, each candidate solution corresponds to a binary vector of length $D$, representing the dimensionality of the dataset. The selected feature subset is used to train the KNN classifier on the training data, and its performance is evaluated on the test set to compute the error rate $E$.
+过滤法使用统计度量评估特征相关性，如用于线性特征-目标关系的Pearson相关系数\cite{sbo_ref65}、用于信息增益的卡方检验\cite{sbo_ref66}以及用于丢弃低方差特征的方差阈值法\cite{sbo_ref67}。这些评估独立于机器学习算法。相比之下，嵌入法在模型训练阶段内在地进行选择，将特征重要性评估集成到优化过程中，流行的技术包括Lasso回归\cite{sbo_ref68}（即L1正则化，通过惩罚回归系数的绝对值将不重要的特征系数归零）和基于树的方法\cite{sbo_ref69}（自动确定特征重要性）。与以上两种方法不同，包裹法通过迭代模型训练评估特征子集，选择基于评估指标最大化性能的子集，使该方法计算量更大但通常更准确。
 
-The bSBO iteratively updates the candidate solutions over a fixed number of iterations. The fitness function is evaluated at each iteration, and the candidate feature subsets are refined accordingly. Once the optimization process concludes, the best-performing feature subset is used to train the final KNN model, and its predictive accuracy is assessed on the test dataset.
+本文特别关注bSBO——一种迭代搜索最优特征子集的MA，通过基于适应度函数的评估指标进行评估。鉴于每增加一个特征，潜在特征组合呈指数增长，像所提bSBO这样的MAs对于管理特征选择问题的组合特性非常有帮助，因此使基于包裹法的特征选择在当前数据集降维实践中日益流行。
 
-The performance of the bSBO-based approach is evaluated by considering three metrics: the average fitness value across multiple trials, the error rate of the KNN classifier, and the number of features selected. These metrics comprehensively assess the method's ability to achieve both model accuracy and feature reduction. Comparative analysis against eight state-of-the-art binary optimizers further demonstrates the effectiveness of the proposed approach in producing robust and interpretable models.
+
+\subsubsection{基于bSBO的包裹式方法}
+
+本节介绍将KNN分类器（K设为5）与bSBO集成的基于包裹法的特征选择方法。图12中的详细流程图概述了选择有效特征子集的过程。
+
+适应度函数的设计旨在实现最小化选择特征数量与降低分类器错误率之间的权衡。设$E$表示KNN分类器的错误率，$|S|$表示bSBO选择的特征数量，$|A|$表示数据集中的总特征数量。适应度函数定义如式~\eqref{sbo_eq_17}所示。参数设置为$α=0.05$和$β=0.95$，确保更多的权重放在错误率上。该公式引导优化器偏向在选择紧凑特征子集的同时保持高预测精度的解。
+
+\begin{equation}
+\label{sbo_eq_17}
+f_{obj}=α\times E+β\times \frac{\left|S\right|}{\left|A\right|}
+\end{equation}
+
+
+
+该过程从数据预处理开始。数据集被分为十折并归一化到[$\mathrm{-}$1,1]范围。每个候选解表示为连续值向量，然后转换为二值决策以指示是否选择某个特征。这种转换通过V型转换函数实现，定义为：
+
+\begin{equation}
+\label{sbo_eq_18}
+T\left(x_{i,j}\right)=\left|erf\left(sqrt\left(\frac{π}{2}\right)\times x_{i,j}\right)\right|
+\end{equation}
+
+\begin{equation}
+\label{sbo_eq_19}
+erf\left(x\right)=\frac{2}{sqrt\left(π\right)}\int^x_0{e^{-t^2}}dt
+\end{equation}
+
+其中$x_{i,j}$是第$ith$个候选解第$jth$分量的连续值。结果值以0.5为阈值产生特征选择的二值决策。
+
+转换后，每个候选解对应一个长度为$D$的二值向量，表示数据集的维度。选定的特征子集用于在训练数据上训练KNN分类器，其性能在测试集上评估以计算错误率$E$。
+
+bSBO在固定迭代次数内迭代更新候选解。每次迭代都评估适应度函数，并相应精炼候选特征子集。优化过程结束后，使用表现最优的特征子集训练最终的KNN模型，并在测试数据集上评估其预测精度。
+
+基于bSBO方法的性能通过考虑三个指标来评估：多次试验的平均适应度值、KNN分类器的错误率和选择的特征数量。这些指标全面评估了该方法在实现模型精度和特征缩减两方面的能力。与八种最先进的二值优化器的比较分析进一步证明了所提方法在产生鲁棒且可解释模型方面的有效性。
 
 \noindent 
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter4/fig12_flowchart_bSBO_wrapper.png}
-  \caption{Flowchart of bSBO-based wrapper method for feature selection.}
+  \bicaption{基于bSBO的包裹式特征选择方法流程图}{Flowchart of bSBO-based wrapper method for feature selection.}
   \label{fig:flowchart_bSBO_wrapper}
 \end{figure}
 
 
 
 
-\subsubsection{ Experiment results and analysis of bSBO}
+\subsubsection{bSBO的实验结果与分析}
 
-This section is dedicated to evaluating the optimization capabilities of bSBO by setting it in direct competition with eight state-of-the-art binary optimizers. These comparators are binary Moth Flame Optimizer (bMFO) [70], bGWO [71], bGSA [72], bPSO [73], binary Ant Lion Optimizer (bALO) [74], binary Bat Algorithm (bBA) [75], binary Salp Swarm Algorithm (bSSA) [76], and bHHO [77]. Each optimizer's control parameters follow their original publications.
+本节专门通过将bSBO与八种最先进的二值优化器进行直接竞争来评估其优化能力。这些比较算法包括二值飞蛾火焰优化器（bMFO）\cite{sbo_ref70}、bGWO\cite{sbo_ref71}、bGSA\cite{sbo_ref72}、bPSO\cite{sbo_ref73}、二值蚁狮优化器（bALO）\cite{sbo_ref74}、二值蝙蝠算法（bBA）\cite{sbo_ref75}、二值樽海鞘群算法（bSSA）\cite{sbo_ref76}和bHHO\cite{sbo_ref77}。每个优化器的控制参数遵循其原始出版物。
 
-The datasets chosen for this comparison are diverse and representative, presented in Table 5 from UCI machine learning repository, with dimensions ranging from 2,308 to 12,600, ensuring comprehensive benchmarking. Additionally, the variation in the number of classes (from two to four) and sample sizes (from 50 to 203 per dataset) provides a robust framework for assessing bSBO's optimization prowess against established binary optimizers across a range of complex data environments.
+为此比较选择的数据集具有多样性和代表性，如表5所示，来自UCI机器学习库，维度从2,308到12,600不等，确保了全面的基准测试。此外，类别数量（从两类到四类）和样本量（每个数据集从50到203）的变化为评估bSBO在各种复杂数据环境中相对于现有二值优化器的优化能力提供了鲁棒的框架。
 
 
 
@@ -820,13 +847,13 @@ SRBCT & 83 & 2308 & 4 \\ \hline
 
 
 
-To standardize conditions across all optimized algorithms, the experimental design imposes a termination criterion of 50 maximum iterations and a specified population size of 20. To mitigate the influence of randomness on the results, each optimizer is run 10 times for every dataset. Furthermore, to evaluate the performance of the trained models, a 10-fold cross-validation [78] is employed for each dataset, which is a widely recognized method for ensuring the validity of the machine learning models.
+为在所有优化算法之间标准化条件，实验设计设定了最大50次迭代的终止准则和20的种群大小。为减轻随机性对结果的影响，每个优化器对每个数据集运行10次。此外，为评估训练模型的性能，对每个数据集采用10折交叉验证\cite{sbo_ref78}，这是一种广泛认可的确保机器学习模型有效性的方法。
 
-The results of these experiments are presented in Table 6 to Table 8, which provide comparative data on fitness values, the number of features selected, and the error rates for bSBO and the eight other binary optimizers. To quantitatively establish the superiority of bSBO over its counterparts, the results are subjected to statistical analysis employing the Wilcoxon signed-rank test and the Friedman test. These non-parametric tests are chosen for their ability to detect significant differences between paired observations and to compare more than two algorithms over multiple datasets, respectively, providing a robust statistical framework to support the comparative analysis.
+这些实验的结果在表6至表8中展示，提供了bSBO和其他八种二值优化器在适应度值、所选特征数量和错误率方面的比较数据。为定量确立bSBO相对于其竞争对手的优越性，对结果进行了Wilcoxon符号秩检验和Friedman检验的统计分析。选择这些非参数检验是因为它们能够检测配对观测之间的显著差异，并能够在多个数据集上比较两个以上的算法，分别为比较分析提供了鲁棒的统计框架。
 
-Table 6 presents a detailed comparison of fitness values, revealing that bSBO achieves the lowest fitness scores on all nine datasets when compared with the eight other binary optimizers. However, it is important to note certain deviations, specifically the higher Std values for Leukemia2, Lung\_Cancer, and Prostate\_Tumor datasets, where bSBO recorded larger Std values than bHHO, bMFO, and bHHO respectively.
+表6展示了适应度值的详细比较，揭示了bSBO在与其他八种二值优化器比较时在所有九个数据集上获得了最低的适应度分数。然而，需要注意某些偏差，特别是Leukemia2、Lung\_Cancer和Prostate\_Tumor数据集的较高Std值，其中bSBO分别记录了比bHHO、bMFO和bHHO更大的Std值。
 
-Despite these variances in Std values, the statistical tests presented at the bottom of Table 6 strongly support bSBO's superior performance. It conclusively outperformed the other eight optimizers across all datasets, securing the top rank with a ranking value of 1. This distinctively places bSBO ahead of its closest competitor, bHHO, which achieved a secondary ranking value of 2.25. The inclusion of these statistical tests validates the robustness of bSBO's leading position in optimizing fitness values within the experimented datasets.
+尽管存在这些Std值的差异，表6底部展示的统计检验有力地支持了bSBO的优越性能。它在所有数据集上决定性地优于其他八种优化器，以排名值1获得了榜首位置。这使bSBO明显领先于其最接近的竞争对手bHHO，后者获得了排名值2.25的次优位置。这些统计检验的纳入验证了bSBO在实验数据集中优化适应度值方面领先地位的鲁棒性。
 
 
 
@@ -858,11 +885,11 @@ Result &  & 1 & 3 & 4 & 5 & 8 & 7 & 9 & 6 & 2 \\ \hline
 
 
 
-Table 7 and Table 8 show the results regarding the number of selected features and the corresponding error rates of the machine learning models trained with those features. These tables also feature the non-parametric statistical results at the bottom for a thorough analytical insight. The findings indicate that bSBO not only selects the minimal number of features but also accomplishes the lowest error rates across the nine datasets. According to the rankings for both the number of selected features and the error rates, bSBO consistently achieves the top position with a rank of 1.
+表7和表8显示了关于所选特征数量以及使用这些特征训练的机器学习模型对应错误率的结果。这些表格底部还包含非参数统计结果，以提供深入的分析见解。研究结果表明，bSBO不仅选择了最少的特征数量，还在九个数据集上实现了最低的错误率。根据所选特征数量和错误率的排名，bSBO始终以排名1获得榜首位置。
 
-In Table 7, there are observations of larger Std values corresponding to the Leukemia2, Lung\_Cancer, and Prostate\_Tumor datasets, but the small difference in Std values when comparing bSBO with bHHO, bGSA, and bHHO respectively underscores the consistency and robustness of bSBO.
+在表7中，可以观察到Leukemia2、Lung\_Cancer和Prostate\_Tumor数据集对应的Std值较大，但在比较bSBO与bHHO、bGSA和bHHO时Std值的差异很小，这突显了bSBO的一致性和鲁棒性。
 
-For enhanced visual interpretation and comparative analysis of bSBO's robust performance against other optimizers, Fig. 13 presents the Friedman rank results using a bar plot. This visualization clearly depicts the relative performance of different optimizers across multiple evaluation metrics. Lower ranks indicate better performance, with bSBO achieving the most favorable rankings and thereby demonstrating its consistent superiority.
+为了增强对bSBO相对于其他优化器鲁棒性能的可视化解读和比较分析，图13使用柱状图展示了Friedman排名结果。该可视化清晰地描绘了不同优化器在多个评估指标上的相对性能。排名越低表示性能越好，bSBO获得了最有利的排名，从而证明了其持续的优越性。
 
 
 
@@ -925,144 +952,144 @@ Result &  & 1 & 2 & 4 & 5 & 8 & 6 & 9 & 7 & 3 \\ \hline
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter4/fig13_friedman_rank_feature_selection.png}
-  \caption{Friedman rank results over three metrics.}
+  \bicaption{三个指标的Friedman排名结果}{Friedman rank results over three metrics.}
   \label{fig:friedman_rank_feature_selection}
 \end{figure}
 
 
 
-In contrast, other optimizers show greater rank fluctuations, reflecting performance inconsistencies across different evaluation criteria. Notably, bSSA exhibits significant rank variability, suggesting a lack of robustness compared to bSBO. The bar plot effectively illustrates these differences, thereby underscoring the stability and overall superior performance of bSBO among the evaluated optimizers.
+相比之下，其他优化器表现出更大的排名波动，反映了在不同评估准则下的性能不一致性。值得注意的是，bSSA表现出显著的排名变异性，表明与bSBO相比缺乏鲁棒性。柱状图有效地说明了这些差异，从而突显了bSBO在所评估优化器中的稳定性和整体优越性能。
 
-Fig. 14 illustrates the convergence curves for each optimizer over multiple iterations, showing the progression toward optimal fitness values on each dataset. The curves indicate that bSBO reaches the optimal fitness values across all nine datasets faster than the other optimizers, particularly within the first 50 iterations. This suggests that while other optimizers may experience early stagnation, bSBO continues to identify superior feature subsets efficiently. Specifically, for the Prostate\_Tumor dataset, bHHO demonstrates competitive performance relative to bSBO. A closer examination reveals subtle advantages of bSBO that may not be immediately apparent.
+图14展示了每个优化器在多次迭代中的收敛曲线，显示了在每个数据集上向最优适应度值的进展。曲线表明bSBO在所有九个数据集上比其他优化器更快地达到最优适应度值，特别是在前50次迭代内。这表明虽然其他优化器可能经历早期停滞，但bSBO继续高效地识别更优的特征子集。具体而言，对于Prostate\_Tumor数据集，bHHO展示了相对于bSBO的竞争性能。更仔细的检查揭示了bSBO可能不太明显的微妙优势。
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter4/fig14_convergence_bSBO.png}
-  \caption{Convergence curves of bSBO and eight binary optimizers over nine datasets.}
+  \bicaption{bSBO与八种二值优化器在九个数据集上的收敛曲线}{Convergence curves of bSBO and eight binary optimizers over nine datasets.}
   \label{fig:convergence_bSBO}
 \end{figure}
 
 
 
-The experimental results concerning the feature selection tasks effectively highlight the exceptional optimization capacity of bSBO, facilitated by the V-type transfer function, which adeptly translates the capabilities of the SBO algorithm from continuous to discrete optimization contexts. bSBO's performance has been comprehensively evaluated using three distinct metrics, underscoring its superior optimization abilities. These impressive results are attributed to the inherent global optimization strength of the SBO algorithm. Additionally, the mathematical modeling of human social upward mobility has granted SBO a distinct advantage, mirroring the way individuals connect and learn from high-status peers within complex social networks. By accessing and utilizing valuable information and resources, individuals can enhance their abilities---similar to how the SBO algorithm benefits from its comprehensive global search strategy, evolving toward improved solutions. This human-like learning and improvement dynamic within SBO is a testament to its design, significantly contributing to its effectiveness in feature selection tasks.
+关于特征选择任务的实验结果有效地突显了bSBO卓越的优化能力，这得益于V型转换函数的支持，该函数巧妙地将SBO算法的能力从连续优化转换到离散优化场景。bSBO的性能通过三个不同的指标进行了全面评估，突显了其优越的优化能力。这些令人印象深刻的结果归因于SBO算法固有的全局优化强度。此外，人类社会向上流动的数学建模赋予了SBO独特的优势，反映了个体在复杂社会网络中与高地位同伴联系和学习的方式。通过获取和利用有价值的信息和资源，个体可以增强自己的能力——类似于SBO算法如何受益于其全面的全局搜索策略，向改进的解方向演化。SBO中这种类人的学习和改进动态证明了其设计的合理性，显著促进了其在特征选择任务中的有效性。
 
-Building on this success, the following section extends the application of bSBO to the domain of image segmentation, where its optimization capabilities are leveraged to address multi-threshold segmentation challenges.
-
-
-\subsection{ Multi-threshold Image Segmentation}
-
-Multi-threshold image segmentation is a critical process in image analysis that involves determining multiple optimal threshold values to partition an image into distinct regions based on intensity variations [79]. This technique not only facilitates the separation of key structures from the background but also enhances diagnostic accuracy in complex imaging scenarios, such as breast cancer detection. By delineating regions that represent various tissue types or pathological areas, multi-threshold segmentation plays a pivotal role in clinical decision-making and treatment planning.
-
-Predominantly, multi-threshold segmentation methods can be classified into three categories: histogram-based, entropy-based, and optimization-based approaches---each characterized by unique threshold selection mechanisms. Histogram-based methods derive threshold candidates by analyzing the distribution of pixel intensities, thereby exploiting the natural clusters within the image data [80]. In contrast, entropy-based techniques, such as those using Kapur's or Tsallis entropy, aim to maximize the information content or homogeneity of the segmented regions [81]. Diverging from these, optimization-based methods cast the segmentation task as a search problem where a fitness function evaluates the quality of candidate threshold sets [82]. This latter approach often employs MAs, which are adept at navigating the high-dimensional search space and avoiding local optima, albeit at the cost of increased computational complexity.
-
-This paper specifically focuses on searching for the optimal set of thresholds using Renyi entropy as the fitness function. By integrating Renyi entropy with a robust search strategy, our approach effectively addresses common challenges such as image noise and intensity inhomogeneity, thereby enhancing segmentation accuracy and computational efficiency. The subsequent sections detail the experimental settings, including the computing environment, parameter configurations, and performance evaluation metrics, followed by an application of our method to the segmentation of breast cancer images. Through these experiments, we demonstrate the potential of the proposed technique in accurately delineating tumor regions, ultimately contributing to improved diagnostic outcomes.
+在此成功的基础上，下一节将bSBO的应用扩展到图像分割领域，利用其优化能力来解决多阈值分割挑战。
 
 
-\subsubsection{ Experiment settings}
+\subsection{多阈值图像分割}
 
-The performance of the proposed SBO for multi-threshold image segmentation was evaluated on a dataset comprising 9 breast cancer histology images. These images, sourced from the IDC dataset [83], were uniformly resized to 224 $\mathrm{\times}$ 224 pixels. Labeled sequentially from A to I, the images are shown in Fig. 15 along with their corresponding two-dimensional histograms, which illustrate the intensity distributions essential for threshold determination.
+多阈值图像分割是图像分析中的关键过程，涉及确定多个最优阈值以根据灰度变化将图像划分为不同区域\cite{sbo_ref79}。该技术不仅有助于将关键结构从背景中分离出来，还提高了复杂成像场景中的诊断准确性，例如乳腺癌检测。通过划分代表各种组织类型或病理区域的区域，多阈值分割在临床决策和治疗规划中发挥着关键作用。
 
-To assess the broad validity and robustness of the SBO method, segmentation experiments were conducted using three distinct threshold configurations---specifically, 6, 12, and 18 thresholds. The proposed SBO was compared against 7 advanced meta-heuristic algorithms, namely: Levy flight Slime Mould combined Opposition-based learning Improved Fruit fly Optimization Algorithm (LSEOFOA) [84], Improved Whale Optimization Algorithm (IWOA) [85], Improved Grey Wolf Optimizer (IGWO) [86], Adaptive Sin Cosine Algorithm (ASCA) [87], Iterative Mapping and Local Escaping Enhanced Salp Swarm Algorithm (ILSSA) [88], Effective Harris Hawks Algorithm Improved Salp Swarm Algorithm (EHSSA) [89], and Biogeography-Based Learning Particle Swarm Optimization (BLPSO) [90]. All methods were subjected to identical experimental conditions.
+多阈值分割方法主要可分为三类：基于直方图的方法、基于熵的方法和基于优化的方法——每种方法都有独特的阈值选择机制。基于直方图的方法通过分析像素灰度分布来获取候选阈值，从而利用图像数据中的自然聚类\cite{sbo_ref80}。相比之下，基于熵的技术，如使用Kapur熵或Tsallis熵的技术，旨在最大化分割区域的信息含量或同质性\cite{sbo_ref81}。与前两者不同，基于优化的方法将分割任务转化为搜索问题，其中适应度函数评估候选阈值集的质量\cite{sbo_ref82}。后一种方法通常使用MAs，它们善于在高维搜索空间中导航并避免局部最优，尽管代价是增加了计算复杂度。
 
-For each segmentation task, each algorithm was executed independently 30 times to mitigate the effects of stochastic variability. The mean (Avg) and standard deviation (Std) of the results were subsequently recorded. A uniform population size of 20 was maintained across all experiments, and each algorithm was terminated after 100 iterations to ensure fairness in comparative analysis. Moreover, all methods were run using the default parameter values as established in their original publications.
+本文特别关注使用Renyi熵作为适应度函数来搜索最优阈值集。通过将Renyi熵与鲁棒的搜索策略相集成，本文的方法有效地解决了图像噪声和灰度不均匀性等常见挑战，从而提高了分割精度和计算效率。后续各节详细介绍了实验设置，包括计算环境、参数配置和性能评估指标，随后将所提方法应用于乳腺癌图像的分割。通过这些实验，本文展示了所提技术在准确划分肿瘤区域方面的潜力，最终有助于改善诊断结果。
 
-Segmentation quality was quantitatively evaluated using peak signal-to-noise ratio (PSNR), feature similarity index (FSIM), and structural similarity index (SSIM). These metrics collectively assess the fidelity, feature preservation, and structural integrity of the segmented images relative to the original data. The comprehensive experimental framework, with its controlled conditions and standardized evaluation criteria, provides a robust basis for comparing the performance of the SBO algorithm with other MA-based approaches.
+
+\subsubsection{实验设置}
+
+所提SBO在多阈值图像分割中的性能在包含9张乳腺癌组织学图像的数据集上进行了评估。这些图像来源于IDC数据集\cite{sbo_ref83}，统一调整为224 $\mathrm{\times}$ 224像素。图像按A到I依次标记，如图15所示，同时展示了其对应的二维直方图，说明了阈值确定所需的灰度分布。
+
+为评估SBO方法的广泛有效性和鲁棒性，使用三种不同的阈值配置进行了分割实验——具体为6、12和18个阈值。将所提SBO与7种先进的元启发式算法进行比较，分别是：Levy飞行结合反向学习的改进果蝇优化算法（LSEOFOA）\cite{sbo_ref84}、改进鲸鱼优化算法（IWOA）\cite{sbo_ref85}、改进灰狼优化器（IGWO）\cite{sbo_ref86}、自适应正弦余弦算法（ASCA）\cite{sbo_ref87}、迭代映射与局部逃逸增强的樽海鞘群算法（ILSSA）\cite{sbo_ref88}、有效Harris Hawks算法改进的樽海鞘群算法（EHSSA）\cite{sbo_ref89}以及基于生物地理学习的粒子群优化（BLPSO）\cite{sbo_ref90}。所有方法在相同的实验条件下进行测试。
+
+对于每个分割任务，每种算法独立执行30次以减轻随机变异的影响。随后记录结果的平均值（Avg）和标准差（Std）。所有实验保持统一的种群大小20，每种算法在100次迭代后终止，以确保比较分析的公平性。此外，所有方法均使用其原始出版物中确定的默认参数值运行。
+
+分割质量通过峰值信噪比（PSNR）、特征相似性指数（FSIM）和结构相似性指数（SSIM）进行定量评估。这些指标共同评估了分割图像相对于原始数据的保真度、特征保持和结构完整性。该全面的实验框架，凭借其受控的条件和标准化的评估准则，为比较SBO算法与其他基于MA方法的性能提供了鲁棒的基础。
 
 
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter4/fig15_original_images_2D_histogram.png}
-  \caption{Original images and corresponding 2D-histogram.}
+  \bicaption{原始图像及对应的二维直方图}{Original images and corresponding 2D-histogram.}
   \label{fig:original_images_2D_histogram}
 \end{figure}
 
 
 
 
-\subsubsection{ Experiment results and analysis}
+\subsubsection{实验结果与分析}
 
-The segmentation process for breast cancer images was implemented through a systematic and multi-stage pipeline, as illustrated in Fig. 16. The overall procedure is detailed as follows.
+乳腺癌图像的分割过程通过系统化的多阶段流水线实现，如图16所示。整体过程详述如下。
 
-Initially, each breast cancer histology image is input and resized to a fixed dimension of 224 $\mathrm{\times}$ 224 pixels to ensure uniformity across the dataset. This standardization facilitates consistent processing and comparison of results. Subsequently, the resized images are converted into grayscale format, which simplifies the intensity analysis by reducing the image to a single channel while preserving essential structural information.
+首先，每张乳腺癌组织学图像被输入并调整为224 $\mathrm{\times}$ 224像素的固定尺寸，以确保数据集的一致性。这种标准化便于结果的一致处理和比较。随后，调整后的图像被转换为灰度格式，通过将图像简化为单通道来简化灰度分析，同时保留关键的结构信息。
 
-In parallel, a non-local means (NLM) filtering technique is applied to the grayscale images. This denoising step is critical for mitigating the effects of noise, thereby enhancing the quality of the image data for subsequent processing. The NLM algorithm exploits the redundancy in image patches to achieve effective noise reduction while preserving fine details.
+同时，对灰度图像应用非局部均值（NLM）滤波技术。这一去噪步骤对于减轻噪声影响至关重要，从而提高图像数据质量以进行后续处理。NLM算法利用图像块中的冗余信息来实现有效的噪声降低，同时保留精细细节。
 
-The next phase involves the construction of a two-dimensional histogram, a pivotal component in our multi-threshold segmentation approach. This histogram is generated by combining the original grayscale image with its corresponding NLM-filtered version. The resulting NLM-based 2D histogram encapsulates both the intensity information and the texture features inherent in the image, providing a richer representation for threshold determination.
+下一阶段涉及二维直方图的构建，这是多阈值分割方法中的关键组成部分。该直方图通过组合原始灰度图像与其对应的NLM滤波版本生成。由此得到的基于NLM的二维直方图封装了图像中固有的灰度信息和纹理特征，为阈值确定提供了更丰富的表示。
 
-Following histogram construction, the threshold selection process is initiated. The MAs are employed to search for the optimal threshold values that maximize the chosen fitness function, specifically Renyi entropy. This optimization process systematically explores the solution space, identifying the threshold set those best partitions the image based on the combined intensity and texture cues.
+在直方图构建之后，启动阈值选择过程。使用MAs搜索最大化所选适应度函数（具体为Renyi熵）的最优阈值。该优化过程系统性地探索解空间，基于组合的灰度和纹理线索识别最佳划分图像的阈值集。
 
-Once the optimal threshold values have been determined, they are applied to segment the original image. This segmentation process divides the image into distinct regions corresponding to different intensity levels, effectively delineating areas of interest. The segmented image is then post-processed to generate a jet colormap representation, which visually enhances the delineation of boundaries and facilitates a more intuitive interpretation of the segmentation results.
+一旦确定了最优阈值，将其应用于原始图像的分割。该分割过程将图像划分为对应不同灰度水平的不同区域，有效地勾勒出感兴趣的区域。然后对分割图像进行后处理以生成Jet色图表示，这在视觉上增强了边界的划定，有助于对分割结果进行更直观的解读。
 
 
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter4/fig16_flowchart_image_segmentation.png}
-  \caption{Flowchart of multi-threshold image segmentation.}
+  \bicaption{多阈值图像分割流程图}{Flowchart of multi-threshold image segmentation.}
   \label{fig:flowchart_image_segmentation}
 \end{figure}
 
 
 
-Following the segmentation pipeline detailed above, this section presents the experimental results, their analysis, and visualizations.
+按照上述分割流水线，本节展示了实验结果、分析和可视化。
 
-The performance of the proposed SBO-based model was evaluated using three widely adopted metrics: PSNR, FSIM, and SSIM. The results for segmentation tasks employing 6, 12, and 18 threshold levels are comprehensively summarized in Table A. 9\textbf{ through }Table A. 11, respectively. The metrics were computed for each threshold configuration over 30 independent runs, and the average and standard deviation values were reported. These tables highlight the optimal performance values in bold to facilitate straightforward recognition of the best results.
+所提基于SBO模型的性能使用三个广泛采用的指标进行评估：PSNR、FSIM和SSIM。使用6、12和18个阈值水平的分割任务结果分别全面总结在表A. 9\textbf{至}表A. 11中。对每种阈值配置进行了30次独立运行的指标计算，并报告了平均值和标准差。这些表格以粗体突出显示最优性能值，便于直观识别最佳结果。
 
-The performance metrics for the segmentation tasks using 6 thresholds are further visualized in Fig. 17, which presents a heatmap of the PSNR, FSIM, and SSIM scores. In this heatmap, warmer colors correspond to higher metric values, indicating superior segmentation quality, whereas cooler colors denote lower scores. A detailed analysis of these visualizations reveals that, across all three metrics, the proposed SBO-based approach consistently achieves the highest scores when compared with other evaluated methods.
+使用6个阈值的分割任务性能指标在图17中进一步可视化，以热力图的形式展示PSNR、FSIM和SSIM分数。在热力图中，较暖的颜色对应较高的指标值，表示更优的分割质量，而较冷的颜色表示较低的分数。对这些可视化的详细分析表明，在所有三个指标上，所提基于SBO的方法与其他评估方法相比始终获得最高分数。
 
 
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter4/fig17_heatmap_PSNR_FSIM_SSIM.png}
-  \caption{Heatmap for PSNR, FSIM, and SSIM result over 6 threshold level.}
+  \bicaption{6个阈值水平下PSNR、FSIM和SSIM结果的热力图}{Heatmap for PSNR, FSIM, and SSIM result over 6 threshold level.}
   \label{fig:heatmap_PSNR_FSIM_SSIM}
 \end{figure}
 
 
 
-In experiments conducted with 12 thresholds, Fig. 18 illustrates the convergence curve of the Renyi entropy value during the iterative optimization process. Although the SBO-based method initially exhibits lower entropy values during the early iterations, it steadily improves and ultimately converges to the optimal threshold configuration at the final iteration (iteration 100). This convergence behavior underscores the algorithm's capability to overcome initial suboptimality and effectively explore the solution space to identify the best threshold values.
+在使用12个阈值进行的实验中，图18展示了迭代优化过程中Renyi熵值的收敛曲线。虽然基于SBO的方法在早期迭代中最初表现出较低的熵值，但它稳步改善并最终在最后一次迭代（第100次迭代）时收敛到最优阈值配置。这种收敛行为突显了算法克服初始次优性并有效探索解空间以识别最佳阈值的能力。
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter4/fig18_convergence_entropy.png}
-  \caption{Convergence curves of the entropy value by 12 threshold level.}
+  \bicaption{12个阈值水平下熵值的收敛曲线}{Convergence curves of the entropy value by 12 threshold level.}
   \label{fig:convergence_entropy}
 \end{figure}
 
 
 
-For the segmentation tasks involving 18 thresholds, Fig. 19 compares the jet color mapped segmentation result for image B with its corresponding original image. The jet colormap enhances the visual interpretation by assigning distinct colors to regions of similar intensity. The comparative analysis demonstrates that the SBO-based method identifies more optimal thresholds, producing a segmented image where regions with analogous intensities are more accurately grouped together.
+对于涉及18个阈值的分割任务，图19比较了图像B的Jet色图分割结果与其对应的原始图像。Jet色图通过为相似灰度区域分配不同颜色来增强视觉解读。比较分析表明，基于SBO的方法识别出更优的阈值，产生了灰度相近区域被更准确地归类在一起的分割图像。
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/chapter4/fig19_jet_colormap_segmentation.png}
-  \caption{Jet colormap segmentation result of image B over 18 threshold level.}
+  \bicaption{图像B在18个阈值水平下的Jet色图分割结果}{Jet colormap segmentation result of image B over 18 threshold level.}
   \label{fig:jet_colormap_segmentation}
 \end{figure}
 
 
 
-Overall, the experimental results and accompanying visualizations provide compelling evidence of the superiority of the proposed SBO-based method. Across the various threshold levels and evaluation metrics, the approach yields higher quantitative scores and delivers visually coherent segmentation outcomes, thereby reinforcing its potential utility in clinical diagnostic applications.
+总体而言，实验结果和配套可视化提供了所提基于SBO方法优越性的有力证据。在各种阈值水平和评估指标下，该方法获得了更高的定量分数并产生了视觉上连贯的分割结果，从而证实了其在临床诊断应用中的潜在实用性。
 
 
-\section{ Conclusions and Future Directions}
+\section{本章小结}
 
-This paper introduces SBO, an MA inspired by human status-driven social behavior, where individuals seek advancement through strategic networking and resource exchange. SBO translates this dynamic into a computational model, balancing exploration and exploitation to navigate complex optimization landscapes efficiently. During exploration, agents move within a high-status circle defined by their own position, the most successful peer, and a high-status individual, ensuring diverse and effective searches. Exploitation is achieved through local refinements that enhance solution quality, ensuring convergence toward optimal solutions.
+本文提出了SBO，一种受人类地位驱动社会行为启发的MA，其中个体通过战略性建立联系和资源交换寻求进步。SBO将这种动态转化为计算模型，平衡探索和开发以高效导航复杂的优化空间。在探索阶段，代理在由自身位置、最成功同伴和高地位个体定义的高地位圈子内移动，确保多样化且有效的搜索。开发通过局部精炼实现，增强解的质量，确保向最优解收敛。
 
-The SBO's effectiveness was validated across benchmark functions from the IEEE CEC 2017 suite, outperforming 13 state-of-the-art metaheuristics, including human-behavior-inspired algorithms, recent methods, and classical PSO and DE variants, across dimensions of 10, 30, 50, and 100. Statistical analyses, including the Wilcoxon signed-rank and Friedman tests, confirmed its superior global optimization capability and scalability. Further, a binary variant, bSBO, was developed for feature selection, leveraging a V-type transfer function to select minimal yet relevant feature subsets. Tested against 8 binary optimizers across 9 high-dimensional UCI datasets, bSBO consistently demonstrated optimal fitness, selecting the fewest features while maintaining high classification accuracy. SBO was also applied to multi-threshold image segmentation at 3 threshold levels, where it was compared with 7 advanced metaheuristic methods on 9 breast cancer histology images from the IDC dataset, effectively identifying optimal segmentation thresholds and highlighting its versatility in real-world applications.
+SBO的有效性通过IEEE CEC 2017测试套件的基准函数得到验证，在10、30、50和100维度上优于13种最先进的元启发式算法，包括人类行为启发算法、最新方法以及经典的PSO和DE变体。Wilcoxon符号秩检验和Friedman检验等统计分析证实了其优越的全局优化能力和可扩展性。此外，开发了二值变体bSBO用于特征选择，利用V型转换函数选择最少但最相关的特征子集。在9个高维UCI数据集上与8种二值优化器进行测试，bSBO始终展示了最优适应度，在保持高分类精度的同时选择了最少的特征。SBO还被应用于3个阈值水平的多阈值图像分割，在IDC数据集的9张乳腺癌组织学图像上与7种先进元启发式方法进行比较，有效识别了最优分割阈值，突显了其在现实世界应用中的通用性。
 
-Despite SBO's strong performance, in line with the No Free Lunch theorem [95], no algorithm excels in all scenarios. Future research should explore SBO's adaptation to multi-objective optimization, scalability for large-scale problems, and hybridization with other computational frameworks to enhance its robustness and applicability. Further testing across diverse domains will provide deeper insights into its optimization potential and contribute to advancing heuristic optimization methodologies.
+尽管SBO表现强劲，根据"没有免费午餐"定理\cite{sbo_ref95}，没有任何算法能在所有场景中都表现出色。未来的研究应探索SBO对多目标优化的适应、大规模问题的可扩展性以及与其他计算框架的混合化，以增强其鲁棒性和适用性。在更多领域的进一步测试将为其优化潜力提供更深入的见解，并有助于推动启发式优化方法的发展。
 
-Moreover, recent advances in dynamic multi-objective optimization, such as the non-inductive transfer learning approach with multi-strategy adaptive selection [91] and the cascaded fuzzy system for objective knowledge transfer [92], offer valuable insights for further enhancement. These approaches address challenges like negative transfer and rigid labeling in dynamic environments and may inspire future extensions of SBO to handle time-varying optimization problems effectively. In our future work, we plan to investigate the integration of such advanced techniques into SBO, aiming to further improve its adaptability and performance in dynamic settings.
+此外，动态多目标优化领域的最新进展，如具有多策略自适应选择的非归纳迁移学习方法\cite{sbo_ref91}和用于目标知识转移的级联模糊系统\cite{sbo_ref92}，为进一步增强提供了有价值的启示。这些方法解决了动态环境中的负迁移和刚性标注等挑战，可能启发SBO的未来扩展以有效处理时变优化问题。在未来的工作中，本文计划研究将此类先进技术集成到SBO中，旨在进一步提高其在动态环境中的适应性和性能。
 
 
 
-% --- Appendix: Supplementary Data Tables ---
-\section{Appendix: Supplementary Data}
+% --- 附录：补充数据表格 ---
+\section{附录：补充数据}
 
- See Table A. 1-A. 11.
+ 见表A. 1-A. 11。
 
 \begin{tabular}{|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.5in}|} \hline 
 \multicolumn{16}{|p{4.8in}|}{\textbf{Table A. }1\textbf{. }Comparative results of SBO and state-of-the-art algorithms for 10-dimensional problems.\textbf{}} \\ \hline 

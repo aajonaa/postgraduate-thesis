@@ -6,7 +6,13 @@
       "Bash(xelatex:*)",
       "Bash(mpm:*)",
       "Bash(bibtex main:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(sort:*)",
+      "Bash(LC_ALL=en_US.UTF-8 grep:*)",
+      "Bash(python:*)",
+      "Bash(grep:*)",
+      "Bash(python3:*)",
+      "Bash(where python:*)"
     ]
   }
 }
