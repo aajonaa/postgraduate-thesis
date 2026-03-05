@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  6 MAR 2026 02:03
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  6 MAR 2026 04:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1771,137 +1771,115 @@ Underfull \vbox (badness 1616) has occurred while \output is active []
  [9]
 [10] [11] [12]) (chapters/chapter3_IBSA.tex [13]
 3
-[14
-
-]
-Underfull \vbox (badness 2351) has occurred while \output is active []
-
- [15]
 File: figures/chapter3/fig1_classification_of_MAs.png Graphic file (type bmp)
 <figures/chapter3/fig1_classification_of_MAs.png>
+[14
 
-[16] [17] [18] [19] [20]
-Underfull \vbox (badness 1859) has occurred while \output is active []
-
- [21]
-[22]
+] [15] [16] [17] [18] [19] [20]
 File: figures/chapter3/fig2_flowchart_IBSA.png Graphic file (type bmp)
 <figures/chapter3/fig2_flowchart_IBSA.png>
-
-Underfull \vbox (badness 1152) has occurred while \output is active []
-
- [23]
-[24]
+ [21] [22]
 File: figures/chapter3/fig3_wrapper_feature_selection.png Graphic file (type bm
 p)
 <figures/chapter3/fig3_wrapper_feature_selection.png>
- [25] [26] [27] [28] [29]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [23]
+[24] [25] [26]
 File: figures/chapter3/fig4_balance_and_diversity.png Graphic file (type bmp)
 <figures/chapter3/fig4_balance_and_diversity.png>
- [30] [31] [32] [33
+ [27] [28] [29] [30
 
-] [34] [35
+] [31] [32
 
-] [36
+] [33
 
-] [37]
+] [34]
 File: figures/chapter3/fig5_friedman_ranking_basic.png Graphic file (type bmp)
 <figures/chapter3/fig5_friedman_ranking_basic.png>
 File: figures/chapter3/fig6_convergence_basic_MAs.png Graphic file (type bmp)
 <figures/chapter3/fig6_convergence_basic_MAs.png>
- [38
+ [35
 
-]
-[39] [40] [41
+] [36] [37
 
-] [42] [43
+] [38]
+[39
 
 
-] [44]
+] [40]
 File: figures/chapter3/fig7_friedman_ranking_advanced.png Graphic file (type bm
 p)
 <figures/chapter3/fig7_friedman_ranking_advanced.png>
 File: figures/chapter3/fig8_convergence_advanced_MAs.png Graphic file (type bmp
 )
 <figures/chapter3/fig8_convergence_advanced_MAs.png>
- [45
+ [41
 
-] [46] [47]
-Overfull \hbox (17.33588pt too wide) in paragraph at lines 1000--1001
+] [42]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [43]
+Overfull \hbox (17.33588pt too wide) in paragraph at lines 946--947
 []\TU/TimesNewRoman(0)/m/n/12.045 bIBSA \TU/AdobeSongStd-Light.otf(0)/m/n/12.04
 5 的 分 类 准 确 率 通 过 计 算 $\OML/cmm/m/it/12.045 L$ \TU/AdobeSongStd-Light.otf(0)/m/
 n/12.045 次 运 行 的 平 均 分 类 错 误 率 来 评 估，|  如 公 式[]所
  []
 
-[48] [49] [50
+[44] [45] [46
+
+] [47
+
+] [48
+
+] [49
+
+
+] [50
 
 ] [51
-
-] [52
-
-] [53
-
-
-] [54
-
-] [55
 
 ]
 File: figures/chapter3/fig9_convergence_feature_selection.png Graphic file (typ
 e bmp)
 <figures/chapter3/fig9_convergence_feature_selection.png>
- [56
+ [52
 
-] [57]) (chapters/chapter4_SBO.tex
-[58]
+] [53]) (chapters/chapter4_SBO.tex
+[54]
 4
 File: figures/chapter4/fig01_classification_of_MAs.png Graphic file (type bmp)
 <figures/chapter4/fig01_classification_of_MAs.png>
-[59
+[55
 
-]
-Underfull \vbox (badness 2351) has occurred while \output is active []
-
- [60]
-Overfull \hbox (6.84113pt too wide) in paragraph at lines 56--57
-\TU/TimesNewRoman(0)/m/n/12.045 [[]] \TU/AdobeSongStd-Light.otf(0)/m/n/12.045 通
- 过 有 效 地 平 衡 重 量 和 材 料 强 度 之 间 的 权 衡 来 优 化 结 构 设 计；|  改 进 的 \TU/TimesNewRoman(0
-)/m/n/12.045 TLBO |\TU/AdobeSongStd-Light.otf(0)/m/n/12.045 （\TU/TimesNewRoman(
-0)/m/n/12.045 ITLBO\TU/AdobeSongStd-Light.otf(0)/m/n/12.045 ）|
- []
-
-[61] [62] [63] [64]
+] [56] [57]
 File: figures/chapter4/fig02_elite_engagement.png Graphic file (type bmp)
 <figures/chapter4/fig02_elite_engagement.png>
- [65] [66]
+ [58] [59]
 File: figures/chapter4/fig03_resource_acquisition.png Graphic file (type bmp)
 <figures/chapter4/fig03_resource_acquisition.png>
- [67]
+ [60]
 File: figures/chapter4/fig04_flowchart_SBO.png Graphic file (type bmp)
 <figures/chapter4/fig04_flowchart_SBO.png>
- [68]
+ [61]
 Underfull \vbox (badness 1215) has occurred while \output is active []
 
- [69]
+ [62]
 File: figures/chapter4/fig05_balance_diversity_convergence.png Graphic file (ty
 pe bmp)
 <figures/chapter4/fig05_balance_diversity_convergence.png>
-
-[70] [71]
 File: figures/chapter4/fig06_search_history_trajectory.png Graphic file (type b
 mp)
 <figures/chapter4/fig06_search_history_trajectory.png>
- [72] [73] [74
+
+[63] [64] [65] [66
 
 ]
-Overfull \hbox (14.85114pt too wide) in paragraph at lines 603--603
+Overfull \hbox (14.85114pt too wide) in paragraph at lines 471--471
 []|\TU/TimesNewRoman(0)/m/n/12.045 LSHADE_cnEpSin| 
  []
 
-
-ignored: Infinite glue shrinkage found in box being split [75
-
-]
 File: figures/chapter4/fig07_performance_heatmap.png Graphic file (type bmp)
 <figures/chapter4/fig07_performance_heatmap.png>
 File: figures/chapter4/fig08_convergence_curves_30dim.png Graphic file (type bm
@@ -1909,44 +1887,34 @@ p)
 <figures/chapter4/fig08_convergence_curves_30dim.png>
 File: figures/chapter4/fig09_box_plots_30dim.png Graphic file (type bmp)
 <figures/chapter4/fig09_box_plots_30dim.png>
- [76] [77] [78] [79]
+[67
+
+] [68] [69] [70]
 File: figures/chapter4/fig10_friedman_rank.png Graphic file (type bmp)
 <figures/chapter4/fig10_friedman_rank.png>
- [80] [81
+ [71] [72
 
-]
-Overfull \hbox (12.84567pt too wide) in paragraph at lines 717--718
-\TU/TimesNewRoman(0)/m/n/12.045 CPSO\TU/AdobeSongStd-Light.otf(0)/m/n/12.045 、|
- \TU/TimesNewRoman(0)/m/n/12.045 CLPSO\TU/AdobeSongStd-Light.otf(0)/m/n/12.045 
-、| \TU/TimesNewRoman(0)/m/n/12.045 CGPSO \TU/AdobeSongStd-Light.otf(0)/m/n/12.0
-45 和 \TU/TimesNewRoman(0)/m/n/12.045 MSPSO\TU/AdobeSongStd-Light.otf(0)/m/n/12.
-045 ）|  以 及 五 种 进 化 算 法  |（\TU/TimesNewRoman(0)/m/n/12.045 CMAES\TU/AdobeSongSt
-d-Light.otf(0)/m/n/12.045 、| \TU/TimesNewRoman(0)/m/n/12.045 DECLS\TU/AdobeSong
-Std-Light.otf(0)/m/n/12.045 、| \TU/TimesNewRoman(0)/m/n/12.045 LSHADE_cnEpSin\T
-U/AdobeSongStd-Light.otf(0)/m/n/12.045 、|
- []
+] [73
 
-[82
-
-] [83
+] [74
 
 ]
 File: figures/chapter4/fig11_runtime_performance.png Graphic file (type bmp)
 <figures/chapter4/fig11_runtime_performance.png>
- [84
+ [75
 
-] [85]
+]
 File: figures/chapter4/fig12_flowchart_bSBO_wrapper.png Graphic file (type bmp)
 
 <figures/chapter4/fig12_flowchart_bSBO_wrapper.png>
+ [76] [77] [78] [79
 
-ignored: Infinite glue shrinkage found in box being split [86] [87] [88
+] [80
 
-] [89
+] [81
 
-] [90
-
-] [91
+]
+[82
 
 
 ]
@@ -1955,17 +1923,17 @@ type bmp)
 <figures/chapter4/fig13_friedman_rank_feature_selection.png>
 File: figures/chapter4/fig14_convergence_bSBO.png Graphic file (type bmp)
 <figures/chapter4/fig14_convergence_bSBO.png>
- [92
+ [83
 
-] [93]
+] [84]
 File: figures/chapter4/fig15_original_images_2D_histogram.png Graphic file (typ
 e bmp)
 <figures/chapter4/fig15_original_images_2D_histogram.png>
- [94] [95]
+ [85] [86]
 File: figures/chapter4/fig16_flowchart_image_segmentation.png Graphic file (typ
 e bmp)
 <figures/chapter4/fig16_flowchart_image_segmentation.png>
- [96]
+ [87]
 File: figures/chapter4/fig17_heatmap_PSNR_FSIM_SSIM.png Graphic file (type bmp)
 
 <figures/chapter4/fig17_heatmap_PSNR_FSIM_SSIM.png>
@@ -1974,48 +1942,48 @@ File: figures/chapter4/fig18_convergence_entropy.png Graphic file (type bmp)
 File: figures/chapter4/fig19_jet_colormap_segmentation.png Graphic file (type b
 mp)
 <figures/chapter4/fig19_jet_colormap_segmentation.png>
-
-[97] [98] [99]) (chapters/chapter5_BEXEA.tex [100]
+ [88] [89] [90]) (chapters/chapter5_BEXEA.tex
+[91]
 5
-[101
+[92
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [102]
+ [93]
 File: figures/chapter5/BEXEAStructure.png Graphic file (type bmp)
 <figures/chapter5/BEXEAStructure.png>
 
-[103] [104]
+[94] [95]
 File: figures/chapter5/BEXEA-MAB.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-MAB.png>
 
 Underfull \vbox (badness 2495) has occurred while \output is active []
 
- [105]
+ [96]
 Underfull \vbox (badness 5245) has occurred while \output is active []
 
- [106]
+ [97]
 File: figures/chapter5/explainable-uncertainty-criteria-legend.png Graphic file
  (type bmp)
 <figures/chapter5/explainable-uncertainty-criteria-legend.png>
 
-[107] [108]
+[98] [99]
 LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 213.
 File: figures/chapter5/BEXEA-CEC22-CC.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-CEC22-CC.png>
 File: figures/chapter5/BEXEA-Plots.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-Plots.png>
- [109] [110] [111] [112] [113] [114]
+ [100] [101] [102] [103] [104] [105]
 File: figures/chapter5/beta.png Graphic file (type bmp)
 <figures/chapter5/beta.png>
 File: figures/chapter5/k.png Graphic file (type bmp)
 <figures/chapter5/k.png>
- [115] [116]
+ [106] [107]
 File: figures/chapter5/runBEXEA-OilReservoir-sampled-CC.png Graphic file (type 
 bmp)
 <figures/chapter5/runBEXEA-OilReservoir-sampled-CC.png>
- [117] [118]
+ [108] [109]
 Overfull \hbox (6.4638pt too wide) in paragraph at lines 421--422
 []\TU/AdobeSongStd-Light.otf(0)/m/n/12.045 本 章 提 出 了 基 于 可 解 释 不 确 定 性 准 则 辅 助 
 的 赌 博 机 驱 动 自 适 应 搜 索 \TU/TimesNewRoman(0)/m/n/12.045 SAEA |\TU/AdobeSongStd-Li
@@ -2023,25 +1991,25 @@ ght.otf(0)/m/n/12.045 （\TU/TimesNewRoman(0)/m/n/12.045 BEXEA\TU/AdobeSongStd-L
 ght.otf(0)/m/n/12.045 ） ，|
  []
 
-) (chapters/chapter6.tex [119]
+) (chapters/chapter6.tex [110]
 6
-[120
+[111
 
-]) [121] (main.bbl [122
+]) [112] (main.bbl [113
 
-] [123]
+] [114]
 Underfull \hbox (badness 2012) in paragraph at lines 202--206
 []\TU/TimesNewRoman(0)/m/n/12.045 KENNEDY J, EBERHART R.  Particle swarm optimi
 zation[C]//Proceedings of
  []
 
-[124] [125] [126] [127] [128] [129] [130] [131] [132] [133] [134] [135]
-[136] [137] [138] [139]) [140] [141
+[115] [116] [117] [118] [119] [120] [121] [122] [123] [124] [125] [126]
+[127] [128] [129] [130]) [131] [132
 
-] [142
+] [133
 
 ]
-runsystem(latexminted cleantemp  --timestamp 20260306020328 FAD58DE7366495DB465
+runsystem(latexminted cleantemp  --timestamp 20260306044906 FAD58DE7366495DB465
 0CFEFAC2FCD61)...disabled (restricted).
 
  (main.aux)
@@ -2057,12 +2025,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D17879283350E5D1358E2C01BAB2D110;10692.
  ) 
 Here is how much of TeX's memory you used:
- 30345 strings out of 402983
- 681907 string characters out of 5448483
- 1428516 words of memory out of 5000000
- 58496 multiletter control sequences out of 15000+600000
+ 30360 strings out of 402983
+ 683094 string characters out of 5448483
+ 1428511 words of memory out of 5000000
+ 58511 multiletter control sequences out of 15000+600000
  663874 words of font info for 249 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  125i,12n,125p,1682b,1091s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (151 pages).
+Output written on main.pdf (142 pages).

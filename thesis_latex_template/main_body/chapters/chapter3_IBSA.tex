@@ -7,23 +7,13 @@
 
 \section{引言}
 
-在计算机科学的多个领域中，大量问题被归类为NP-hard问题。这些问题涵盖了决策问题\cite{ibsa_ref1,ibsa_ref2}以及组合优化任务\cite{ibsa_ref3,ibsa_ref4}，据目前的认知，它们无法在多项式时间内求解。由于其固有的复杂性及在众多学科中的广泛存在，此类问题构成了重大挑战\cite{ibsa_ref5,ibsa_ref6}。数据科学\cite{ibsa_ref7}和机器学习（Machine Learning）\cite{ibsa_ref8}等领域的快速发展，进一步凸显了设计鲁棒且高效算法以解决这些NP-hard难题的紧迫性。
+在全局优化与特征选择等任务中，搜索空间会随着问题维度迅速膨胀，许多问题因此表现出典型的NP-hard特征\cite{ibsa_ref1,ibsa_ref3,ibsa_ref5}。这类问题广泛存在于机器学习、数据挖掘和生物信息学等领域\cite{ibsa_ref7,ibsa_ref13,ibsa_ref15}，传统确定性方法往往难以在可接受时间内稳定获得高质量解，因此需要更具鲁棒性的近似优化策略。
 
-旅行商问题（Traveling Salesman Problem, TSP）\cite{ibsa_ref9}是NP-hard问题普遍性的一个典型例证。作为一个经典案例，TSP渗透到众多计算领域，影响着从制造业（如电路板钻孔\cite{ibsa_ref10}和DNA测序\cite{ibsa_ref11}）到日常物流规划\cite{ibsa_ref12}等诸多领域。数十年的深入研究表明，解决此类问题始终是系统化科学方法与创新艺术之间的平衡。
+特征选择是其中最具代表性的组合优化问题之一。其目标是在尽量减少冗余特征的同时保持甚至提升分类性能\cite{ibsa_ref17,ibsa_ref18}。与过滤式方法相比，包裹式方法直接以分类器性能评价候选特征子集，更容易反映特征间的协同关系\cite{ibsa_ref20,ibsa_ref22,ibsa_ref23}；但相应地，候选子集数量呈指数增长，搜索难度也显著增加。
 
-NP-hard问题的挑战不仅局限于传统计算学科。机器学习\cite{ibsa_ref13}、数据挖掘（Data Mining）\cite{ibsa_ref14}和生物信息学（Bioinformatics）\cite{ibsa_ref15}等新兴领域同样面临着这些问题日益增长的复杂性。在这些领域中，有效解决NP-hard问题至关重要，尤其是在大数据时代的数据分析方面。
+元启发式算法因具有较强的全局搜索能力而被广泛用于此类问题\cite{ibsa_ref24}。无论是生物启发、物理启发、进化类还是人类行为启发算法，都在不同场景中展示了较好的求解能力\cite{ibsa_ref25,ibsa_ref29,ibsa_ref33,ibsa_ref37}。然而，现有方法仍普遍存在局部开发不足、参数敏感或运行效率受限等问题\cite{ibsa_ref41,ibsa_ref50,ibsa_ref51}，在高维特征选择任务中尤为明显。
 
-基于大数据在机器学习等领域带来的日益增长的复杂性，本文的研究聚焦于全局优化和特征选择中固有的NP-hard挑战的一个特定子集。全局优化（Global Optimization）是寻求能够获得最优结果的最终配置\cite{ibsa_ref16}。当全局优化与特征选择（Feature Selection）相结合时，这一任务变得更加复杂。特征选择是开发机器学习模型的一个关键过程，涉及选择一组重要特征\cite{ibsa_ref17}，该过程产生的复杂决策组合体现了NP-hard问题的本质特征。在"维数灾难"（Curse of Dimensionality）\cite{ibsa_ref18}的背景下，从高维数据集中选择最相关特征的任务变得尤为重要。传统的特征选择方法通常包含两个主要组成部分：生成可行特征集的搜索机制和相应的特征集评估准则。目前，搜索机制主要采用随机方法，这与穷举搜索或顺序搜索不同，因为在指数级增长的可能性中逐一审查每个可能的特征子集在实际中是不可行的\cite{ibsa_ref19}。
-
-在特征选择中普遍采用的随机搜索机制基础上，可将这些方法分为三种类型：基于过滤的方法（Filter-based）、嵌入式方法（Embedded）和基于包裹的方法（Wrapper-based）。基于过滤的方法根据特征的固有特性对其进行评估，独立于任何学习算法\cite{ibsa_ref20}。嵌入式方法将特征选择过程与分类器训练相融合，直接从学习分类器中产生特征集\cite{ibsa_ref21}。与此不同，基于包裹的方法通过评估在特定特征集上训练的分类器的性能来评估特征集，该分类器的性能成为衡量特征集适用性的指标\cite{ibsa_ref22,ibsa_ref23}。值得注意的是，包裹方法通过评估捆绑特征来考虑特征间的相互依赖性，而过滤方法则孤立地评估单个特征，从而忽略了潜在的协同或拮抗作用。因此，本文致力于开发一种先进的基于包裹的算法。
-
-在认识到基于包裹方法的卓越有效性和优化能力后，研究者们加大了开发和改进这些算法的力度，以应对"大数据时代"的挑战。在机器学习模型中，包裹算法通常采用元启发式算法（Meta-heuristic Algorithms, MAs），这些算法以其强大的全局优化能力而著称\cite{ibsa_ref24}。如图\ref{fig:classification_of_MAs}所示，元启发式算法传统上分为四类：\eqref{ibsa_eq_1} 生物启发类，如蚁群优化算法（Ant Colony Optimization, ACO）\cite{ibsa_ref25}、粒子群优化算法（Particle Swarm Optimization, PSO）\cite{ibsa_ref26}、人工蜂群算法（Artificial Bee Colony, ABC）\cite{ibsa_ref27}和黏菌算法（Slime Mould Algorithm, SMA）\cite{ibsa_ref28}；\eqref{ibsa_eq_2} 物理启发类，如模拟退火算法（Simulated Annealing, SA）\cite{ibsa_ref29}、引力搜索算法（Gravitational Search Algorithm, GSA）\cite{ibsa_ref30}、正弦余弦算法（Sine Cosine Algorithm, SCA）\cite{ibsa_ref31}和平衡优化器（Equilibrium Optimizer, EO）\cite{ibsa_ref32}；\eqref{ibsa_eq_3} 进化类，如遗传算法（Genetic Algorithm, GA）\cite{ibsa_ref33}、差分进化算法（Differential Evolution, DE）\cite{ibsa_ref34}、进化规划（Evolution Programming, EP）\cite{ibsa_ref35}和进化策略（Evolution Strategies）\cite{ibsa_ref36}；以及\eqref{ibsa_eq_4} 人类行为启发类，如教学优化算法（Teaching Learning Based Optimization, TLBO）\cite{ibsa_ref37}、政治优化器（Political Optimizer, PO）\cite{ibsa_ref38}、和声搜索算法（Harmony Search Algorithm, HSA）\cite{ibsa_ref39}和头脑风暴优化算法（Brain Storm Optimization, BSO）\cite{ibsa_ref40}。其中，PSO因其收敛速度快和参数调节要求低而在全局优化中极为流行，在特征选择任务中具有重要价值\cite{ibsa_ref41}。同样，模拟退火算法通过模拟材料的系统冷却过程以最小化结构缺陷，在各个领域拥有广泛的应用。Abdel-Basset等\cite{ibsa_ref42}通过将该技术与Harris鹰算法（HHO）相结合并应用于特征选择，提高了分类精度和计算效率。基于达尔文进化概念的遗传算法在研究中也非常普遍。Dong等\cite{ibsa_ref43}研究了粒度水平如何影响特征选择中的分类精度和特征子集大小，进而提出了一种粒度优化遗传算法。此外，受教学启发的TLBO也获得了广泛认可，Hosseini等\cite{ibsa_ref44}提出了一种增强了变异算子的二值版本，成功应用于特征选择，获得了最优特征子集。
-
-这些元启发式算法的应用范围远不止于优化本身，它们在特征选择中的部署对于从精细化医学诊断到复杂图像分析\cite{ibsa_ref45}、神经网络构建\cite{ibsa_ref46}以及自然语言处理\cite{ibsa_ref47}等广泛应用至关重要。采用这些先进算法的动因不仅在于降低计算需求，更在于增强模型的可解释性并减轻过拟合风险\cite{ibsa_ref48}。例如，Reddy等\cite{ibsa_ref49}提出了一种创新的自适应遗传算法与模糊逻辑相结合的方法（AGAFL），用于心脏病的早期检测。该模型利用UCI数据集，通过精准定位关键特征和精细调整分类标准，展现出优于现有方法的性能。
-
-然而，在特征子集的广阔搜索空间中的探索并非一帆风顺。尽管前景广阔，但这些元启发式算法在实际应用中常常面临对计算资源的过度依赖、对参数校准的高度敏感性以及不可忽视的运行时效率问题\cite{ibsa_ref50,ibsa_ref51}。此外，该领域在超越传统单目标特征选择方法方面也需要更加精细的方法。目标不再仅仅是减少特征数量，而是同时实现模型精度的最大化——这种微妙的平衡需要更为复杂的策略\cite{ibsa_ref52}。
-
-为了应对这些多方面的挑战，本文致力于改进创新的回溯搜索算法（Backtracking Search Algorithm, BSA）——该算法属于基于进化的方法——以解决全局优化问题。本文将该算法适配为二值环境，采用专门为特征选择任务设计的V型函数。通过将所提算法与CEC 2017基准函数上的23种著名算法以及8种专用于特征选择任务的二值优化器进行对比，对所提算法的性能和鲁棒性进行了严格的验证。本文的贡献概括如下：
+BSA因结构简洁、参数较少而具有较好的应用潜力\cite{ibsa_ref53}，但其原始变异与交叉机制更偏向全局探索，对优良个体信息的利用不足，容易影响收敛精度。为此，本文提出基于精英引导变异策略的改进回溯搜索算法IBSA，并进一步构造其二值版本bIBSA用于特征选择任务。所提方法在连续优化中强化精英信息利用，在离散搜索中结合V型传递函数完成二值映射。通过与CEC 2017基准函数上的23种代表性算法以及特征选择任务中的8种二值优化器对比，系统验证IBSA及bIBSA的有效性与鲁棒性。本文的贡献概括如下：
 
 \begin{enumerate}
 \item  本文在基础BSA算法的基础上首创了一种精英引导变异策略，识别精英个体并利用精英信息增强局部开发能力和解的精度。
@@ -35,7 +25,7 @@ NP-hard问题的挑战不仅局限于传统计算学科。机器学习\cite{ibsa
 \item  通过广泛的实验评估，验证了所提算法在全局优化中的有效性及其用于特征选择的二值化改编。
 \end{enumerate}
 
-本章的组织结构如下：第\ref{chap:ibsa}章第2节进行了详尽的文献综述，重点介绍了与改进BSA以解决NP-hard问题相关的重要研究和新兴趋势。第3节介绍了研究动机，并详细阐述了所提算法（包括其二值版本）及其计算复杂度分析。第4节通过与23种近期提出的元启发式算法进行比较，对所提算法进行了严格的质量分析和全局优化性能验证。第5节探索了在实际工程问题中的应用，采用所提算法的二值版本进行特征选择任务，并将其性能与8种经典二值优化器进行了比较。最后，第6节总结了本章的研究发现并讨论了未来可能的研究方向。
+本章其余内容安排如下：第2节回顾与BSA改进相关的代表性研究；第3节介绍IBSA及其二值版本bIBSA，并分析计算复杂度；第4节通过CEC 2017基准实验验证IBSA的全局优化性能；第5节将bIBSA应用于特征选择任务；第6节给出本章小结。
 
 \begin{figure}[htbp]
   \centering
@@ -47,27 +37,15 @@ NP-hard问题的挑战不仅局限于传统计算学科。机器学习\cite{ibsa
 
 \section{文献综述}
 
-BSA由Civicioglu于2013年提出\cite{ibsa_ref53}，因其简洁而有效的架构而受到广泛关注，尤其以其独特的记忆策略著称，这使其有别于差分进化算法（DE）\cite{ibsa_ref34}及其著名的后继版本——JDE \cite{ibsa_ref54}、JADE \cite{ibsa_ref55}和SADE \cite{ibsa_ref56}。BSA强大的全局搜索能力源于其对参数$F$变化的容忍度，这为不同问题提供了适应性——用户可以根据具体问题调整$F$的取值。
+BSA由Civicioglu于2013年提出\cite{ibsa_ref53}，其历史种群记忆机制和单一试验种群生成算子使其在结构上区别于DE及其变体\cite{ibsa_ref34,ibsa_ref54,ibsa_ref55,ibsa_ref56}。这一简洁设计带来了较好的易用性和全局搜索能力，但也使原始BSA更偏向探索而弱于局部开发，进而影响高精度求解能力\cite{ibsa_ref57}。
 
-BSA的核心是采用单一算子来生成试验种群，作为进化过程中种群更新的唯一机制。该算子利用当前种群与直接搜索矩阵的结合来增强多样性——这一特性便于使用，也是BSA广泛应用的原因。然而，这种简洁性也带来了局限，因为算法的探索能力过强而开发效率不足，影响了其寻找精确解的能力\cite{ibsa_ref57}。
+围绕这一不足，现有研究大体可以分为三类：直接修改原始BSA、将BSA与其他元启发式算法混合，以及在BSA框架中集成新的学习或控制机制。三类工作共同目标都是在保持BSA结构优势的同时，提高收敛质量、稳定性和问题适应性。
 
-在BSA特性的基础上，当前的研究趋势可以分为三个不同的方向，每个方向都旨在克服连续优化挑战。首先，对原始BSA进行修改以提升算法性能。其次，将BSA与其他元启发式算法进行混合，以融合各自优势并弥补固有不足。最后，通过集成有效的机制和策略来增强BSA的性能。以下对这些研究进行了详细总结。
+在直接改进方面，BSARDVs通过重用差分向量来减少参数调节需求\cite{ibsa_ref58}，gQR-BSA利用量子高斯变异和准反射跳跃提升搜索效率\cite{ibsa_ref59}，Tsai等则通过多种变异策略和附加参数增强搜索表现\cite{ibsa_ref60}。这类方法通常能改善局部性能，但也可能引入新的参数敏感性或额外计算开销。
 
-在BSA的发展进程中，Zhang等\cite{ibsa_ref58}提出的BSARDVs是一项值得注意的改进——该方法利用差分向量的重用机制，消除了对中心控制参数的需求。这一创新使其成为一种无需参数微调的方法，兼具效率和易用性。在三个光伏（PV）模型的测试中，BSARDVs以更少的函数评估次数展现出优于其他竞争算法的性能。然而，BSARDVs也存在其局限性：搜索策略仅依赖于历史种群和过去的差分向量，而未利用当前种群的信息。这可能会增加收敛于局部最优的风险，特别是在处理复杂优化问题时。
+在混合和机制增强方面，HKBSA将自学习与精英学习结合，以提升种群学习能力\cite{ibsa_ref61}；PSOBSA尝试融合PSO的快速收敛与BSA的全局探索能力\cite{ibsa_ref62}；KLBSA和HMOBSA则通过多种群、自适应控制或多目标设计进一步扩展BSA的适用范围\cite{ibsa_ref63,ibsa_ref64}。这些工作证明了BSA具有较强的可扩展性，但算法结构往往也随之变得更加复杂。
 
-在BSA修改的基础上，Nama等\cite{ibsa_ref59}提出了一种名为gQR-BSA的变体。该方法结合了量子高斯变异和准反射跳跃，旨在深化优化问题的搜索效率。gQR-BSA通过重新配置原始BSA中固有的坐标结构，力图超越预设框架的局限性，增强搜索空间探索的全面性。尽管取得了这些进展，gQR-BSA仍面临探索与开发之间的微妙平衡问题。此外，该方法在计算复杂度方面也存在挑战，这是其固有的障碍。
-
-Tsai等\cite{ibsa_ref60}对BSA进行了增强，提出了十种不同的变异策略，并对每种策略进行了比较性能分析。在这些策略之外，该研究还引入了基于历史平均值和峰值位置的新参数。单维交叉方法也被纳入框架，以防止过早收敛。然而，这种创新方法也存在权衡——引入额外参数降低了用户友好性，并限制了其在复杂优化问题中的泛化能力。
-
-为了克服原始BSA无法从最优个体学习的不足，Zhao等\cite{ibsa_ref61}提出了分层知识引导的BSA（HKBSA）。该方法受自然界中生物在不定期返回丰富猎场以提高成功率的现象启发，将自学习和精英学习策略融入个体生成过程，显著丰富了算法种群的多样性并增强了其学习和适应能力。
-
-Zaman \cite{ibsa_ref62}巧妙地将PSO和BSA算法相结合，创建了PSOBSA混合算法——旨在将PSO的快速收敛与BSA强大的全局探索能力相结合。该方法对BSA的变异和交叉算子进行了调整，以提高收敛精度同时避免局部最优的陷阱。该混合算法在一系列基准问题上验证了其全局优化的有效性。然而，PSOBSA的复合特性确实带来了比单独使用任一算法更高的复杂度，以及更复杂的参数调整和更高的参数敏感性。
-
-Chen等\cite{ibsa_ref63}提出了一种BSA的高级版本，称为自适应知识学习BSA（KLBSA），旨在提升算法的整体效能。该变体引入了一种利用全局和局部群体智能的自适应控制参数，精细地校准算法的探索和开发能力。此外，还提出了一种突破性的变异策略以增强优化功能。为进一步提高效率，采用了多种群策略，确保对不同搜索区域进行严格探查的同时保护种群的多样性。然而，KLBSA中多种新策略和参数的添加不可避免地增加了算法的复杂性，并可能带来显著的计算开销。
-
-在理论探索与实际应用之间架起桥梁的工作中，Lu等\cite{ibsa_ref64}提出了一种混合多目标回溯搜索算法（HMOBSA），针对以节能为重点的置换流水车间调度问题（PFSP）。该创新强调了常被忽视的准备和运输时间，倡导可持续制造实践。HMOBSA的有效性通过其在某制造企业的实际案例中的应用得到了验证。然而，需要注意的是，由于双种群策略和自适应选择机制的实施，算法的复杂性和计算需求有所增加。
-
-深入BSA研究领域可以发现大量的应用和改进。然而，据本文所知，目前尚缺乏将BSA或其变体应用于医学数据特征选择任务的研究。鉴于大数据的指数级增长和技术进步，医学数据的巨大体量和复杂性给患者诊疗过程带来了巨大挑战。为填补这一空白，本文提出了一种增强的BSA变体，通过复杂的变异和交叉修改来改进原始算法。这种名为精英引导变异策略的新方法旨在增强原始BSA的固有随机性并加强局部开发能力，将精英个体与其余个体区分开来以获得更精确的解。该增强模型的有效性和鲁棒性已通过IEEE CEC 2017基准测试套件以及高维医学数据特征选择这一复杂的实际工程问题得到了验证。
+总体来看，已有研究主要集中于连续优化场景，而面向高维医学数据特征选择的BSA改进仍相对有限。针对这一缺口，本文提出精英引导变异策略以增强BSA对优良个体信息的利用，并在此基础上构造二值版本用于特征选择任务。后续实验将从CEC 2017基准测试和医学数据集两个层面验证所提方法的有效性。
 
 
 \section{所提方法}
@@ -477,11 +455,9 @@ C^j\mathrm{(t)}\mathrm{=}\frac{\mathrm{1}}{D}\int^N_{i\mathrm{=1}}{X^j_i\left(t\
 \FloatBarrier
 \subsection{与基础元启发式算法的比较}
 
-本节展示了所提IBSA与该领域其他最先进算法的比较分析。为确保公平比较，所有算法的参数设置如表1所示，反映了各自原始论文中建议的最优性能参数。IEEE 2017函数套件\cite{ibsa_ref78}作为实验基准。值得注意的是，所有算法的种群规模固定为30，问题维度也设定为30。为减轻算法性能的固有随机性，目标函数的最大评估次数在30次运行中设定为300,000。
+本节在IEEE CEC 2017基准函数\cite{ibsa_ref78}上比较IBSA与12种基础元启发式算法的性能。所有算法均采用原始文献推荐参数，种群规模统一为30，问题维度设为30，最大函数评估次数为300,000，并独立运行30次。结果使用Avg和Std报告，并通过Wilcoxon符号秩检验\cite{ibsa_ref73}与Friedman检验\cite{ibsa_ref74}验证差异的统计显著性，显著性水平设为0.05。
 
-为进一步阐明算法之间的性能差异，将应用非参数Wilcoxon符号秩检验\cite{ibsa_ref73}。此外，Friedman检验\cite{ibsa_ref74}将作为Wilcoxon符号秩检验的扩展，使用平均排名值（ARV）对算法进行定量排序。符号"+"、"="和"-"将用于指示所提IBSA的性能是否显著优于、等于或劣于其对比算法。这些检验中建立统计显著性的阈值设为p$\mathrm{<}$0.05。
-
-本实验部分涉及IBSA与12种基础元启发式算法的比较分析，包括BSA \cite{ibsa_ref53}、SMA \cite{ibsa_ref28}、DE \cite{ibsa_ref34}、PSO \cite{ibsa_ref26}、GSA \cite{ibsa_ref30}、蝙蝠算法（Bat Algorithm, BA）\cite{ibsa_ref79}、SCA \cite{ibsa_ref31}、CSA \cite{ibsa_ref66}、鲸鱼优化算法（Whale Optimization Algorithm, WOA）\cite{ibsa_ref80}、灰狼优化算法（Gray Wolf Optimization, GWO）\cite{ibsa_ref81}、蛾焰优化算法（Moth-Flame Optimization, MFO）\cite{ibsa_ref82}和HHO \cite{ibsa_ref83}。为保持公平竞争，所有算法在均匀的参数配置下进行评估，如表1所述，基于各自论文中的原始设置。表2反映了这一严格实验的结果，展示了IBSA与传统元启发式算法在CEC2017基准上的对比结果。为全面起见，表中还公布了Wilcoxon符号秩检验和Friedman检验的结果。
+对比算法包括BSA\cite{ibsa_ref53}、SMA\cite{ibsa_ref28}、DE\cite{ibsa_ref34}、PSO\cite{ibsa_ref26}、GSA\cite{ibsa_ref30}、BA\cite{ibsa_ref79}、SCA\cite{ibsa_ref31}、CSA\cite{ibsa_ref66}、WOA\cite{ibsa_ref80}、GWO\cite{ibsa_ref81}、MFO\cite{ibsa_ref82}和HHO\cite{ibsa_ref83}。表1给出参数设置，表2和表3分别给出数值结果与Wilcoxon检验结果。
 
 \begin{table}[H]
 \centering
@@ -508,13 +484,9 @@ HHO & $C\ =\ \left[0,2\right];E=\left[-2,2\right]$\textit{} \\
 
 
 
-表2展示了参与IEEE CEC2017函数测试的多种算法的Avg和Std值。某算法在所有同类算法中取得最佳结果的情况在Avg和Std列中以粗体标注。最后一行展示了Friedman检验的结果。
+表2给出了各算法在CEC 2017函数上的Avg、Std和Friedman排名。总体上，IBSA在F1、F6、F7、F12、F17、F18、F20以及F22至F29上取得最优结果，在F4、F5、F8、F10、F11、F13、F14、F15、F19和F21上也保持前列，仅在F30上退至第三名。这说明IBSA不仅在单峰和多峰函数上具有竞争力，在更能体现探索-开发平衡能力的混合函数和组合函数上优势更为明显。
 
-通过分析表2，可以看到所提IBSA算法的强大表现。它在多个函数上取得第一名，包括F1、F6、F7、F12、F17、F18、F20以及F22至F29。这些函数对应四个不同的类别，包括单峰函数F1、多峰函数F6和F7、混合函数F12、F17、F18和F20，以及组合函数F22至F29。这一结果凸显了IBSA固有的卓越全局优化潜力，展示了其在比较算法中强大而有效的优化能力。
-
-此外，IBSA在函数F4、F5、F8、F10、F11、F13、F14、F15、F19、F21上获得第二名，在函数F30上获得第三名，展现了其对最优解的惊人逼近能力。IBSA的卓越性能进一步得到了表2末尾Wilcoxon符号秩检验和Friedman检验结果的证实。
-
-Wilcoxon符号秩检验的更详细分析将在后续段落中进行，而Friedman检验结果以图\ref{fig:friedman_ranking_basic}的可视化形式呈现以便理解。从Friedman检验结果图中可以看到，IBSA的平均值与12种最先进算法相比极低，为1.7586——显著优于排名第二的BSA算法的3.1379。
+Friedman检验进一步验证了这一结论。IBSA的平均排名为1.7586，显著优于排名第二的BSA（3.1379），其整体优势见图\ref{fig:friedman_ranking_basic}。
 
 \begin{landscape}
 \begingroup
@@ -594,11 +566,7 @@ Wilcoxon符号秩检验的更详细分析将在后续段落中进行，而Friedm
 
 
 
-表3列出了Wilcoxon符号秩检验的结果，该检验评估了IBSA与BSA、SMA、DE、PSO、GSA、BA、SCA、CS、WOA、GWO、MFO和HHO等著名基准算法对比实验的经验有效性。获得的p值和相关的"+/=/-"符号突出了IBSA相对于这些优秀最先进算法的相对效能。
-
-在CEC 2017函数套件中，IBSA在与BSA、SMA、DE、PSO、GSA、BA、SCA、CS、WOA、GWO、MFO和HHO的比较中分别在10、20、25、27、25、26、29、26、27、29、29和27个函数上优于对比算法。此外，IBSA表现较差的函数数量分别仅限于5、2、1、1、1、1、0、2、0、0、0和2个。此外，在与各基准算法的比较中，IBSA分别在14、7、3、1、3、2、0、1、2、0、0和7个函数上表现出同等性能。
-
-这些发现展示了IBSA在全局优化方面相对于同类算法的竞争优势。关于这些比较的详细信息已在表3中详细记录。
+表3的Wilcoxon结果进一步说明了IBSA的稳定优势。相较于BSA、SMA、DE、PSO、GSA、BA、SCA、CS、WOA、GWO、MFO和HHO，IBSA分别在10、20、25、27、25、26、29、26、27、29、29和27个函数上显著更优，而显著劣于对手的情形仅出现在5、2、1、1、1、1、0、2、0、0、0和2个函数上。结合“+/-/=”统计可以看出，IBSA在多数函数上均保持明显领先。
 
 \begin{landscape}
 \begingroup
@@ -687,9 +655,7 @@ Fun & \multicolumn{2}{c}{IBSA vs SCA} & \multicolumn{2}{c}{IBSA vs CS} & \multic
 
 
 
-为更好地展示IBSA算法的有效性，图\ref{fig:convergence_basic_MAs}采用了两种可视化方式：收敛曲线和箱线图。这些可视化聚焦于涵盖CEC 2017函数套件中所有四类问题的代表性函数。所选函数包括单峰函数F1、多峰函数F6和F7、混合函数F12、F17、F18、F20以及组合函数F22、F23和F27。
-
-这些函数展示了IBSA在处理不同问题时收敛和多样化的强大探索能力和良好的平衡能力。箱线图进一步证实了所提IBSA的鲁棒性。除了在混合函数F17上IBSA的波动略大于BSA外，IBSA始终保持着优于BSA的平均适应度值。这表明所提精英引导变异策略对提升IBSA整体性能的强大影响。
+图\ref{fig:convergence_basic_MAs}选取单峰、多峰、混合和组合函数中的代表性案例展示收敛曲线与箱线图。可以看到，IBSA在不同函数类型下都保持了较稳定的下降趋势和较小的结果波动；除F17上波动略高于BSA外，其余多数情况下IBSA均取得更优或相当的最终适应度，说明所引入的精英引导变异策略有效改善了算法的收敛质量与鲁棒性。
 
 \begin{figure}[htbp]
   \centering
@@ -703,17 +669,11 @@ Fun & \multicolumn{2}{c}{IBSA vs SCA} & \multicolumn{2}{c}{IBSA vs CS} & \multic
 
 \subsection{与改进元启发式算法变体的比较}
 
-本节致力于将所提IBSA算法与其他先进群智能算法进行细致的比较。目的是强调IBSA强大的全局优化能力。
+本节进一步将IBSA与11种改进型元启发式算法比较，包括CGPSO、SADE、RDWOA、CLPSO、CAGWO、SCADE、IGWO、DECLS、ALCPSO、CBA和SHADE等代表性方法\cite{ibsa_ref84,ibsa_ref56,ibsa_ref68,ibsa_ref85,ibsa_ref86,ibsa_ref87,ibsa_ref88,ibsa_ref89,ibsa_ref90,ibsa_ref91,ibsa_ref92}。这些算法覆盖协同进化、差分进化改进、改进PSO和改进GWO等多条路线，用于检验IBSA在更强竞争环境下的表现。
 
-用于此次比较的算法包括：协同进化粒子群优化算法（Cooperatively Coevolving Particle Swarms Optimization, CGPSO）\cite{ibsa_ref84}、自适应差分进化算法（Self-Adaptive Differential Evolution, SADE）\cite{ibsa_ref56}、增强鲸鱼优化算法（Reinforced Whale Optimization Algorithm, RDWOA）\cite{ibsa_ref68}、综合学习粒子群优化算法（Comprehensive Learning Particle Swarm Optimization, CLPSO）\cite{ibsa_ref85}、交叉自适应灰狼优化算法（Cross-Adaptive Gray Wolf Optimization, CAGWO）\cite{ibsa_ref86}、正弦余弦差分进化算法（Sine Cosine Algorithm Differential Evolution, SCADE）\cite{ibsa_ref87}、改进灰狼优化算法（Improved Gray Wolf Optimization, IGWO）\cite{ibsa_ref88}、基于混沌局部搜索的差分进化算法（Differential Evolution based on Chaotic Local Search, DECLS）\cite{ibsa_ref89}、带老化领导者和挑战者的粒子群优化算法（PSO with Aging Leader and Challengers, ALCPSO）\cite{ibsa_ref90}、紧凑蝙蝠算法（Compact Bat Algorithm, CBA）\cite{ibsa_ref91}和基于成功历史的参数自适应差分进化算法（Success-History Based Parameter Adaptation Differential Evolution, SHADE）\cite{ibsa_ref92}。
+表4给出了CEC 2017上的整体结果。Friedman检验显示，IBSA的平均排名为1.8621，明显优于第二名的3.9310，说明其整体性能仍处于领先位置。表5中的Wilcoxon结果与此一致：IBSA相对于CGPSO、SADE、RDWOA、CLPSO、CAGWO、SCADE、IGWO、DECLS、ALCPSO、CBA和SHADE，分别在26、14、22、19、27、23、28、25、28、28和14个函数上显著更优。
 
-在进入统计分析之前，有必要介绍表4中总结的结果，该表使用IEEE CEC2017函数套件评估了本文算法与这些成熟算法的性能。IBSA的卓越性能在表4的最后一行通过Friedman检验清晰呈现，其平均排名为1.8621，显著优于排名第二的3.9310。这一优越性通过图\ref{fig:friedman_ranking_advanced}中描绘的Friedman检验结果平均排名图进一步可视化。
-
-转到表5，该表采用Wilcoxon符号秩检验来加强比较分析。该统计检验的结果表明，IBSA相对于多个成熟算法展现出显著优势。具体而言，IBSA在与CGPSO、SADE、RDWOA、CLPSO、CAGWO、SCADE、IGWO、DECLS、ALCPSO、CBA和SHADE的比较中，分别在26、14、22、19、27、23、28、25、28、28和14个实例中取得优势。这些结果的统计显著性通过低于0.05的p值得到确认，验证了IBSA的总体优势。
-
-然而，在某些情况下，IBSA的性能与对比算法较为接近。具体而言，与CGPSO、SADE、RDWOA、CLPSO、CAGWO、SCADE、IGWO、DECLS、ALCPSO、CBA和SHADE相比，IBSA分别在2、5、0、1、0、0、1、2、0、1和11个实例中表现出相当的结果。
-
-尽管如此，IBSA略逊于某些算法的情况极少——即CGPSO、SADE、RDWOA、CLPSO、CAGWO、SCADE、IGWO、DECLS、ALCPSO和CBA——分别在1、10、7、9、2、6、0、2、1和4个案例中。这些性能的具体细节在表5中有详尽阐述。
+需要指出的是，IBSA与SADE、RDWOA、CLPSO和SHADE在部分函数上仍然接近，说明强竞争算法在某些场景下依旧具有优势；但从总体排名、优胜次数和后续收敛图来看，IBSA在复杂函数上的稳定性更好。
 
 \begin{landscape}
 \begingroup
@@ -889,13 +849,7 @@ Fun & \multicolumn{4}{p{0.8in}}{IBSA vs CGPSO} & \multicolumn{3}{p{0.8in}}{IBSA 
 
 
 
-在观察IBSA在一系列测试函数上的性能时，可以识别出若干显著优势，如图\ref{fig:convergence_advanced_MAs}所示。在单峰函数F1上，尽管IBSA的收敛速度略慢于SHADE，但两者获得了相同的最优解，突显了IBSA的竞争力。
-
-在多峰函数F6上，IBSA的收敛速度和解精度与CLPSO和DECLS相当。值得注意的是，在混合函数F11、F13、F14、F15和F19上，IBSA表现出色，保持了第一名的排名。尽管收敛速度可能略慢于某些算法，但需要强调的是，解的质量应优先于收敛速度。
-
-在处理组合函数F23、F27和F29时，IBSA的优异性能从收敛图中清晰可见，它获得了远优于同类算法的解。值得注意的是，在函数F29上，IBSA的性能与SCADE相当。
-
-此外，收敛曲线旁的箱线图提供了对所提IBSA令人印象深刻的鲁棒性的洞察。与竞争算法相比，它在30次运行中显示出最小的波动率并保持最小的适应度值。这一详细比较有效地凸显了IBSA算法的强大能力。
+图\ref{fig:convergence_advanced_MAs}进一步展示了IBSA在强基线下的收敛过程与箱线分布。IBSA在F1上与SHADE达到相同最优值，在F6上与CLPSO和DECLS表现接近，而在F11、F13、F14、F15、F19以及F23、F27、F29等混合或组合函数上保持更优解质量。箱线图也表明，IBSA在30次运行中的波动总体较小，说明其优势不仅体现在最优值上，也体现在结果稳定性上。
 
 \begin{figure}[htbp]
   \centering
@@ -909,17 +863,9 @@ Fun & \multicolumn{4}{p{0.8in}}{IBSA vs CGPSO} & \multicolumn{3}{p{0.8in}}{IBSA 
 
 \section{bIBSA用于特征选择}
 
-本节介绍了将转换函数\cite{ibsa_ref71}应用于建立IBSA的二值版本（称为bIBSA）的过程。该版本将用于处理实际工程问题，特别是特征选择。
+为验证IBSA在离散问题中的适用性，本节利用转换函数\cite{ibsa_ref71}构造二值版本bIBSA，并将其用于特征选择。实验从UCI公开数据库\cite{ibsa_ref93}中选取12个医学数据集，维度范围为326至12,601，其中绝大多数属于高维数据，能够充分检验算法在大规模特征空间中的搜索能力。
 
-在本研究中，从公开可用的UCI数据集\cite{ibsa_ref93}中选取了12个数据集。这些数据集的维度各不相同，最小的为326维，最大的为12,601维。在这12个数据集中，9个维度超过5,000，2个维度超过2,000。仅有penglung数据集的维度为326，低于上述标准。
-
-这些数据集均来自医学领域，涵盖2至7个类别，包括各种类型和程度的癌症及其他疾病，每个数据集具有不同的样本量、特征数和类别标签。需要强调的是，本研究的核心焦点是验证所提bIBSA在二值问题域中的性能。表6进一步详细说明了这些数据集的具体信息。
-
-从表6的详细信息可以看出，所使用的数据集涵盖了多种医学疾病，包括脑肿瘤、中枢神经系统疾病、结肠癌、白血病、肺癌和前列腺肿瘤。这些疾病的广泛性使我们能够在各种健康领域评估bIBSA的鲁棒性。
-
-此外，特征数量从326到12,601的巨大差异提供了评估算法在低维和高维数据上性能的独特机会。这有助于深入了解算法对不同特征空间的处理能力。
-
-值得注意的是，某些数据集包含多个类别，使我们能够评估算法在多类分类问题中的表现能力。
+这些数据集覆盖脑肿瘤、中枢神经系统疾病、结肠癌、白血病、肺癌和前列腺肿瘤等多种医学场景，类别数为2至7不等。由于数据规模、特征维度和类别结构差异较大，本文可以同时评估bIBSA在高维、小样本和多类分类条件下的鲁棒性，具体数据信息见表6。
 
 \small
 \begin{table}[H]
