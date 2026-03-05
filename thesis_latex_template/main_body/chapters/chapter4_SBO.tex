@@ -16,11 +16,11 @@
   \label{fig:sbo_classification_of_MAs}
 \end{figure}
 
-如图\ref{fig:sbo_classification_of_MAs}所示，现有元启发式算法大致可以分为进化类、群体智能类、物理/化学启发类和人类行为启发类。不同路线在特定问题上各有优势，但普遍面临两个共性瓶颈：一是参数设置对性能影响显著，二是探索与开发往往难以长期保持平衡\cite{sbo_ref12,sbo_ref19,sbo_ref24,sbo_ref28}。这一问题在高维优化、特征选择和图像分割等任务中尤其突出。
+如图\ref{fig:sbo_classification_of_MAs}所示，现有元启发式算法大致可以分为进化类、群体智能类、物理/化学启发类和人类行为启发类。不同路线在特定问题上各有优势，但普遍面临两个共性瓶颈：一是参数设置对性能影响显著，二是探索与开发往往难以长期保持平衡\cite{sbo_ref12,sbo_ref19,sbo_ref24,sbo_ref28}。这一问题在高维优化和图像分割等任务中尤其突出。
 
 人类行为启发算法因能够将学习、竞争、模仿和资源分配等社会过程转化为搜索机制，近年来受到持续关注\cite{sbo_ref25,sbo_ref27,sbo_ref29}。但现有方法仍存在收敛速度、稳定性或参数敏感性方面的不足，尚缺少一种结构简洁且兼顾全局探索与局部开发的算法框架。
 
-针对这一缺口，本文提出基于状态的优化算法（Status-based Optimization, SBO）。该算法模拟个体通过接近更高地位群体、获取资源并调整自身状态来实现提升的过程，将其映射为优化中的探索与开发协同机制\cite{sbo_ref29}。为验证SBO的有效性，本文在IEEE CEC 2017基准上开展全局优化实验，并进一步将其应用于特征选择和多阈值图像分割任务。本文的主要贡献总结如下：
+针对这一缺口，本文提出基于状态的优化算法（Status-based Optimization, SBO）。该算法模拟个体通过接近更高地位群体、获取资源并调整自身状态来实现提升的过程，将其映射为优化中的探索与开发协同机制\cite{sbo_ref29}。为验证SBO的有效性，本文在IEEE CEC 2017基准上开展全局优化实验，并进一步将其应用于多阈值图像分割任务。本文的主要贡献总结如下：
 
 \begin{enumerate}
 \item  本文提出了SBO，一种模拟人类寻求地位行为和交互的新型MA，为启发式优化提供了新的途径。
@@ -29,26 +29,15 @@
 
 \item  SBO算法性能的可靠性通过详细的统计检验得到验证，包括Wilcoxon符号秩检验和Friedman检验。这些检验证实了其优化结果的统计显著性和可靠性。
 
-\item  SBO算法的实用性和有效性在高维特征选择和多阈值图像分割任务中得到进一步验证。这些结果证明了其潜在的灵活性，表明其在各种工程领域的适用性。
+\item  SBO算法的实用性和有效性在多阈值图像分割任务中得到进一步验证，说明其在实际医学图像分析场景中具有良好的应用潜力。
 \end{enumerate}
 
-本文的结构安排如下：第2节回顾相关的人类行为启发算法；第3节介绍SBO的设计思想、数学模型与计算复杂度；第4节给出基准测试结果；第5节展示SBO在特征选择和多阈值图像分割中的应用；第6节总结全文。
-
-
-\section{文献综述}
-
-优化算法通常可以分为启发式方法和元启发式方法。前者依赖预设规则或问题经验，适合快速获得可接受解；后者则通过随机搜索与自适应机制在更大范围内平衡探索和开发，因此更适合处理高维、复杂和非线性问题。
-
-在人类行为启发算法中，TLBO\cite{sbo_ref30}、BSO\cite{sbo_ref34}、PO\cite{sbo_ref37}和HMS\cite{sbo_ref40}是最具代表性的几类方法。它们分别从教学学习、头脑风暴、政治竞争和人类认知过程汲取机制，并在结构设计、配电系统、能源管理和物流优化等场景中取得了较好效果\cite{sbo_ref31,sbo_ref32,sbo_ref35,sbo_ref36,sbo_ref38,sbo_ref39,sbo_ref41,sbo_ref42}。
-
-这些研究说明，人类行为中的学习、合作、竞争与信息共享机制能够有效提升搜索质量。但现有方法仍存在明显局限：TLBO虽参数少但收敛偏慢，BSO容易过早收敛，PO和HMS往往计算开销较大或仍需较细致的参数调节。换言之，人类行为启发算法已经证明了思路有效，但仍缺少一种在结构复杂度、搜索平衡和运行效率之间更均衡的方案。
-
-基于此，本文提出SBO，目标是在保留人类社会学习机制直观性的同时，减少参数负担并增强全局搜索与局部精炼之间的协同。后续章节将围绕这一定位，依次介绍SBO的灵感来源、数学建模及其在基准测试和实际应用中的表现。
+本文的结构安排如下：第2节介绍SBO的设计思想、数学模型与计算复杂度；第3节给出基准测试结果；第4节展示SBO在多阈值图像分割中的应用；第5节总结全文。
 
 
 \section{所提基于状态的优化算法}
 
-本节重点介绍SBO算法的阐述，详细说明其数学建模和计算复杂度。
+本节介绍SBO的设计思想、数学建模和计算复杂度。
 
 
 \subsection{SBO的灵感来源}
@@ -479,7 +468,7 @@ SHADE & $\left|A\right|=2\times NP,\ p=0.1$ \\
 
 \subsection{基准测试结果与统计分析}
 
-SBO与13种先进算法在29个CEC 2017函数上进行了比较，覆盖10、30、50和100维四种规模。表3汇总了Avg/Std及Wilcoxon、Friedman统计结果，完整明细已移至补充材料。总体上，SBO在各维度都保持领先或前列，尤其在混合函数和组合函数上优势更明显，说明其对复杂搜索空间具有较强适应性。
+SBO与13种先进算法在29个CEC 2017函数上进行了比较，覆盖10、30、50和100维四种规模。表3汇总了Avg/Std及Wilcoxon、Friedman统计结果。总体上，SBO在各维度都保持领先或前列，尤其在混合函数和组合函数上优势更明显，说明其对复杂搜索空间具有较强适应性。
 
 
 
@@ -614,242 +603,17 @@ Dimension & CGPSO & MSPSO & CMAES & DECLS & LSHADE\_cnEpSin & SCADE & SHADE \\
 
 
 
-\section{实验验证}
+\section{SBO用于多阈值图像分割}
 
-基于上述连续优化结果，本节进一步从两个应用场景验证SBO：一是将其二值化为bSBO，用于高维特征选择并与KNN结合评估分类性能；二是在多阈值图像分割任务中与7种先进算法比较分割质量。这样的设计既检验SBO从连续到离散空间的迁移能力，也检验其在真实问题中的通用性。
+为进一步验证SBO在实际任务中的有效性，本节将其用于乳腺癌组织学图像的多阈值分割。该任务需要在复杂纹理、噪声干扰和灰度不均等条件下同时确定多个阈值，因此能够较好地检验SBO在连续实际问题中的搜索质量。本文采用Renyi熵作为目标函数，并与7种先进算法比较分割性能。
 
-
-
-
-\subsection{特征选择}
-
-特征选择的目标是在保证预测性能的前提下去除冗余和无关特征，从而降低维度并提高模型泛化能力\cite{sbo_ref61}。常见方法包括过滤式、嵌入式和包裹式\cite{sbo_ref62,sbo_ref63,sbo_ref64}：过滤式依赖统计指标独立评估特征，嵌入式在模型训练过程中同步完成选择，而包裹式直接以分类器性能评价候选子集，虽然计算开销更大，但通常更贴近最终任务目标。
-
-本文采用bSBO构造包裹式特征选择框架。面对高维数据下指数增长的组合空间，二值元启发式搜索更适合在有限计算预算内寻找兼顾精度与子集规模的解。
-
-
-\subsubsection{基于bSBO的包裹式方法}
-
-本节将bSBO与KNN分类器（$K=5$）结合形成包裹式特征选择方法，整体流程见图12。适应度函数同时考虑分类错误率与特征子集规模，其中$E$表示KNN错误率，$|S|$表示选中特征数，$|A|$表示原始特征总数，定义如式~\eqref{sbo_eq_17}所示。参数$\alpha=0.05$和$\beta=0.95$用于在误差和规模之间施加权衡。
-
-\begin{equation}
-\label{sbo_eq_17}
-f_{obj}=\alpha\times E+\beta\times \frac{\left|S\right|}{\left|A\right|}
-\end{equation}
-
-
-
-该过程从数据预处理开始。数据集首先进行十折划分，并归一化到[$\mathrm{-}$1,1]范围。每个候选解先以连续向量表示，再通过V型转换函数转化为二值决策：
-
-\begin{equation}
-\label{sbo_eq_18}
-T\left(x_{i,j}\right)=\left|erf\left(\sqrt{\frac{\pi}{2}}\times x_{i,j}\right)\right|
-\end{equation}
-
-\begin{equation}
-\label{sbo_eq_19}
-erf\left(x\right)=\frac{2}{\sqrt{\pi}}\int^x_0{e^{-t^2}}dt
-\end{equation}
-
-其中$x_{i,j}$表示第$i$个候选解的第$j$个连续分量，转换后以0.5为阈值产生二值选择结果。随后使用选中特征训练并评估KNN分类器，bSBO在固定迭代次数内不断更新候选子集，最终输出表现最优的特征集合。本文以平均适应度、错误率和特征数量作为评价指标，并与八种二值优化器进行对比。
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=\textwidth]{figures/chapter4/fig12_flowchart_bSBO_wrapper.png}
-  \bicaption{基于bSBO的包裹式特征选择方法流程图}{Flowchart of bSBO-based wrapper method for feature selection.}
-  \label{fig:flowchart_bSBO_wrapper}
-\end{figure}
-
-
-
-
-\subsubsection{bSBO的实验结果与分析}
-
-本节将bSBO与八种二值优化器直接比较，包括bMFO、bGWO、bGSA、bPSO、bALO、bBA、bSSA和bHHO\cite{sbo_ref70,sbo_ref71,sbo_ref72,sbo_ref73,sbo_ref74,sbo_ref75,sbo_ref76,sbo_ref77}。所用九个数据集均来自UCI机器学习库，维度范围为2,308至12,600，类别数为2至4，样本量为50至203，能够覆盖典型的高维小样本场景。
-
-
-
-\begin{longtable}{p{1.60in}ccc}
-\caption{所用高维数据集描述}\\
-\caption*{Table \thetable. Description of the used high-dimensional datasets.}\\
-\toprule
-Dataset & Samples & Features & Classes \\
-\midrule
-Brain\_Tumor2 & 50 & 10367 & 4 \\
-CNS & 60 & 7129 & 2 \\
-DLBCL & 77 & 5469 & 2 \\
-Leukemia & 72 & 7130 & 2 \\
-Leukemia1 & 72 & 5327 & 3 \\
-Leukemia2 & 72 & 11225 & 3 \\
-Lung\_Cancer & 203 & 12600 & 3 \\
-Prostate\_Tumor & 102 & 10509 & 2 \\
-SRBCT & 83 & 2308 & 4 \\
-\bottomrule
-\end{longtable}
-
-
-
-为保证公平性，所有算法统一采用20的种群规模和50次最大迭代，每个数据集独立运行10次，并使用10折交叉验证\cite{sbo_ref78}评估分类性能。表6至表8分别给出适应度、特征数量和错误率结果，并辅以Wilcoxon和Friedman检验。
-
-表6显示，bSBO在九个数据集上均获得最低适应度值。
-尽管个别数据集上的Std略高于部分对手，
-其Friedman排名仍为1，优于次优的bHHO（2.25），说明整体优势稳定。
-
-
-
-\begin{landscape}
-\begingroup
-\scriptsize
-\setlength{\tabcolsep}{1pt}
-\begin{longtable}{p{1.30in}>{\centering\arraybackslash}p{0.42in}ccccccccc}
-\caption{bSBO与其他二值优化器平均适应度值比较结果}\\
-\caption*{Table \thetable. Comparative results of average fitness values between bSBO and other binary optimizers.}\\
-\toprule
-Dataset & Metric & bSBO & bMFO & bGWO & bGSA & bPSO & bALO & bBA & bSSA & bHHO \\
-\midrule
-Brain\_Tumor2 & Std & \textbf{3.80E-06} & 1.83E-04 & 6.00E-02 & 1.12E-01 & 1.18E-01 & 9.62E-02 & 2.30E-01 & 8.49E-02 & 8.82E-02 \\
- & Avg & \textbf{9.65E-06} & 1.71E-04 & 5.74E-03 & 1.02E-01 & 2.39E-02 & 2.37E-02 & 2.04E-02 & 1.95E-02 & 9.27E-03 \\
-CNS & Std & \textbf{2.25E-05} & 2.25E-04 & 6.67E-02 & 7.91E-02 & 1.09E-01 & 8.34E-02 & 1.48E-01 & 1.31E-01 & 1.23E-04 \\
- & Avg & \textbf{1.75E-05} & 2.77E-04 & 5.86E-03 & 2.32E-02 & 1.82E-01 & 1.70E-01 & 2.37E-01 & 1.04E-01 & 4.21E-05 \\
-DLBCL & Std & \textbf{7.21E-06} & 1.08E-04 & 2.80E-04 & 3.77E-02 & 3.75E-02 & 3.28E-04 & 3.70E-02 & 4.41E-02 & 1.88E-05 \\
- & Avg & \textbf{1.83E-05} & 1.14E-04 & 5.33E-03 & 2.16E-02 & 2.34E-02 & 2.29E-02 & 2.14E-02 & 2.23E-03 & \textbf{1.83E-05} \\
-Leukemia & Std & \textbf{5.73E-06} & 6.30E-05 & 2.55E-04 & 1.97E-04 & 2.49E-04 & 2.12E-04 & 3.22E-03 & 8.97E-03 & 1.85E-05 \\
- & Avg & \textbf{1.40E-05} & 7.71E-05 & 5.49E-03 & 2.18E-02 & 2.34E-02 & 2.30E-02 & 1.65E-02 & 2.40E-02 & 1.75E-05 \\
-Leukemia1 & Std & \textbf{6.07E-05} & 1.86E-04 & 3.53E-04 & 3.55E-04 & 2.06E-04 & 2.32E-04 & 4.23E-02 & 6.53E-03 & 1.06E-04 \\
- & Avg & \textbf{1.88E-05} & 1.88E-04 & 5.28E-03 & 2.14E-02 & 2.31E-02 & 2.27E-02 & 1.79E-02 & 2.30E-02 & 5.16E-05 \\
-Leukemia2 & Std & 2.44E-05 & 8.46E-05 & 1.76E-04 & 3.60E-04 & 5.38E-02 & 5.38E-02 & 6.16E-02 & 5.90E-02 & \textbf{2.27E-05} \\
- & Avg & \textbf{1.78E-05} & 1.45E-04 & 5.43E-03 & 2.25E-02 & 2.37E-02 & 2.35E-02 & 1.76E-02 & 2.42E-02 & 3.12E-05 \\
-Lung\_Cancer & Std & 4.02E-04 & \textbf{3.11E-04} & 2.11E-02 & 3.41E-02 & 3.41E-02 & 2.23E-02 & 4.27E-02 & 3.13E-02 & 2.30E-02 \\
- & Avg & \textbf{8.13E-05} & 5.58E-04 & 6.01E-03 & 4.45E-02 & 4.68E-02 & 2.39E-02 & 4.29E-02 & 3.86E-02 & 8.64E-03 \\
-Prostate\_Tumor & Std & 6.37E-05 & 1.89E-04 & 2.99E-02 & 4.80E-02 & 7.66E-02 & 4.80E-02 & 9.69E-02 & 5.15E-02 & \textbf{5.22E-05} \\
- & Avg & \textbf{2.62E-05} & 2.47E-04 & 6.19E-03 & 2.30E-02 & 2.42E-02 & 2.38E-02 & 1.11E-01 & 6.77E-02 & 7.14E-05 \\
-SRBCT & Std & \textbf{7.81E-05} & 1.04E-04 & 2.85E-04 & 4.19E-04 & 3.74E-02 & 3.50E-04 & 4.82E-02 & 4.93E-02 & 1.50E-04 \\
-\textbf{} & Avg & \textbf{1.08E-04} & 1.95E-04 & 4.15E-03 & 1.95E-02 & 2.22E-02 & 2.16E-02 & 1.73E-02 & 2.24E-02 & 1.19E-04 \\
-\textbf{+/-/=} & $\mathrm{\sim}$ & $\mathrm{\sim}$ & 9/0/0 & 9/0/0 & 9/0/0 & 9/0/0 & 9/0/0 & 9/0/0 & 9/0/0 & 8/1/0 \\
-Friedman-rank &  & 1.00  & 2.88  & 3.88  & 5.88  & 7.88  & 6.63  & 8.38  & 6.25  & 2.25  \\
-Result &  & 1 & 3 & 4 & 5 & 8 & 7 & 9 & 6 & 2 \\
-\bottomrule
-\end{longtable}
-\endgroup
-\end{landscape}
-
-
-
-表7和表8进一步表明，bSBO不仅选择了最少的特征，还取得了最低的错误率，两项指标的Friedman排名均为1。图13对三个指标的排名作了可视化展示，可以看到bSBO在不同评价准则下都保持了最稳定的领先位置。
-
-
-
-\begin{landscape}
-\begingroup
-\scriptsize
-\setlength{\tabcolsep}{1pt}
-\begin{longtable}{p{1.30in}>{\centering\arraybackslash}p{0.42in}ccccccccc}
-\caption{bSBO与其他二值优化器平均选中特征数比较结果}\\
-\caption*{Table \thetable. Comparative results of average selected feature numbers between bSBO and other binary optimizers.}\\
-\toprule
-Dataset & Metric & bSBO & bMFO & bGWO & bGSA & bPSO & bALO & bBA & bSSA & bHHO \\
-\midrule
-Brain\_Tumor2 & Std & \textbf{7.89E-01} & 3.80E+01 & 4.77E+01 & 5.66E+01 & 7.97E+01 & 5.94E+01 & 2.28E+02 & 2.21E+03 & 6.36E+02 \\
- & Avg & \textbf{2.00E+00} & 3.55E+01 & 1.17E+03 & 4.67E+03 & 4.93E+03 & 4.89E+03 & 4.15E+03 & 2.90E+03 & 1.25E+03 \\
-CNS & Std & \textbf{3.21E+00} & 3.21E+01 & 4.09E+01 & 6.98E+01 & 4.78E+01 & 4.93E+01 & 2.45E+02 & 1.25E+03 & 1.76E+01 \\
- & Avg & \textbf{2.50E+00} & 3.95E+01 & 8.35E+02 & 3.23E+03 & 3.39E+03 & 3.33E+03 & 2.89E+03 & 3.49E+03 & 6.00E+00 \\
-DLBCL & Std & \textbf{7.89E-01} & 1.18E+01 & 3.06E+01 & 3.84E+01 & 2.29E+01 & 3.59E+01 & 1.44E+02 & 1.20E+03 & 2.06E+00 \\
- & Avg & \textbf{2.00E+00} & 1.25E+01 & 5.83E+02 & 2.36E+03 & 2.56E+03 & 2.50E+03 & 2.28E+03 & 2.44E+02 & \textbf{2.00E+00} \\
-Leukemia & Std & \textbf{8.17E-01} & 8.99E+00 & 3.63E+01 & 2.81E+01 & 3.55E+01 & 3.02E+01 & 1.46E+02 & 1.28E+03 & 2.63E+00 \\
- & Avg & \textbf{2.00E+00} & 1.10E+01 & 7.83E+02 & 3.11E+03 & 3.34E+03 & 3.28E+03 & 2.88E+03 & 3.42E+03 & 2.50E+00 \\
-Leukemia1 & Std & \textbf{6.47E+00} & 1.98E+01 & 3.76E+01 & 3.78E+01 & 2.19E+01 & 2.47E+01 & 7.35E+01 & 6.96E+02 & 1.13E+01 \\
- & Avg & \textbf{2.00E+00} & 2.00E+01 & 5.62E+02 & 2.28E+03 & 2.47E+03 & 2.42E+03 & 2.20E+03 & 2.45E+03 & 5.50E+00 \\
-Leukemia2 & Std & 5.48E+00 & 1.90E+01 & 3.94E+01 & 8.07E+01 & 3.66E+01 & 3.76E+01 & 6.39E+02 & 1.97E+03 & \textbf{5.09E+00} \\
- & Avg & \textbf{4.00E+00} & 3.25E+01 & 1.22E+03 & 5.04E+03 & 5.32E+03 & 5.27E+03 & 4.48E+03 & 5.39E+03 & 7.00E+00 \\
-Lung\_Cancer & Std & 1.01E+02 & 7.84E+01 & 8.37E+01 & \textbf{2.77E+01} & 5.77E+01 & 7.66E+01 & 2.72E+02 & 2.37E+03 & 2.85E+02 \\
- & Avg & \textbf{2.05E+01} & 1.41E+02 & 1.51E+03 & 5.74E+03 & 6.04E+03 & 5.97E+03 & 5.11E+03 & 4.85E+03 & 1.96E+03 \\
-Prostate\_Tumor & Std & 1.34E+01 & 3.97E+01 & 6.06E+01 & 6.86E+01 & 3.51E+01 & 4.59E+01 & 2.26E+02 & 1.58E+03 & \textbf{1.10E+01} \\
- & Avg & \textbf{5.50E+00} & 5.20E+01 & 1.28E+03 & 4.74E+03 & 5.07E+03 & 4.98E+03 & 4.26E+03 & 5.15E+03 & 1.50E+01 \\
-SRBCT & Std & \textbf{3.60E+00} & 4.78E+00 & 1.32E+01 & 1.94E+01 & 1.73E+01 & 1.62E+01 & 4.66E+01 & 2.05E+02 & 6.93E+00 \\
-\textbf{} & Avg & \textbf{5.00E+00} & 9.00E+00 & 1.92E+02 & 8.99E+02 & 1.02E+03 & 9.97E+02 & 9.22E+02 & 1.03E+03 & 5.50E+00 \\
-\textbf{+/-/=} & $\mathrm{\sim}$ & $\mathrm{\sim}$ & 9/0/0 & 9/0/0 & 9/0/0 & 9/0/0 & 9/0/0 & 9/0/0 & 9/0/0 & 8/1/0 \\
-Friedman-rank &  & 1.00  & 2.88  & 3.88  & 6.75  & 9.00  & 8.00  & 6.00  & 5.25  & 2.25  \\
-Result &  & 1 & 3 & 4 & 7 & 9 & 8 & 6 & 5 & 2 \\
-\bottomrule
-\end{longtable}
-\endgroup
-\end{landscape}
-
-
-
-\begin{landscape}
-\begingroup
-\scriptsize
-\setlength{\tabcolsep}{1pt}
-\begin{longtable}{p{1.30in}>{\centering\arraybackslash}p{0.42in}ccccccccc}
-\caption{bSBO与其他二值优化器平均错误率比较结果}\\
-\caption*{Table \thetable. Comparative results of average error rates between bSBO and other binary optimizers.}\\
-\toprule
-Dataset & Metric & bSBO & bMFO & bGWO & bGSA & bPSO & bALO & bBA & bSSA & bHHO \\
-\midrule
-Brain\_Tumor2 & Std & \textbf{0.00E+00} & \textbf{0.00E+00} & 6.32E-02 & 1.18E-01 & 1.25E-01 & 1.01E-01 & 2.97E-01 & 8.31E-02 & 9.39E-02 \\
- & Avg & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & 8.33E-02 & \textbf{0.00E+00} & \textbf{0.00E+00} & 2.25E-01 & \textbf{0.00E+00} & \textbf{0.00E+00} \\
-CNS & Std & \textbf{0.00E+00} & \textbf{0.00E+00} & 7.03E-02 & 8.33E-02 & 1.15E-01 & 8.79E-02 & 1.07E-01 & 1.39E-01 & \textbf{0.00E+00} \\
- & Avg & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & 1.67E-01 & 1.55E-01 & 3.33E-01 & 8.33E-02 & \textbf{0.00E+00} \\
-DLBCL & Std & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & 3.95E-02 & 3.95E-02 & \textbf{0.00E+00} & 9.71E-02 & 3.95E-02 & \textbf{0.00E+00} \\
- & Avg & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} \\
-Leukemia & Std & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & 7.17E-02 & \textbf{0.00E+00} & \textbf{0.00E+00} \\
- & Avg & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} \\
-Leukemia1 & Std & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & 8.31E-02 & \textbf{0.00E+00} & \textbf{0.00E+00} \\
- & Avg & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & 7.14E-02 & \textbf{0.00E+00} & \textbf{0.00E+00} \\
-Leukemia2 & Std & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & 5.66E-02 & 5.66E-02 & 1.16E-01 & 6.02E-02 & \textbf{0.00E+00} \\
- & Avg & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} \\
-Lung\_Cancer & Std & \textbf{0.00E+00} & \textbf{0.00E+00} & 2.22E-02 & 3.59E-02 & 3.60E-02 & 2.34E-02 & 5.18E-02 & 4.03E-02 & 2.42E-02 \\
- & Avg & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & 2.27E-02 & 2.38E-02 & \textbf{0.00E+00} & 9.52E-02 & 2.38E-02 & \textbf{0.00E+00} \\
-Prostate\_Tumor & Std & \textbf{0.00E+00} & \textbf{0.00E+00} & 3.16E-02 & 5.05E-02 & 8.06E-02 & 5.05E-02 & 1.27E-01 & 5.09E-02 & \textbf{0.00E+00} \\
- & Avg & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & 2.50E-01 & 4.55E-02 & \textbf{0.00E+00} \\
-SRBCT & Std & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & 3.95E-02 & \textbf{0.00E+00} & 5.95E-02 & 4.99E-02 & \textbf{0.00E+00} \\
-\textbf{} & Avg & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & 1.11E-01 & \textbf{0.00E+00} & \textbf{0.00E+00} \\
-\textbf{+/-/=} & $\mathrm{\sim}$ & $\mathrm{\sim}$ & 1/8/0 & 5/4/0 & 5/4/0 & 7/2/0 & 5/4/0 & 8/1/0 & 7/2/0 & 2/7/0 \\
-Friedman-rank &  & 1.00  & 1.13  & 2.50  & 3.88  & 6.13  & 4.25  & 9.00  & 5.88  & 1.63  \\
-Result &  & 1 & 2 & 4 & 5 & 8 & 6 & 9 & 7 & 3 \\
-\bottomrule
-\end{longtable}
-\endgroup
-\end{landscape}
-
-
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=\textwidth]{figures/chapter4/fig13_friedman_rank_feature_selection.png}
-  \bicaption{三个指标的Friedman排名结果}{Friedman rank results over three metrics.}
-  \label{fig:friedman_rank_feature_selection}
-\end{figure}
-
-
-
-图14给出了九个数据集上的收敛曲线。总体上，bSBO能够更快到达较低适应度值，尤其在前50次迭代内优势更明显；即使在Prostate\_Tumor等与bHHO接近的数据集上，bSBO最终仍保持略优结果。
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=\textwidth]{figures/chapter4/fig14_convergence_bSBO.png}
-  \bicaption{bSBO与八种二值优化器在九个数据集上的收敛曲线}{Convergence curves of bSBO and eight binary optimizers over nine datasets.}
-  \label{fig:convergence_bSBO}
-\end{figure}
-
-
-
-综合来看，V型转换函数与SBO搜索机制的结合使该方法能够有效迁移到离散特征选择场景。bSBO在适应度、特征压缩率和错误率三个指标上都保持领先，说明其不仅能找到更优子集，也能维持较好的搜索稳定性。
-
-
-\subsection{多阈值图像分割}
+\subsection{实验设置}
 
 多阈值图像分割通过确定多个灰度阈值将图像划分为不同区域，是病理图像分析中的关键步骤\cite{sbo_ref79}。相较于单纯依赖直方图或熵准则的方法\cite{sbo_ref80,sbo_ref81}，基于优化的方法能够将阈值选择转化为搜索问题，更适合处理噪声、灰度不均和复杂纹理并存的图像\cite{sbo_ref82}。本文采用Renyi熵作为目标函数，并使用SBO搜索最优阈值集合，以评估其在乳腺癌组织学图像中的分割能力。
 
-
-\subsubsection{实验设置}
-
-实验使用IDC数据集中的9张乳腺癌组织学图像\cite{sbo_ref83}，统一调整为224 $\mathrm{\times}$ 224像素，并按A到I编号，如图15所示。为检验不同分割难度下的表现，本文分别设置6、12和18个阈值，并将SBO与LSEOFOA、IWOA、IGWO、ASCA、ILSSA、EHSSA和BLPSO七种算法比较\cite{sbo_ref84,sbo_ref85,sbo_ref86,sbo_ref87,sbo_ref88,sbo_ref89,sbo_ref90}。
+实验使用IDC数据集中的9张乳腺癌组织学图像\cite{sbo_ref83}，统一调整为224 $\mathrm{\times}$ 224像素，并按A到I编号，如图\ref{fig:original_images_2D_histogram}所示。为检验不同分割难度下的表现，本文分别设置6、12和18个阈值，并将SBO与LSEOFOA、IWOA、IGWO、ASCA、ILSSA、EHSSA和BLPSO七种算法比较\cite{sbo_ref84,sbo_ref85,sbo_ref86,sbo_ref87,sbo_ref88,sbo_ref89,sbo_ref90}。
 
 所有算法均在相同条件下独立运行30次，种群规模统一为20，最大迭代次数为100，参数采用原始文献默认值。分割质量通过PSNR、FSIM和SSIM评估，以同时衡量保真度、特征保持能力和结构一致性。
-
-
 
 \begin{figure}[htbp]
   \centering
@@ -858,14 +622,7 @@ Result &  & 1 & 2 & 4 & 5 & 8 & 6 & 9 & 7 & 3 \\
   \label{fig:original_images_2D_histogram}
 \end{figure}
 
-
-
-
-\subsubsection{实验结果与分析}
-
-图16给出了图像分割流程。原始图像首先统一尺寸并转为灰度图，然后通过非局部均值（NLM）滤波抑制噪声；在此基础上构造二维直方图，并利用元启发式算法搜索使Renyi熵最大的阈值集合。得到最优阈值后，再对原图执行分割并用Jet色图进行可视化展示。
-
-
+图\ref{fig:flowchart_image_segmentation}给出了图像分割流程。原始图像首先统一尺寸并转为灰度图，然后通过非局部均值（NLM）滤波抑制噪声；在此基础上构造二维直方图，并利用元启发式算法搜索使Renyi熵最大的阈值集合。得到最优阈值后，再对原图执行分割并用Jet色图进行可视化展示。
 
 \begin{figure}[htbp]
   \centering
@@ -874,13 +631,11 @@ Result &  & 1 & 2 & 4 & 5 & 8 & 6 & 9 & 7 & 3 \\
   \label{fig:flowchart_image_segmentation}
 \end{figure}
 
+\subsection{实验结果与分析}
 
+按照上述流程，本文分别从定量指标和可视化结果两个角度评估SBO的分割性能，正文重点保留关键图示与主要结论。
 
-按照上述流程，本文分别从定量指标和可视化结果两个角度评估SBO的分割性能。完整明细已转入补充材料，正文只保留关键图示和主要结论。
-
-在6阈值条件下，图17的热力图表明SBO在PSNR、FSIM和SSIM三个指标上整体优于其他方法，说明其得到的阈值集合能够更好地保持图像细节和结构信息。
-
-
+在6阈值条件下，图\ref{fig:heatmap_PSNR_FSIM_SSIM}的热力图表明SBO在PSNR、FSIM和SSIM三个指标上整体优于其他方法，说明其得到的阈值集合能够更好地保持图像细节和结构信息。
 
 \begin{figure}[htbp]
   \centering
@@ -889,9 +644,7 @@ Result &  & 1 & 2 & 4 & 5 & 8 & 6 & 9 & 7 & 3 \\
   \label{fig:heatmap_PSNR_FSIM_SSIM}
 \end{figure}
 
-
-
-在12阈值实验中，图18展示了Renyi熵的收敛过程。SBO虽然并非总在初始阶段占优，但能够持续改进并在100次迭代内收敛到更优阈值配置，体现了较好的全局搜索与后期精炼能力。
+在12阈值实验中，图\ref{fig:convergence_entropy}展示了Renyi熵的收敛过程。SBO虽然并非总在初始阶段占优，但能够持续改进并在100次迭代内收敛到更优阈值配置，体现了较好的全局搜索与后期精炼能力。
 
 \begin{figure}[htbp]
   \centering
@@ -900,9 +653,7 @@ Result &  & 1 & 2 & 4 & 5 & 8 & 6 & 9 & 7 & 3 \\
   \label{fig:convergence_entropy}
 \end{figure}
 
-
-
-在18阈值任务中，图19给出了图像B的Jet色图分割结果。与其他方法相比，SBO得到的分割区域更连贯、边界更清晰，说明其在高阈值配置下仍能保持较好的稳定性。
+在18阈值任务中，图\ref{fig:jet_colormap_segmentation}给出了图像B的Jet色图分割结果。与其他方法相比，SBO得到的分割区域更连贯、边界更清晰，说明其在高阈值配置下仍能保持较好的稳定性。
 
 \begin{figure}[htbp]
   \centering
@@ -911,8 +662,6 @@ Result &  & 1 & 2 & 4 & 5 & 8 & 6 & 9 & 7 & 3 \\
   \label{fig:jet_colormap_segmentation}
 \end{figure}
 
-
-
 总体来看，SBO在不同阈值水平下都取得了更优的定量指标，并生成了视觉上更连贯的分割结果，说明其不仅适用于连续基准优化，也适用于复杂医学图像的多阈值分割任务。
 
 
@@ -920,16 +669,8 @@ Result &  & 1 & 2 & 4 & 5 & 8 & 6 & 9 & 7 & 3 \\
 
 本文提出了受人类地位提升行为启发的SBO算法，并通过精英接触与资源获取两个阶段协同平衡探索和开发。基准测试表明，SBO在IEEE CEC 2017的10、30、50和100维问题上相较13种先进算法保持了更强的综合性能和更好的可扩展性。
 
-进一步地，二值版本bSBO在9个高维UCI数据集上通常能够以更少特征取得更低错误率，而SBO在IDC乳腺癌图像的多阈值分割中也获得了更优的定量和视觉结果。这说明SBO不仅适用于连续优化，也具备向离散优化和实际医学应用迁移的能力。未来工作可继续考察其在多目标、大规模和动态优化场景中的表现。
-
-
-
-% --- 附录：补充数据表格 ---
-\section{附录：补充数据}
-
- 见表A. 1-A. 11。
-
-\endinput % Omit appended Table A.1--A.11 block from the main thesis build.
+进一步地，SBO在IDC乳腺癌图像的多阈值分割中获得了更优的定量和视觉结果，说明其不仅适用于连续优化，也能够迁移到复杂医学图像分析任务。未来工作可继续考察其在多目标、大规模和动态优化场景中的表现。
+\endinput % Omit archived supplementary tables from the main thesis build.
 \begin{tabular}{p{0.3in}>{\centering\arraybackslash}p{0.3in}>{\centering\arraybackslash}p{0.3in}>{\centering\arraybackslash}p{0.3in}>{\centering\arraybackslash}p{0.3in}>{\centering\arraybackslash}p{0.3in}>{\centering\arraybackslash}p{0.3in}>{\centering\arraybackslash}p{0.3in}>{\centering\arraybackslash}p{0.3in}>{\centering\arraybackslash}p{0.3in}>{\centering\arraybackslash}p{0.3in}>{\centering\arraybackslash}p{0.3in}>{\centering\arraybackslash}p{0.3in}>{\centering\arraybackslash}p{0.3in}>{\centering\arraybackslash}p{0.3in}>{\centering\arraybackslash}p{0.5in}}
 \toprule
 \multicolumn{16}{p{4.8in}}{\char"8868 A-1} \\
