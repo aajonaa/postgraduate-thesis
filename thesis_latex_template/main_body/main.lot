@@ -3,17 +3,16 @@
 \addvspace {10.0pt}
 \addvspace {10.0pt}
 \addvspace {10.0pt}
-\contentsline {table}{\numberline {5-1}{\ignorespaces BEXEA与竞争算法在IEEE CEC 2022测试套件上的比较结果（$d=20$）}}{117}{table.caption.39}%
-\contentsline {table}{\numberline {5-1}{\ignorespaces Comparison result of BEXEA and its competitors on IEEE CEC 2022 test suite with $d=20$.}}{117}{table.caption.39}%
-\contentsline {table}{\numberline {5-2}{\ignorespaces BEXEA与竞争算法在昂贵函数测试套件上的比较结果（$d=50$和$d=100$）}}{120}{table.caption.42}%
-\contentsline {table}{\numberline {5-2}{\ignorespaces Comparison results of BEXEA and its competitors on the expensive functions test suite with $d=50$ and $d=100$.}}{120}{table.caption.42}%
-\contentsline {table}{\numberline {5-3}{\ignorespaces BEXEA与不同臂变体的比较结果}}{121}{table.caption.43}%
-\contentsline {table}{\numberline {5-3}{\ignorespaces Comparison results of BEXEA and its different arm variants.}}{121}{table.caption.43}%
-\contentsline {table}{\numberline {5-4}{\ignorespaces BEXEA与不同准则变体的比较结果}}{122}{table.caption.44}%
-\contentsline {table}{\numberline {5-4}{\ignorespaces Comparison results of BEXEA and its different criteria variants.}}{122}{table.caption.44}%
-\contentsline {table}{\numberline {5-5}{\ignorespaces BEXEA与其他SAEAs在油藏产量优化问题上的比较结果}}{124}{table.caption.47}%
-\contentsline {table}{\numberline {5-5}{\ignorespaces Comparison results of BEXEA and other SAEAs on the oil reservoir production optimization problem.}}{124}{table.caption.47}%
-\addvspace {10.0pt}
+\contentsline {table}{\numberline {5-1}{\ignorespaces BEXEA与竞争算法在IEEE CEC 2022测试套件上的比较结果（$d=20$）}}{115}{table.caption.39}%
+\contentsline {table}{\numberline {5-1}{\ignorespaces Comparison result of BEXEA and its competitors on IEEE CEC 2022 test suite with $d=20$}}{115}{table.caption.39}%
+\contentsline {table}{\numberline {5-2}{\ignorespaces BEXEA与竞争算法在昂贵函数测试套件上的比较结果（$d=50$和$d=100$）}}{118}{table.caption.42}%
+\contentsline {table}{\numberline {5-2}{\ignorespaces Comparison results of BEXEA and its competitors on the expensive functions test suite with $d=50$ and $d=100$}}{118}{table.caption.42}%
+\contentsline {table}{\numberline {5-3}{\ignorespaces BEXEA与不同臂变体的比较结果}}{119}{table.caption.43}%
+\contentsline {table}{\numberline {5-3}{\ignorespaces Comparison results of BEXEA and its different arm variants}}{119}{table.caption.43}%
+\contentsline {table}{\numberline {5-4}{\ignorespaces BEXEA与不同准则变体的比较结果}}{120}{table.caption.44}%
+\contentsline {table}{\numberline {5-4}{\ignorespaces Comparison results of BEXEA and its different criteria variants}}{120}{table.caption.44}%
+\contentsline {table}{\numberline {5-5}{\ignorespaces BEXEA与其他SAEAs在油藏产量优化问题上的比较结果}}{122}{table.caption.47}%
+\contentsline {table}{\numberline {5-5}{\ignorespaces Comparison results of BEXEA and other SAEAs on the oil reservoir production optimization problem}}{122}{table.caption.47}%
 \addvspace {10.0pt}
 \addvspace {10.0pt}
 \addvspace {10.0pt}

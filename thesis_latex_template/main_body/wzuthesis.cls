@@ -52,8 +52,8 @@
 \RequirePackage{multirow} % 用于合并表格行
 \RequirePackage{makecell} % 用于单元格内换行和加粗等
 \RequirePackage{longtable} % 用于长表格制作
-\RequirePackage{colortbl} % 用于设置表格颜色
-\RequirePackage{array}
+%\RequirePackage{colortbl}  % disabled: v1.0k incompatible with array v2.5g
+\RequirePackage{array}  % local array.sty v2.5g overrides system v2.6n (which causes infinite pages)
 
 % % 图片插入
 \RequirePackage{graphicx} % 用于插入图片
@@ -522,17 +522,8 @@ BoldItalicFont = * Bold Italic
 }
 
 \newcommand\makelistoffiguretable{
-    \section*{}
-    \vspace*{-2.8cm}
-    \addcontentsline{toc}{chapter}{图\ 目\ 录}
-    \listoffigures
-    \newclearpage
-    \section*{}
-    \vspace*{-2.8cm}
-    \addcontentsline{toc}{chapter}{表\ 目\ 录}
-    \listoftables
-    % \thispagestyle{listoffiguretable}
-    \newclearpage
+    % Template keeps front matter without LOF/LOT.
+    % Keep this macro as a no-op for compatibility with \makefirstpage.
 }
 
 

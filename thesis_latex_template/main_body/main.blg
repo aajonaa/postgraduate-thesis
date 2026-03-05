@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d
+This is BibTeX, Version 0.99e
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 Reallocating 'name_of_file' (item size: 1) to 18 items.
@@ -16,46 +16,46 @@ Reallocating 'glb_str_end' (item size: 4) to 20 items.
 Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
 Reallocating 'global_strs' (item size: 1) to 4000000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'field_info' (item size: 4) to 13991 items.
+Reallocating 'field_info' (item size: 4) to 13954 items.
 Database file #1: main.bib
-You've used 243 entries,
+You've used 242 entries,
             6859 wiz_defined-function locations,
-            2382 strings with 45044 characters,
-and the built_in function-call counts, 26067658 in all, are:
-= -- 2896185
-> -- 189706
-< -- 2037670
-+ -- 69412
-- -- 30282
-* -- 94813
-:= -- 329096
-add.period$ -- 730
-call.type$ -- 243
-change.case$ -- 455
-chr.to.int$ -- 1886360
-cite$ -- 243
-duplicate$ -- 4941118
-empty$ -- 16172
-format.name$ -- 5382
-if$ -- 5144654
-int.to.chr$ -- 25702
-int.to.str$ -- 244
+            2377 strings with 44932 characters,
+and the built_in function-call counts, 25986775 in all, are:
+= -- 2887355
+> -- 189016
+< -- 2031264
++ -- 69171
+- -- 30183
+* -- 94513
+:= -- 327932
+add.period$ -- 727
+call.type$ -- 242
+change.case$ -- 453
+chr.to.int$ -- 1880525
+cite$ -- 242
+duplicate$ -- 4926006
+empty$ -- 16111
+format.name$ -- 5360
+if$ -- 5128679
+int.to.chr$ -- 25625
+int.to.str$ -- 243
 missing$ -- 0
-newline$ -- 1254
-num.names$ -- 729
-pop$ -- 400401
+newline$ -- 1249
+num.names$ -- 726
+pop$ -- 399065
 preamble$ -- 1
-purify$ -- 2883
+purify$ -- 2875
 quote$ -- 0
-skip$ -- 720589
+skip$ -- 718349
 stack$ -- 0
-substring$ -- 4046003
-swap$ -- 3160227
-text.length$ -- 4051
+substring$ -- 4033572
+swap$ -- 3150419
+text.length$ -- 4033
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 2653
+type$ -- 2642
 warning$ -- 0
-while$ -- 56927
+while$ -- 56739
 width$ -- 0
-write$ -- 3473
+write$ -- 3458

@@ -549,8 +549,12 @@ Exploitation=\frac{\left|Div\left(t\right)-Div_{max}\right|}{Div_{max}}\times 10
 
 \noindent \textbf{}
 
-\begin{tabular}{|p{0.3in}|p{1.5in}|p{0.5in}|p{0.5in}|p{0.5in}|p{0.5in}|} \hline 
-\multicolumn{6}{|p{1in}|}{\textbf{Table }1\textbf{.} Information of IEEE CEC 2017.\textbf{}} \\ \hline 
+\begin{landscape}
+\begingroup
+\scriptsize
+\setlength{\tabcolsep}{1pt}
+\begin{longtable}{|p{0.45in}|p{2.30in}|p{0.90in}|p{1.00in}|p{0.95in}|p{0.90in}|} \hline 
+\multicolumn{6}{|c|}{\textbf{Table }1\textbf{.} Information of IEEE CEC 2017.\textbf{}} \\ \hline 
 ID & Description & Type & Dimension & Range & Optimum \\ \hline 
 F1 & Shifted and Rotated Bent Cigar Function & Unimodal & 10,30,50,100 & [-100,100] & 100 \\ \hline 
 F2 & Shifted and Rotated Zakharov function & Unimodal & 10,30,50,100 & [-100,100] & 300 \\ \hline 
@@ -581,7 +585,9 @@ F26 & Composition Function 7 (N=6) & Composition & 10,30,50,100 & [-100,100] & 2
 F27 & Composition Function 8 (N=6) & Composition & 10,30,50,100 & [-100,100] & 2800 \\ \hline 
 F28 & Composition Function 9 (N=3) & Composition & 10,30,50,100 & [-100,100] & 2900 \\ \hline 
 F29 & Composition Function 10 (N=3) & Composition & 10,30,50,100 & [-100,100] & 3000 \\ \hline 
-\end{tabular}
+\end{longtable}
+\endgroup
+\end{landscape}
 
 
 
@@ -605,30 +611,30 @@ F29 & Composition Function 10 (N=3) & Composition & 10,30,50,100 & [-100,100] & 
 
 \noindent 
 
-\begin{tabular}{|p{1.1in}|p{2.8in}|} \hline 
+\begin{longtable}{|p{1.1in}|p{2.8in}|} \hline 
 \multicolumn{2}{|p{1in}|}{\textbf{Table }2\textbf{.} Parameter settings for involved algorithms.} \\ \hline 
 Algorithm & Other parameters \\ \hline 
 TLBO & $None$\textit{} \\ \hline 
-PO & $λ=1,n=7$\textit{} \\ \hline 
+PO & $\lambda=1,n=7$\textit{} \\ \hline
 HHO & $E=\left[-2,2\right]$\textit{} \\ \hline 
 RIME & $W=5$\textit{} \\ \hline 
 ALCPSO & $w=0.4,c1=2,c2=2,lifespan=60,\ T=2,pro=1/D$\textit{} \\ \hline 
 CLPSO & $w_{max}=0.9,w_{min}=0.4,c=1.49445$\textit{} \\ \hline 
 CGPSO & $v_{max}=6,c1=2,c2=2$MSPSO \\ \hline 
-$v_{max}\mathrm{=6,}v_{\mathrm{min}}\mathrm{=-6,}w_{\mathrm{max}}\mathrm{=0.9,}w_{\mathrm{min}}\mathrm{=0.2,c1=2,c2=2}$CMAES & $λ=4+\left\lfloor 3{ln \left(N\right)\ }\right\rfloor ,w'_i={ln \left(\frac{λ+1}{2}\right)-lni,\ }μ=\left\lfloor \frac{λ}{2}\right\rfloor ,\ {σ=0.3,C}_c=\frac{4}{N+4}$DECLS \\ \hline 
+$v_{max}\mathrm{=6,}v_{\mathrm{min}}\mathrm{=-6,}w_{\mathrm{max}}\mathrm{=0.9,}w_{\mathrm{min}}\mathrm{=0.2,c1=2,c2=2}$CMAES & $\lambda=4+\left\lfloor 3{\ln \left(N\right)\ }\right\rfloor ,w'_i={\ln \left(\frac{\lambda+1}{2}\right)-\ln i,\ }\mu=\left\lfloor \frac{\lambda}{2}\right\rfloor ,\ {\sigma=0.3,C}_c=\frac{4}{N+4}$DECLS \\ \hline
 $NP=D,F=0.5,p_{CR}\mathrm{=0.5,L=}\frac{\mathrm{D}}{\mathrm{5}}\mathrm{,m=1500}$LSHADE\_cnEpSin & $NP_{max}=18\times D,NP_{min}=4,H=5,\left|A\right|=1.4\times NP,p=0.11\ $\textit{} \\ \hline 
-SCADE & $β_{max}=0.8,β_{min}=0.2,p_{CR}=0.8$\textit{} \\ \hline 
+SCADE & $\beta_{max}=0.8,\beta_{min}=0.2,p_{CR}=0.8$\textit{} \\ \hline
 SHADE & $\left|A\right|=2\times NP,p=0.1$ \\ \hline 
  \\ \hline 
  \\ \hline 
-\end{tabular}
+\end{longtable}
 
 
 
 
 \subsection{基准测试结果与统计分析}
 
-SBO算法使用IEEE CEC 2017基准测试套件与13种最先进的算法进行了综合评估，该套件包含29个函数，涵盖单峰、多峰、混合和组合类型。这些函数在四个维度（10、30、50和100）上进行测试，以评估SBO的可扩展性、鲁棒性和对不同问题复杂度的适应性。比较结果包括30次独立运行的Avg和Std，详见表A. 1\textbf{--A.4}，对应的p值详见表A. 5\textbf{--A.8}。进行了Friedman检验和Wilcoxon符号秩检验等统计检验以评估结果的显著性，其汇总统计数据见表3。
+SBO算法使用IEEE CEC 2017基准测试套件与13种最先进的算法进行了综合评估，该套件包含29个函数，涵盖单峰、多峰、混合和组合类型。这些函数在四个维度（10、30、50和100）上进行测试，以评估SBO的可扩展性、鲁棒性和对不同问题复杂度的适应性。比较结果包括30次独立运行的Avg和Std，统计检验采用Friedman检验和Wilcoxon符号秩检验，其汇总统计数据见表3；完整明细结果已转为补充材料，不在正文展开。
 
 SBO在所有维度上表现出强劲且一致的性能，在36\%的基准函数中获得平均第一名排名。其优势在混合和组合函数中尤为明显，这些函数中平衡探索和开发至关重要。热力图（图7）可视化了所有算法在各函数和维度上的归一化性能，较暖的颜色表示更优的结果。在此可视化中，SBO频繁脱颖而出，成为表现最优的算法之一，特别是在高维混合和组合函数上，展示了其对复杂优化问题的适应性。
 
@@ -684,8 +690,12 @@ SBO算法的卓越性能源于其对寻求地位的社会行为的忠实建模�
 
 \noindent 
 
-\begin{tabular}{|p{0.5in}|p{0.3in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.8in}|p{0.4in}|p{0.4in}|} \hline 
-\multicolumn{9}{|p{1in}|}{\textbf{Table }3\textbf{. }WSRT and FT results of SBO and other algorithms on IEEE CEC 2017.} \\ \hline 
+\begin{landscape}
+\begingroup
+\scriptsize
+\setlength{\tabcolsep}{1pt}
+\begin{longtable}{|p{0.56in}|p{0.52in}|p{0.62in}|p{0.62in}|p{0.62in}|p{0.62in}|p{1.10in}|p{0.62in}|p{0.62in}|} \hline 
+\multicolumn{9}{|c|}{\textbf{Table }3\textbf{. }WSRT and FT results of SBO and other algorithms on IEEE CEC 2017.} \\ \hline 
 Dimension & Item & SBO & TLBO & PO & HHO & RIME & ALCPSO & CLPSO \\ \hline 
 10 & \textbf{+/-/=} & $\mathrm{\sim}$ & 22/0/7 & 18/2/9 & 21/1/7 & 18/6/5 & 18/3/8 & 14/13/2 \\ \hline 
  & Rank\textbf{} & \textbf{3.8966} & 8.6552 & 8.8621 & 9.1379 & 7.7241 & 9.0000 & 4.2759 \\ \hline 
@@ -712,7 +722,9 @@ Dimension & Item & CGPSO & MSPSO & CMAES & DECLS & LSHADE\_cnEpSin & SCADE & SHA
 100 & \textbf{+/-/=} & 28/1/0 & 13/15/1 & 18/10/1 & 21/6/2 & 13/13/3 & 24/0/5 & 11/17/1 \\ \hline 
  & Rank & 9.0345 & 5.8276 & 7.5172 & 7.0690 & 5.8621 & 10.6552 & 4.7241 \\ \hline 
  & Result & 11 & 4 & 8 & 6 & 5 & 14 & 2 \\ \hline 
-\end{tabular}
+\end{longtable}
+\endgroup
+\end{landscape}
 
 
 
@@ -735,7 +747,11 @@ Dimension & Item & CGPSO & MSPSO & CMAES & DECLS & LSHADE\_cnEpSin & SCADE & SHA
 
 \noindent \textbf{Table }4\textbf{. }Runtime performance of SBO and other algorithms on IEEE CEC 2017.
 
-\begin{tabular}{|p{0.5in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.8in}|p{0.4in}|p{0.4in}|} \hline 
+\begin{landscape}
+\begingroup
+\scriptsize
+\setlength{\tabcolsep}{1pt}
+\begin{longtable}{|p{0.70in}|p{0.62in}|p{0.62in}|p{0.62in}|p{0.62in}|p{1.10in}|p{0.62in}|p{0.62in}|} \hline 
 Dimension & SBO & TLBO & PO & HHO & RIME & ALCPSO & CLPSO \\ \hline 
 10 & 28.08  & 32.07  & 60.36  & 59.10  & 48.11  & 39.17  & 39.92  \\ \hline 
 30 & \textbf{74.25 } & 77.67  & 101.20  & 107.86  & 88.65  & 92.48  & 107.64  \\ \hline 
@@ -746,7 +762,9 @@ Dimension & CGPSO & MSPSO & CMAES & DECLS & LSHADE\_cnEpSin & SCADE & SHADE \\ \
 30 & 112.18  & 128.53  & 111.10  & 101.04  & 179.70  & 135.75  & 92.36  \\ \hline 
 50 & 180.14  & 160.21  & 177.28  & 182.29  & 248.05  & 259.45  & 176.46  \\ \hline 
 100 & 577.42  & 486.66  & 522.08  & 515.72  & 636.77  & 770.86  & 520.70  \\ \hline 
-\end{tabular}
+\end{longtable}
+\endgroup
+\end{landscape}
 
 
 
@@ -782,11 +800,11 @@ Dimension & CGPSO & MSPSO & CMAES & DECLS & LSHADE\_cnEpSin & SCADE & SHADE \\ \
 
 本节介绍将KNN分类器（K设为5）与bSBO集成的基于包裹法的特征选择方法。图12中的详细流程图概述了选择有效特征子集的过程。
 
-适应度函数的设计旨在实现最小化选择特征数量与降低分类器错误率之间的权衡。设$E$表示KNN分类器的错误率，$|S|$表示bSBO选择的特征数量，$|A|$表示数据集中的总特征数量。适应度函数定义如式~\eqref{sbo_eq_17}所示。参数设置为$α=0.05$和$β=0.95$，确保更多的权重放在错误率上。该公式引导优化器偏向在选择紧凑特征子集的同时保持高预测精度的解。
+适应度函数的设计旨在实现最小化选择特征数量与降低分类器错误率之间的权衡。设$E$表示KNN分类器的错误率，$|S|$表示bSBO选择的特征数量，$|A|$表示数据集中的总特征数量。适应度函数定义如式~\eqref{sbo_eq_17}所示。参数设置为$\alpha=0.05$和$\beta=0.95$，确保更多的权重放在错误率上。该公式引导优化器偏向在选择紧凑特征子集的同时保持高预测精度的解。
 
 \begin{equation}
 \label{sbo_eq_17}
-f_{obj}=α\times E+β\times \frac{\left|S\right|}{\left|A\right|}
+f_{obj}=\alpha\times E+\beta\times \frac{\left|S\right|}{\left|A\right|}
 \end{equation}
 
 
@@ -795,12 +813,12 @@ f_{obj}=α\times E+β\times \frac{\left|S\right|}{\left|A\right|}
 
 \begin{equation}
 \label{sbo_eq_18}
-T\left(x_{i,j}\right)=\left|erf\left(sqrt\left(\frac{π}{2}\right)\times x_{i,j}\right)\right|
+T\left(x_{i,j}\right)=\left|erf\left(\sqrt{\frac{\pi}{2}}\times x_{i,j}\right)\right|
 \end{equation}
 
 \begin{equation}
 \label{sbo_eq_19}
-erf\left(x\right)=\frac{2}{sqrt\left(π\right)}\int^x_0{e^{-t^2}}dt
+erf\left(x\right)=\frac{2}{\sqrt{\pi}}\int^x_0{e^{-t^2}}dt
 \end{equation}
 
 其中$x_{i,j}$是第$ith$个候选解第$jth$分量的连续值。结果值以0.5为阈值产生特征选择的二值决策。
@@ -831,8 +849,8 @@ bSBO在固定迭代次数内迭代更新候选解。每次迭代都评估适应�
 
 
 
-\begin{tabular}{|p{1.0in}|p{1.0in}|p{1.0in}|p{1.0in}|} \hline 
-\multicolumn{4}{|p{1in}|}{\textbf{Table }5\textbf{.} Description of the used high-dimensional datasets.} \\ \hline 
+\begin{longtable}{|p{1.30in}|p{0.80in}|p{0.90in}|p{0.80in}|} \hline 
+\multicolumn{4}{|c|}{\textbf{Table }5\textbf{.} Description of the used high-dimensional datasets.} \\ \hline 
 Dataset & Samples & Features & Classes \\ \hline 
 Brain\_Tumor2 & 50 & 10367 & 4 \\ \hline 
 CNS & 60 & 7129 & 2 \\ \hline 
@@ -843,7 +861,7 @@ Leukemia2 & 72 & 11225 & 3 \\ \hline
 Lung\_Cancer & 203 & 12600 & 3 \\ \hline 
 Prostate\_Tumor & 102 & 10509 & 2 \\ \hline 
 SRBCT & 83 & 2308 & 4 \\ \hline 
-\end{tabular}
+\end{longtable}
 
 
 
@@ -857,8 +875,12 @@ SRBCT & 83 & 2308 & 4 \\ \hline
 
 
 
-\begin{tabular}{|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|} \hline 
-\multicolumn{11}{|p{1in}|}{\textbf{Table }6\textbf{. }Comparative results of average fitness values between bSBO and other binary optimizers.\textbf{}} \\ \hline 
+\begin{landscape}
+\begingroup
+\scriptsize
+\setlength{\tabcolsep}{1pt}
+\begin{longtable}{|p{1.30in}|p{0.42in}|p{0.54in}|p{0.54in}|p{0.54in}|p{0.54in}|p{0.54in}|p{0.54in}|p{0.54in}|p{0.54in}|p{0.54in}|} \hline 
+\multicolumn{11}{|p{6.8in}|}{\textbf{Table }6\textbf{. }Comparative results of average fitness values between bSBO and other binary optimizers.\textbf{}} \\ \hline 
 Dataset & Metric & bSBO & bMFO & bGWO & bGSA & bPSO & bALO & bBA & bSSA & bHHO \\ \hline 
 Brain\_Tumor2 & Std & \textbf{3.80E-06} & 1.83E-04 & 6.00E-02 & 1.12E-01 & 1.18E-01 & 9.62E-02 & 2.30E-01 & 8.49E-02 & 8.82E-02 \\ \hline 
  & Avg & \textbf{9.65E-06} & 1.71E-04 & 5.74E-03 & 1.02E-01 & 2.39E-02 & 2.37E-02 & 2.04E-02 & 1.95E-02 & 9.27E-03 \\ \hline 
@@ -881,7 +903,9 @@ SRBCT & Std & \textbf{7.81E-05} & 1.04E-04 & 2.85E-04 & 4.19E-04 & 3.74E-02 & 3.
 \textbf{+/-/=} & $\mathrm{\sim}$ & $\mathrm{\sim}$ & 9/0/0 & 9/0/0 & 9/0/0 & 9/0/0 & 9/0/0 & 9/0/0 & 9/0/0 & 8/1/0 \\ \hline 
 Friedman-rank &  & 1.00  & 2.88  & 3.88  & 5.88  & 7.88  & 6.63  & 8.38  & 6.25  & 2.25  \\ \hline 
 Result &  & 1 & 3 & 4 & 5 & 8 & 7 & 9 & 6 & 2 \\ \hline 
-\end{tabular}
+\end{longtable}
+\endgroup
+\end{landscape}
 
 
 
@@ -893,8 +917,12 @@ Result &  & 1 & 3 & 4 & 5 & 8 & 7 & 9 & 6 & 2 \\ \hline
 
 
 
-\begin{tabular}{|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|} \hline 
-\multicolumn{11}{|p{1in}|}{\textbf{Table }7\textbf{. }Comparative results of average selected feature numbers between bSBO and other binary optimizers.\textbf{}} \\ \hline 
+\begin{landscape}
+\begingroup
+\scriptsize
+\setlength{\tabcolsep}{1pt}
+\begin{longtable}{|p{1.30in}|p{0.42in}|p{0.54in}|p{0.54in}|p{0.54in}|p{0.54in}|p{0.54in}|p{0.54in}|p{0.54in}|p{0.54in}|p{0.54in}|} \hline 
+\multicolumn{11}{|p{6.8in}|}{\textbf{Table }7\textbf{. }Comparative results of average selected feature numbers between bSBO and other binary optimizers.\textbf{}} \\ \hline 
 Dataset & Metric & bSBO & bMFO & bGWO & bGSA & bPSO & bALO & bBA & bSSA & bHHO \\ \hline 
 Brain\_Tumor2 & Std & \textbf{7.89E-01} & 3.80E+01 & 4.77E+01 & 5.66E+01 & 7.97E+01 & 5.94E+01 & 2.28E+02 & 2.21E+03 & 6.36E+02 \\ \hline 
  & Avg & \textbf{2.00E+00} & 3.55E+01 & 1.17E+03 & 4.67E+03 & 4.93E+03 & 4.89E+03 & 4.15E+03 & 2.90E+03 & 1.25E+03 \\ \hline 
@@ -917,12 +945,18 @@ SRBCT & Std & \textbf{3.60E+00} & 4.78E+00 & 1.32E+01 & 1.94E+01 & 1.73E+01 & 1.
 \textbf{+/-/=} & $\mathrm{\sim}$ & $\mathrm{\sim}$ & 9/0/0 & 9/0/0 & 9/0/0 & 9/0/0 & 9/0/0 & 9/0/0 & 9/0/0 & 8/1/0 \\ \hline 
 Friedman-rank &  & 1.00  & 2.88  & 3.88  & 6.75  & 9.00  & 8.00  & 6.00  & 5.25  & 2.25  \\ \hline 
 Result &  & 1 & 3 & 4 & 7 & 9 & 8 & 6 & 5 & 2 \\ \hline 
-\end{tabular}
+\end{longtable}
+\endgroup
+\end{landscape}
 
 
 
-\begin{tabular}{|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|} \hline 
-\multicolumn{11}{|p{1in}|}{\textbf{Table }8\textbf{.} Comparative results of average error rates between bSBO and other binary optimizers.\textbf{}} \\ \hline 
+\begin{landscape}
+\begingroup
+\scriptsize
+\setlength{\tabcolsep}{1pt}
+\begin{longtable}{|p{1.30in}|p{0.42in}|p{0.54in}|p{0.54in}|p{0.54in}|p{0.54in}|p{0.54in}|p{0.54in}|p{0.54in}|p{0.54in}|p{0.54in}|} \hline 
+\multicolumn{11}{|p{6.8in}|}{\textbf{Table }8\textbf{.} Comparative results of average error rates between bSBO and other binary optimizers.\textbf{}} \\ \hline 
 Dataset & Metric & bSBO & bMFO & bGWO & bGSA & bPSO & bALO & bBA & bSSA & bHHO \\ \hline 
 Brain\_Tumor2 & Std & \textbf{0.00E+00} & \textbf{0.00E+00} & 6.32E-02 & 1.18E-01 & 1.25E-01 & 1.01E-01 & 2.97E-01 & 8.31E-02 & 9.39E-02 \\ \hline 
  & Avg & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & 8.33E-02 & \textbf{0.00E+00} & \textbf{0.00E+00} & 2.25E-01 & \textbf{0.00E+00} & \textbf{0.00E+00} \\ \hline 
@@ -945,7 +979,9 @@ SRBCT & Std & \textbf{0.00E+00} & \textbf{0.00E+00} & \textbf{0.00E+00} & \textb
 \textbf{+/-/=} & $\mathrm{\sim}$ & $\mathrm{\sim}$ & 1/8/0 & 5/4/0 & 5/4/0 & 7/2/0 & 5/4/0 & 8/1/0 & 7/2/0 & 2/7/0 \\ \hline 
 Friedman-rank &  & 1.00  & 1.13  & 2.50  & 3.88  & 6.13  & 4.25  & 9.00  & 5.88  & 1.63  \\ \hline 
 Result &  & 1 & 2 & 4 & 5 & 8 & 6 & 9 & 7 & 3 \\ \hline 
-\end{tabular}
+\end{longtable}
+\endgroup
+\end{landscape}
 
 
 
@@ -1034,7 +1070,7 @@ Result &  & 1 & 2 & 4 & 5 & 8 & 6 & 9 & 7 & 3 \\ \hline
 
 按照上述分割流水线，本节展示了实验结果、分析和可视化。
 
-所提基于SBO模型的性能使用三个广泛采用的指标进行评估：PSNR、FSIM和SSIM。使用6、12和18个阈值水平的分割任务结果分别全面总结在表A. 9\textbf{至}表A. 11中。对每种阈值配置进行了30次独立运行的指标计算，并报告了平均值和标准差。这些表格以粗体突出显示最优性能值，便于直观识别最佳结果。
+所提基于SBO模型的性能使用三个广泛采用的指标进行评估：PSNR、FSIM和SSIM。对每种阈值配置进行了30次独立运行的指标计算，并报告了平均值和标准差。相关完整明细结果已转为补充材料，不在正文展示。
 
 使用6个阈值的分割任务性能指标在图17中进一步可视化，以热力图的形式展示PSNR、FSIM和SSIM分数。在热力图中，较暖的颜色对应较高的指标值，表示更优的分割质量，而较冷的颜色表示较低的分数。对这些可视化的详细分析表明，在所有三个指标上，所提基于SBO的方法与其他评估方法相比始终获得最高分数。
 
@@ -1091,6 +1127,7 @@ SBO的有效性通过IEEE CEC 2017测试套件的基准函数得到验证，在1
 
  见表A. 1-A. 11。
 
+\endinput % Omit appended Table A.1--A.11 block from the main thesis build.
 \begin{tabular}{|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.3in}|p{0.5in}|} \hline 
 \multicolumn{16}{|p{4.8in}|}{\textbf{Table A. }1\textbf{. }Comparative results of SBO and state-of-the-art algorithms for 10-dimensional problems.\textbf{}} \\ \hline 
 Fun & Item & SBO & TLBO & PO & HHO & RIME & ALCPSO & CLPSO & CGPSO & MSPSO & CMAES & DECLS & LSHADE\_cnEpSin & SCADE & SHADE \\ \hline 

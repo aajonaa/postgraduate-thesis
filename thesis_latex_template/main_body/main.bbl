@@ -1,4 +1,4 @@
-\begin{thebibliography}{243}
+\begin{thebibliography}{242}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
@@ -10,6 +10,38 @@
   \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
   \let\eprint\href
 \fi
+
+\bibitem[Chen et~al.(2020)Chen, Jin, and Sun]{chen2020language}
+CHEN Y, JIN Y, SUN X.
+\newblock Language model based interactive estimation of distribution
+  algorithm\allowbreak[J].
+\newblock Knowledge-Based Systems, 2020, 200: 105980.
+
+\bibitem[Liu et~al.(2023)Liu and Wang]{liu2023surrogate}
+LIU Y, WANG H.
+\newblock Surrogate-assisted hybrid evolutionary algorithm with local
+  estimation of distribution for expensive mixed-variable optimization
+  problems\allowbreak[J].
+\newblock Applied Soft Computing, 2023, 133: 109957.
+
+\bibitem[Sun et~al.(2012)Sun, Fang, Wu, Palade, and Xu]{sun2012quantum}
+SUN J, FANG W, WU X, et~al.
+\newblock Quantum-behaved particle swarm optimization: analysis of individual
+  particle behavior and parameter selection\allowbreak[J].
+\newblock Evolutionary computation, 2012, 20\allowbreak (3): 349-393.
+
+\bibitem[Li et~al.(2025)Li, Zhang, Palade, Lu, and Sun]{li2025multi}
+LI C, ZHANG Q, PALADE V, et~al.
+\newblock Multi-region hierarchical surrogate-assisted quantum-behaved particle
+  swarm optimization for expensive optimization problems\allowbreak[J].
+\newblock Expert Systems with Applications, 2025, 261: 125496.
+
+\bibitem[Forrester et~al.(2008)Forrester, Sobester, and
+  Keane]{forrester2008engineering}
+FORRESTER A, SOBESTER A, KEANE A.
+\newblock Engineering design via surrogate modelling: a practical
+  guide\allowbreak[M].
+\newblock John Wiley \& Sons, 2008.
 
 \bibitem[Cao et~al.(2024)]{ibsa_ref1}
 CAO L, et~al.
@@ -1442,44 +1474,6 @@ NOHARA Y, MATSUMOTO K, SOEJIMA H, et~al.
 \newblock Explanation of machine learning models using shapley additive
   explanation and application for real data in hospital\allowbreak[J].
 \newblock Computer Methods and Programs in Biomedicine, 2022, 214: 106584.
-
-\bibitem[Chen et~al.(2020)Chen, Jin, and Sun]{chen2020language}
-CHEN Y, JIN Y, SUN X.
-\newblock Language model based interactive estimation of distribution
-  algorithm\allowbreak[J].
-\newblock Knowledge-Based Systems, 2020, 200: 105980.
-
-\bibitem[Liu et~al.(2023)Liu and Wang]{liu2023surrogate}
-LIU Y, WANG H.
-\newblock Surrogate-assisted hybrid evolutionary algorithm with local
-  estimation of distribution for expensive mixed-variable optimization
-  problems\allowbreak[J].
-\newblock Applied Soft Computing, 2023, 133: 109957.
-
-\bibitem[Sun et~al.(2012)Sun, Fang, Wu, Palade, and Xu]{sun2012quantum}
-SUN J, FANG W, WU X, et~al.
-\newblock Quantum-behaved particle swarm optimization: analysis of individual
-  particle behavior and parameter selection\allowbreak[J].
-\newblock Evolutionary computation, 2012, 20\allowbreak (3): 349-393.
-
-\bibitem[Li et~al.(2025)Li, Zhang, Palade, Lu, and Sun]{li2025multi}
-LI C, ZHANG Q, PALADE V, et~al.
-\newblock Multi-region hierarchical surrogate-assisted quantum-behaved particle
-  swarm optimization for expensive optimization problems\allowbreak[J].
-\newblock Expert Systems with Applications, 2025, 261: 125496.
-
-\bibitem[Forrester et~al.(2008)Forrester, Sobester, and
-  Keane]{forrester2008engineering}
-FORRESTER A, SOBESTER A, KEANE A.
-\newblock Engineering design via surrogate modelling: a practical
-  guide\allowbreak[M].
-\newblock John Wiley \& Sons, 2008.
-
-\bibitem[Zhan et~al.(2020)Zhan and Xing]{zhan2020expected}
-ZHAN D, XING H.
-\newblock Expected improvement for expensive optimization: a
-  review\allowbreak[J].
-\newblock Journal of Global Optimization, 2020, 78\allowbreak (3): 507-544.
 
 \bibitem[Xie et~al.(2023)Xie, Li, Wang, Cui, and Gong]{xie2023surrogate}
 XIE L, LI G, WANG Z, et~al.
