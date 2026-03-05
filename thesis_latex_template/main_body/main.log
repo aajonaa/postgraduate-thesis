@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  6 MAR 2026 05:39
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  6 MAR 2026 05:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1753,113 +1753,112 @@ Underfull \vbox (badness 1371) has occurred while \output is active []
 [1
 
 
-] [2] [3]) (chapters/chapter2.tex [4]
+]) [2] (chapters/chapter2.tex [3]
 2
-[5
-
-]
 
 LaTeX Font Warning: Font shape `TS1/TimesNewRoman(0)/b/n' undefined
-(Font)              using `TS1/TimesNewRoman(0)/m/n' instead on input line 44.
+(Font)              using `TS1/TimesNewRoman(0)/m/n' instead on input line 34.
 
-[6] [7] [8]
+[4
+
+]
+Underfull \vbox (badness 1210) has occurred while \output is active []
+
+ [5]
 File: figures/chapter5/rbf_plot.png Graphic file (type bmp)
 <figures/chapter5/rbf_plot.png>
 
-Underfull \vbox (badness 1616) has occurred while \output is active []
-
- [9]
-[10] [11] [12]) (chapters/chapter3_IBSA.tex [13]
+[6] [7] [8] [9]) (chapters/chapter3_IBSA.tex [10]
 3
 File: figures/chapter3/fig1_classification_of_MAs.png Graphic file (type bmp)
 <figures/chapter3/fig1_classification_of_MAs.png>
-[14
+[11
 
-] [15] [16] [17] [18] [19] [20]
+] [12] [13] [14] [15] [16] [17]
 File: figures/chapter3/fig2_flowchart_IBSA.png Graphic file (type bmp)
 <figures/chapter3/fig2_flowchart_IBSA.png>
- [21] [22]
+ [18] [19]
 File: figures/chapter3/fig3_wrapper_feature_selection.png Graphic file (type bm
 p)
 <figures/chapter3/fig3_wrapper_feature_selection.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [23]
-[24] [25] [26]
+ [20]
+[21] [22] [23]
 File: figures/chapter3/fig4_balance_and_diversity.png Graphic file (type bmp)
 <figures/chapter3/fig4_balance_and_diversity.png>
- [27] [28] [29] [30
+ [24] [25] [26] [27
 
-] [31] [32
+] [28] [29
 
-] [33
+] [30
 
-] [34]
+] [31]
 File: figures/chapter3/fig5_friedman_ranking_basic.png Graphic file (type bmp)
 <figures/chapter3/fig5_friedman_ranking_basic.png>
 File: figures/chapter3/fig6_convergence_basic_MAs.png Graphic file (type bmp)
 <figures/chapter3/fig6_convergence_basic_MAs.png>
- [35
+ [32
 
-] [36] [37
+] [33] [34
 
-] [38]
-[39
+] [35]
+[36
 
 
-] [40]
+] [37]
 File: figures/chapter3/fig7_friedman_ranking_advanced.png Graphic file (type bm
 p)
 <figures/chapter3/fig7_friedman_ranking_advanced.png>
 File: figures/chapter3/fig8_convergence_advanced_MAs.png Graphic file (type bmp
 )
 <figures/chapter3/fig8_convergence_advanced_MAs.png>
- [41
+ [38
 
-] [42]
+] [39]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [43]
-[44] [45] [46
+ [40]
+[41] [42] [43
+
+] [44
+
+] [45
+
+] [46
+
 
 ] [47
 
 ] [48
 
-] [49
-
-
-] [50
-
-] [51
-
 ]
 File: figures/chapter3/fig9_convergence_feature_selection.png Graphic file (typ
 e bmp)
 <figures/chapter3/fig9_convergence_feature_selection.png>
- [52
+ [49
 
 ]) (chapters/chapter4_SBO.tex
-[53]
+[50]
 4
 File: figures/chapter4/fig01_classification_of_MAs.png Graphic file (type bmp)
 <figures/chapter4/fig01_classification_of_MAs.png>
-[54
+[51
 
-] [55] [56]
+] [52] [53]
 File: figures/chapter4/fig02_elite_engagement.png Graphic file (type bmp)
 <figures/chapter4/fig02_elite_engagement.png>
- [57] [58]
+ [54] [55]
 File: figures/chapter4/fig03_resource_acquisition.png Graphic file (type bmp)
 <figures/chapter4/fig03_resource_acquisition.png>
- [59]
+ [56]
 File: figures/chapter4/fig04_flowchart_SBO.png Graphic file (type bmp)
 <figures/chapter4/fig04_flowchart_SBO.png>
- [60]
+ [57]
 Underfull \vbox (badness 1215) has occurred while \output is active []
 
- [61]
+ [58]
 File: figures/chapter4/fig05_balance_diversity_convergence.png Graphic file (ty
 pe bmp)
 <figures/chapter4/fig05_balance_diversity_convergence.png>
@@ -1867,13 +1866,9 @@ File: figures/chapter4/fig06_search_history_trajectory.png Graphic file (type b
 mp)
 <figures/chapter4/fig06_search_history_trajectory.png>
 
-[62] [63] [64] [65
+[59] [60] [61] [62
 
 ]
-Overfull \hbox (14.85114pt too wide) in paragraph at lines 471--471
-[]|\TU/TimesNewRoman(0)/m/n/12.045 LSHADE_cnEpSin| 
- []
-
 File: figures/chapter4/fig07_performance_heatmap.png Graphic file (type bmp)
 <figures/chapter4/fig07_performance_heatmap.png>
 File: figures/chapter4/fig08_convergence_curves_30dim.png Graphic file (type bm
@@ -1881,33 +1876,34 @@ p)
 <figures/chapter4/fig08_convergence_curves_30dim.png>
 File: figures/chapter4/fig09_box_plots_30dim.png Graphic file (type bmp)
 <figures/chapter4/fig09_box_plots_30dim.png>
-[66
+ [63
 
-] [67] [68] [69]
+] [64] [65] [66]
 File: figures/chapter4/fig10_friedman_rank.png Graphic file (type bmp)
 <figures/chapter4/fig10_friedman_rank.png>
- [70] [71
+ [67] [68
 
-] [72
+] [69
 
-] [73
+] [70
 
 ]
 File: figures/chapter4/fig11_runtime_performance.png Graphic file (type bmp)
 <figures/chapter4/fig11_runtime_performance.png>
- [74
+ [71
 
 ]
 File: figures/chapter4/fig12_flowchart_bSBO_wrapper.png Graphic file (type bmp)
 
 <figures/chapter4/fig12_flowchart_bSBO_wrapper.png>
- [75] [76] [77
+ [72] [73]
+[74
 
-] [78
+] [75
 
-] [79
+] [76
 
-] [80
+] [77
 
 
 ]
@@ -1916,10 +1912,9 @@ type bmp)
 <figures/chapter4/fig13_friedman_rank_feature_selection.png>
 File: figures/chapter4/fig14_convergence_bSBO.png Graphic file (type bmp)
 <figures/chapter4/fig14_convergence_bSBO.png>
+ [78
 
-[81
-
-] [82]
+] [79]
 File: figures/chapter4/fig15_original_images_2D_histogram.png Graphic file (typ
 e bmp)
 <figures/chapter4/fig15_original_images_2D_histogram.png>
@@ -1934,59 +1929,59 @@ File: figures/chapter4/fig18_convergence_entropy.png Graphic file (type bmp)
 File: figures/chapter4/fig19_jet_colormap_segmentation.png Graphic file (type b
 mp)
 <figures/chapter4/fig19_jet_colormap_segmentation.png>
- [83] [84] [85] [86] [87]) (chapters/chapter5_BEXEA.tex [88]
+ [80] [81] [82] [83] [84])
+(chapters/chapter5_BEXEA.tex [85]
 5
-[89
+[86
 
 ]
 File: figures/chapter5/BEXEAStructure.png Graphic file (type bmp)
 <figures/chapter5/BEXEAStructure.png>
- [90] [91]
+ [87] [88]
 File: figures/chapter5/BEXEA-MAB.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-MAB.png>
- [92] [93]
+ [89] [90]
 File: figures/chapter5/explainable-uncertainty-criteria-legend.png Graphic file
  (type bmp)
 <figures/chapter5/explainable-uncertainty-criteria-legend.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [94]
+ [91]
 LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 197.
 File: figures/chapter5/BEXEA-CEC22-CC.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-CEC22-CC.png>
 File: figures/chapter5/BEXEA-Plots.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-Plots.png>
 
-[95] [96] [97] [98] [99]
+[92] [93] [94] [95] [96]
 File: figures/chapter5/beta.png Graphic file (type bmp)
 <figures/chapter5/beta.png>
 File: figures/chapter5/k.png Graphic file (type bmp)
 <figures/chapter5/k.png>
- [100] [101]
+ [97] [98]
 File: figures/chapter5/runBEXEA-OilReservoir-sampled-CC.png Graphic file (type 
 bmp)
 <figures/chapter5/runBEXEA-OilReservoir-sampled-CC.png>
- [102] [103]) (chapters/chapter6.tex
-[104]
+ [99] [100]) (chapters/chapter6.tex [101]
 6
-[105
+[102
 
-]) [106] (main.bbl [107
+]) [103] (main.bbl [104
 
-] [108]
+] [105]
 Underfull \hbox (badness 2012) in paragraph at lines 202--206
 []\TU/TimesNewRoman(0)/m/n/12.045 KENNEDY J, EBERHART R.  Particle swarm optimi
 zation[C]//Proceedings of
  []
 
-[109] [110] [111] [112] [113] [114] [115] [116] [117] [118] [119] [120]
-[121] [122] [123] [124]) [125] [126
+[106] [107] [108] [109] [110] [111] [112] [113] [114] [115] [116] [117]
+[118] [119] [120] [121]) [122] [123
 
-] [127
+] [124
 
 ]
-runsystem(latexminted cleantemp  --timestamp 20260306053910 FAD58DE7366495DB465
+runsystem(latexminted cleantemp  --timestamp 20260306055337 FAD58DE7366495DB465
 0CFEFAC2FCD61)...disabled (restricted).
 
  (main.aux)
@@ -2002,12 +1997,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D17879283350E5D1358E2C01BAB2D110;10692.
  ) 
 Here is how much of TeX's memory you used:
- 30375 strings out of 402983
- 684499 string characters out of 5448483
- 1428504 words of memory out of 5000000
- 58526 multiletter control sequences out of 15000+600000
+ 30384 strings out of 402983
+ 685242 string characters out of 5448483
+ 1428488 words of memory out of 5000000
+ 58535 multiletter control sequences out of 15000+600000
  663874 words of font info for 249 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  125i,12n,125p,1682b,1091s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (136 pages).
+Output written on main.pdf (133 pages).
