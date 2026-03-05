@@ -1,7 +1,7 @@
 % Chapter 1: 绪论 (Introduction)
 \chapter{绪论}
 
-\section{研究背景与意义}
+\section{研究背景和意义}
 
 现实世界中的优化问题日益呈现高维、非线性、多模态和动态等特征，广泛存在于工程设计、机器学习参数调优和生物信息学等场景。面对这类NP-hard问题，传统确定性方法通常依赖梯度或局部结构信息，难以在复杂搜索空间中稳定获得全局最优解。
 
@@ -29,28 +29,69 @@
 
 现有研究中，RBF和Kriging是最常用的代理模型；DE及其变体仍是主流搜索器，同时也出现了多模型分区搜索和多算法协同机制；EI、LCB、EHVI和PI则是常见填充准则。总体来看，如何降低搜索策略对人工设计的依赖、提升采样决策的自适应性与可解释性，仍是SAEA研究的重要方向。
 
-\section{本文主要研究内容}
+\section{总体技术框架}
 
-本文围绕复杂优化问题中的元启发式算法改进与应用，提出了三种新型算法，分别面向特征选择、图像分割和昂贵优化场景。主要研究内容如下：
+针对特征选择、图像分割和昂贵优化等复杂优化任务，本文提出了三种改进元启发式算法，并分别在医学数据特征选择、乳腺癌组织学图像多阈值分割以及油藏产量优化问题上验证其有效性。总体技术框架如图~\ref{fig:overall-framework}所示。
 
-（1）基于精英引导变异策略的改进回溯搜索算法（Improved Backtracking Search Algorithm, IBSA）。针对BSA算法的随机性问题，提出精英引导变异策略，将种群中的精英个体与非精英个体分离，通过修改选择过程和变异算子充分利用精英信息。设计向量$m$增强非精英个体的局部利用能力，引入自适应参数$s$实现全局与局部交叉的动态切换。在IEEE CEC 2017基准函数上与23种算法对比验证了IBSA的全局优化性能，并开发二值版本bIBSA应用于12个医学数据集的特征选择任务。
+\begin{figure}[htbp]
+  \centering
+  \resizebox{0.97\textwidth}{!}{%
+  \begin{tikzpicture}[
+    >=Latex,
+    font=\small,
+    header/.style={draw, rounded corners=2pt, minimum width=3.9cm, minimum height=0.9cm, align=center, fill=gray!15},
+    box/.style={draw, rounded corners=2pt, minimum width=3.9cm, minimum height=1.55cm, align=center, inner sep=6pt}
+  ]
+    \node[box, minimum width=12.3cm, minimum height=1.1cm, fill=gray!10] (title) {复杂优化问题中的元启发式算法改进与应用};
 
-（2）基于状态的优化算法（Status-Based Optimizer, SBO）。受人类社会地位追求行为启发，提出了一种全新的元启发式算法。SBO将社会向上流动的动力学转化为计算优化模型，探索阶段模拟个体进入高地位圈的过程，利用阶段模拟获取资源和机会的过程。在IEEE CEC 2017测试套件的多个维度上与多种先进算法进行全面对比，并将其成功应用于乳腺癌组织学图像的多阈值分割任务。
+    \node[header, below=7mm of title, xshift=-4.2cm] (taskh) {研究任务};
+    \node[header, right=3mm of taskh] (methodh) {方法设计};
+    \node[header, right=3mm of methodh] (verifyh) {应用验证};
 
-（3）基于赌博机驱动的自适应搜索代理辅助进化算法（Bandit-driven EXplainable Evolutionary Algorithm, BEXEA）。针对SAEAs中搜索策略需人工设计和不确定性准则缺乏可解释性的问题，引入多臂赌博机机制通过强化学习自主调整搜索模式，提出可解释的不确定性（Explainable Uncertainty, EU）准则将特征差异熵融入EI准则。在IEEE CEC 2022和CEC 2005基准测试集以及油藏产量优化问题上与七种先进SAEAs对比验证了BEXEA的优越性。
+    \node[box, below=4mm of taskh] (task1) {高维医学数据\\特征选择};
+    \node[box, right=3mm of task1] (method1) {第3章\\IBSA / bIBSA\\精英引导变异策略};
+    \node[box, right=3mm of method1] (verify1) {IEEE CEC 2017基准测试\\12个医学数据集特征选择};
 
-\section{本文组织结构}
+    \node[box, below=3mm of task1] (task2) {乳腺癌组织学图像\\多阈值分割};
+    \node[box, right=3mm of task2] (method2) {第4章\\SBO\\状态驱动搜索机制};
+    \node[box, right=3mm of method2] (verify2) {IEEE CEC 2017基准验证\\6/12/18阈值图像分割};
 
-本文共分为六章，各章内容安排如下：
+    \node[box, below=3mm of task2] (task3) {高成本黑盒函数\\昂贵优化};
+    \node[box, right=3mm of task3] (method3) {第5章\\BEXEA\\赌博机驱动代理辅助搜索};
+    \node[box, right=3mm of method3] (verify3) {CEC 2022与CEC 2005测试集\\油藏产量优化};
 
-第一章 绪论。介绍本文的研究背景与意义，综述元启发式优化算法、特征选择方法和代理辅助进化算法的国内外研究现状，阐述本文的主要研究内容和论文组织结构。
+    \node[box, below=7mm of task3, minimum width=12.3cm, minimum height=1.0cm, fill=gray!10] (goal) {研究目标：提升复杂优化任务中的搜索精度、稳健性与样本效率};
 
-第二章 相关理论及技术。介绍本文研究所涉及的基础理论和关键技术，包括元启发式算法基础、回溯搜索算法原理、特征选择技术、代理辅助优化技术、多臂赌博机问题以及基准测试函数等。
+    \draw[->, thick] (title.south) -- (methodh.north);
+    \draw[->, thick] (task1.east) -- (method1.west);
+    \draw[->, thick] (method1.east) -- (verify1.west);
+    \draw[->, thick] (task2.east) -- (method2.west);
+    \draw[->, thick] (method2.east) -- (verify2.west);
+    \draw[->, thick] (task3.east) -- (method3.west);
+    \draw[->, thick] (method3.east) -- (verify3.west);
+    \draw[->, thick] (verify1.south) |- (goal.north west);
+    \draw[->, thick] (verify2.south) -- (goal.north);
+    \draw[->, thick] (verify3.south) |- (goal.north east);
+  \end{tikzpicture}
+  }
+  \bicaption{总体技术框架图}{Framework diagram of the overall thesis}
+  \label{fig:overall-framework}
+\end{figure}
 
-第三章 基于精英引导变异策略的改进回溯搜索算法。详细介绍IBSA算法的设计思路、精英引导变异策略的原理和实现，以及在IEEE CEC 2017基准函数全局优化和12个医学数据集特征选择任务上的实验验证。
+本文以复杂优化问题中的共性挑战为牵引，在统一的理论基础上分别构建三条研究主线：针对特征选择中的搜索随机性问题，提出IBSA及其二值版本bIBSA；针对图像分割中的连续优化问题，提出基于状态驱动的SBO算法；针对昂贵优化中的样本效率问题，提出赌博机驱动的BEXEA算法。三章主体均采用“算法设计、基准验证、应用研究”的组织方式展开，以保证论文结构与研究逻辑的统一性。
 
-第四章 基于状态的优化算法。详细介绍SBO算法的概念基础和数学模型，以及在IEEE CEC 2017基准函数验证和多阈值图像分割任务中的综合性能验证。
+\section{本文组织结构安排}
 
-第五章 基于赌博机驱动的自适应搜索代理辅助进化算法。详细介绍BEXEA的赌博机驱动自适应搜索机制和可解释不确定性准则的设计原理，以及在两组复杂基准测试集和油藏产量优化问题上的实验验证。
+本文旨在围绕特征选择、图像分割和昂贵优化等复杂优化任务，研究元启发式算法的改进设计及其应用。文章首先介绍研究背景和相关工作，随后分别阐述三种改进算法及其在不同场景中的验证，最后给出总结与展望。本文的结构安排如下：
 
-第六章 总结与展望。总结本文的主要研究工作和创新点，讨论现有研究的局限性，并对未来的研究方向进行展望。
+第一章，绪论：介绍研究背景和意义，综述元启发式优化算法、特征选择方法和代理辅助进化算法的研究现状，并给出本文的总体技术框架与组织结构安排。
+
+第二章，相关理论及技术：介绍本文研究所涉及的基础理论和关键技术，包括元启发式算法基础、回溯搜索算法原理、特征选择技术、代理辅助优化技术、多臂赌博机问题以及基准测试函数等。
+
+第三章，基于精英引导变异策略的改进回溯搜索算法：详细介绍IBSA算法的设计思路、精英引导变异策略的原理和实现，以及在IEEE CEC 2017基准函数全局优化和12个医学数据集特征选择任务上的实验验证。
+
+第四章，基于状态的优化算法：详细介绍SBO算法的概念基础和数学模型，以及在IEEE CEC 2017基准函数验证和多阈值图像分割任务中的综合性能验证。
+
+第五章，基于赌博机驱动的自适应搜索代理辅助进化算法：详细介绍BEXEA的赌博机驱动自适应搜索机制和可解释不确定性准则的设计原理，以及在两组复杂基准测试集和油藏产量优化问题上的实验验证。
+
+第六章，总结与展望：总结本文的主要研究工作和创新点，讨论现有研究的局限性，并对未来的研究方向进行展望。
