@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  6 MAR 2026 05:10
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  6 MAR 2026 05:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1939,68 +1939,54 @@ mp)
 [89
 
 ]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [90]
 File: figures/chapter5/BEXEAStructure.png Graphic file (type bmp)
 <figures/chapter5/BEXEAStructure.png>
-
-[91] [92]
+ [90] [91]
 File: figures/chapter5/BEXEA-MAB.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-MAB.png>
-
-Underfull \vbox (badness 2495) has occurred while \output is active []
-
- [93]
-Underfull \vbox (badness 5245) has occurred while \output is active []
-
- [94]
+ [92] [93]
 File: figures/chapter5/explainable-uncertainty-criteria-legend.png Graphic file
  (type bmp)
 <figures/chapter5/explainable-uncertainty-criteria-legend.png>
 
-[95] [96]
-LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 213.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [94]
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 197.
 File: figures/chapter5/BEXEA-CEC22-CC.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-CEC22-CC.png>
 File: figures/chapter5/BEXEA-Plots.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-Plots.png>
- [97] [98] [99] [100] [101] [102]
+
+[95] [96] [97] [98] [99]
 File: figures/chapter5/beta.png Graphic file (type bmp)
 <figures/chapter5/beta.png>
 File: figures/chapter5/k.png Graphic file (type bmp)
 <figures/chapter5/k.png>
- [103] [104]
+ [100] [101]
 File: figures/chapter5/runBEXEA-OilReservoir-sampled-CC.png Graphic file (type 
 bmp)
 <figures/chapter5/runBEXEA-OilReservoir-sampled-CC.png>
- [105] [106]
-Overfull \hbox (6.4638pt too wide) in paragraph at lines 421--422
-[]\TU/AdobeSongStd-Light.otf(0)/m/n/12.045 本 章 提 出 了 基 于 可 解 释 不 确 定 性 准 则 辅 助 
-的 赌 博 机 驱 动 自 适 应 搜 索 \TU/TimesNewRoman(0)/m/n/12.045 SAEA |\TU/AdobeSongStd-Li
-ght.otf(0)/m/n/12.045 （\TU/TimesNewRoman(0)/m/n/12.045 BEXEA\TU/AdobeSongStd-Li
-ght.otf(0)/m/n/12.045 ） ，|
- []
-
-) (chapters/chapter6.tex [107]
+ [102] [103]) (chapters/chapter6.tex
+[104]
 6
-[108
+[105
 
-]) [109] (main.bbl [110
+]) [106] (main.bbl [107
 
-] [111]
+] [108]
 Underfull \hbox (badness 2012) in paragraph at lines 202--206
 []\TU/TimesNewRoman(0)/m/n/12.045 KENNEDY J, EBERHART R.  Particle swarm optimi
 zation[C]//Proceedings of
  []
 
-[112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122] [123]
-[124] [125] [126] [127]) [128] [129
+[109] [110] [111] [112] [113] [114] [115] [116] [117] [118] [119] [120]
+[121] [122] [123] [124]) [125] [126
 
-] [130
+] [127
 
 ]
-runsystem(latexminted cleantemp  --timestamp 20260306051037 FAD58DE7366495DB465
+runsystem(latexminted cleantemp  --timestamp 20260306053910 FAD58DE7366495DB465
 0CFEFAC2FCD61)...disabled (restricted).
 
  (main.aux)
@@ -2016,12 +2002,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D17879283350E5D1358E2C01BAB2D110;10692.
  ) 
 Here is how much of TeX's memory you used:
- 30360 strings out of 402983
- 683094 string characters out of 5448483
- 1428507 words of memory out of 5000000
- 58511 multiletter control sequences out of 15000+600000
+ 30375 strings out of 402983
+ 684499 string characters out of 5448483
+ 1428504 words of memory out of 5000000
+ 58526 multiletter control sequences out of 15000+600000
  663874 words of font info for 249 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  125i,12n,125p,1682b,1091s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (139 pages).
+Output written on main.pdf (136 pages).
