@@ -7,8 +7,6 @@
 \usepackage{amssymb}
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator*{\argmax}{arg\,max}
-\usepackage{algorithm}
-\usepackage{algpseudocode}
 \usepackage{float}
 \usepackage{rotating} % for sidewaystable in SBO chapter
 \usepackage{pdflscape} % landscape pages for extra-wide longtables
@@ -16,12 +14,9 @@
 \bicaptionsetup[figure]{}{name=Fig.}
 \bicaptionsetup[table]{}{name=Table}
 \setlength{\headheight}{13pt}
-\setlength\LTleft{0pt}
-\setlength\LTright{0pt}
-
-% Algorithm helper commands (from BEXEA)
-\newcommand{\Indent}{\State\hspace{\algorithmicindent}}
-\newcommand{\Indentx}{\Statex\hspace{\algorithmicindent}}
+% Center longtable blocks when table width is narrower than text width.
+\setlength\LTleft{\fill}
+\setlength\LTright{\fill}
 
 % English/CJK text fonts are handled by wzuthesis.cls (Times New Roman + Adobe fonts)
 
