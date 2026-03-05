@@ -5,13 +5,13 @@
 
 \section{元启发式算法基础}
 
-元启发式算法（Meta-heuristic Algorithms, MAs）是面向复杂优化问题的通用随机搜索框架，适用于搜索空间庞大、目标函数复杂且难以直接求解的NP-hard问题。其核心设计目标是在\textbf{探索（Exploration）}与\textbf{利用（Exploitation）}之间取得平衡：前者负责扩大全局搜索范围，后者负责在有前景区域内细化求解。
+元启发式算法（Meta-heuristic Algorithms, MAs）是面向复杂优化问题的通用随机搜索框架，适用于搜索空间庞大、目标函数复杂且难以直接求解的NP-hard问题。其核心设计目标是在探索（Exploration）与利用（Exploitation）之间取得平衡：前者负责扩大全局搜索范围，后者负责在有前景区域内细化求解。
 
 \subsection{群体智能算法}
 
 群体智能算法通过个体间的信息共享和自组织机制实现全局搜索。
 
-\textbf{粒子群优化算法（Particle Swarm Optimization, PSO）}是最具代表性的群体智能方法之一。其粒子根据自身历史最优位置和群体全局最优位置更新速度与位置：
+粒子群优化算法（Particle Swarm Optimization, PSO）是最具代表性的群体智能方法之一。其粒子根据自身历史最优位置和群体全局最优位置更新速度与位置：
 \begin{equation}
 v_i^{t+1} = \omega v_i^t + c_1 r_1 (pbest_i - x_i^t) + c_2 r_2 (gbest - x_i^t)
 \end{equation}
@@ -85,7 +85,7 @@ v_i = x_{r1} + F \cdot (x_{r2} - x_{r3})
 
 \subsection{特征选择方法分类}
 
-\textbf{过滤式方法（Filter Methods）}依据相关性、信息增益或卡方检验等统计指标独立评估特征，速度快但难以刻画特征交互。\textbf{嵌入式方法（Embedded Methods）}将特征选择融入模型训练过程，如LASSO或决策树方法，兼顾效率与性能，但结果依赖具体学习器。\textbf{包裹式方法（Wrapper Methods）}则直接以分类器性能评价特征子集，通常效果更好，但计算成本最高。
+过滤式方法（Filter Methods）依据相关性、信息增益或卡方检验等统计指标独立评估特征，速度快但难以刻画特征交互。嵌入式方法（Embedded Methods）将特征选择融入模型训练过程，如LASSO或决策树方法，兼顾效率与性能，但结果依赖具体学习器。包裹式方法（Wrapper Methods）则直接以分类器性能评价特征子集，通常效果更好，但计算成本最高。
 
 \subsection{基于元启发式的包裹式特征选择}
 
@@ -102,7 +102,7 @@ T(x) = \left| \operatorname{erf}\left(\frac{\sqrt{\pi}}{2} x\right) \right|
 \subsection{代理模型}
 \label{sec:ch2_surrogate_models}
 
-\textbf{径向基函数（Radial Basis Function, RBF）}模型是一种基于距离的插值方法，其预测值可表示为已知样本点处基函数的加权组合：
+径向基函数（Radial Basis Function, RBF）模型是一种基于距离的插值方法，其预测值可表示为已知样本点处基函数的加权组合：
 \begin{equation}
 \hat{f}(x) = \sum_{i=1}^{n} \lambda_i \phi(\|x - x_i\|)
 \end{equation}
@@ -122,7 +122,7 @@ T(x) = \left| \operatorname{erf}\left(\frac{\sqrt{\pi}}{2} x\right) \right|
     \label{fig:ch2_RBF_prediction}
 \end{figure}
 
-\textbf{Kriging模型}（也称高斯过程模型）不仅提供预测值，还能给出不确定性估计。其基本形式为：
+Kriging模型（也称高斯过程模型）不仅提供预测值，还能给出不确定性估计。其基本形式为：
 \begin{equation}
 f(x) = \mu + Z(x)
 \end{equation}
@@ -132,13 +132,13 @@ f(x) = \mu + Z(x)
 
 填充准则用于从代理模型产生的候选解中筛选最值得进行真实评估的样本。
 
-\textbf{期望改进（Expected Improvement, EI）}准则综合考虑预测值和不确定性：
+期望改进（Expected Improvement, EI）准则综合考虑预测值和不确定性：
 \begin{equation}
 EI(x) = (f_{min} - \hat{f}(x)) \Phi\left(\frac{f_{min} - \hat{f}(x)}{s(x)}\right) + s(x) \phi\left(\frac{f_{min} - \hat{f}(x)}{s(x)}\right)
 \end{equation}
 其中，$f_{min}$为当前最优值，$\hat{f}(x)$和$s(x)$分别为代理模型的预测均值和标准差，$\Phi$和$\phi$分别为标准正态分布的累积分布函数和概率密度函数。其第一项偏向利用，第二项偏向探索。
 
-\textbf{置信下界（Lower Confidence Bound, LCB）}准则定义为预测均值减去不确定性的加权项：
+置信下界（Lower Confidence Bound, LCB）准则定义为预测均值减去不确定性的加权项：
 \begin{equation}
 LCB(x) = \hat{f}(x) - \kappa \cdot s(x)
 \end{equation}
@@ -148,7 +148,7 @@ LCB(x) = \hat{f}(x) - \kappa \cdot s(x)
 
 多臂赌博机（Multi-Armed Bandit, MAB）问题描述了决策者如何在多个候选动作之间权衡已知高收益选择与未知选择，其核心同样是探索与利用的平衡。
 
-\textbf{上置信界（Upper Confidence Bound, UCB）}策略是解决MAB问题的经典方法之一。UCB在每一轮选择具有最高上置信界的臂：
+上置信界（Upper Confidence Bound, UCB）策略是解决MAB问题的经典方法之一。UCB在每一轮选择具有最高上置信界的臂：
 \begin{equation}
 a_t = \argmax_{a} \left[ Q_t(a) + c \sqrt{\frac{\ln t}{N_t(a)}} \right]
 \end{equation}
@@ -160,7 +160,7 @@ a_t = \argmax_{a} \left[ Q_t(a) + c \sqrt{\frac{\ln t}{N_t(a)}} \right]
 
 基准测试函数为算法性能评估提供了统一且可复现的比较环境。
 
-\textbf{IEEE CEC（Congress on Evolutionary Computation）2017测试套件}包含30个函数，覆盖单峰、多峰、混合和组合类型，适合评估全局优化性能；本文第三章和第四章均采用该测试套件。\textbf{IEEE CEC 2022测试套件}则面向函数评估受限的昂贵优化场景，包含12个函数，本文第五章使用其评估BEXEA的性能。
+IEEE CEC（Congress on Evolutionary Computation）2017测试套件包含30个函数，覆盖单峰、多峰、混合和组合类型，适合评估全局优化性能；本文第三章和第四章均采用该测试套件。IEEE CEC 2022测试套件则面向函数评估受限的昂贵优化场景，包含12个函数，本文第五章使用其评估BEXEA的性能。
 
 \subsection{统计检验方法}
 \label{sec:ch2_stat_tests}
@@ -176,7 +176,7 @@ a_t = \argmax_{a} \left[ Q_t(a) + c \sqrt{\frac{\ln t}{N_t(a)}} \right]
 
 为定量分析算法在搜索过程中的探索与利用行为，本文采用以下基于种群多样性的指标。
 
-\textbf{维度多样性}$\text{Div}(t)$定义为：
+维度多样性$\text{Div}(t)$定义为：
 
 \begin{equation}
 \label{eq:ch2_div}
@@ -184,14 +184,14 @@ a_t = \argmax_{a} \left[ Q_t(a) + c \sqrt{\frac{\ln t}{N_t(a)}} \right]
 \end{equation}
 其中，$X^j_i\left(t\right)$表示第$i$个个体在第$t$次迭代时第$j$维的值，$D$为问题维度，$N$为种群规模。
 
-\textbf{探索率}定义为当前维度多样性相对于历史最大多样性的比例：
+探索率定义为当前维度多样性相对于历史最大多样性的比例：
 
 \begin{equation}
 \label{eq:ch2_exploration}
 \text{Exploration}=\frac{\text{Div}\left(t\right)}{\text{Div}_{\max}}\times 100\%
 \end{equation}
 
-\textbf{利用率}反映了种群向最优区域收敛的程度：
+利用率反映了种群向最优区域收敛的程度：
 
 \begin{equation}
 \label{eq:ch2_exploitation}
@@ -218,7 +218,7 @@ $I_C(t)$越大，表示种群整体分散程度越高。
 
 在基于元启发式的包裹式特征选择中，本文采用以下指标进行评估。
 
-\textbf{适应度函数}用于同时考虑分类误差与特征子集规模，定义为：
+适应度函数用于同时考虑分类误差与特征子集规模，定义为：
 
 \begin{equation}
 \label{eq:ch2_fitness}
@@ -226,7 +226,7 @@ $I_C(t)$越大，表示种群整体分散程度越高。
 \end{equation}
 其中，$\gamma_R(\cdot)$表示所选特征子集$R$对应的错误率，$R$和$N$分别表示当前选择的特征和总特征数。本文设$\alpha=0.05$、$\beta=0.95$，分类器采用KNN（$K=5$），评估使用10折交叉验证。
 
-\textbf{平均适应度}。算法在每个数据集上$L$次独立运行的整体适应度：
+平均适应度。算法在每个数据集上$L$次独立运行的整体适应度：
 
 \begin{equation}
 \label{eq:ch2_avg_fitness}
@@ -234,7 +234,7 @@ $I_C(t)$越大，表示种群整体分散程度越高。
 \end{equation}
 其中$\text{fitness}(i)$为第$i$次运行获得的适应度值。
 
-\textbf{平均分类错误率}。算法$L$次运行的平均分类错误率：
+平均分类错误率。算法$L$次运行的平均分类错误率：
 
 \begin{equation}
 \label{eq:ch2_avg_error}
@@ -242,7 +242,7 @@ $I_C(t)$越大，表示种群整体分散程度越高。
 \end{equation}
 其中$\text{Accuracy}(i)$指第$i$次运行的分类准确率。
 
-\textbf{平均选择特征数}。算法在$L$次运行中选择的平均特征数：
+平均选择特征数。算法在$L$次运行中选择的平均特征数：
 
 \begin{equation}
 \label{eq:ch2_avg_features}
@@ -250,7 +250,7 @@ $I_C(t)$越大，表示种群整体分散程度越高。
 \end{equation}
 其中$\text{Size}(i)$表示第$i$次运行中选择的特征数。
 
-\textbf{平均运行时间}。算法$L$次运行的平均运行时间：
+平均运行时间。算法$L$次运行的平均运行时间：
 
 \begin{equation}
 \label{eq:ch2_avg_time}
