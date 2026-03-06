@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  6 MAR 2026 16:21
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  6 MAR 2026 16:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -19334,7 +19334,7 @@ Overfull \hbox (1.24023pt too wide) in paragraph at lines 602--602
 ] [129
 
 ]
-runsystem(latexminted cleantemp  --timestamp 20260306162108 FAD58DE7366495DB465
+runsystem(latexminted cleantemp  --timestamp 20260306163021 FAD58DE7366495DB465
 0CFEFAC2FCD61)...disabled (restricted).
 
  (main.aux)
@@ -19352,7 +19352,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  40416 strings out of 402983
  899098 string characters out of 5448483
- 1672530 words of memory out of 5000000
+ 1671530 words of memory out of 5000000
  68380 multiletter control sequences out of 15000+600000
  665819 words of font info for 261 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
