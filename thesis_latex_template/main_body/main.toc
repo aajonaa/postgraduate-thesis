@@ -65,19 +65,20 @@
 \contentsline {section}{\numberline {4.5}本章小结}{70}{section.4.5}%
 \contentsline {chapter}{\numberline {5\hspace {.3em}}基于赌博机驱动的自适应搜索代理辅助进化算法}{72}{chapter.5}%
 \contentsline {section}{\numberline {5.1}引言}{72}{section.5.1}%
-\contentsline {section}{\numberline {5.2}BEXEA算法}{72}{section.5.2}%
+\contentsline {section}{\numberline {5.2}BEXEA算法及其搜索机制}{72}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}算法框架}{72}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}多臂赌博机驱动的自适应搜索}{73}{subsection.5.2.2}%
 \contentsline {subsection}{\numberline {5.2.3}可解释不确定性准则}{74}{subsection.5.2.3}%
-\contentsline {section}{\numberline {5.3}数值实验}{77}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}基准测试问题}{77}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}与先进SAEAs的比较}{77}{subsection.5.3.2}%
+\contentsline {section}{\numberline {5.3}BEXEA在昂贵优化基准问题中的实验研究}{77}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}实验设置}{77}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}结果与分析}{77}{subsection.5.3.2}%
 \contentsline {subsection}{\numberline {5.3.3}主要组件的有效性验证}{79}{subsection.5.3.3}%
 \contentsline {subsubsection}{\numberline {5.3.3.1}自适应搜索的有效性}{79}{subsubsection.5.3.3.1}%
 \contentsline {subsubsection}{\numberline {5.3.3.2}可解释不确定性准则的有效性}{79}{subsubsection.5.3.3.2}%
 \contentsline {subsection}{\numberline {5.3.4}参数分析}{79}{subsection.5.3.4}%
-\contentsline {subsection}{\numberline {5.3.5}油藏产量优化}{85}{subsection.5.3.5}%
-\contentsline {section}{\numberline {5.4}本章小结}{87}{section.5.4}%
+\contentsline {section}{\numberline {5.4}BEXEA在油藏产量优化中的实验研究}{85}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}实验设置与结果分析}{85}{subsection.5.4.1}%
+\contentsline {section}{\numberline {5.5}本章小结}{87}{section.5.5}%
 \contentsline {chapter}{\numberline {6\hspace {.3em}}总结与展望}{88}{chapter.6}%
 \contentsline {section}{\numberline {6.1}本文工作总结}{88}{section.6.1}%
 \contentsline {subsection}{\numberline {6.1.1}IBSA算法研究总结}{88}{subsection.6.1.1}%
