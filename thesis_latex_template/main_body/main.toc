@@ -31,19 +31,19 @@
 \contentsline {section}{\numberline {3.2}IBSA算法及其特征选择方法}{10}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}研究动机}{10}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}精英引导变异策略}{13}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}IBSA算法}{14}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}bIBSA特征选择方法}{17}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}计算复杂度分析}{19}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.3}IBSA算法}{15}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}bIBSA特征选择方法}{16}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}计算复杂度分析}{18}{subsection.3.2.5}%
 \contentsline {section}{\numberline {3.3}IBSA及bIBSA的实验研究}{19}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}实验设置}{19}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}数据集描述}{21}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.2}特征选择数据描述}{21}{subsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.3.3}实验结果与分析}{21}{subsection.3.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.3.1}全局优化实验}{21}{subsubsection.3.3.3.1}%
 \contentsline {subsubsection}{\numberline {3.3.3.2}特征选择实验}{30}{subsubsection.3.3.3.2}%
 \contentsline {section}{\numberline {3.4}本章小结}{32}{section.3.4}%
 \contentsline {chapter}{\numberline {4\hspace {.3em}}基于状态的优化算法}{33}{chapter.4}%
 \contentsline {section}{\numberline {4.1}引言}{33}{section.4.1}%
-\contentsline {section}{\numberline {4.2}SBO算法}{33}{section.4.2}%
+\contentsline {section}{\numberline {4.2}SBO算法及其搜索机制}{33}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}SBO的灵感来源}{33}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}SBO的数学建模}{34}{subsection.4.2.2}%
 \contentsline {subsubsection}{\numberline {4.2.2.1}初始化}{34}{subsubsection.4.2.2.1}%
@@ -54,7 +54,7 @@
 \contentsline {subsection}{\numberline {4.2.3}SBO的计算复杂度分析}{39}{subsection.4.2.3}%
 \contentsline {section}{\numberline {4.3}SBO的实验研究}{39}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}实验设置}{39}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}图像数据描述}{42}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.2}图像分割数据描述}{42}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.3.3}实验结果与分析}{43}{subsection.4.3.3}%
 \contentsline {subsubsection}{\numberline {4.3.3.1}全局优化实验}{43}{subsubsection.4.3.3.1}%
 \contentsline {subsubsection}{\numberline {4.3.3.2}多阈值图像分割实验}{53}{subsubsection.4.3.3.2}%
