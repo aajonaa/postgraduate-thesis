@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  6 MAR 2026 16:17
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  6 MAR 2026 16:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2072,19 +2072,25 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 3
 [10
 
-] [11] [12]
-Underfull \vbox (badness 3579) has occurred while \output is active []
+]
+Underfull \vbox (badness 1389) has occurred while \output is active []
 
- [13]
-[14] [15]
+ [11]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12]
+[13] [14] [15]
 File: figures/chapter3/fig2_flowchart_IBSA.png Graphic file (type bmp)
 <figures/chapter3/fig2_flowchart_IBSA.png>
  [16] [17]
 File: figures/chapter3/fig3_wrapper_feature_selection.png Graphic file (type bm
 p)
 <figures/chapter3/fig3_wrapper_feature_selection.png>
- [18]
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [18]
+Underfull \vbox (badness 1577) has occurred while \output is active []
 
  [19]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2176,9 +2182,6 @@ File: figures/chapter5/BEXEAStructure.png Graphic file (type bmp)
  [59]
 File: figures/chapter5/BEXEA-MAB.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-MAB.png>
-
-Underfull \vbox (badness 2495) has occurred while \output is active []
-
  [60]
 Underfull \vbox (badness 5245) has occurred while \output is active []
 
@@ -2188,7 +2191,7 @@ File: figures/chapter5/explainable-uncertainty-criteria-legend.png Graphic file
 <figures/chapter5/explainable-uncertainty-criteria-legend.png>
 
 [62] [63]
-LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 224.
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 226.
 File: figures/chapter5/BEXEA-CEC22-CC.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-CEC22-CC.png>
  [64] [65] [66]
@@ -19331,7 +19334,7 @@ Overfull \hbox (1.24023pt too wide) in paragraph at lines 602--602
 ] [129
 
 ]
-runsystem(latexminted cleantemp  --timestamp 20260306161712 FAD58DE7366495DB465
+runsystem(latexminted cleantemp  --timestamp 20260306162108 FAD58DE7366495DB465
 0CFEFAC2FCD61)...disabled (restricted).
 
  (main.aux)
