@@ -569,6 +569,11 @@ BoldItalicFont = * Bold Italic
             }
     }
     \zihao{-4}\songti \linespread{1.2}\selectfont
+    % 缩减公式前后间距，使行文更紧凑
+    \setlength{\abovedisplayskip}{6pt plus 2pt minus 2pt}
+    \setlength{\belowdisplayskip}{6pt plus 2pt minus 2pt}
+    \setlength{\abovedisplayshortskip}{2pt plus 1pt}
+    \setlength{\belowdisplayshortskip}{4pt plus 2pt minus 1pt}
     %\pagestyle{plain}
     \mainpagestyle
 }
