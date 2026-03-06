@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  6 MAR 2026 16:30
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  6 MAR 2026 17:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2053,88 +2053,101 @@ Underfull \hbox (badness 10000) detected at line 73
 [1
 
 
-] [2] [3]) (chapters/chapter2.tex [4]
+] [2]
+Overfull \hbox (9.33167pt too wide) in paragraph at lines 40--41
+[]\TU/AdobeSongStd-Light.otf(1)/m/n/12.045 在 代 理 模 型 方 面，| \TU/TimesNewRoman(0)
+/m/n/12.045 RBF[[]] \TU/AdobeSongStd-Light.otf(1)/m/n/12.045 和 \TU/TimesNewRoma
+n(0)/m/n/12.045 Kriging[[]-[]] \TU/AdobeSongStd-Light.otf(1)/m/n/12.045 是 最 常 用
+ 的 选 择，|  也 有 研 究 采 用 \TU/TimesNewRoman(0)/m/n/12.045 SVM[[]]\TU/AdobeSongStd-L
+ight.otf(1)/m/n/12.045 、|
+ []
+
+[3]) (chapters/chapter2.tex [4]
 2
+[5
+
+]
 
 LaTeX Font Warning: Font shape `TS1/TimesNewRoman(0)/b/n' undefined
 (Font)              using `TS1/TimesNewRoman(0)/m/n' instead on input line 31.
 
-[5
-
-] [6] [7]
+[6] [7]
 File: figures/chapter5/rbf_plot.png Graphic file (type bmp)
 <figures/chapter5/rbf_plot.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [8])
-(chapters/chapter3_IBSA.tex [9]
+ [8] [9]) (chapters/chapter3_IBSA.tex [10]
 3
-[10
+[11
 
 ]
 Underfull \vbox (badness 1389) has occurred while \output is active []
 
- [11]
+ [12]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [12]
-[13] [14] [15]
+ [13]
+[14] [15] [16]
 File: figures/chapter3/fig2_flowchart_IBSA.png Graphic file (type bmp)
 <figures/chapter3/fig2_flowchart_IBSA.png>
- [16] [17]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17]
+[18]
 File: figures/chapter3/fig3_wrapper_feature_selection.png Graphic file (type bm
 p)
 <figures/chapter3/fig3_wrapper_feature_selection.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [18]
+ [19]
 Underfull \vbox (badness 1577) has occurred while \output is active []
 
- [19]
+ [20]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [20]
-[21]
+ [21]
+Underfull \vbox (badness 2261) has occurred while \output is active []
+
+ [22]
 File: figures/chapter3/fig4_balance_and_diversity.png Graphic file (type bmp)
 <figures/chapter3/fig4_balance_and_diversity.png>
- [22] [23] [24] [25
 
-] [26]
+[23] [24] [25] [26
+
+] [27]
 File: figures/chapter3/fig5_friedman_ranking_basic.png Graphic file (type bmp)
 <figures/chapter3/fig5_friedman_ranking_basic.png>
- [27
+ [28
 
-] [28] [29
+] [29] [30
 
-] [30]
+] [31]
 File: figures/chapter3/fig7_friedman_ranking_advanced.png Graphic file (type bm
 p)
 <figures/chapter3/fig7_friedman_ranking_advanced.png>
- [31
+ [32
 
-] [32
+] [33
 
 ])
-(chapters/chapter4_SBO.tex [33
+(chapters/chapter4_SBO.tex [34
 
 ]
 4
-[34
+[35
 
-] [35] [36]
+] [36] [37]
 File: figures/chapter4/fig02_elite_engagement.png Graphic file (type bmp)
 <figures/chapter4/fig02_elite_engagement.png>
- [37]
+ [38]
 File: figures/chapter4/fig03_resource_acquisition.png Graphic file (type bmp)
 <figures/chapter4/fig03_resource_acquisition.png>
- [38] [39]
+ [39] [40]
 File: figures/chapter4/fig04_flowchart_SBO.png Graphic file (type bmp)
 <figures/chapter4/fig04_flowchart_SBO.png>
- [40] [41] [42
+ [41] [42] [43
 
-] [43
+] [44
 
 ]
 File: figures/chapter4/fig15_original_images_2D_histogram.png Graphic file (typ
@@ -2143,7 +2156,7 @@ e bmp)
 File: figures/chapter4/fig16_flowchart_image_segmentation.png Graphic file (typ
 e bmp)
 <figures/chapter4/fig16_flowchart_image_segmentation.png>
- [44] [45]
+ [45] [46]
 File: figures/chapter4/fig05_balance_diversity_convergence.png Graphic file (ty
 pe bmp)
 <figures/chapter4/fig05_balance_diversity_convergence.png>
@@ -2154,12 +2167,12 @@ p)
 <figures/chapter4/fig08_convergence_curves_30dim.png>
 File: figures/chapter4/fig10_friedman_rank.png Graphic file (type bmp)
 <figures/chapter4/fig10_friedman_rank.png>
- [46] [47] [48]
-[49] [50] [51
-
-] [52
+ [47] [48] [49]
+[50] [51] [52
 
 ] [53
+
+] [54
 
 ]
 File: figures/chapter4/fig17_heatmap_PSNR_FSIM_SSIM.png Graphic file (type bmp)
@@ -2170,34 +2183,30 @@ File: figures/chapter4/fig18_convergence_entropy.png Graphic file (type bmp)
 File: figures/chapter4/fig19_jet_colormap_segmentation.png Graphic file (type b
 mp)
 <figures/chapter4/fig19_jet_colormap_segmentation.png>
- [54
+ [55
 
-] [55] [56]) (chapters/chapter5_BEXEA.tex [57]
+] [56] [57]) (chapters/chapter5_BEXEA.tex [58]
 5
-[58
+[59
 
 ]
 File: figures/chapter5/BEXEAStructure.png Graphic file (type bmp)
 <figures/chapter5/BEXEAStructure.png>
- [59]
+ [60]
 File: figures/chapter5/BEXEA-MAB.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-MAB.png>
- [60]
-Underfull \vbox (badness 5245) has occurred while \output is active []
-
- [61]
+ [61] [62] [63]
 File: figures/chapter5/explainable-uncertainty-criteria-legend.png Graphic file
  (type bmp)
 <figures/chapter5/explainable-uncertainty-criteria-legend.png>
-
-[62] [63]
-LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 226.
+ [64]
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 228.
+ [65] [66]
 File: figures/chapter5/BEXEA-CEC22-CC.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-CEC22-CC.png>
- [64] [65] [66]
 File: figures/chapter5/BEXEA-Plots.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-Plots.png>
- [67] [68]
+ [67] [68] [69] [70]
 File: figures/chapter5/beta.png Graphic file (type bmp)
 <figures/chapter5/beta.png>
 File: figures/chapter5/k.png Graphic file (type bmp)
@@ -2205,31 +2214,30 @@ File: figures/chapter5/k.png Graphic file (type bmp)
 File: figures/chapter5/runBEXEA-OilReservoir-sampled-CC.png Graphic file (type 
 bmp)
 <figures/chapter5/runBEXEA-OilReservoir-sampled-CC.png>
- [69] [70] [71] [72]) (chapters/chapter6.tex
-[73]
+ [71] [72] [73]
+[74]) (chapters/chapter6.tex [75]
 6
-[74
+[76
 
-]) [75] (main.bbl [76
+]) [77] (main.bbl [78
 
-] [77]
-Underfull \hbox (badness 2012) in paragraph at lines 202--206
+]
+Underfull \hbox (badness 2012) in paragraph at lines 155--159
 []\TU/TimesNewRoman(0)/m/n/12.045 KENNEDY J, EBERHART R.  Particle swarm optimi
 zation[C]//Proceedings of
  []
 
-[78] [79] [80] [81] [82] [83] [84] [85] [86] [87] [88] [89] [90] [91] [92]
-[93]) [94] (chapters/appendix.tex [95
+[79] [80] [81] [82] [83] [84] [85] [86] [87] [88] [89] [90]) [91]
+(chapters/appendix.tex [92
 
-] [96
+] [93
 
-] [97] [98
+] [94] [95
 
 
-] [99] [100
+] [96] [97
 
-]
-(chapters/appendix_ch4.tex
+] (chapters/appendix_ch4.tex
 Overfull \hbox (7.18517pt too wide) in paragraph at lines 6--6
  []|\TU/TimesNewRoman(0)/m/n/7.52812 ALCPSO| 
  []
@@ -6319,9 +6327,9 @@ Overfull \hbox (0.93954pt too wide) in paragraph at lines 65--66
  []|\TU/TimesNewRoman(0)/m/n/7.52812 5.1380E+01| 
  []
 
-[101
+[98
 
-] [102]
+] [99]
 Overfull \hbox (7.18517pt too wide) in paragraph at lines 75--75
  []|\TU/TimesNewRoman(0)/m/n/7.52812 ALCPSO| 
  []
@@ -10411,7 +10419,7 @@ Overfull \hbox (0.93954pt too wide) in paragraph at lines 134--135
  []|\TU/TimesNewRoman(0)/m/n/7.52812 2.1504E+02| 
  []
 
-[103] [104]
+[100] [101]
 Overfull \hbox (7.18517pt too wide) in paragraph at lines 144--144
  []|\TU/TimesNewRoman(0)/m/n/7.52812 ALCPSO| 
  []
@@ -14501,7 +14509,7 @@ Overfull \hbox (0.93954pt too wide) in paragraph at lines 203--204
  []|\TU/TimesNewRoman(0)/m/n/7.52812 1.2362E+04| 
  []
 
-[105] [106]
+[102] [103]
 Overfull \hbox (7.18517pt too wide) in paragraph at lines 213--213
  []|\TU/TimesNewRoman(0)/m/n/7.52812 ALCPSO| 
  []
@@ -18596,7 +18604,7 @@ Overfull \hbox (0.93954pt too wide) in paragraph at lines 272--273
  []|\TU/TimesNewRoman(0)/m/n/7.52812 7.5364E+03| 
  []
 
-[107] [108]
+[104] [105]
 Underfull \hbox (badness 3503) in paragraph at lines 283--283
 []|\TU/TimesNewRoman(0)/m/n/7.52812 Table A. 10 P-values
  []
@@ -18711,7 +18719,7 @@ Overfull \hbox (8.46767pt too wide) in paragraph at lines 313--313
  []|\TU/TimesNewRoman(0)/m/n/7.52812 1.000000E+00| 
  []
 
-[109] [110]
+[106] [107]
 Underfull \hbox (badness 10000) in paragraph at lines 325--325
 []|\TU/TimesNewRoman(0)/m/n/7.52812 SBO vs
  []
@@ -18911,7 +18919,7 @@ Overfull \hbox (1.24023pt too wide) in paragraph at lines 397--397
  []|\TU/TimesNewRoman(0)/m/n/7.52812 1.000000E+00| 
  []
 
-[111] [112]
+[108] [109]
 Underfull \hbox (badness 10000) in paragraph at lines 407--407
 []|\TU/TimesNewRoman(0)/m/n/7.52812 SBO vs
  []
@@ -18946,7 +18954,7 @@ Overfull \hbox (1.24023pt too wide) in paragraph at lines 437--437
  []|\TU/TimesNewRoman(0)/m/n/7.52812 1.000000E+00| 
  []
 
-[113]
+[110]
 Underfull \hbox (badness 3503) in paragraph at lines 447--447
 []|\TU/TimesNewRoman(0)/m/n/7.52812 Table A. 12 P-values
  []
@@ -19096,7 +19104,7 @@ Overfull \hbox (1.24023pt too wide) in paragraph at lines 479--479
  []|\TU/TimesNewRoman(0)/m/n/7.52812 1.000000E+00| 
  []
 
-[114] [115]
+[111] [112]
 Underfull \hbox (badness 10000) in paragraph at lines 489--489
 []|\TU/TimesNewRoman(0)/m/n/7.52812 SBO vs
  []
@@ -19136,7 +19144,7 @@ Overfull \hbox (1.24023pt too wide) in paragraph at lines 520--520
  []|\TU/TimesNewRoman(0)/m/n/7.52812 1.000000E+00| 
  []
 
-[116]
+[113]
 Underfull \hbox (badness 3503) in paragraph at lines 529--529
 []|\TU/TimesNewRoman(0)/m/n/7.52812 Table A. 13 P-values
  []
@@ -19286,7 +19294,7 @@ Overfull \hbox (8.46767pt too wide) in paragraph at lines 561--561
  []|\TU/TimesNewRoman(0)/m/n/7.52812 1.000000E+00| 
  []
 
-[117] [118]
+[114] [115]
 Underfull \hbox (badness 10000) in paragraph at lines 571--571
 []|\TU/TimesNewRoman(0)/m/n/7.52812 SBO vs
  []
@@ -19321,20 +19329,20 @@ Overfull \hbox (1.24023pt too wide) in paragraph at lines 602--602
  []|\TU/TimesNewRoman(0)/m/n/7.52812 1.000000E+00| 
  []
 
-[119] [120] [121] [122] [123]) [124] [125
+[116] [117] [118] [119] [120]) [121] [122
+
+
+] [123
+
+] [124
+
+]) [125
 
 
 ] [126
 
-] [127
-
-]) [128
-
-
-] [129
-
 ]
-runsystem(latexminted cleantemp  --timestamp 20260306163021 FAD58DE7366495DB465
+runsystem(latexminted cleantemp  --timestamp 20260306174918 FAD58DE7366495DB465
 0CFEFAC2FCD61)...disabled (restricted).
 
  (main.aux)
@@ -19347,15 +19355,15 @@ L3 programming layer <2022/08/05>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9759C72DF08E09661984D5885479596B;8106.
+(rerunfilecheck)             Checksum: 6CC97E4F4B0F86D8A09B778293492942;7716.
  ) 
 Here is how much of TeX's memory you used:
- 40416 strings out of 402983
- 899098 string characters out of 5448483
- 1671530 words of memory out of 5000000
- 68380 multiletter control sequences out of 15000+600000
+ 40218 strings out of 402983
+ 895339 string characters out of 5448483
+ 1669284 words of memory out of 5000000
+ 68182 multiletter control sequences out of 15000+600000
  665819 words of font info for 261 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 125i,12n,125p,1722b,1091s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 125i,12n,125p,1722b,961s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (138 pages).
+Output written on main.pdf (135 pages).

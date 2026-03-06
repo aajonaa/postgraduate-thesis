@@ -5,32 +5,32 @@
 
 \section{元启发式优化算法}
 
-元启发式算法（Meta-heuristic Algorithms, MAs）是面向复杂优化问题的通用随机搜索框架，适用于搜索空间庞大、目标函数复杂且难以直接求解的NP-hard问题。按照灵感来源，可将其大致归为群体智能、进化计算、物理或化学启发以及人类行为启发等类型。尽管不同算法的更新机制各异，但其核心目标都在于协调探索（Exploration）与利用（Exploitation），即在扩大搜索范围和强化局部精炼之间取得平衡。
+元启发式算法（Meta-heuristic Algorithms, MAs）是面向复杂优化问题的通用随机搜索框架，适用于搜索空间庞大、目标函数复杂且难以直接求解的NP-hard问题\cite{ibsa_ref4,sbo_ref1}。按照灵感来源，可将其大致归为群体智能、进化计算、物理或化学启发以及人类行为启发等类型\cite{sbo_ref11}。尽管不同算法的更新机制各异，但其核心目标都在于协调探索（Exploration）与利用（Exploitation），即在扩大搜索范围和强化局部精炼之间取得平衡\cite{ibsa_ref75}。
 
 \subsection{群体智能与进化算法}
 
-群体智能算法通过个体之间的信息共享与协同更新实现全局搜索，粒子群优化（Particle Swarm Optimization, PSO）是其中最具代表性的方法之一。其基本更新规则为：
+群体智能算法通过个体之间的信息共享与协同更新实现全局搜索\cite{sbo_ref18}，粒子群优化（Particle Swarm Optimization, PSO）是其中最具代表性的方法之一\cite{ibsa_ref26}。其基本更新规则为：
 \begin{equation}
 v_i^{t+1} = \omega v_i^t + c_1 r_1 (pbest_i - x_i^t) + c_2 r_2 (gbest - x_i^t)
 \end{equation}
 \begin{equation}
 x_i^{t+1} = x_i^t + v_i^{t+1}
 \end{equation}
-其中，$\omega$为惯性权重，$c_1$和$c_2$为学习因子，$r_1$和$r_2$为$[0,1]$上的随机数，$pbest_i$和$gbest$分别表示个体历史最优位置与群体全局最优位置。除PSO外，GWO、ACO等方法也都通过群体协作提升搜索能力。
+其中，$\omega$为惯性权重，用于控制先前速度对当前更新的影响程度，$c_1$和$c_2$为学习因子，分别反映个体认知和群体社会经验的权重，$r_1$和$r_2$为$[0,1]$上的均匀分布随机数，$pbest_i$和$gbest$分别表示个体历史最优位置与群体全局最优位置。PSO因其概念简洁和实现高效，已被广泛应用于函数优化、神经网络训练和组合优化等领域。除PSO外，灰狼优化算法（GWO）\cite{ibsa_ref81}通过模拟灰狼的社会等级和狩猎行为实现群体搜索，蚁群优化算法（ACO）\cite{ibsa_ref25}则借鉴蚂蚁信息素沉积机制解决离散优化问题，人工蜂群算法（ABC）\cite{ibsa_ref27}模拟蜜蜂觅食行为进行全局搜索。这些算法各有特色，共同构成了群体智能优化方法的基本框架。
 
-进化算法则通过选择、交叉和变异逐步改进种群，其中差分进化（Differential Evolution, DE）因结构简单、参数较少且在实值优化中表现稳定，被广泛用作连续优化和代理辅助优化中的基础搜索器。常用的DE/rand/1变异策略为：
+进化算法则通过选择、交叉和变异逐步改进种群\cite{sbo_ref11}，其中差分进化（Differential Evolution, DE）\cite{ibsa_ref34}因结构简单、参数较少且在实值优化中表现稳定，被广泛用作连续优化和代理辅助优化中的基础搜索器。常用的DE/rand/1变异策略为：
 \begin{equation}
 v_i = x_{r1} + F \cdot (x_{r2} - x_{r3})
 \end{equation}
-其中，$x_{r1}$、$x_{r2}$和$x_{r3}$为种群中随机选取的三个不同个体，$F$为缩放因子。第三章和第五章中的方法设计都继承了这类种群迭代思想。
+其中，$x_{r1}$、$x_{r2}$和$x_{r3}$为种群中随机选取的三个不同个体，$F$为缩放因子，控制差分向量的放大程度。变异后还需进行二项式交叉操作，以概率$CR$决定每一维是否接受变异向量的值，最后通过贪心选择保留更优个体。DE的优点在于操作简单、控制参数少且在连续优化中收敛稳定\cite{ibsa_ref55}，因此被广泛用于函数优化、特征选择和代理辅助优化等场景。第三章和第五章中的方法设计都继承了这类种群迭代思想。
 
 \subsection{回溯搜索算法}
 
-回溯搜索算法（Backtracking Search Algorithm, BSA）由Civicioglu于2013年提出，是一种利用历史种群记忆进行搜索的进化算法。其主要流程包括初始化、Selection-I、变异、交叉和Selection-II五个阶段，其中变异策略利用当前种群与历史种群之间的差异生成候选解：
+回溯搜索算法（Backtracking Search Algorithm, BSA）由Civicioglu\cite{ibsa_ref53}于2013年提出，是一种利用历史种群记忆进行搜索的进化算法。其主要流程包括初始化、Selection-I、变异、交叉和Selection-II五个阶段，其中变异策略利用当前种群与历史种群之间的差异生成候选解：
 \begin{equation}
 \boldsymbol{Mutant} = \boldsymbol{X} + F \cdot (\boldsymbol{OldX} - \boldsymbol{X})
 \end{equation}
-其中，$F = 3 \cdot rndn$，$rndn$服从标准正态分布。BSA的优势在于历史记忆增强了探索能力，但其变异和交叉具有较强随机性，局部利用能力相对不足，因此成为第三章IBSA算法改进的直接基础。
+其中，$F = 3 \cdot rndn$，$rndn$服从标准正态分布。BSA的优势在于历史记忆增强了探索能力，但其变异和交叉具有较强随机性，局部利用能力相对不足\cite{ibsa_ref63}。后续研究中，Zhao等人\cite{ibsa_ref57}引入种群控制因子和最优学习策略以改善BSA的搜索精度，Nama等人\cite{ibsa_ref59}则提出基于量子变异的BSA改进方案，Tsai\cite{ibsa_ref60}通过可变搜索策略增强BSA在连续优化中的表现。这些改进工作为第三章IBSA算法的设计提供了直接基础。
 
 \subsection{探索与利用平衡性}
 \label{sec:ch2_balance_diversity}
@@ -55,7 +55,7 @@ I_C(t) = \sqrt{\sum^{N}_{i=1}{\sum^{D}_{j=1}{{\left(X^j_i\left(t\right)-C^j(t)\r
 \begin{equation}
 C^j(t) = \frac{1}{N}\sum^N_{i=1}{X^j_i\left(t\right)}
 \end{equation}
-$I_C(t)$越大，表示种群整体分散程度越高。第三章和第四章将利用这些指标分析算法在不同阶段的搜索特性。
+$I_C(t)$越大，表示种群整体分散程度越高，说明算法处于较强的探索阶段；反之，$I_C(t)$较小时种群趋于聚集，算法处于利用阶段。理想的优化过程应在搜索前期保持较高的多样性以覆盖更大的解空间，并在后期逐步收缩以精炼最优解。第三章和第四章将利用这些指标分析所提算法在不同阶段的搜索特性，并与对比算法进行定量对比，以验证改进策略对探索与利用平衡性的提升效果。
 
 \section{特征选择与图像分割问题简介}
 
@@ -63,13 +63,13 @@ $I_C(t)$越大，表示种群整体分散程度越高。第三章和第四章将
 
 \subsection{特征选择问题定义}
 
-特征选择（Feature Selection, FS）旨在从原始特征集合中选出更有用的子集，在保持或提高模型性能的同时降低维度、缓解维数灾难并增强可解释性。常见方法包括过滤式、嵌入式和包裹式三类：过滤式依赖统计指标进行独立筛选，计算效率高但难以刻画特征交互；嵌入式将特征选择融入模型训练过程；包裹式直接以分类器性能评价特征子集，效果通常更好，但计算成本较高。
+特征选择（Feature Selection, FS）旨在从原始特征集合中选出更有用的子集，在保持或提高模型性能的同时降低维度、缓解维数灾难并增强可解释性\cite{ibsa_ref50}。常见方法包括过滤式、嵌入式和包裹式三类\cite{sbo_ref61}：过滤式依赖统计指标（如Pearson相关系数\cite{sbo_ref65}、卡方检验\cite{sbo_ref72}等）进行独立筛选，计算效率高但难以刻画特征交互\cite{sbo_ref62}；嵌入式将特征选择融入模型训练过程，如LASSO回归\cite{sbo_ref68}和决策树\cite{sbo_ref69}等方法；包裹式直接以分类器性能评价特征子集，效果通常更好，但计算成本较高\cite{ibsa_ref23,sbo_ref64}。
 
-在基于元启发式的包裹式特征选择中，每个特征可对应一个0/1决策变量，因此问题可视为二值优化。由于多数元启发式算法原本面向连续空间，通常需要借助转换函数完成二值化。本文第三章采用V型传递函数：
+在基于元启发式的包裹式特征选择中，每个特征可对应一个0/1决策变量，因此问题可视为二值优化\cite{ibsa_ref95}。由于多数元启发式算法原本面向连续空间，通常需要借助转换函数完成二值化\cite{ibsa_ref71}。本文第三章采用V型传递函数：
 \begin{equation}
 T(x) = \left| \operatorname{erf}\left(\frac{\sqrt{\pi}}{2} x\right) \right|
 \end{equation}
-若$T(x_i^d) > rand$，则对应维度取值翻转，否则保持不变。
+若$T(x_i^d) > rand$，则对应维度取值翻转，否则保持不变。V型传递函数因其对称性和平滑过渡特性，相比S型传递函数在保持种群多样性方面具有一定优势\cite{ibsa_ref71}，适合与精英引导的搜索策略配合使用。
 
 为同时兼顾分类误差和特征压缩率，本文采用如下适应度函数：
 \begin{equation}
@@ -79,22 +79,22 @@ T(x) = \left| \operatorname{erf}\left(\frac{\sqrt{\pi}}{2} x\right) \right|
 
 \subsection{多阈值图像分割问题}
 
-多阈值图像分割通过确定多个阈值将图像灰度空间划分为若干区域，是医学图像分析中的常见预处理步骤。若图像灰度级为$L$，阈值向量可表示为：
+多阈值图像分割通过确定多个阈值将图像灰度空间划分为若干区域，是医学图像分析中的常见预处理步骤\cite{sbo_ref79,sbo_ref80}。若图像灰度级为$L$，阈值向量可表示为：
 \begin{equation}
 \boldsymbol{T} = [t_1, t_2, \ldots, t_K], \quad 0 \le t_1 < t_2 < \cdots < t_K \le L-1
 \end{equation}
-其中$K$为阈值个数。随着$K$增加，候选解空间迅速膨胀，传统穷举方法难以在可接受时间内获得满意解。
+其中$K$为阈值个数。随着$K$增加，候选解空间迅速膨胀，搜索空间的规模呈指数级增长\cite{sbo_ref80}。例如，当灰度级$L=256$且阈值个数$K=10$时，需要在$\binom{256}{10}$个候选组合中搜索最优解，传统穷举方法难以在可接受时间内获得满意解。因此，利用元启发式算法在这类大规模搜索空间中高效搜索最优阈值组合具有重要的实际意义。
 
-在基于优化的方法中，阈值选择可转化为搜索最优阈值向量的问题，常见目标函数包括Otsu类间方差、Kapur熵和Renyi熵等。本文第四章采用Renyi熵评价阈值集合质量，并利用元启发式算法搜索最优阈值，从而提高乳腺癌组织学图像的分割效果。
+在基于优化的方法中，阈值选择可转化为搜索最优阈值向量的问题，常见目标函数包括Otsu类间方差、Kapur熵和Renyi熵等\cite{sbo_ref81}。元启发式算法在这一领域得到了广泛应用\cite{sbo_ref82}。本文第四章采用Renyi熵评价阈值集合质量，并利用元启发式算法搜索最优阈值，从而提高乳腺癌组织学图像\cite{sbo_ref83}的分割效果。
 
 \section{代理辅助昂贵优化技术}
 
-昂贵优化问题（Expensive Optimization Problems, EOPs）中，单次目标函数评估通常依赖高保真仿真、有限元分析或复杂工程计算，代价远高于普通数值优化。在有限预算下，代理辅助进化算法（Surrogate-Assisted Evolutionary Algorithms, SAEAs）通过低成本模型近似真实目标函数，以减少真实评估次数，是第五章方法设计的理论基础。
+昂贵优化问题（Expensive Optimization Problems, EOPs）中，单次目标函数评估通常依赖高保真仿真、有限元分析或复杂工程计算，代价远高于普通数值优化\cite{liu2023airfoils,kumar2024optimization}。在有限预算下，代理辅助进化算法（Surrogate-Assisted Evolutionary Algorithms, SAEAs）通过低成本模型近似真实目标函数，以减少真实评估次数\cite{he2023review,jin2018data}，是第五章方法设计的理论基础。
 
 \subsection{代理模型与填充准则}
 \label{sec:ch2_surrogate_models}
 
-代理模型用于学习真实目标函数的近似映射。其中，径向基函数（Radial Basis Function, RBF）模型是一种基于距离的插值方法，其预测值可表示为已知样本点处基函数的加权组合：
+代理模型用于学习真实目标函数的近似映射\cite{kudela2022recent}。其中，径向基函数（Radial Basis Function, RBF）模型是一种基于距离的插值方法\cite{regis2013evolutionary}，其预测值可表示为已知样本点处基函数的加权组合：
 \begin{equation}
 \hat{f}(x) = \sum_{i=1}^{n} \lambda_i \phi(\|x - x_i\|)
 \end{equation}
@@ -102,7 +102,7 @@ T(x) = \left| \operatorname{erf}\left(\frac{\sqrt{\pi}}{2} x\right) \right|
 \begin{equation}
 \mathcal{F} = \boldsymbol{\Psi} \mathcal{W}
 \end{equation}
-其中$\boldsymbol{\Psi}_{ij} = \phi(\|x_i - x_j\|)$。RBF训练速度快、适应性强，因此在第五章中被选作基础代理模型。
+其中$\boldsymbol{\Psi}_{ij} = \phi(\|x_i - x_j\|)$。常用的基函数包括多二次函数$\phi(r) = \sqrt{r^2 + c^2}$、高斯函数$\phi(r) = \exp(-r^2/c^2)$和立方函数$\phi(r) = r^3$等。RBF模型的主要优点在于训练速度快、插值精度高且对高维问题有较好的适应性\cite{kudela2022recent}，因此在第五章中被选作基础代理模型。
 
 图\ref{fig:ch2_RBF_prediction}展示了利用六个均匀分布样本对一维函数进行RBF近似的结果\cite{forrester2008engineering}。白色圆圈表示空间中的样本点，黑色实线代表真实适应度景观，红色虚线代表RBF预测函数。从图中可以看出，RBF模型在样本点处能够精确插值，而在样本点之间给出平滑近似。
 
@@ -113,7 +113,7 @@ T(x) = \left| \operatorname{erf}\left(\frac{\sqrt{\pi}}{2} x\right) \right|
     \label{fig:ch2_RBF_prediction}
 \end{figure}
 
-Kriging模型（高斯过程模型）除了给出预测值，还能够提供不确定性估计，因此常与采样决策联合使用。为从代理模型产生的大量候选解中选择最值得进行真实评估的样本，通常还需要引入填充准则。期望改进（Expected Improvement, EI）定义为：
+Kriging模型（高斯过程模型）\cite{buche2005accelerating,liu2013gaussian}除了给出预测值，还能够提供不确定性估计，因此常与采样决策联合使用。为从代理模型产生的大量候选解中选择最值得进行真实评估的样本，通常还需要引入填充准则\cite{zhan2020expected}。期望改进（Expected Improvement, EI）\cite{jones1998efficient}定义为：
 \begin{equation}
 EI(x) = (f_{min} - \hat{f}(x)) \Phi\left(\frac{f_{min} - \hat{f}(x)}{s(x)}\right) + s(x) \phi\left(\frac{f_{min} - \hat{f}(x)}{s(x)}\right)
 \end{equation}
@@ -121,28 +121,28 @@ EI(x) = (f_{min} - \hat{f}(x)) \Phi\left(\frac{f_{min} - \hat{f}(x)}{s(x)}\right
 \begin{equation}
 LCB(x) = \hat{f}(x) - \kappa \cdot s(x)
 \end{equation}
-其中，$\kappa$为权衡参数。EI和LCB都体现了对探索与利用的联合考虑。
+其中，$\kappa$为权衡参数，$\kappa$越大则越倾向于探索。EI和LCB都体现了对探索与利用的联合考虑：当代理模型预测值较低（即预期目标函数值更优）时，对应候选解倾向于利用；当预测不确定性较大时，对应候选解倾向于探索。这种机制使得代理辅助优化能够在有限评估预算下做出更合理的采样决策。
 
 \subsection{多臂赌博机策略}
 
-多臂赌博机（Multi-Armed Bandit, MAB）问题描述了决策者如何在多个候选动作之间权衡已知高收益选择与未知选择，其核心同样是探索与利用的平衡。在优化算法中，可将不同搜索模式或算子视为不同臂，根据环境反馈自适应地调整选择概率。
+多臂赌博机（Multi-Armed Bandit, MAB）问题描述了决策者如何在多个候选动作之间权衡已知高收益选择与未知选择\cite{slivkins2019introduction}，其核心同样是探索与利用的平衡。在优化算法中，可将不同搜索模式或算子视为不同臂，根据环境反馈自适应地调整选择概率\cite{xie2023surrogate,gong2024surrogate}。
 
-上置信界（Upper Confidence Bound, UCB）策略是解决MAB问题的经典方法之一，其在第$t$轮选择具有最高上置信界的臂：
+上置信界（Upper Confidence Bound, UCB）策略是解决MAB问题的经典方法之一\cite{auer2002finite}，其在第$t$轮选择具有最高上置信界的臂：
 \begin{equation}
 a_t = \argmax_{a} \left[ Q_t(a) + c \sqrt{\frac{\ln t}{N_t(a)}} \right]
 \end{equation}
-其中，$Q_t(a)$为臂$a$的估计收益均值，$N_t(a)$为臂$a$被选择的次数，$c$为探索系数。第五章将在此基础上引入赌博机驱动的自适应搜索机制，以减少固定搜索策略带来的阶段性失配。
+其中，$Q_t(a)$为臂$a$的估计收益均值，$N_t(a)$为臂$a$被选择的次数，$c$为探索系数。UCB策略的核心思想在于：第一项$Q_t(a)$鼓励选择历史表现较好的臂（利用），第二项$c \sqrt{\ln t / N_t(a)}$则鼓励尝试被选择次数较少的臂（探索），随着总选择次数$t$的增长，探索项会逐步衰减，使策略自然收敛到最优臂。第五章将在此基础上引入赌博机驱动的自适应搜索机制，将不同搜索模式（如量子PSO和差分进化）建模为不同臂，根据实时优化反馈动态切换搜索策略，以减少固定搜索策略带来的阶段性失配问题。
 
 \section{基准测试与统计检验}
 
 \subsection{基准测试函数}
 
-基准测试函数为算法性能评估提供了统一且可复现的比较环境。IEEE CEC 2017测试套件包含30个函数，覆盖单峰、多峰、混合和组合类型，适合评估连续全局优化性能，本文第三章和第四章均采用该测试套件。IEEE CEC 2022测试套件则面向函数评估受限的昂贵优化场景，包含12个函数，本文第五章使用其评估BEXEA的性能。
+基准测试函数为算法性能评估提供了统一且可复现的比较环境\cite{ibsa_ref4}。在元启发式算法研究中，基准测试是验证算法有效性的标准实践，通过在已知最优解的函数上比较不同算法的收敛速度和解质量，可以客观地评价算法性能。IEEE CEC 2017测试套件包含30个函数，覆盖单峰（F1--F3）、多峰（F4--F10）、混合（F11--F20）和组合（F21--F30）四类问题\cite{ibsa_ref88}，能够全面考察算法在不同搜索景观下的表现，本文第三章和第四章均采用该测试套件。IEEE CEC 2022测试套件则面向函数评估受限的昂贵优化场景，包含12个函数\cite{kumar2024optimization}，每个函数的最大评估次数受到严格限制，更贴近实际工程场景，本文第五章使用其评估BEXEA的性能。
 
 \subsection{统计检验方法}
 \label{sec:ch2_stat_tests}
 
-为保证实验比较的统计有效性，本文采用Wilcoxon秩和检验比较两种算法间的显著性差异，并采用Friedman检验比较多种算法的整体排名。在后续各章中，符号“+”“=”和“-”分别表示所提算法显著更优、结果相当和显著更差（$\alpha=0.05$）。
+为保证实验比较的统计有效性，本文采用非参数统计检验对算法结果进行严格分析。Wilcoxon秩和检验\cite{ibsa_ref95}是一种成对比较方法，通过对两组独立样本的排名差异进行分析，判断二者是否具有统计显著性差异，适合在样本量较小或数据不满足正态分布假设的情况下使用。Friedman检验\cite{derrac2011practical}则是一种多组比较方法，可同时对多个算法在多个测试函数上的排名进行整体比较，并给出每个算法的平均排名，排名越低表示综合表现越好。在后续各章中，符号"+"、"="和"-"分别表示所提算法在Wilcoxon检验中显著更优、结果相当和显著更差，显著性水平设为$\alpha=0.05$。
 
 \section{本章小结}
 
