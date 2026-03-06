@@ -32,12 +32,12 @@
 \item  SBO算法的实用性和有效性在多阈值图像分割任务中得到进一步验证，说明其在实际医学图像分析场景中具有良好的应用潜力。
 \end{enumerate}
 
-本文的结构安排如下：第2节介绍SBO的设计思想、数学模型与计算复杂度；第3节给出基准测试结果；第4节展示SBO在多阈值图像分割中的应用；第5节总结全文。
+本文的结构安排如下：第2节介绍SBO算法的设计思想、数学模型与计算复杂度；第3节给出SBO在全局优化中的实验研究；第4节展示SBO在多阈值图像分割中的实验研究；第5节总结全文。
 
 
-\section{所提基于状态的优化算法}
+\section{SBO算法}
 
-本节介绍SBO的设计思想、数学建模和计算复杂度。
+本节介绍SBO的设计思想、数学建模和计算复杂度，为后续全局优化与图像分割实验提供方法基础。
 
 
 \subsection{SBO的灵感来源}
@@ -320,16 +320,85 @@ flag_i=
 SBO算法的计算复杂度主要由种群大小（$N$）、问题维度（$D$）和最大迭代次数（$T$）决定，它们共同定义了终止条件。在本分析中，本文关注算法中计算量最大的操作，同时忽略影响较小的向量更新。初始化阶段涉及生成两个大小为$N\times D$的种群，需要$O(2ND)$的时间。精英接触阶段在每次迭代中以$O(ND)$的时间更新解，在$T$次迭代中总计复杂度为$O(TND)$。资源获取和资源评估阶段在每次迭代中均以$O(N)$的时间运行，累计贡献$O(TN)$，而涉及排序的巩固阶段增加了$O(TNlogN)$的整体成本。汇总这些贡献，SBO的总计算复杂度表示为$O(TND+TN+TNlogN)$，该公式概括了其核心操作的顺序和相互依赖特性。该分析为算法在解决各种优化挑战时的效率和可扩展性提供了简洁的定量估计。
 
 
-\section{SBO的性能评估}
+\section{SBO在全局优化中的实验研究}
 
-以下各节通过涉及13种最先进算法和IEEE CEC 2017\cite{sbo_ref48}所定义的29个函数的基准测试比较，对所提SBO算法进行了深入的质量评估。这些基准函数因其多样性和全面性而被精心选择——它们包括单峰、多峰、混合和组合函数，共同涵盖了现实世界问题中遇到的广泛优化挑战。这套严格的基准测试套件在优化社区中被广泛认可和使用，为评估SBO的独特特性提供了稳健的框架，例如其搜索动态中的平衡性和多样性，以及通过详细检查观察到的代理轨迹模式。
+本节在IEEE CEC 2017基准函数上系统评估SBO的全局优化性能。实验从实验设置、定性分析、统计结果和运行时间四个方面展开，以验证SBO在不同问题规模下的有效性、稳定性和可扩展性。
 
-本次比较的性能指标基于每个函数30次独立运行，平均适应度值（Avg）和标准差（Std）作为算法能力的主要指标。所有实验均在受控环境中进行，以确保公平性和可重复性。
+\subsection{实验设置}
 
-具体而言，所有算法均在配备Intel{\circledR} Xeon{\circledR} Silver 4210R CPU和128 GB RAM的Windows Server 2016平台上进行评估，种群大小为30，每次运行最大目标评估次数为300,000。MATLAB R2018a生态系统为这项广泛的比较研究提供了可靠且标准化的计算基础。
+本文选用IEEE CEC 2017定义的29个测试函数\cite{sbo_ref48}作为全局优化实验平台，覆盖单峰、多峰、混合和组合四类问题，维度设置为10、30、50和100。每个算法在每个函数上独立运行30次，平均值（Avg）和标准差（Std）用于描述解的质量，并结合Wilcoxon符号秩检验与Friedman检验评价统计显著性。
 
+所有算法均在配备Intel{\circledR} Xeon{\circledR} Silver 4210R CPU和128 GB RAM的Windows Server 2016平台上进行评估，种群规模统一为30，最大函数评估次数设为300,000，软件环境为MATLAB R2018a。为保证比较公平性，对比算法均采用原始文献推荐参数，主要参数设置见表\ref{tab:sbo_cec_info}和表\ref{tab:sbo_alg_params}。
 
-\subsection{SBO的质量分析}
+\begin{landscape}
+\begingroup
+\scriptsize
+\setlength{\tabcolsep}{1pt}
+\begin{longtable}{p{0.45in}>{\centering\arraybackslash}p{2.30in}>{\centering\arraybackslash}p{0.90in}>{\centering\arraybackslash}p{1.00in}>{\centering\arraybackslash}p{0.95in}>{\centering\arraybackslash}p{0.90in}}
+\caption{IEEE CEC 2017测试函数信息}\label{tab:sbo_cec_info}\\
+\caption*{Table \thetable. Information of IEEE CEC 2017.}\\
+\toprule
+ID & Description & Type & Dimension & Range & Optimum \\
+\midrule
+F1 & Shifted and Rotated Bent Cigar Function & Unimodal & 10,30,50,100 & [-100,100] & 100 \\
+F2 & Shifted and Rotated Zakharov function & Unimodal & 10,30,50,100 & [-100,100] & 300 \\
+F3 & Shifted and Rotated Rosenbrock's function & Multimodal & 10,30,50,100 & [-100,100] & 400 \\
+F4 & Shifted and Rotated Rastrigin's function & Multimodal & 10,30,50,100 & [-100,100] & 500 \\
+F5 & Shifted and Rotated Expanded Scaffer's function & Multimodal & 10,30,50,100 & [-100,100] & 600 \\
+F6 & Shifted and Rotated Lunacek Bi-Rastrigin function & Multimodal & 10,30,50,100 & [-100,100] & 700 \\
+F7 & Shifted and Rotated Non-Continuous Rastrigin's function & Multimodal & 10,30,50,100 & [-100,100] & 800 \\
+F8 & Shifted and Rotated L\'{e}vy function & Multimodal & 10,30,50,100 & [-100,100] & 900 \\
+F9 & Shifted and Rotated Schwefel's function & Multimodal & 10,30,50,100 & [-100,100] & 1000 \\
+F10 & Hybrid Function 1 (N=3) & Hybrid & 10,30,50,100 & [-100,100] & 1100 \\
+F11 & Hybrid Function 2 (N=3) & Hybrid & 10,30,50,100 & [-100,100] & 1200 \\
+F12 & Hybrid Function 3 (N=3) & Hybrid & 10,30,50,100 & [-100,100] & 1300 \\
+F13 & Hybrid Function 4 (N=4) & Hybrid & 10,30,50,100 & [-100,100] & 1400 \\
+F14 & Hybrid Function 5 (N=4) & Hybrid & 10,30,50,100 & [-100,100] & 1500 \\
+F15 & Hybrid Function 6 (N=4) & Hybrid & 10,30,50,100 & [-100,100] & 1600 \\
+F16 & Hybrid Function 6 (N=5) & Hybrid & 10,30,50,100 & [-100,100] & 1700 \\
+F17 & Hybrid Function 6 (N=5) & Hybrid & 10,30,50,100 & [-100,100] & 1800 \\
+F18 & Hybrid Function 6 (N=5) & Hybrid & 10,30,50,100 & [-100,100] & 1900 \\
+F19 & Hybrid Function 6 (N=6) & Hybrid & 10,30,50,100 & [-100,100] & 2000 \\
+F20 & Composition Function 1 (N=3) & Composition & 10,30,50,100 & [-100,100] & 2100 \\
+F21 & Composition Function 2 (N=3) & Composition & 10,30,50,100 & [-100,100] & 2200 \\
+F22 & Composition Function 3 (N=4) & Composition & 10,30,50,100 & [-100,100] & 2300 \\
+F23 & Composition Function 4 (N=4) & Composition & 10,30,50,100 & [-100,100] & 2400 \\
+F24 & Composition Function 5 (N=5) & Composition & 10,30,50,100 & [-100,100] & 2500 \\
+F25 & Composition Function 6 (N=5) & Composition & 10,30,50,100 & [-100,100] & 2600 \\
+F26 & Composition Function 7 (N=6) & Composition & 10,30,50,100 & [-100,100] & 2700 \\
+F27 & Composition Function 8 (N=6) & Composition & 10,30,50,100 & [-100,100] & 2800 \\
+F28 & Composition Function 9 (N=3) & Composition & 10,30,50,100 & [-100,100] & 2900 \\
+F29 & Composition Function 10 (N=3) & Composition & 10,30,50,100 & [-100,100] & 3000 \\
+\bottomrule
+\end{longtable}
+\endgroup
+\end{landscape}
+
+为验证SBO，本文选取13种代表性算法作为对比对象，涵盖TLBO、PO、HHO、RIME、四种PSO变体以及五种典型进化算法\cite{sbo_ref30,sbo_ref37,sbo_ref48,sbo_ref49,sbo_ref50,sbo_ref51,sbo_ref52,sbo_ref53,sbo_ref54,sbo_ref55,sbo_ref56,sbo_ref57,sbo_ref58}。所有算法在相同计算预算下运行，后续结果同时结合Avg/Std、Wilcoxon和Friedman检验进行分析。
+
+\begin{longtable}{p{1.1in}>{\centering\arraybackslash}p{2.8in}}
+\caption{参与算法的参数设置}\label{tab:sbo_alg_params}\\
+\caption*{Table \thetable. Parameter settings for involved algorithms.}\\
+\toprule
+Algorithm & Other parameters \\
+\midrule
+TLBO & None \\
+PO & $\lambda=1,\ n=7$ \\
+HHO & $E=\left[-2,2\right]$ \\
+RIME & $W=5$ \\
+ALCPSO & $w=0.4,\ c1=2,\ c2=2,\ lifespan=60,\ T=2,\ pro=1/D$ \\
+CLPSO & $w_{max}=0.9,\ w_{min}=0.4,\ c=1.49445$ \\
+CGPSO & $v_{max}=6,\ c1=2,\ c2=2$ \\
+MSPSO & $v_{max}=6,\ v_{min}=-6,\ w_{max}=0.9,\ w_{min}=0.2,\ c1=2,\ c2=2$ \\
+CMAES & $\lambda=4+\left\lfloor 3\ln\left(N\right)\right\rfloor,\ w'_i=\ln\left(\frac{\lambda+1}{2}\right)-\ln i,\ \mu=\left\lfloor \frac{\lambda}{2}\right\rfloor,\ \sigma=0.3,\ C_c=\frac{4}{N+4}$ \\
+DECLS & $NP=D,\ F=0.5,\ p_{CR}=0.5,\ L=\frac{D}{5},\ m=1500$ \\
+\makecell[l]{LSHADE\_\\cnEpSin} & $NP_{max}=18\times D,\ NP_{min}=4,\ H=5,\ \left|A\right|=1.4\times NP,\ p=0.11$ \\
+SCADE & $\beta_{max}=0.8,\ \beta_{min}=0.2,\ p_{CR}=0.8$ \\
+SHADE & $\left|A\right|=2\times NP,\ p=0.1$ \\
+\bottomrule
+\end{longtable}
+
+\subsection{定性分析}
 
 本节评估SBO平衡探索与开发的能力——这是有效元启发式算法的关键方面。本文评估其从广泛的全局搜索转向聚焦的局部精炼的能力，同时管理种群多样性，这通过其搜索代理的历史分布和轨迹来揭示。该分析突出了多样化和收敛之间的相互作用，为SBO在导航复杂解空间中的效率提供了见解。
 
@@ -389,84 +458,7 @@ Exploitation=\frac{\left|Div\left(t\right)-Div_{max}\right|}{Div_{max}}\times 10
 综合上述定性结果可以看出，SBO的优势主要来自精英接触与资源获取两个阶段的有效衔接：前者负责扩展搜索范围，后者负责提高解的精炼程度。这种机制使SBO在复杂函数上既能保持足够的搜索多样性，又能避免长期停留在无效区域。
 
 
-\subsection{SBO的基准测试比较}
-
-本节使用IEEE CEC 2017的29个函数，在10、30、50和100维下系统评估SBO的可扩展性。该测试集覆盖单峰、多峰、混合和组合函数，能够分别考察算法的精度、逃逸局部最优能力以及探索-开发平衡能力，具体信息见表1。
-
-\begin{landscape}
-\begingroup
-\scriptsize
-\setlength{\tabcolsep}{1pt}
-\begin{longtable}{p{0.45in}>{\centering\arraybackslash}p{2.30in}>{\centering\arraybackslash}p{0.90in}>{\centering\arraybackslash}p{1.00in}>{\centering\arraybackslash}p{0.95in}>{\centering\arraybackslash}p{0.90in}}
-\caption{IEEE CEC 2017测试函数信息}\\
-\caption*{Table \thetable. Information of IEEE CEC 2017.}\\
-\toprule
-ID & Description & Type & Dimension & Range & Optimum \\
-\midrule
-F1 & Shifted and Rotated Bent Cigar Function & Unimodal & 10,30,50,100 & [-100,100] & 100 \\
-F2 & Shifted and Rotated Zakharov function & Unimodal & 10,30,50,100 & [-100,100] & 300 \\
-F3 & Shifted and Rotated Rosenbrock's function & Multimodal & 10,30,50,100 & [-100,100] & 400 \\
-F4 & Shifted and Rotated Rastrigin's function & Multimodal & 10,30,50,100 & [-100,100] & 500 \\
-F5 & Shifted and Rotated Expanded Scaffer's function & Multimodal & 10,30,50,100 & [-100,100] & 600 \\
-F6 & Shifted and Rotated Lunacek Bi-Rastrigin function & Multimodal & 10,30,50,100 & [-100,100] & 700 \\
-F7 & Shifted and Rotated Non-Continuous Rastrigin's function & Multimodal & 10,30,50,100 & [-100,100] & 800 \\
-F8 & Shifted and Rotated L\'{e}vy function & Multimodal & 10,30,50,100 & [-100,100] & 900 \\
-F9 & Shifted and Rotated Schwefel's function & Multimodal & 10,30,50,100 & [-100,100] & 1000 \\
-F10 & Hybrid Function 1 (N=3) & Hybrid & 10,30,50,100 & [-100,100] & 1100 \\
-F11 & Hybrid Function 2 (N=3) & Hybrid & 10,30,50,100 & [-100,100] & 1200 \\
-F12 & Hybrid Function 3 (N=3) & Hybrid & 10,30,50,100 & [-100,100] & 1300 \\
-F13 & Hybrid Function 4 (N=4) & Hybrid & 10,30,50,100 & [-100,100] & 1400 \\
-F14 & Hybrid Function 5 (N=4) & Hybrid & 10,30,50,100 & [-100,100] & 1500 \\
-F15 & Hybrid Function 6 (N=4) & Hybrid & 10,30,50,100 & [-100,100] & 1600 \\
-F16 & Hybrid Function 6 (N=5) & Hybrid & 10,30,50,100 & [-100,100] & 1700 \\
-F17 & Hybrid Function 6 (N=5) & Hybrid & 10,30,50,100 & [-100,100] & 1800 \\
-F18 & Hybrid Function 6 (N=5) & Hybrid & 10,30,50,100 & [-100,100] & 1900 \\
-F19 & Hybrid Function 6 (N=6) & Hybrid & 10,30,50,100 & [-100,100] & 2000 \\
-F20 & Composition Function 1 (N=3) & Composition & 10,30,50,100 & [-100,100] & 2100 \\
-F21 & Composition Function 2 (N=3) & Composition & 10,30,50,100 & [-100,100] & 2200 \\
-F22 & Composition Function 3 (N=4) & Composition & 10,30,50,100 & [-100,100] & 2300 \\
-F23 & Composition Function 4 (N=4) & Composition & 10,30,50,100 & [-100,100] & 2400 \\
-F24 & Composition Function 5 (N=5) & Composition & 10,30,50,100 & [-100,100] & 2500 \\
-F25 & Composition Function 6 (N=5) & Composition & 10,30,50,100 & [-100,100] & 2600 \\
-F26 & Composition Function 7 (N=6) & Composition & 10,30,50,100 & [-100,100] & 2700 \\
-F27 & Composition Function 8 (N=6) & Composition & 10,30,50,100 & [-100,100] & 2800 \\
-F28 & Composition Function 9 (N=3) & Composition & 10,30,50,100 & [-100,100] & 2900 \\
-F29 & Composition Function 10 (N=3) & Composition & 10,30,50,100 & [-100,100] & 3000 \\
-\bottomrule
-\end{longtable}
-\endgroup
-\end{landscape}
-
-
-
-为验证SBO，本文选取13种代表性算法作为对比对象，涵盖TLBO、PO、HHO、RIME、四种PSO变体以及五种典型进化算法\cite{sbo_ref30,sbo_ref37,sbo_ref48,sbo_ref49,sbo_ref50,sbo_ref51,sbo_ref52,sbo_ref53,sbo_ref54,sbo_ref55,sbo_ref56,sbo_ref57,sbo_ref58}。所有算法均采用原始文献推荐参数，在相同计算预算下运行：种群规模统一为30，最大函数评估次数为300,000，终止条件保持一致。表2给出主要参数设置，后续结果同时结合Avg/Std、Wilcoxon和Friedman检验进行分析。
-
-\begin{longtable}{p{1.1in}>{\centering\arraybackslash}p{2.8in}}
-\caption{参与算法的参数设置}\\
-\caption*{Table \thetable. Parameter settings for involved algorithms.}\\
-\toprule
-Algorithm & Other parameters \\
-\midrule
-TLBO & None \\
-PO & $\lambda=1,\ n=7$ \\
-HHO & $E=\left[-2,2\right]$ \\
-RIME & $W=5$ \\
-ALCPSO & $w=0.4,\ c1=2,\ c2=2,\ lifespan=60,\ T=2,\ pro=1/D$ \\
-CLPSO & $w_{max}=0.9,\ w_{min}=0.4,\ c=1.49445$ \\
-CGPSO & $v_{max}=6,\ c1=2,\ c2=2$ \\
-MSPSO & $v_{max}=6,\ v_{min}=-6,\ w_{max}=0.9,\ w_{min}=0.2,\ c1=2,\ c2=2$ \\
-CMAES & $\lambda=4+\left\lfloor 3\ln\left(N\right)\right\rfloor,\ w'_i=\ln\left(\frac{\lambda+1}{2}\right)-\ln i,\ \mu=\left\lfloor \frac{\lambda}{2}\right\rfloor,\ \sigma=0.3,\ C_c=\frac{4}{N+4}$ \\
-DECLS & $NP=D,\ F=0.5,\ p_{CR}=0.5,\ L=\frac{D}{5},\ m=1500$ \\
-\makecell[l]{LSHADE\_\\cnEpSin} & $NP_{max}=18\times D,\ NP_{min}=4,\ H=5,\ \left|A\right|=1.4\times NP,\ p=0.11$ \\
-SCADE & $\beta_{max}=0.8,\ \beta_{min}=0.2,\ p_{CR}=0.8$ \\
-SHADE & $\left|A\right|=2\times NP,\ p=0.1$ \\
-\bottomrule
-\end{longtable}
-
-
-
-
-\subsection{基准测试结果与统计分析}
+\subsection{结果与统计分析}
 
 SBO与13种先进算法在29个CEC 2017函数上进行了比较，覆盖10、30、50和100维四种规模。表3汇总了Avg/Std及Wilcoxon、Friedman统计结果。总体上，SBO在各维度都保持领先或前列，尤其在混合函数和组合函数上优势更明显，说明其对复杂搜索空间具有较强适应性。
 
@@ -561,7 +553,7 @@ Dimension & Item & CGPSO & MSPSO & CMAES & DECLS & LSHADE\_cnEpSin & SCADE & SHA
 
 
 
-\subsection{运行时间性能分析}
+\subsection{运行时间分析}
 
 为评估计算效率，本文统计了SBO及13种对比算法在29个函数、四个维度下各运行30次的平均耗时，结果见表4和图11。SBO在$D=10$时以28.08秒位列第二，仅次于CGPSO；当维度提升至30、50和100时，SBO分别以74.25、151.24和478.73秒取得最快结果，显示出更好的可扩展性。
 
@@ -603,11 +595,11 @@ Dimension & CGPSO & MSPSO & CMAES & DECLS & LSHADE\_cnEpSin & SCADE & SHADE \\
 
 
 
-\section{SBO用于多阈值图像分割}
+\section{SBO在多阈值图像分割中的实验研究}
 
 为进一步验证SBO在实际任务中的有效性，本节将其用于乳腺癌组织学图像的多阈值分割。该任务需要在复杂纹理、噪声干扰和灰度不均等条件下同时确定多个阈值，因此能够较好地检验SBO在连续实际问题中的搜索质量。本文采用Renyi熵作为目标函数，并与7种先进算法比较分割性能。
 
-\subsection{实验设置}
+\subsection{实验设置与数据集描述}
 
 多阈值图像分割通过确定多个灰度阈值将图像划分为不同区域，是病理图像分析中的关键步骤\cite{sbo_ref79}。相较于单纯依赖直方图或熵准则的方法\cite{sbo_ref80,sbo_ref81}，基于优化的方法能够将阈值选择转化为搜索问题，更适合处理噪声、灰度不均和复杂纹理并存的图像\cite{sbo_ref82}。本文采用Renyi熵作为目标函数，并使用SBO搜索最优阈值集合，以评估其在乳腺癌组织学图像中的分割能力。
 

@@ -45,7 +45,7 @@
 \contentsline {section}{\numberline {3.5}本章小结}{44}{section.3.5}%
 \contentsline {chapter}{\numberline {4\hspace {.3em}}基于状态的优化算法}{46}{chapter.4}%
 \contentsline {section}{\numberline {4.1}引言}{46}{section.4.1}%
-\contentsline {section}{\numberline {4.2}所提基于状态的优化算法}{47}{section.4.2}%
+\contentsline {section}{\numberline {4.2}SBO算法}{47}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}SBO的灵感来源}{47}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}SBO的数学建模}{47}{subsection.4.2.2}%
 \contentsline {subsubsection}{\numberline {4.2.2.1}初始化}{47}{subsubsection.4.2.2.1}%
@@ -54,13 +54,13 @@
 \contentsline {subsubsection}{\numberline {4.2.2.4}资源评估}{51}{subsubsection.4.2.2.4}%
 \contentsline {subsubsection}{\numberline {4.2.2.5}巩固}{52}{subsubsection.4.2.2.5}%
 \contentsline {subsection}{\numberline {4.2.3}SBO的计算复杂度分析}{52}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3}SBO的性能评估}{53}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}SBO的质量分析}{53}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}SBO的基准测试比较}{54}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}基准测试结果与统计分析}{58}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}运行时间性能分析}{64}{subsection.4.3.4}%
-\contentsline {section}{\numberline {4.4}SBO用于多阈值图像分割}{66}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}实验设置}{66}{subsection.4.4.1}%
+\contentsline {section}{\numberline {4.3}SBO在全局优化中的实验研究}{53}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}实验设置}{53}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}定性分析}{55}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}结果与统计分析}{56}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}运行时间分析}{64}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4.4}SBO在多阈值图像分割中的实验研究}{66}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}实验设置与数据集描述}{66}{subsection.4.4.1}%
 \contentsline {subsection}{\numberline {4.4.2}实验结果与分析}{68}{subsection.4.4.2}%
 \contentsline {section}{\numberline {4.5}本章小结}{70}{section.4.5}%
 \contentsline {chapter}{\numberline {5\hspace {.3em}}基于赌博机驱动的自适应搜索代理辅助进化算法}{72}{chapter.5}%

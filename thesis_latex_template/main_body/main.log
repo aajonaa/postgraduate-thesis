@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  6 MAR 2026 13:37
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  6 MAR 2026 13:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2155,20 +2155,17 @@ File: figures/chapter4/fig03_resource_acquisition.png Graphic file (type bmp)
  [51]
 File: figures/chapter4/fig04_flowchart_SBO.png Graphic file (type bmp)
 <figures/chapter4/fig04_flowchart_SBO.png>
- [52]
-Underfull \vbox (badness 1215) has occurred while \output is active []
+ [52] [53] [54
 
- [53]
+] [55
+
+]
 File: figures/chapter4/fig05_balance_diversity_convergence.png Graphic file (ty
 pe bmp)
 <figures/chapter4/fig05_balance_diversity_convergence.png>
 File: figures/chapter4/fig06_search_history_trajectory.png Graphic file (type b
 mp)
 <figures/chapter4/fig06_search_history_trajectory.png>
-
-[54] [55] [56] [57
-
-]
 File: figures/chapter4/fig07_performance_heatmap.png Graphic file (type bmp)
 <figures/chapter4/fig07_performance_heatmap.png>
 File: figures/chapter4/fig08_convergence_curves_30dim.png Graphic file (type bm
@@ -2176,12 +2173,10 @@ p)
 <figures/chapter4/fig08_convergence_curves_30dim.png>
 File: figures/chapter4/fig09_box_plots_30dim.png Graphic file (type bmp)
 <figures/chapter4/fig09_box_plots_30dim.png>
- [58
-
-] [59] [60] [61]
 File: figures/chapter4/fig10_friedman_rank.png Graphic file (type bmp)
 <figures/chapter4/fig10_friedman_rank.png>
- [62] [63
+ [56] [57] [58] [59] [60]
+[61] [62] [63
 
 ] [64
 
@@ -2207,8 +2202,8 @@ File: figures/chapter4/fig18_convergence_entropy.png Graphic file (type bmp)
 File: figures/chapter4/fig19_jet_colormap_segmentation.png Graphic file (type b
 mp)
 <figures/chapter4/fig19_jet_colormap_segmentation.png>
- [68]
-[69]) (chapters/chapter5_BEXEA.tex [70] [71]
+ [68] [69]) (chapters/chapter5_BEXEA.tex
+[70] [71]
 5
 [72
 
@@ -2260,7 +2255,7 @@ zation[C]//Proceedings of
 ] [110
 
 ]
-runsystem(latexminted cleantemp  --timestamp 20260306133705 FAD58DE7366495DB465
+runsystem(latexminted cleantemp  --timestamp 20260306134708 FAD58DE7366495DB465
 0CFEFAC2FCD61)...disabled (restricted).
 
  (main.aux)
@@ -2273,13 +2268,13 @@ L3 programming layer <2022/08/05>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 72C50369519EA0BFE20BEE3612123E2F;9504.
+(rerunfilecheck)             Checksum: A16B7BBA91A9EB777FF2C5AFBD2A057D;9473.
  ) 
 Here is how much of TeX's memory you used:
- 40329 strings out of 402983
- 897634 string characters out of 5448483
- 1613045 words of memory out of 5000000
- 68295 multiletter control sequences out of 15000+600000
+ 40331 strings out of 402983
+ 897672 string characters out of 5448483
+ 1613074 words of memory out of 5000000
+ 68297 multiletter control sequences out of 15000+600000
  663874 words of font info for 249 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  125i,12n,125p,1722b,1091s stack positions out of 10000i,1000n,20000p,200000b,200000s
