@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  6 MAR 2026 15:12
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  6 MAR 2026 15:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2184,22 +2184,24 @@ File: figures/chapter5/explainable-uncertainty-criteria-legend.png Graphic file
 <figures/chapter5/explainable-uncertainty-criteria-legend.png>
 
 [62]
-LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 177.
- [63] [64]
+Underfull \vbox (badness 6944) has occurred while \output is active []
+
+ [63]
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 179.
 File: figures/chapter5/BEXEA-CEC22-CC.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-CEC22-CC.png>
 File: figures/chapter5/BEXEA-Plots.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-Plots.png>
+
+[64] [65] [66] [67] [68] [69]
 File: figures/chapter5/beta.png Graphic file (type bmp)
 <figures/chapter5/beta.png>
 File: figures/chapter5/k.png Graphic file (type bmp)
 <figures/chapter5/k.png>
- [65] [66] [67] [68] [69] [70]
 File: figures/chapter5/runBEXEA-OilReservoir-sampled-CC.png Graphic file (type 
 bmp)
 <figures/chapter5/runBEXEA-OilReservoir-sampled-CC.png>
- [71] [72]) (chapters/chapter6.tex
-[73]
+ [70] [71] [72]) (chapters/chapter6.tex [73]
 6
 [74
 
@@ -19327,7 +19329,7 @@ Overfull \hbox (1.24023pt too wide) in paragraph at lines 602--602
 ] [129
 
 ]
-runsystem(latexminted cleantemp  --timestamp 20260306151206 FAD58DE7366495DB465
+runsystem(latexminted cleantemp  --timestamp 20260306151902 FAD58DE7366495DB465
 0CFEFAC2FCD61)...disabled (restricted).
 
  (main.aux)
@@ -19340,13 +19342,13 @@ L3 programming layer <2022/08/05>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 2B9AA20B95E15C99FC3E9EDF298D4107;9759.
+(rerunfilecheck)             Checksum: E29DEF46A9426639A3101AD4A697933A;8398.
  ) 
 Here is how much of TeX's memory you used:
- 40318 strings out of 402983
- 897088 string characters out of 5448483
- 1674195 words of memory out of 5000000
- 68286 multiletter control sequences out of 15000+600000
+ 40315 strings out of 402983
+ 897049 string characters out of 5448483
+ 1671773 words of memory out of 5000000
+ 68283 multiletter control sequences out of 15000+600000
  663882 words of font info for 250 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  125i,12n,125p,1722b,1091s stack positions out of 10000i,1000n,20000p,200000b,200000s
