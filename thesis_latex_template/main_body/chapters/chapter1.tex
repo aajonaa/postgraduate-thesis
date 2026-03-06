@@ -49,43 +49,88 @@
 
 \begin{figure}[htbp]
   \centering
-  \resizebox{0.97\textwidth}{!}{%
+  \resizebox{0.96\textwidth}{!}{%
   \begin{tikzpicture}[
     >=Latex,
     font=\small,
-    header/.style={draw, rounded corners=2pt, minimum width=3.9cm, minimum height=0.9cm, align=center, fill=gray!15},
-    box/.style={draw, rounded corners=2pt, minimum width=3.9cm, minimum height=1.55cm, align=center, inner sep=6pt}
+    % top / bottom banners
+    banner/.style={draw, line width=0.8pt, rounded corners=4pt,
+                   minimum height=1.1cm, align=center,
+                   fill=black!8, inner sep=8pt, font=\small\bfseries},
+    % column headers
+    colhead/.style={draw, line width=0.6pt, rounded corners=3pt,
+                    minimum width=4.0cm, minimum height=0.9cm,
+                    align=center, fill=black!15, font=\small\bfseries},
+    % content cells
+    cell/.style={draw, line width=0.5pt, rounded corners=3pt,
+                 minimum width=4.0cm, minimum height=1.55cm,
+                 align=center, inner sep=6pt, font=\small, text width=3.6cm},
+    % arrow styles
+    arr/.style={-{Latex[length=2.4mm]}, line width=0.6pt},
+    arrH/.style={-{Latex[length=2.4mm]}, line width=0.6pt, gray!70},
   ]
-    \node[box, minimum width=12.3cm, minimum height=1.1cm, fill=gray!10] (title) {复杂优化问题中的元启发式算法改进与应用};
 
-    \node[header, below=7mm of title, xshift=-4.2cm] (taskh) {研究任务};
-    \node[header, right=3mm of taskh] (methodh) {方法设计};
-    \node[header, right=3mm of methodh] (verifyh) {应用验证};
+    %% ---- Column x-coordinates ----
+    \def\colA{0}
+    \def\colB{5.0}
+    \def\colC{10.0}
+    \def\totalW{14.0}
 
-    \node[box, below=4mm of taskh] (task1) {高维医学数据\\特征选择};
-    \node[box, right=3mm of task1] (method1) {第3章\\IBSA / bIBSA\\精英引导变异策略};
-    \node[box, right=3mm of method1] (verify1) {IEEE CEC 2017基准测试\\12个医学数据集特征选择};
+    %% ---- Row 0: Title banner ----
+    \node[banner, minimum width=\totalW cm] (title) at (\colB, 0)
+      {复杂优化问题中的元启发式算法改进与应用};
 
-    \node[box, below=3mm of task1] (task2) {乳腺癌组织学图像\\多阈值分割};
-    \node[box, right=3mm of task2] (method2) {第4章\\SBO\\状态驱动搜索机制};
-    \node[box, right=3mm of method2] (verify2) {IEEE CEC 2017基准验证\\6/12/18阈值图像分割};
+    %% ---- Row 1: Column headers ----
+    \node[colhead] (hTask)   at (\colA, -1.7) {研究任务};
+    \node[colhead] (hMethod) at (\colB, -1.7) {方法设计};
+    \node[colhead] (hVerify) at (\colC, -1.7) {应用验证};
 
-    \node[box, below=3mm of task2] (task3) {高成本黑盒函数\\昂贵优化};
-    \node[box, right=3mm of task3] (method3) {第5章\\BEXEA\\赌博机驱动代理辅助搜索};
-    \node[box, right=3mm of method3] (verify3) {CEC 2022与CEC 2005测试集\\油藏产量优化};
+    %% ---- Arrows: title → headers ----
+    \draw[arr] (title.south -| hTask)   -- (hTask.north);
+    \draw[arr] (title.south -| hMethod) -- (hMethod.north);
+    \draw[arr] (title.south -| hVerify) -- (hVerify.north);
 
-    \node[box, below=7mm of task3, minimum width=12.3cm, minimum height=1.0cm, fill=gray!10] (goal) {研究目标：提升复杂优化任务中的搜索精度、稳健性与样本效率};
+    %% ---- Row 2: Chapter 3 ----
+    \node[cell] (t1) at (\colA, -3.65) {高维医学数据\\特征选择};
+    \node[cell] (m1) at (\colB, -3.65) {第\,3\,章\\IBSA\,/\,bIBSA\\精英引导变异策略};
+    \node[cell] (v1) at (\colC, -3.65) {CEC 2017 基准测试\\12\,个医学数据集\\特征选择};
 
-    \draw[->, thick] (title.south) -- (methodh.north);
-    \draw[->, thick] (task1.east) -- (method1.west);
-    \draw[->, thick] (method1.east) -- (verify1.west);
-    \draw[->, thick] (task2.east) -- (method2.west);
-    \draw[->, thick] (method2.east) -- (verify2.west);
-    \draw[->, thick] (task3.east) -- (method3.west);
-    \draw[->, thick] (method3.east) -- (verify3.west);
-    \draw[->, thick] (verify1.south) |- (goal.north west);
-    \draw[->, thick] (verify2.south) -- (goal.north);
-    \draw[->, thick] (verify3.south) |- (goal.north east);
+    %% ---- Row 3: Chapter 4 ----
+    \node[cell] (t2) at (\colA, -5.85) {乳腺癌组织学图像\\多阈值分割};
+    \node[cell] (m2) at (\colB, -5.85) {第\,4\,章\\SBO\\状态驱动搜索机制};
+    \node[cell] (v2) at (\colC, -5.85) {CEC 2017 基准验证\\6\,/\,12\,/\,18\,阈值\\图像分割};
+
+    %% ---- Row 4: Chapter 5 ----
+    \node[cell] (t3) at (\colA, -8.05) {高成本黑盒函数\\昂贵优化};
+    \node[cell] (m3) at (\colB, -8.05) {第\,5\,章\\BEXEA\\赌博机驱动代理辅助搜索};
+    \node[cell] (v3) at (\colC, -8.05) {CEC 2022\,/\,CEC 2005\\油藏产量优化};
+
+    %% ---- Arrows: headers → first row of cells ----
+    \draw[arr] (hTask.south)   -- (t1.north);
+    \draw[arr] (hMethod.south) -- (m1.north);
+    \draw[arr] (hVerify.south) -- (v1.north);
+
+    %% ---- Arrows: horizontal task→method→verify ----
+    \foreach \i in {1,2,3}{
+      \draw[arr] (t\i.east) -- (m\i.west);
+      \draw[arr] (m\i.east) -- (v\i.west);
+    }
+
+    %% ---- Arrows: vertical between rows (lighter) ----
+    \foreach \col in {t,m,v}{
+      \draw[arrH] (\col1.south) -- (\col2.north);
+      \draw[arrH] (\col2.south) -- (\col3.north);
+    }
+
+    %% ---- Row 5: Goal banner ----
+    \node[banner, minimum width=\totalW cm] (goal) at (\colB, -9.85)
+      {研究目标：提升复杂优化任务中的搜索精度、稳健性与样本效率};
+
+    %% ---- Arrows: last row → goal ----
+    \draw[arr] (t3.south) -- (goal.north -| t3);
+    \draw[arr] (m3.south) -- (goal.north -| m3);
+    \draw[arr] (v3.south) -- (goal.north -| v3);
+
   \end{tikzpicture}
   }
   \bicaption{总体技术框架图}{Framework diagram of the overall thesis}
