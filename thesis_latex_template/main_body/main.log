@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  6 MAR 2026 16:00
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  6 MAR 2026 16:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2188,12 +2188,13 @@ File: figures/chapter5/explainable-uncertainty-criteria-legend.png Graphic file
 <figures/chapter5/explainable-uncertainty-criteria-legend.png>
 
 [61] [62]
-LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 200.
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 224.
 File: figures/chapter5/BEXEA-CEC22-CC.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-CEC22-CC.png>
+ [63] [64] [65]
 File: figures/chapter5/BEXEA-Plots.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-Plots.png>
- [63] [64] [65] [66] [67]
+ [66] [67]
 File: figures/chapter5/beta.png Graphic file (type bmp)
 <figures/chapter5/beta.png>
 File: figures/chapter5/k.png Graphic file (type bmp)
@@ -19330,7 +19331,7 @@ Overfull \hbox (1.24023pt too wide) in paragraph at lines 602--602
 ] [128
 
 ]
-runsystem(latexminted cleantemp  --timestamp 20260306160015 FAD58DE7366495DB465
+runsystem(latexminted cleantemp  --timestamp 20260306160716 FAD58DE7366495DB465
 0CFEFAC2FCD61)...disabled (restricted).
 
  (main.aux)
@@ -19343,14 +19344,14 @@ L3 programming layer <2022/08/05>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C4C153C9B06F0A95A8FEBFACCADC863F;8106.
+(rerunfilecheck)             Checksum: 3496A10259551F32CE309C6119EE01BF;8106.
  ) 
 Here is how much of TeX's memory you used:
- 40315 strings out of 402983
- 897049 string characters out of 5448483
- 1672439 words of memory out of 5000000
- 68283 multiletter control sequences out of 15000+600000
- 663882 words of font info for 250 fonts, out of 8000000 for 9000
+ 40371 strings out of 402983
+ 898346 string characters out of 5448483
+ 1672484 words of memory out of 5000000
+ 68335 multiletter control sequences out of 15000+600000
+ 665819 words of font info for 261 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  125i,12n,125p,1722b,1091s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
