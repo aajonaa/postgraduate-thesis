@@ -399,6 +399,34 @@ BWOA & $a\ =\ \left[0,2\right]$ \\
 
 这些数据集覆盖脑肿瘤、中枢神经系统疾病、结肠癌、白血病、肺癌和前列腺肿瘤等多种医学场景，类别数为2至7不等。由于数据规模、特征维度和类别结构差异较大，本文可以同时评估bIBSA在高维、小样本和多类分类条件下的鲁棒性，具体数据信息见后续数据集描述表。
 
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[
+      node distance=0.95cm and 0.95cm,
+      every node/.style={font=\small},
+      box/.style={draw, rounded corners=2pt, align=center, minimum width=2.9cm, minimum height=0.95cm, fill=gray!10},
+      arrow/.style={-Latex, thick}
+    ]
+    \node[box] (data) {12个医学数据集\\高维、小样本、多类别};
+    \node[box, right=of data] (search) {bIBSA搜索\\生成候选特征子集};
+    \node[box, right=of search] (eval) {10折交叉验证\\KNN分类器($K=5$)};
+    \node[box, below=of search] (metrics) {分类错误率\\特征比例};
+    \node[box, right=of metrics] (fitness) {适应度计算\\式\eqref{ibsa_eq_19}};
+    \node[box, left=of metrics] (result) {结果统计\\Avg、Error、Features、Time};
+
+    \draw[arrow] (data) -- (search);
+    \draw[arrow] (search) -- (eval);
+    \draw[arrow] (eval) -- (fitness);
+    \draw[arrow] (search) -- (metrics);
+    \draw[arrow] (metrics) -- (fitness);
+    \draw[arrow] (fitness) -- (result);
+  \end{tikzpicture}
+  \bicaption{医学特征选择实验评估链路}{Evaluation pipeline of the medical feature selection experiments}
+  \label{fig:ibsa_fs_pipeline}
+\end{figure}
+
+图\ref{fig:ibsa_fs_pipeline}给出了特征选择实验的评估链路。对每个候选特征子集，本文采用10折交叉验证和KNN分类器估计分类错误率，再结合所选特征比例按式\eqref{ibsa_eq_19}计算适应度，并最终从平均适应度、平均错误率、平均特征数和平均运行时间四个方面比较各算法表现。
+
 \small
 \begin{table}[H]
 \centering
