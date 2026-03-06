@@ -670,7 +670,7 @@ BoldItalicFont = * Bold Italic
 
 % 设置公式的编号为短杠形式
 \renewcommand\theequation{%
-    公式\thechapter-\arabic{equation}}
+    \thechapter-\arabic{equation}}
 % 设置图, 表的编号为短杠形式
 \renewcommand\thefigure{\arabic{chapter}-\arabic{figure}}
 \renewcommand\thetable{\arabic{chapter}-\arabic{table}}
