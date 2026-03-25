@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  26 MAR 2026 00:48
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  26 MAR 2026 00:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2155,21 +2155,18 @@ mp)
 ]
 File: figures/chapter5/BEXEAStructure.png Graphic file (type bmp)
 <figures/chapter5/BEXEAStructure.png>
+
+Underfull \vbox (badness 1033) has occurred while \output is active []
+
  [50]
 File: figures/chapter5/BEXEA-MAB.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-MAB.png>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [51]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [52]
+[51] [52]
 File: figures/chapter5/explainable-uncertainty-criteria-legend.png Graphic file
  (type bmp)
 <figures/chapter5/explainable-uncertainty-criteria-legend.png>
-
-[53] [54] [55] [56
+ [53] [54] [55] [56
 
 ]
 LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 214.
@@ -2370,7 +2367,7 @@ ignored: Infinite glue shrinkage found in box being split [95]) [96] [97
 ] [98
 
 ]
-runsystem(latexminted cleantemp  --timestamp 20260326004847 FAD58DE7366495DB465
+runsystem(latexminted cleantemp  --timestamp 20260326005746 FAD58DE7366495DB465
 0CFEFAC2FCD61)...disabled (restricted).
 
  (main.aux)
@@ -2388,7 +2385,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  40174 strings out of 402983
  894431 string characters out of 5448483
- 1702033 words of memory out of 5000000
+ 1702034 words of memory out of 5000000
  68142 multiletter control sequences out of 15000+600000
  665811 words of font info for 260 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

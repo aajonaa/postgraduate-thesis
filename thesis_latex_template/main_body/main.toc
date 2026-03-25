@@ -63,7 +63,7 @@
 \contentsline {section}{\numberline {5.1}引言}{49}{section.5.1}%
 \contentsline {section}{\numberline {5.2}BEXEA算法及其搜索机制}{50}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}算法框架}{50}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}多臂赌博机驱动的自适应搜索}{50}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.2}多臂赌博机驱动的自适应搜索}{51}{subsection.5.2.2}%
 \contentsline {subsection}{\numberline {5.2.3}可解释不确定性准则}{52}{subsection.5.2.3}%
 \contentsline {section}{\numberline {5.3}BEXEA的实验研究}{56}{section.5.3}%
 \contentsline {subsection}{\numberline {5.3.1}实验设置}{56}{subsection.5.3.1}%
