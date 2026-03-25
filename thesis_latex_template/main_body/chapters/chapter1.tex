@@ -39,7 +39,7 @@
 
 在代理模型方面，RBF\cite{regis2013evolutionary}和Kriging\cite{buche2005accelerating,liu2013gaussian}是最常用的选择，也有研究采用SVM\cite{loshchilov2010comparison}、多项式回归\cite{zhou2005study,chavez2016polynomial}和集成模型\cite{guo2018heterogeneous}等。在搜索策略方面，DE及其变体仍是主流搜索器\cite{mallipeddi2015evolving,stanovov2023surrogate}，同时也出现了多模型分区搜索\cite{li2020surrogate}和多算法协同机制\cite{lin2024surrogate,lv2023multi}。例如，Li等人\cite{li2020surrogate}提出了基于多群体的代理辅助优化算法用于高维计算昂贵问题；Yu和Meng\cite{yu2025surrogate}提出了具有多种采样机制的代理辅助差分进化方法。在填充准则方面，EI\cite{jones1998efficient,zhan2020expected}、LCB\cite{li2023elite}、EHVI\cite{pang2022expensive,daulton2020differentiable}和PI\cite{viana2010surrogate}是常见选择。此外，Xie等人\cite{xie2023surrogate}提出了模型和填充准则自动配置的代理辅助进化框架，Gong等人\cite{gong2024surrogate}则设计了基于双受限玻尔兹曼机和强化学习的自适应策略选择方案。
 
-随着代理辅助优化被广泛应用于结构设计\cite{kudela2022recent}、超参数调优\cite{khaldi2024surrogate}和能源系统优化等高成本任务，研究重点也逐步从"能否减少评估次数"转向"如何在有限预算下做出更合理的采样决策"。这要求优化框架不仅能够利用代理模型逼近真实函数，还需要具备根据历史反馈动态调整搜索方向的能力。例如，Zhen等人\cite{zhen2022evolutionary}提出的进化采样代理方法和Wei等人\cite{wei2023efficient}设计的两阶段代理辅助差分进化方法，都在这一方向上做出了有益探索。总体来看，如何降低搜索策略对人工设计的依赖、提升采样决策的自适应性与可解释性，仍是SAEA研究的重要方向\cite{he2023review}。
+随着代理辅助优化被广泛应用于结构设计\cite{kudela2022recent}、超参数调优\cite{khaldi2024surrogate}和能源系统优化等高成本任务，研究重点也逐步从“能否减少评估次数”转向“如何在有限预算下做出更合理的采样决策”。这要求优化框架不仅能够利用代理模型逼近真实函数，还需要具备根据历史反馈动态调整搜索方向的能力。例如，Zhen等人\cite{zhen2022evolutionary}提出的进化采样代理方法和Wei等人\cite{wei2023efficient}设计的两阶段代理辅助差分进化方法，都在这一方向上做出了有益探索。总体来看，如何降低搜索策略对人工设计的依赖、提升采样决策的自适应性与可解释性，仍是SAEA研究的重要方向\cite{he2023review}。
 
 综合来看，现有研究已经为元启发式算法改进和复杂优化应用奠定了基础，但在搜索行为协调、跨场景适应性和高成本预算利用方面仍存在明显不足。围绕这些共性缺口，本文从连续优化、离散特征选择和代理辅助昂贵优化三个方向展开研究，以构建较为统一的算法设计与应用验证框架。
 
@@ -156,4 +156,5 @@
 第五章，基于赌博机驱动的自适应搜索代理辅助进化算法：在前两章连续优化搜索机制研究的基础上，进一步面向昂贵优化场景下的有限预算约束，详细介绍BEXEA的赌博机驱动自适应搜索机制和可解释不确定性准则的设计原理，以及在两组复杂基准测试集和油藏产量优化问题上的实验验证。
 
 第六章，总结与展望：总结本文的主要研究工作和创新点，讨论现有研究的局限性，并对未来的研究方向进行展望。
+
 

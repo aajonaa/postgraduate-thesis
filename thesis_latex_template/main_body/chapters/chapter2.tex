@@ -5,7 +5,7 @@
 
 \section{元启发式优化算法}
 
-元启发式算法（Meta-heuristic Algorithms, MAs）是面向复杂优化问题的通用随机搜索框架，适用于搜索空间庞大、目标函数复杂且难以直接求解的NP-hard问题\cite{ibsa_ref4,sbo_ref1}。按照灵感来源，可将其大致归为群体智能、进化计算、物理或化学启发以及人类行为启发等类型\cite{sbo_ref11}。尽管不同算法的更新机制各异，但其核心目标都在于协调探索（Exploration）与利用（Exploitation），即在扩大搜索范围和强化局部精炼之间取得平衡\cite{ibsa_ref75}。
+元启发式算法（Meta-heuristic Algorithms, MAs）是面向复杂优化问题的通用随机搜索框架，适用于搜索空间庞大、目标函数复杂且难以直接求解的NP-hard问题\cite{ibsa_ref4,sbo_ref1}。按照灵感来源，可将其大致归为群体智能、进化计算、物理或化学启发以及人类行为启发等类型\cite{sbo_ref11}。尽管不同算法的更新机制各异，但其核心目标都在于协调探索（Exploration）与开发（Exploitation），即在扩大搜索范围和强化局部精炼之间取得平衡\cite{ibsa_ref75}。
 
 \subsection{群体智能与进化算法}
 
@@ -41,7 +41,7 @@ v_i = x_{r1} + F \cdot (x_{r2} - x_{r3})
 \end{equation}
 其中，$X^j_i\left(t\right)$表示第$i$个个体在第$t$次迭代时第$j$维的值，$D$为问题维度，$N$为种群规模。
 
-在此基础上，探索率和利用率分别定义为：
+在此基础上，探索率和开发率分别定义为：
 \begin{equation}
 \text{Exploration}=\frac{\text{Div}\left(t\right)}{\text{Div}_{\max}}\times 100\%
 \end{equation}
@@ -121,7 +121,7 @@ EI(x) = (f_{min} - \hat{f}(x)) \Phi\left(\frac{f_{min} - \hat{f}(x)}{s(x)}\right
 \begin{equation}
 LCB(x) = \hat{f}(x) - \kappa \cdot s(x)
 \end{equation}
-其中，$\kappa$为权衡参数，$\kappa$越大则越倾向于探索。EI和LCB都体现了对探索与开发的联合考虑：当代理模型预测值较低（即预期目标函数值更优）时，对应候选解倾向于利用；当预测不确定性较大时，对应候选解倾向于探索。这种机制使得代理辅助优化能够在有限评估预算下做出更合理的采样决策。
+其中，$\kappa$为权衡参数，$\kappa$越大则越倾向于探索。EI和LCB都体现了对探索与开发的联合考虑：当代理模型预测值较低（即预期目标函数值更优）时，对应候选解倾向于开发；当预测不确定性较大时，对应候选解倾向于探索。这种机制使得代理辅助优化能够在有限评估预算下做出更合理的采样决策。
 
 \subsection{多臂赌博机策略}
 
@@ -147,6 +147,7 @@ a_t = \argmax_{a} \left[ Q_t(a) + c \sqrt{\frac{\ln t}{N_t(a)}} \right]
 \section{本章小结}
 
 本章围绕后续研究的共性需求，对元启发式优化算法、特征选择与图像分割问题、代理辅助昂贵优化技术以及基准测试与统计检验方法进行了概述。上述内容为第三章至第五章的算法设计、应用建模和实验分析提供了统一的理论基础。
+
 
 
 
