@@ -9,11 +9,11 @@
 
 候选解生成后，还需要通过填充准则选择少量样本进行真实评估。EI、LCB、EHVI和PI是常见选择\cite{mockus1994application,cox1992statistical,daulton2020differentiable,viana2010surrogate,jones1998efficient,pang2022expensive,li2023elite}。其中EI最常用，它通过综合考虑代理模型的预测值和预测不确定性来评估每个候选解的潜在改进量。然而，这类准则通常只给出"值得评估"的分数，难以说明"为何值得评估"，即无法揭示是哪些决策变量的取值组合驱动了评估决策，可解释性不足。在实际工程优化中，决策者不仅关心最优解的位置，还希望理解搜索过程中的关键因素，以增强对优化结果的信心和可控性。
 
-基于此，本文同时针对搜索策略依赖人工设计和填充准则缺乏可解释性两个问题展开研究：一方面，引入双臂赌博机驱动的自适应搜索机制，根据环境反馈在不同搜索模式之间动态切换\cite{slivkins2019introduction}；另一方面，受SHAP思想启发\cite{nohara2022explanation}，在EI中融入基于特征重要性的可解释组件，构造可解释不确定性准则。
+基于此，本章同时针对搜索策略依赖人工设计和填充准则缺乏可解释性两个问题展开研究：一方面，引入双臂赌博机驱动的自适应搜索机制，根据环境反馈在不同搜索模式之间动态切换\cite{slivkins2019introduction}；另一方面，受SHAP思想启发\cite{nohara2022explanation}，在EI中融入基于特征重要性的可解释组件，构造可解释不确定性准则。
 
 围绕代理辅助昂贵优化这一主线，本章以标准昂贵优化基准测试和油藏产量优化作为两个验证场景。前者用于评估BEXEA在有限预算下的全局搜索效率，后者用于检验其在高保真工程优化中的预算分配能力和实际应用潜力。油藏产量优化是石油工程中的一个典型昂贵优化问题，每次函数评估需要运行复杂的流体力学模拟，计算耗时从数分钟到数小时不等，因此非常适合作为代理辅助优化的应用测试平台。
 
-本文的主要贡献总结如下：
+本章的主要贡献总结如下：
 \begin{enumerate}[label=\arabic*)]
   \item 设计了面向SAEAs的赌博机驱动自适应搜索框架，能够根据环境反馈自动调整搜索模式。
   \item 提出了可解释的不确定性准则，通过改进候选解采样策略提升优化性能。
@@ -43,7 +43,7 @@ BEXEA由初始化和主循环两部分组成。初始化阶段利用拉丁超立
 \subsection{多臂赌博机驱动的自适应搜索}
 MAB已被证明适合在优化过程中进行在线策略选择，相比静态或均匀分配方式更能根据反馈动态平衡探索与利用\cite{xie2023surrogate,gong2024surrogate}。本章将$\epsilon$-贪心MAB嵌入SAEA，在EDA和QPSO之间执行自适应切换，并在检测到停滞时适度提高探索概率。
 
-具体而言，策略选择被建模为$\mathcal{A}$臂赌博机问题，其中每个臂对应一种搜索策略。在本文实现中，$\mathcal{A}=2$，分别表示EDA和QPSO。
+具体而言，策略选择被建模为$\mathcal{A}$臂赌博机问题，其中每个臂对应一种搜索策略。在本章实现中，$\mathcal{A}=2$，分别表示EDA和QPSO。
 
 在每次迭代$t$中，算法需选择一种策略$a_t \in \{1, 2, \ldots, \mathcal{A}\}$来生成后代解。评估这些解后，计算奖励$r_t$，用于更新每种策略的估计值$Q_t(a)$。
 
@@ -63,7 +63,7 @@ r_{\text{imm}} = \frac{\max(0, \mathcal{F}_\text{min} - f(\boldsymbol{x}))}{\mat
 \end{equation}
 其中$\mathcal{F}_{min}$为之前的最优适应度值，$\epsilon_{\text{small}}$为防止除零的小常数。
 
-本文通过策略特定的组件增强基础奖励：
+本章通过策略特定的组件增强基础奖励：
 \begin{equation}
 r_t =
 \begin{cases}
@@ -116,7 +116,7 @@ dist(\boldsymbol{x}, \boldsymbol{x}_i) = \sqrt{\sum_{j=1}^d (\boldsymbol{x}_j - 
 \end{equation}
 其中$\mathcal{F}_\text{min}$为目前发现的最优适应度值，$z = \frac{\hat{f}(\boldsymbol{x}) - \mathcal{F}_\text{min}}{\hat{\sigma}(\boldsymbol{x})}$，$\Phi(\cdot)$为标准正态分布的累积分布函数，$\phi(\cdot)$为标准正态分布的概率密度函数。
 
-需要注意的是，在典型的EI公式中，$z$的分子通常为$\mathcal{F}_\text{best} - \hat{f}(\boldsymbol{x})$，但本文的公式针对最小化问题进行了调整，并处理了$\hat{f}(\boldsymbol{x}) > \mathcal{F}_\text{best}$的情况。
+需要注意的是，在典型的EI公式中，$z$的分子通常为$\mathcal{F}_\text{best} - \hat{f}(\boldsymbol{x})$，但本章的公式针对最小化问题进行了调整，并处理了$\hat{f}(\boldsymbol{x}) > \mathcal{F}_\text{best}$的情况。
 
 对于每个特征维度$j \in \{1, 2, \ldots, d\}$，计算候选解与其最近邻均值之间的绝对差异：
 \begin{equation}
@@ -342,7 +342,7 @@ Ranking & 7.6 & 3.9 & 1.8 & \textbf{1.3} \\
 
 本节在与前述比较实验相同的设置下，对BEXEA的两个关键组件进行消融验证。
 
-为评估自适应搜索机制的作用，本文构造了两个删减版本：BEXEA-no-a1表示去除EDA、仅保留QPSO；BEXEA-no-a2表示去除QPSO、仅保留EDA。比较结果见表\ref{t:bexea_MAB_Table}。
+为评估自适应搜索机制的作用，本章构造了两个删减版本：BEXEA-no-a1表示去除EDA、仅保留QPSO；BEXEA-no-a2表示去除QPSO、仅保留EDA。比较结果见表\ref{t:bexea_MAB_Table}。
 
 结果表明，完整的BEXEA取得了最优Friedman排名（1.2），明显优于两个单臂版本（均为2.4）。进一步看Wilcoxon结果，移除QPSO后的性能退化更明显，说明QPSO对性能提升贡献更大；但完整BEXEA仍优于任何单独策略，表明MAB驱动的动态切换本身是必要的。
 
@@ -373,7 +373,7 @@ Ranking & 2.4                & 2.4                         & \textbf{1.2}       
 \end{tabular}}
 \end{table}
 
-为验证EU准则的作用，本文进一步构造了三种比较版本：BEXEA-PF（只使用代理模型预测值）、BEXEA-EU（只使用EU准则）和BEXEA-NO（不使用采样策略）。结果见表\ref{t:bexea_EU_Table}。
+为验证EU准则的作用，本章进一步构造了三种比较版本：BEXEA-PF（只使用代理模型预测值）、BEXEA-EU（只使用EU准则）和BEXEA-NO（不使用采样策略）。结果见表\ref{t:bexea_EU_Table}。
 
 完整BEXEA的Friedman排名为1.8，优于BEXEA-PF（2.3）、BEXEA-EU（2.2）和BEXEA-NO（3.8）。BEXEA-NO的表现最差，说明完全不使用任何采样策略时，算法难以有效地利用有限的评估预算。BEXEA-PF和BEXEA-EU的排名相近，但各自在不同函数上表现出互补优势：BEXEA-PF在F3、F11和F12等函数上更优，而BEXEA-EU在F5和F8等函数上领先。完整BEXEA通过综合两者的优势，在整体排名上取得了更好的平衡。这说明仅依赖代理模型预测值或仅依赖EU准则都不如两者结合有效；EU准则的价值不仅在于提升采样质量，还在于通过基于特征重要性的可解释性分析为采样决策提供了更清晰的解释依据，有助于决策者理解优化过程中的关键因素。
 
