@@ -1,4 +1,4 @@
-% Chapter 2: 相关理论及技术 (Related Theory and Technology)
+﻿% Chapter 2: 相关理论及技术 (Related Theory and Technology)
 \chapter{相关理论及技术}
 
 本章介绍后续研究需要的基础理论和关键技术，重点从元启发式优化算法、复杂优化任务建模、代理辅助昂贵优化以及基准测试和统计分析四个方面展开，为第三章至第五章的方法设计与实验验证提供统一的理论支撑。
@@ -30,12 +30,12 @@ v_i = x_{r1} + F \cdot (x_{r2} - x_{r3})
 \begin{equation}
 \boldsymbol{Mutant} = \boldsymbol{X} + F \cdot (\boldsymbol{OldX} - \boldsymbol{X})
 \end{equation}
-其中，$F = 3 \cdot rndn$，$rndn$服从标准正态分布。BSA的优势在于历史记忆增强了探索能力，但其变异和交叉具有较强随机性，局部利用能力相对不足\cite{ibsa_ref63}。后续研究中，Zhao等人\cite{ibsa_ref57}引入种群控制因子和最优学习策略以改善BSA的搜索精度，Nama等人\cite{ibsa_ref59}则提出基于量子变异的BSA改进方案，Tsai\cite{ibsa_ref60}通过可变搜索策略增强BSA在连续优化中的表现。这些改进工作为第三章IBSA算法的设计提供了直接基础。
+其中，$F = 3 \cdot rndn$，$rndn$服从标准正态分布。BSA的优势在于历史记忆增强了探索能力，但其变异和交叉具有较强随机性，局部开发能力相对不足\cite{ibsa_ref63}。后续研究中，Zhao等人\cite{ibsa_ref57}引入种群控制因子和最优学习策略以改善BSA的搜索精度，Nama等人\cite{ibsa_ref59}则提出基于量子变异的BSA改进方案，Tsai\cite{ibsa_ref60}通过可变搜索策略增强BSA在连续优化中的表现。这些改进工作为第三章IBSA算法的设计提供了直接基础。
 
-\subsection{探索与利用平衡性}
+\subsection{探索与开发平衡性}
 \label{sec:ch2_balance_diversity}
 
-为定量分析元启发式算法在搜索过程中的行为，本文采用基于种群多样性的探索与利用度量。维度多样性$\text{Div}(t)$定义为：
+为定量分析元启发式算法在搜索过程中的行为，本文采用基于种群多样性的探索与开发度量。维度多样性$\text{Div}(t)$定义为：
 \begin{equation}
 \text{Div}(t)=\frac{1}{D}\sum^D_{j=1}{\frac{1}{N}\sum^N_{i=1}{\left|\operatorname{median}\left(X^j\left(t\right)\right)-X^j_i\left(t\right)\right|}}
 \end{equation}
@@ -55,7 +55,7 @@ I_C(t) = \sqrt{\sum^{N}_{i=1}{\sum^{D}_{j=1}{{\left(X^j_i\left(t\right)-C^j(t)\r
 \begin{equation}
 C^j(t) = \frac{1}{N}\sum^N_{i=1}{X^j_i\left(t\right)}
 \end{equation}
-$I_C(t)$越大，表示种群整体分散程度越高，说明算法处于较强的探索阶段；反之，$I_C(t)$较小时种群趋于聚集，算法处于利用阶段。较理想的优化过程应在搜索前期保持较高的多样性以扩大解空间覆盖范围，并在后期逐步收缩以精炼最优解。第三章和第四章将利用这些指标分析所提算法在不同阶段的搜索特性，并与对比算法进行定量对比，以验证改进策略对探索与利用平衡性的提升效果。
+$I_C(t)$越大，表示种群整体分散程度越高，说明算法处于较强的探索阶段；反之，$I_C(t)$较小时种群趋于聚集，算法处于开发阶段。较理想的优化过程应在搜索前期保持较高的多样性以扩大解空间覆盖范围，并在后期逐步收缩以精炼最优解。第三章和第四章将利用这些指标分析所提算法在不同阶段的搜索特性，并与对比算法进行定量对比，以验证改进策略对探索与开发平衡性的提升效果。
 
 \section{特征选择与图像分割问题简介}
 
@@ -121,11 +121,11 @@ EI(x) = (f_{min} - \hat{f}(x)) \Phi\left(\frac{f_{min} - \hat{f}(x)}{s(x)}\right
 \begin{equation}
 LCB(x) = \hat{f}(x) - \kappa \cdot s(x)
 \end{equation}
-其中，$\kappa$为权衡参数，$\kappa$越大则越倾向于探索。EI和LCB都体现了对探索与利用的联合考虑：当代理模型预测值较低（即预期目标函数值更优）时，对应候选解倾向于利用；当预测不确定性较大时，对应候选解倾向于探索。这种机制使得代理辅助优化能够在有限评估预算下做出更合理的采样决策。
+其中，$\kappa$为权衡参数，$\kappa$越大则越倾向于探索。EI和LCB都体现了对探索与开发的联合考虑：当代理模型预测值较低（即预期目标函数值更优）时，对应候选解倾向于利用；当预测不确定性较大时，对应候选解倾向于探索。这种机制使得代理辅助优化能够在有限评估预算下做出更合理的采样决策。
 
 \subsection{多臂赌博机策略}
 
-多臂赌博机（Multi-Armed Bandit, MAB）问题描述了决策者如何在多个候选动作之间权衡已知高收益选择与未知选择\cite{slivkins2019introduction}，其核心同样是探索与利用的平衡。在优化算法中，可将不同搜索模式或算子视为不同臂，根据环境反馈自适应地调整选择概率\cite{xie2023surrogate,gong2024surrogate}。
+多臂赌博机（Multi-Armed Bandit, MAB）问题描述了决策者如何在多个候选动作之间权衡已知高收益选择与未知选择\cite{slivkins2019introduction}，其核心同样是探索与开发的平衡。在优化算法中，可将不同搜索模式或算子视为不同臂，根据环境反馈自适应地调整选择概率\cite{xie2023surrogate,gong2024surrogate}。
 
 上置信界（Upper Confidence Bound, UCB）策略是解决MAB问题的经典方法之一\cite{auer2002finite}，其在第$t$轮选择具有最高上置信界的臂：
 \begin{equation}
@@ -147,3 +147,6 @@ a_t = \argmax_{a} \left[ Q_t(a) + c \sqrt{\frac{\ln t}{N_t(a)}} \right]
 \section{本章小结}
 
 本章围绕后续研究的共性需求，对元启发式优化算法、特征选择与图像分割问题、代理辅助昂贵优化技术以及基准测试与统计检验方法进行了概述。上述内容为第三章至第五章的算法设计、应用建模和实验分析提供了统一的理论基础。
+
+
+
