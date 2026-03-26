@@ -123,6 +123,7 @@ LCB(x) = \hat{f}(x) - \kappa \cdot s(x)
 \end{equation}
 其中，$\kappa$为权衡参数，$\kappa$越大则越倾向于探索。EI和LCB都体现了对探索与开发的联合考虑：当代理模型预测值较低（即预期目标函数值更优）时，对应候选解倾向于开发；当预测不确定性较大时，对应候选解倾向于探索。这种机制使得代理辅助优化能够在有限评估预算下做出更合理的采样决策。
 
+\vspace{-0.4\baselineskip}
 \subsection{多臂赌博机策略}
 
 多臂赌博机（Multi-Armed Bandit, MAB）问题描述了决策者如何在多个候选动作之间权衡已知高收益选择与未知选择\cite{slivkins2019introduction}，其核心同样是探索与开发的平衡。在优化算法中，可将不同搜索模式或算子视为不同臂，根据环境反馈自适应地调整选择概率\cite{xie2023surrogate,gong2024surrogate}。
