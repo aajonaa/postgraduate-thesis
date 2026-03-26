@@ -1,4 +1,4 @@
-\begin{thebibliography}{182}
+\begin{thebibliography}{186}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\else
@@ -396,6 +396,36 @@ HU P, PAN J~S, CHU S~C.
 \newblock Improved binary grey wolf optimizer and its application for feature
   selection\allowbreak[J].
 \newblock Knowledge-Based Systems, 2020, 195: 105746.
+
+\bibitem[Moslemi(2023)]{fs_survey2023}
+MOSLEMI A.
+\newblock A tutorial-based survey on feature selection: recent advancements on
+  feature selection\allowbreak[J/OL].
+\newblock Engineering Applications of Artificial Intelligence, 2023, 126:
+  107136.
+\newblock DOI: \doi{10.1016/j.engappai.2023.107136}.
+
+\bibitem[Mostafa et~al.(2024)Mostafa, Mahmoud, Abd El-Hafeez, and
+  ElAraby]{dl_fs_review2024}
+MOSTAFA G, MAHMOUD H, ABD EL-HAFEEZ T, et~al.
+\newblock The power of deep learning in simplifying feature selection for
+  hepatocellular carcinoma: a review\allowbreak[J/OL].
+\newblock BMC Medical Informatics and Decision Making, 2024, 24: 287.
+\newblock DOI: \doi{10.1186/s12911-024-02682-1}.
+
+\bibitem[Huang et~al.(2023)Huang, Liu, Wagle, and Yang]{dl_fs_eval2023}
+HUANG H, LIU C, WAGLE M~M, et~al.
+\newblock Evaluation of deep learning-based feature selection for single-cell
+  {RNA} sequencing data analysis\allowbreak[J/OL].
+\newblock Genome Biology, 2023, 24\allowbreak (1): 259.
+\newblock DOI: \doi{10.1186/s13059-023-03100-x}.
+
+\bibitem[Potharlanka et~al.(2024)Potharlanka and Bhat]{deepq_meta_fs2024}
+POTHARLANKA J~L, BHAT N~M.
+\newblock Feature importance feedback with deep {Q} process in ensemble-based
+  metaheuristic feature selection algorithms\allowbreak[J/OL].
+\newblock Scientific Reports, 2024, 14: 2923.
+\newblock DOI: \doi{10.1038/s41598-024-53141-w}.
 
 \bibitem[Ray et~al.(2021)Ray, Reddy, and Banerjee]{ibsa_ref7}
 RAY P, REDDY S~S, BANERJEE T.
