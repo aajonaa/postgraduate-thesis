@@ -28,54 +28,54 @@
 \contentsline {section}{\numberline {2.5}本章小结}{12}{section.2.5}%
 \contentsline {chapter}{\numberline {3\hspace {.3em}}基于精英引导变异策略的改进回溯搜索算法}{13}{chapter.3}%
 \contentsline {section}{\numberline {3.1}引言}{13}{section.3.1}%
-\contentsline {section}{\numberline {3.2}IBSA算法及其特征选择方法}{13}{section.3.2}%
+\contentsline {section}{\numberline {3.2}IBSA算法及其特征选择方法}{14}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}研究动机}{14}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}精英引导变异策略}{16}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}IBSA算法}{17}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.2}精英引导变异策略}{15}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}IBSA算法}{16}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}bIBSA特征选择方法}{18}{subsection.3.2.4}%
 \contentsline {subsection}{\numberline {3.2.5}计算复杂度分析}{20}{subsection.3.2.5}%
-\contentsline {section}{\numberline {3.3}IBSA及bIBSA的实验研究}{22}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}实验设置}{22}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}特征选择数据描述}{23}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}实验结果与分析}{24}{subsection.3.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.3.1}全局优化实验}{25}{subsubsection.3.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.3.2}特征选择实验}{28}{subsubsection.3.3.3.2}%
-\contentsline {section}{\numberline {3.4}本章小结}{30}{section.3.4}%
-\contentsline {chapter}{\numberline {4\hspace {.3em}}基于状态的优化算法}{31}{chapter.4}%
-\contentsline {section}{\numberline {4.1}引言}{31}{section.4.1}%
-\contentsline {section}{\numberline {4.2}SBO算法及其搜索机制}{31}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}SBO的灵感来源}{32}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}SBO的数学建模}{32}{subsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.2.1}初始化}{32}{subsubsection.4.2.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2.2}精英接触}{33}{subsubsection.4.2.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.2.3}资源获取}{34}{subsubsection.4.2.2.3}%
-\contentsline {subsubsection}{\numberline {4.2.2.4}资源评估}{35}{subsubsection.4.2.2.4}%
-\contentsline {subsubsection}{\numberline {4.2.2.5}巩固}{36}{subsubsection.4.2.2.5}%
-\contentsline {subsection}{\numberline {4.2.3}SBO的计算复杂度分析}{36}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3}SBO的实验研究}{37}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}实验设置}{37}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}图像分割数据描述}{37}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}实验结果与分析}{39}{subsection.4.3.3}%
-\contentsline {subsubsection}{\numberline {4.3.3.1}全局优化实验}{39}{subsubsection.4.3.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.3.2}多阈值图像分割实验}{46}{subsubsection.4.3.3.2}%
-\contentsline {section}{\numberline {4.4}本章小结}{50}{section.4.4}%
-\contentsline {chapter}{\numberline {5\hspace {.3em}}基于赌博机驱动的自适应搜索代理辅助进化算法}{51}{chapter.5}%
-\contentsline {section}{\numberline {5.1}引言}{51}{section.5.1}%
-\contentsline {section}{\numberline {5.2}BEXEA算法及其搜索机制}{52}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}算法框架}{52}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}多臂赌博机驱动的自适应搜索}{52}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}可解释不确定性准则}{54}{subsection.5.2.3}%
-\contentsline {section}{\numberline {5.3}BEXEA的实验研究}{58}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}实验设置}{58}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}油藏问题描述}{58}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}实验结果与分析}{59}{subsection.5.3.3}%
-\contentsline {subsubsection}{\numberline {5.3.3.1}昂贵优化基准实验}{59}{subsubsection.5.3.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.3.2}油藏产量优化实验}{64}{subsubsection.5.3.3.2}%
-\contentsline {section}{\numberline {5.4}本章小结}{66}{section.5.4}%
-\contentsline {chapter}{\numberline {6\hspace {.3em}}总结与展望}{68}{chapter.6}%
-\contentsline {section}{\numberline {6.1}总结}{68}{section.6.1}%
-\contentsline {section}{\numberline {6.2}展望}{68}{section.6.2}%
-\contentsline {chapter}{参考文献}{70}{chapter*.46}%
-\contentsline {chapter}{附录}{84}{chapter*.47}%
-\contentsline {chapter}{致谢}{99}{chapter*.51}%
-\contentsline {chapter}{攻读学位期间的研究成果}{100}{chapter*.52}%
+\contentsline {section}{\numberline {3.3}IBSA及bIBSA的实验研究}{20}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}实验设置}{20}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}特征选择数据描述}{21}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}实验结果与分析}{22}{subsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.3.1}全局优化实验}{23}{subsubsection.3.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.3.2}特征选择实验}{26}{subsubsection.3.3.3.2}%
+\contentsline {section}{\numberline {3.4}本章小结}{28}{section.3.4}%
+\contentsline {chapter}{\numberline {4\hspace {.3em}}基于状态的优化算法}{29}{chapter.4}%
+\contentsline {section}{\numberline {4.1}引言}{29}{section.4.1}%
+\contentsline {section}{\numberline {4.2}SBO算法及其搜索机制}{29}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}SBO的灵感来源}{30}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}SBO的数学建模}{30}{subsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.2.1}初始化}{30}{subsubsection.4.2.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2.2}精英接触}{31}{subsubsection.4.2.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.2.3}资源获取}{32}{subsubsection.4.2.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.2.4}资源评估}{33}{subsubsection.4.2.2.4}%
+\contentsline {subsubsection}{\numberline {4.2.2.5}巩固}{34}{subsubsection.4.2.2.5}%
+\contentsline {subsection}{\numberline {4.2.3}SBO的计算复杂度分析}{34}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}SBO的实验研究}{35}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}实验设置}{35}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}图像分割数据描述}{35}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}实验结果与分析}{37}{subsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.3.1}全局优化实验}{37}{subsubsection.4.3.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.3.2}多阈值图像分割实验}{44}{subsubsection.4.3.3.2}%
+\contentsline {section}{\numberline {4.4}本章小结}{48}{section.4.4}%
+\contentsline {chapter}{\numberline {5\hspace {.3em}}基于赌博机驱动的自适应搜索代理辅助进化算法}{49}{chapter.5}%
+\contentsline {section}{\numberline {5.1}引言}{49}{section.5.1}%
+\contentsline {section}{\numberline {5.2}BEXEA算法及其搜索机制}{50}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}算法框架}{50}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}多臂赌博机驱动的自适应搜索}{50}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}可解释不确定性准则}{52}{subsection.5.2.3}%
+\contentsline {section}{\numberline {5.3}BEXEA的实验研究}{56}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}实验设置}{56}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}油藏问题描述}{56}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}实验结果与分析}{56}{subsection.5.3.3}%
+\contentsline {subsubsection}{\numberline {5.3.3.1}昂贵优化基准实验}{56}{subsubsection.5.3.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.3.2}油藏产量优化实验}{62}{subsubsection.5.3.3.2}%
+\contentsline {section}{\numberline {5.4}本章小结}{65}{section.5.4}%
+\contentsline {chapter}{\numberline {6\hspace {.3em}}总结与展望}{66}{chapter.6}%
+\contentsline {section}{\numberline {6.1}总结}{66}{section.6.1}%
+\contentsline {section}{\numberline {6.2}展望}{66}{section.6.2}%
+\contentsline {chapter}{参考文献}{68}{chapter*.46}%
+\contentsline {chapter}{附录}{82}{chapter*.47}%
+\contentsline {chapter}{致谢}{97}{chapter*.51}%
+\contentsline {chapter}{攻读学位期间的研究成果}{98}{chapter*.52}%

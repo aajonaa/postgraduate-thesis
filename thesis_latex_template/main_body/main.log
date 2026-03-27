@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  27 MAR 2026 07:28
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  27 MAR 2026 14:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2053,6 +2053,9 @@ n(0)/m/n/12.045 Kriging[[]-[]] \TU/AdobeSongStd-Light.otf(1)/m/n/12.045 是 最 
 ight.otf(1)/m/n/12.045 、|
  []
 
+File: figures/chapter1/thesis_overview_refined.drawio.png Graphic file (type bm
+p)
+<figures/chapter1/thesis_overview_refined.drawio.png>
 [4] [5]) (chapters/chapter2.tex [6]
 2
 
@@ -2074,20 +2077,28 @@ File: figures/chapter5/rbf_plot.png Graphic file (type bmp)
 <figures/chapter5/rbf_plot.png>
  [10] [11]) (chapters/chapter3_IBSA.tex [12]
 3
-[13
 
-] [14] [15] [16] [17]
+Underfull \vbox (badness 1509) has occurred while \output is active []
+
+ [13
+
+]
+[14] [15] [16]
 File: figures/chapter3/fig2_flowchart_IBSA.png Graphic file (type bmp)
 <figures/chapter3/fig2_flowchart_IBSA.png>
- [18] [19]
+
+Underfull \vbox (badness 3590) has occurred while \output is active []
+
+ [17]
 File: figures/chapter3/fig3_wrapper_feature_selection.png Graphic file (type bm
 p)
 <figures/chapter3/fig3_wrapper_feature_selection.png>
- [20] [21]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [22]
-Overfull \hbox (2.06726pt too wide) in paragraph at lines 331--332
+[18] [19]
+Underfull \vbox (badness 1577) has occurred while \output is active []
+
+ [20]
+Overfull \hbox (2.06726pt too wide) in paragraph at lines 310--311
 []\TU/AdobeSongStd-Light.otf(0)/m/n/12.045 为 验 证 \TU/TimesNewRoman(0)/m/n/12.04
 5 IBSA \TU/AdobeSongStd-Light.otf(0)/m/n/12.045 在 离 散 问 题 中 的 适 用 性，|  本 节 利 用 
 转 换 函 数 \TU/TimesNewRoman(0)/m/n/12.045 [[]] \TU/AdobeSongStd-Light.otf(0)/m/n/
@@ -2095,36 +2106,40 @@ Overfull \hbox (2.06726pt too wide) in paragraph at lines 331--332
 otf(0)/m/n/12.045 ，|
  []
 
-[23] [24]
+[21]
+File: figures/chapter3/IBSA_fs_evaluate_flowchart_refined.drawio.png Graphic fi
+le (type bmp)
+<figures/chapter3/IBSA_fs_evaluate_flowchart_refined.drawio.png>
+ [22]
 File: figures/chapter3/fig4_balance_and_diversity.png Graphic file (type bmp)
 <figures/chapter3/fig4_balance_and_diversity.png>
- [25] [26]
+ [23] [24]
 File: figures/chapter3/fig5_friedman_ranking_basic.png Graphic file (type bmp)
 <figures/chapter3/fig5_friedman_ranking_basic.png>
- [27]
+ [25]
 File: figures/chapter3/fig7_friedman_ranking_advanced.png Graphic file (type bm
 p)
 <figures/chapter3/fig7_friedman_ranking_advanced.png>
- [28]
-ignored: Infinite glue shrinkage found in box being split [29]) (chapters/chapter4_
-SBO.tex [30]
+ [26]
+ignored: Infinite glue shrinkage found in box being split [27]) (chapters/chapter4_
+SBO.tex [28]
 4
-[31
+[29
 
-] [32]
+] [30]
 Underfull \vbox (badness 5711) has occurred while \output is active []
 
- [33]
+ [31]
 File: figures/chapter4/fig02_elite_engagement.png Graphic file (type bmp)
 <figures/chapter4/fig02_elite_engagement.png>
 
-[34]
+[32]
 File: figures/chapter4/fig03_resource_acquisition.png Graphic file (type bmp)
 <figures/chapter4/fig03_resource_acquisition.png>
- [35]
+ [33]
 File: figures/chapter4/fig04_flowchart_SBO.png Graphic file (type bmp)
 <figures/chapter4/fig04_flowchart_SBO.png>
- [36] [37] [38]
+ [34] [35] [36]
 File: figures/chapter4/fig15_original_images_2D_histogram.png Graphic file (typ
 e bmp)
 <figures/chapter4/fig15_original_images_2D_histogram.png>
@@ -2134,7 +2149,7 @@ e bmp)
 File: figures/chapter4/fig05_balance_diversity_convergence.png Graphic file (ty
 pe bmp)
 <figures/chapter4/fig05_balance_diversity_convergence.png>
- [39] [40]
+ [37] [38]
 File: figures/chapter4/fig07_performance_heatmap.png Graphic file (type bmp)
 <figures/chapter4/fig07_performance_heatmap.png>
 File: figures/chapter4/fig08_convergence_curves_30dim.png Graphic file (type bm
@@ -2142,58 +2157,57 @@ p)
 <figures/chapter4/fig08_convergence_curves_30dim.png>
 File: figures/chapter4/fig10_friedman_rank.png Graphic file (type bmp)
 <figures/chapter4/fig10_friedman_rank.png>
- [41] [42] [43] [44] [45]
+ [39] [40] [41] [42] [43]
 File: figures/chapter4/fig17_heatmap_PSNR_FSIM_SSIM.png Graphic file (type bmp)
 
 <figures/chapter4/fig17_heatmap_PSNR_FSIM_SSIM.png>
 File: figures/chapter4/fig18_convergence_entropy.png Graphic file (type bmp)
 <figures/chapter4/fig18_convergence_entropy.png>
- [46]
+ [44]
 File: figures/chapter4/fig19_jet_colormap_segmentation.png Graphic file (type b
 mp)
 <figures/chapter4/fig19_jet_colormap_segmentation.png>
- [47] [48]
-[49]) (chapters/chapter5_BEXEA.tex [50]
+ [45] [46]
+[47]) (chapters/chapter5_BEXEA.tex [48]
 5
-[51
+[49
 
 ]
 File: figures/chapter5/BEXEAStructure.png Graphic file (type bmp)
 <figures/chapter5/BEXEAStructure.png>
- [52] [53]
+ [50] [51]
 File: figures/chapter5/BEXEA-MAB.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-MAB.png>
- [54]
+ [52]
 File: figures/chapter5/explainable-uncertainty-criteria-legend.png Graphic file
  (type bmp)
 <figures/chapter5/explainable-uncertainty-criteria-legend.png>
- [55] [56] [57] [58
+ [53] [54] [55]
+File: figures/chapter5/BEXEA_application_workflow_refined.drawio.png Graphic fi
+le (type bmp)
+<figures/chapter5/BEXEA_application_workflow_refined.drawio.png>
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 195.
+ [56
 
-]
-LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 214.
- [59]
+] [57]
 File: figures/chapter5/BEXEA-CEC22-CC.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-CEC22-CC.png>
 File: figures/chapter5/BEXEA-Plots.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-Plots.png>
-
-Underfull \vbox (badness 1360) has occurred while \output is active []
-
- [60]
-[61] [62] [63]
+ [58] [59] [60] [61]
 File: figures/chapter5/beta.png Graphic file (type bmp)
 <figures/chapter5/beta.png>
 File: figures/chapter5/k.png Graphic file (type bmp)
 <figures/chapter5/k.png>
- [64] [65]
 File: figures/chapter5/runBEXEA-OilReservoir-sampled-CC.png Graphic file (type 
 bmp)
 <figures/chapter5/runBEXEA-OilReservoir-sampled-CC.png>
- [66]) (chapters/chapter6.tex [67]
+ [62] [63]
+[64]) (chapters/chapter6.tex [65]
 6
-[68
+[66
 
-]) [69] (main.bbl [70
+]) [67] (main.bbl [68
 
 ]
 Underfull \hbox (badness 2012) in paragraph at lines 161--165
@@ -2201,7 +2215,7 @@ Underfull \hbox (badness 2012) in paragraph at lines 161--165
 zation[C]//Proceedings of
  []
 
-[71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81] [82]) [83]
+[69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80]) [81]
 (chapters/appendix.tex
 Overfull \hbox (0.7984pt too wide) in paragraph at lines 19--19
  []|\TU/TimesNewRoman(0)/m/n/7.52812 Sign| 
@@ -2263,10 +2277,10 @@ Overfull \hbox (0.7984pt too wide) in paragraph at lines 63--64
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [84
+ignored: Infinite glue shrinkage found in box being split [82
 
-] [85]
-ignored: Infinite glue shrinkage found in box being split [86] (chapters/appendix_
+] [83]
+ignored: Infinite glue shrinkage found in box being split [84] (chapters/appendix_
 ch4.tex
 Overfull \hbox (1.58434pt too wide) in paragraph at lines 8--8
  []|\TU/TimesNewRoman(0)/m/n/5 LSHADE_cnEpSin| 
@@ -2278,19 +2292,19 @@ Overfull \hbox (1.58434pt too wide) in paragraph at lines 78--78
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [87]
+ignored: Infinite glue shrinkage found in box being split [85]
 Overfull \hbox (1.58434pt too wide) in paragraph at lines 148--148
  []|\TU/TimesNewRoman(0)/m/n/5 LSHADE_cnEpSin| 
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [88]
+ignored: Infinite glue shrinkage found in box being split [86]
 Overfull \hbox (1.58434pt too wide) in paragraph at lines 218--218
  []|\TU/TimesNewRoman(0)/m/n/5 LSHADE_cnEpSin| 
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [89]
+ignored: Infinite glue shrinkage found in box being split [87]
 Overfull \hbox (0.15865pt too wide) in alignment at lines 285--322
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
@@ -2306,7 +2320,7 @@ Overfull \hbox (0.32782pt too wide) in alignment at lines 327--364
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [90]
+ignored: Infinite glue shrinkage found in box being split [88]
 Overfull \hbox (0.15865pt too wide) in alignment at lines 368--405
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
@@ -2322,13 +2336,13 @@ Overfull \hbox (0.32782pt too wide) in alignment at lines 410--447
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [91]
+ignored: Infinite glue shrinkage found in box being split [89]
 Overfull \hbox (0.15865pt too wide) in alignment at lines 451--488
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [92]
+ignored: Infinite glue shrinkage found in box being split [90]
 Underfull \hbox (badness 10000) in paragraph at lines 497--497
 []|\TU/TimesNewRoman(0)/m/n/7.52812 SBO vs
  []
@@ -2344,7 +2358,7 @@ Overfull \hbox (0.15865pt too wide) in alignment at lines 534--571
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [93]
+ignored: Infinite glue shrinkage found in box being split [91]
 Underfull \hbox (badness 10000) in paragraph at lines 580--580
 []|\TU/TimesNewRoman(0)/m/n/7.52812 SBO vs
  []
@@ -2354,21 +2368,21 @@ Overfull \hbox (0.32782pt too wide) in alignment at lines 576--613
  [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
-[94]
-ignored: Infinite glue shrinkage found in box being split [95]
+[92]
+ignored: Infinite glue shrinkage found in box being split [93]
 ignored: Infinite glue shrinkag
-e found in box being split [96])
+e found in box being split [94])
 Overfull \hbox (1.09486pt too wide) in alignment at lines 236--267
  [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [97]) [98] [99
+ignored: Infinite glue shrinkage found in box being split [95]) [96] [97
 
-] [100
+] [98
 
 ]
-runsystem(latexminted cleantemp  --timestamp 20260327072859 FAD58DE7366495DB465
+runsystem(latexminted cleantemp  --timestamp 20260327142441 FAD58DE7366495DB465
 0CFEFAC2FCD61)...disabled (restricted).
 
  (main.aux)
@@ -2384,12 +2398,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 2820AD84AC36FEBF65D8BF19132D078E;7716.
  ) 
 Here is how much of TeX's memory you used:
- 40210 strings out of 402983
- 895699 string characters out of 5448483
- 1704013 words of memory out of 5000000
- 68178 multiletter control sequences out of 15000+600000
- 665811 words of font info for 260 fonts, out of 8000000 for 9000
+ 39865 strings out of 402983
+ 886432 string characters out of 5448483
+ 1702548 words of memory out of 5000000
+ 67835 multiletter control sequences out of 15000+600000
+ 663858 words of font info for 247 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 125i,15n,125p,1660b,965s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 125i,15n,125p,1660b,957s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (109 pages).
+Output written on main.pdf (107 pages).
