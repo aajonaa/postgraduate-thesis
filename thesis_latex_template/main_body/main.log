@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  28 MAR 2026 06:00
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  28 MAR 2026 06:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2073,9 +2073,13 @@ File: figures/chapter5/rbf_plot.png Graphic file (type bmp)
 <figures/chapter5/rbf_plot.png>
  [8] [9]) (chapters/chapter3_IBSA.tex [10]
 3
-[11
 
-] [12] [13]
+Underfull \vbox (badness 1509) has occurred while \output is active []
+
+ [11
+
+]
+[12] [13]
 File: figures/chapter3/fig2_flowchart_IBSA.png Graphic file (type bmp)
 <figures/chapter3/fig2_flowchart_IBSA.png>
 
@@ -2377,7 +2381,7 @@ ignored: Infinite glue shrinkage found in box being split [76]) [77] [78
 ] [79
 
 ]
-runsystem(latexminted cleantemp  --timestamp 20260328060039 FAD58DE7366495DB465
+runsystem(latexminted cleantemp  --timestamp 20260328060541 FAD58DE7366495DB465
 0CFEFAC2FCD61)...disabled (restricted).
 
  (main.aux)
