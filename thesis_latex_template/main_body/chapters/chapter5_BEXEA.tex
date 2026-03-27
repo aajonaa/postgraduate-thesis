@@ -1,4 +1,4 @@
-% Chapter 5: BEXEA - Bandit-Driven Adaptive Search in Surrogate-Assisted EA
+﻿% Chapter 5: BEXEA - Bandit-Driven Adaptive Search in Surrogate-Assisted EA
 \chapter{基于赌博机驱动的自适应搜索代理辅助进化算法}
 \label{chap:bexea}
 
@@ -7,7 +7,7 @@
 
 代理模型、搜索策略及填充准则是SAEA框架的核心。尽管RBF、Kriging等模型应用广泛\cite{regis2013evolutionary,sun2017surrogate,buche2005accelerating,liu2013gaussian,loshchilov2010comparison,guo2018heterogeneous,zhou2005study,chavez2016polynomial}，但现有的搜索机制仍显僵化，多依赖预设的固定模式\cite{khaldi2024surrogate,stanovov2023surrogate,mallipeddi2015evolving,lv2023multi,yu2025surrogate,li2020surrogate,lin2024surrogate}，面对变化的函数特性时缺乏自适应调节能力。同时，EI等常用填充准则虽然能平衡探索与开发\cite{mockus1994application,jones1998efficient}，但其决策过程缺乏直观的物理解释，难以阐明候选解优选的具体依据，在实际工程应用中存在信任度构建困难的问题。
 
-针对上述挑战，本章从搜索策略自适应演化与采样决策可解释性两个维度展开研究。一方面，将双臂赌博机机制引入搜索框架，利用实时环境反馈引导搜索模式的动态切换\cite{slivkins2019introduction}；另一方面，借鉴SHAP思想\cite{nohara2022explanation}构建特征重要性评估组件，提出一种兼顾优化潜能与决策物理依据的可解释不确定性准则。
+针对上述挑战，本章从搜索策略自适应演化与采样决策可解释性两个维度展开研究。一方面，将双臂赌博机机制引入搜索框架，利用实时环境反馈引导搜索模式的动态切换\cite{slivkins2019introduction}；另一方面，借鉴SHAP思想\cite{nohara2022explanation}构建特征重要性评估组件，提出一种兼顾优化潜能与决策依据的可解释不确定性准则。
 
 为验证BEXEA的性能，本章构建了双重验证场景：首先利用标准昂贵优化基准函数考察算法的全局搜索效能，随后通过油藏产量优化算例检验算法在实际高保真模拟环境下的应用表现。油藏工程优化具有仿真耗时长、非线性程度高、变量耦合复杂等典型特征，是评估算法样本效率的理想平台。
 
@@ -318,7 +318,7 @@ Ranking & 3.8                         & 2.3                         & 2.2       
 
 \subsubsection{油藏产量优化实验}
 
-本实验通过MRST工具箱构建仿真环境，对井控问题进行实测。
+本实验通过MRST工具箱构建仿真环境，对井控问题开展数值仿真实验。
 
 \begin{table}[htbp]
 \bicaption{BEXEA与其他SAEAs在油藏产量优化问题上的比较结果}{Comparison results of BEXEA and other SAEAs on the oil reservoir production optimization problem}
@@ -349,7 +349,7 @@ BEXEA     & \textbf{7.9995E+07(1.12E+05)} & \textbf{7.9771E+07} & \textbf{8.0219
     \label{fig:bexea_Oil_Exp_Figure}
 \end{figure}
 
-收敛轨迹（图\ref{fig:bexea_Oil_Exp_Figure}）反映了BEXEA良好的初始搜索效能。在优化中后期，得益于MAB机制对搜索停滞状态的动态响应，算法能持续向更优区域逼近，在有限评估预算内获得了较理想的经济效益。
+收敛轨迹（图\ref{fig:bexea_Oil_Exp_Figure}）反映了BEXEA良好的初始搜索效能。在优化中后期，得益于MAB机制对搜索停滞状态的动态响应，算法能持续向更优区域逼近，在有限评估预算内获得了较优的经济收益。
 
 \section{本章小结}
 本章针对代理辅助昂贵优化中策略僵化及采样准则黑箱化等不足，构建了BEXEA算法。该方法通过融合多臂赌博机的自适应机制与可解释人工智能理论，实现了对搜索资源分配与采样决策的协同调控。
