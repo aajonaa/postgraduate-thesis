@@ -3,7 +3,7 @@
 \label{chap:bexea}
 
 \section{引言}
-在处理昂贵优化问题（Expensive Optimization Problems, EOPs）时，单次目标函数评估往往需要调用计算流体力学或有限元分析等复杂数值模拟，计算开销极大\cite{liu2023airfoils,kumar2024optimization}。受计算资源限制，评估次数通常只能控制在几百至几千次，传统进化算法难以在如此有限的预算内达到理想精度\cite{he2023review}。代理辅助进化算法（Surrogate-Assisted Evolutionary Algorithms, SAEAs）通过构建样本档案并训练代理模型，以低成本近似估计替代高昂的真实评估，从而在有限预算内提升搜索效率\cite{kudela2022recent,jin2018data}。
+在处理昂贵优化问题（Expensive Optimization Problems, EOPs）时，单次目标函数评估往往需要调用计算流体力学或有限元分析等复杂数值模拟，计算开销极大\cite{liu2023airfoils,kumar2024optimization}。受计算资源限制，评估次数通常只能控制在几百至几千次，传统进化算法难以在如此有限的预算内获得较高质量解\cite{he2023review}。代理辅助进化算法（Surrogate-Assisted Evolutionary Algorithms, SAEAs）通过构建样本档案并训练代理模型，以低成本近似估计替代高昂的真实评估，从而在有限预算内提升搜索效率\cite{kudela2022recent,jin2018data}。
 
 代理模型、搜索策略和填充准则构成了SAEA框架的核心。尽管RBF、Kriging等模型已被广泛使用\cite{regis2013evolutionary,sun2017surrogate,buche2005accelerating,liu2013gaussian,loshchilov2010comparison,guo2018heterogeneous,zhou2005study,chavez2016polynomial}，但现有搜索机制仍较为僵化，往往依赖预设的固定模式\cite{khaldi2024surrogate,stanovov2023surrogate,mallipeddi2015evolving,lv2023multi,yu2025surrogate,li2020surrogate,lin2024surrogate}，在面对不同函数特性时缺乏足够的自适应调节能力。同时，EI等常用填充准则虽然能够兼顾探索与开发\cite{mockus1994application,jones1998efficient}，但其决策过程缺少直观解释，难以说明候选解被优先评估的具体依据，因此在实际工程应用中不利于建立方法可信度。
 
@@ -349,7 +349,7 @@ BEXEA     & \textbf{7.9995E+07(1.12E+05)} & \textbf{7.9771E+07} & \textbf{8.0219
     \label{fig:bexea_Oil_Exp_Figure}
 \end{figure}
 
-收敛轨迹（图\ref{fig:bexea_Oil_Exp_Figure}）表明，BEXEA在搜索初期就能够建立较好的优化基础。进入中后期后，得益于MAB机制对搜索停滞状态的动态响应，算法仍能持续向更优区域逼近，并在有限评估预算内取得较好的经济收益。
+收敛轨迹（图\ref{fig:bexea_Oil_Exp_Figure}）表明，BEXEA在搜索初期便能较快形成有效的改进趋势。进入中后期后，得益于MAB机制对搜索停滞状态的动态响应，算法仍能持续向更优区域逼近，并在有限评估预算内取得较好的经济收益。
 
 \section{本章小结}
 本章针对代理辅助昂贵优化中搜索策略僵化和采样准则缺乏解释性等问题，构建了BEXEA算法。该方法通过融合多臂赌博机的自适应机制与可解释人工智能思想，实现了搜索资源分配与采样决策的协同调控。

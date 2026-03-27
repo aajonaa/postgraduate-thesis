@@ -39,7 +39,7 @@
 
 在昂贵优化问题中，单次适应度评估往往涉及流体计算、有限元分析等高成本过程，计算代价极大\cite{liu2023airfoils,kumar2024optimization}。代理辅助进化算法（SAEAs）通过构建低成本的数学模型逼近真实景观，旨在减少高保真仿真的调用频次\cite{he2023review,jin2018data}。其核心框架由代理模型、演化策略与填充准则三大组件构成。
 
-在模型构建方面，RBF\cite{regis2013evolutionary}与Kriging\cite{buche2005accelerating,liu2013gaussian}应用最为广泛。演化策略层面，差分进化及其变体仍是目前的主流搜索引擎\cite{mallipeddi2015evolving,stanovov2023surrogate}。为实现精准采样，研究者提出了EI\cite{jones1998efficient}、LCB\cite{li2023elite}等多种填充准则，用以权衡预测值与不确定性。近年来，Xie等人\cite{xie2023surrogate}尝试对模型与准则进行自动配置，Gong等人\cite{gong2024surrogate}则引入强化学习机制动态调度搜索行为。
+在模型构建方面，RBF\cite{regis2013evolutionary}与Kriging\cite{buche2005accelerating,liu2013gaussian}应用最为广泛。演化策略层面，差分进化及其变体仍是目前的主流搜索引擎\cite{mallipeddi2015evolving,stanovov2023surrogate}。为实现精准采样，研究者提出了EI\cite{jones1998efficient}、LCB\cite{li2023elite}等多种填充准则，用以权衡预测值与不确定性。近年来，Xie等人\cite{xie2023surrogate}尝试对模型与准则进行自动配置，Gong等人\cite{gong2024surrogate}则引入强化学习机制动态调整搜索行为。
 
 随着SAEA在航空航天设计、能源系统调优等领域的应用不断扩展，研究重点已由“减少评估次数”逐渐转向“提升决策质量”。这要求优化框架具备更强的反馈调节能力。Zhen等人\cite{zhen2022evolutionary}提出的演化采样技术，以及Wei等人\cite{wei2023efficient}设计的两阶段辅助框架，都为这一方向提供了有益思路。如何降低算法对预设参数的依赖、提高采样过程的自适应能力，仍是当前研究的重要突破口。
 
