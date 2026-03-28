@@ -37,7 +37,7 @@
 
 \subsection{代理辅助进化算法研究现状}
 
-在昂贵优化问题中，单次适应度评估往往涉及流体计算、有限元分析等高成本仿真过程，计算代价极大\cite{liu2023airfoils,kumar2024optimization}。代理辅助进化算法（SAEAs）通过构建低成本的数学模型逼近真实目标函数，旨在减少高保真仿真的调用频次\cite{he2023review,jin2018data}。其核心框架由代理模型、演化策略与填充准则三大组件构成。
+在昂贵优化问题中，单次适应度评估往往涉及流体计算、有限元分析等高成本仿真过程，计算代价极大\cite{liu2023airfoils,kumar2024optimization}。代理辅助进化算法（SAEAs）通过构建低成本的数学模型逼近真实目标函数，以减少高保真仿真的调用频次\cite{he2023review,jin2018data}。其核心框架由代理模型、演化策略与填充准则三大组件构成。
 
 在模型构建方面，RBF\cite{regis2013evolutionary}与Kriging\cite{buche2005accelerating,liu2013gaussian}应用最为广泛。演化策略层面，差分进化及其变体仍是目前的主流搜索引擎\cite{mallipeddi2015evolving,stanovov2023surrogate}。为实现精准采样，研究者提出了EI\cite{jones1998efficient}、LCB\cite{li2023elite}等多种填充准则，用以权衡预测值与不确定性。近年来，Xie等人\cite{xie2023surrogate}尝试对模型与准则进行自动配置，Gong等人\cite{gong2024surrogate}则引入强化学习机制动态调整搜索行为。
 
