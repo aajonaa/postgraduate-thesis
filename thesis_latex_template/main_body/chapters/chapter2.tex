@@ -86,7 +86,7 @@ T(x) = \left| \operatorname{erf}\left(\frac{\sqrt{\pi}}{2} x\right) \right|
 
 在昂贵优化问题（EOPs）中，单次目标函数评估通常依赖高保真仿真或复杂工程计算，成本极高\cite{liu2023airfoils,kumar2024optimization}。代理辅助进化算法（SAEAs）通过低成本模型逼近真实目标函数，从而减少真实评估次数\cite{he2023review,jin2018data}，这也为第五章的算法设计提供了理论基础。
 
-\subsection{代理模型与填充准则}
+\subsection{代理模型与采样准则}
 \label{sec:ch2_surrogate_models}
 
 代理模型用于学习真实目标函数的近似映射关系\cite{kudela2022recent}。径向基函数（RBF）模型是一种基于距离的插值方法\cite{regis2013evolutionary}，其预测值可表示为已知样本点基函数值的加权组合：
