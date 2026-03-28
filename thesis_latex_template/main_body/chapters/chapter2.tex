@@ -108,7 +108,7 @@ T(x) = \left| \operatorname{erf}\left(\frac{\sqrt{\pi}}{2} x\right) \right|
     \label{fig:ch2_RBF_prediction}
 \end{figure}
 
-Kriging模型（高斯过程模型）\cite{buche2005accelerating,liu2013gaussian}除给出预测值外，还能提供不确定性估计，因此常与采样决策结合使用。为从候选解中筛选最值得进行真实评估的样本，通常需要引入填充准则\cite{zhan2020expected}。期望改进（EI）\cite{jones1998efficient}定义为：
+Kriging模型（高斯过程模型）\cite{buche2005accelerating,liu2013gaussian}除给出预测值外，还能提供不确定性估计，因此常与采样决策结合使用。为从候选解中筛选最值得进行真实评估的样本，通常需要引入采样准则\cite{zhan2020expected}。期望改进（EI）\cite{jones1998efficient}定义为：
 \begin{equation}
 EI(x) = (f_{min} - \hat{f}(x)) \Phi\left(\frac{f_{min} - \hat{f}(x)}{s(x)}\right) + s(x) \phi\left(\frac{f_{min} - \hat{f}(x)}{s(x)}\right)
 \end{equation}
