@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  28 MAR 2026 08:12
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  28 MAR 2026 08:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2074,7 +2074,7 @@ File: figures/chapter5/rbf_plot.png Graphic file (type bmp)
  [8] [9]) (chapters/chapter3_IBSA.tex [10]
 3
 
-Underfull \vbox (badness 1509) has occurred while \output is active []
+Underfull \vbox (badness 5893) has occurred while \output is active []
 
  [11
 
@@ -2381,7 +2381,7 @@ ignored: Infinite glue shrinkage found in box being split [76]) [77] [78
 ] [79
 
 ]
-runsystem(latexminted cleantemp  --timestamp 20260328081200 FAD58DE7366495DB465
+runsystem(latexminted cleantemp  --timestamp 20260328081447 FAD58DE7366495DB465
 0CFEFAC2FCD61)...disabled (restricted).
 
  (main.aux)
@@ -2402,7 +2402,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  39782 strings out of 402983
  882956 string characters out of 5448483
- 1700904 words of memory out of 5000000
+ 1700905 words of memory out of 5000000
  67759 multiletter control sequences out of 15000+600000
  661958 words of font info for 240 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
