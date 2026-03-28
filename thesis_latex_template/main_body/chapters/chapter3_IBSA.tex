@@ -147,7 +147,7 @@ m_i=
 unifrnd\left(-\frac{t}{Max\_FEs},\frac{t}{Max\_FEs}\right), & \text{otherwise}
 \end{cases}
 \end{equation}
-通过对精英与非精英个体实施差异化控制，IBSA能够推动最优个体在当前优势区域进行更深入的挖掘。虽然这会增加算法逻辑的复杂度，但由此带来的精英信息利用能力对于解决高维优化问题是必要的。变异算子与精英更新逻辑的调整如式\eqref{ibsa_eq_15}与式\eqref{ibsa_eq_16}所示。
+通过对精英与非精英个体实施差异化控制，IBSA能够推动最优个体在当前优势区域进行更深入的挖掘。虽然这会增加算法逻辑的复杂度，但对高维优化问题而言，充分利用精英信息是必要的。变异算子与精英更新逻辑的调整如式\eqref{ibsa_eq_15}与式\eqref{ibsa_eq_16}所示。
 \begin{equation}
 \label{ibsa_eq_15}
 {\mathrm{Mutant}}_{\mathrm{i}}=m_i*\left(X_i+F*map_i\ .*\left(OldX_i-X_i\right)\right)\ \ \ if\ i\sim =BestX\_idx
