@@ -128,7 +128,7 @@ p=\frac{\sqrt{\frac{FEs}{MaxFEs}}}{1+\exp\left(-s\right)}
 为了增强历史种群的导向性，改进后的$OldX$更新逻辑与当前搜索模式相联动。在全局交叉较为活跃的阶段，当前种群通常包含更丰富的空间信息，此时将其更新到历史库中，能够为变异方向提供更有效的参考。这一机制改变了BSA原有较为盲目的回溯方式，使历史信息的积累与搜索动态保持一致。
 \begin{equation}
 \label{ibsa_eq_12}
-OldX=\ X\ \ \ if\ flag==1
+OldX = X,\quad \text{if } flag = 1
 \end{equation}
 \begin{equation}
 \label{ibsa_eq_13}
@@ -150,11 +150,11 @@ m_i=
 通过对精英与非精英个体实施差异化控制，IBSA能够推动最优个体在当前优势区域进行更深入的挖掘。虽然这会增加算法逻辑的复杂度，但对高维优化问题而言，充分利用精英信息是必要的。变异算子与精英更新逻辑的调整如式\eqref{ibsa_eq_15}与式\eqref{ibsa_eq_16}所示。
 \begin{equation}
 \label{ibsa_eq_15}
-Mutant_i=m_i*\left(X_i+F*map_i\ .*\left(OldX_i-X_i\right)\right)\ \ \ if\ i\sim =BestX\_idx
+Mutant_i = m_i \cdot \left(X_i + F \cdot map_i \odot \left(OldX_i - X_i\right)\right), \quad i \neq BestX_{idx}
 \end{equation}
 \begin{equation}
 \label{ibsa_eq_16}
-Mutant_i=BestX+F*\left(OldX_i-X_i\right)\ \ \ if\ i==BestX\_idx
+Mutant_i = BestX + F \cdot \left(OldX_i - X_i\right), \quad i = BestX_{idx}
 \end{equation}
 \noindent 其中，下标$i$表示元素的索引，$F$为随机生成的控制因子。
 
