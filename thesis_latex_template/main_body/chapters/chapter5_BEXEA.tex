@@ -3,7 +3,7 @@
 \label{chap:bexea}
 
 \section{引言}
-在处理昂贵优化问题（Expensive Optimization Problems, EOPs）时，单次目标函数评估往往需要调用计算流体力学或有限元分析等复杂数值模拟，计算开销极大\cite{liu2023airfoils,kumar2024optimization}。受计算资源限制，评估次数通常只能控制在几百至几千次，传统进化算法难以在如此有限的预算内获得高质量解\cite{he2023review}。代理辅助进化算法（Surrogate-Assisted Evolutionary Algorithms, SAEAs）通过构建样本档案并训练代理模型，以低成本近似估计替代高昂的真实评估，从而在有限预算内提升搜索效率\cite{kudela2022recent,jin2018data}。
+在处理高昂评估代价优化问题（Expensive Optimization Problems, EOPs）时，单次目标函数评估往往需要调用计算流体力学或有限元分析等复杂数值仿真，计算开销极大\cite{liu2023airfoils,kumar2024optimization}。受计算资源限制，函数评估次数通常只能控制在几百至几千次，传统进化算法难以在如此有限的评估预算内获得高质量解\cite{he2023review}。代理辅助进化算法（Surrogate-Assisted Evolutionary Algorithms, SAEAs）通过构建样本档案并训练代理模型，以低成本近似估计替代高昂的真实评估，从而在有限评估预算内提升搜索效率\cite{kudela2022recent,jin2018data}。
 
 代理模型、搜索策略和采样准则构成了SAEA框架的核心。尽管RBF、Kriging等模型已被广泛使用\cite{regis2013evolutionary,sun2017surrogate,buche2005accelerating,liu2013gaussian,loshchilov2010comparison,guo2018heterogeneous,zhou2005study,chavez2016polynomial}，但现有搜索机制仍较为僵化，往往依赖预设的固定模式\cite{khaldi2024surrogate,stanovov2023surrogate,mallipeddi2015evolving,lv2023multi,yu2025surrogate,li2020surrogate,lin2024surrogate}，在面对不同函数特性时缺乏自适应调节能力。同时，EI等常用采样准则虽然能够兼顾探索与开发\cite{mockus1994application,jones1998efficient}，但其决策过程缺少直观解释，难以说明候选解被优先评估的具体依据，因此在实际工程应用中不利于建立方法可信度。
 
@@ -105,7 +105,7 @@ EU准则融合贝叶斯优化与可解释人工智能思想，为采样决策提
 
 \subsection{实验设置}
 
-本研究采用两组基准测试。第一组为IEEE CEC 2022测试集（$d = 20$），用于考察算法在标准维度下的优化能力；第二组为高维场景测试套件（$d = 50$和$d = 100$），涵盖单峰、多峰旋转和混合函数。统计分析采用Friedman检验与Wilcoxon秩和检验，显著性水平设为$\alpha = 0.05$。
+本研究采用两组基准函数集。第一组为IEEE CEC 2022基准函数集（$d = 20$），用于考察算法在标准维度下的优化能力；第二组为高维场景基准函数集（$d = 50$和$d = 100$），涵盖单峰、多峰旋转和混合函数。统计分析采用Friedman检验与Wilcoxon秩和检验，显著性水平设为$\alpha = 0.05$。
 
 对比算法包括TSA-BFEA、KTA2、DESO等七种SAEAs，参数采用原作者推荐设置。BEXEA的衰减因子设为0.3，近邻数设为8。所有任务的函数评估上限均为1000次，并独立运行20次。
 
@@ -132,7 +132,7 @@ EU准则融合贝叶斯优化与可解释人工智能思想，为采样决策提
 
 \begin{table}[htbp]
 \centering
-\bicaption{BEXEA与竞争算法在IEEE CEC 2022测试套件上的比较结果（$d = 20$）}{Comparison result of BEXEA and its competitors on IEEE CEC 2022 test suite with $d = 20$}
+\bicaption{BEXEA与竞争算法在IEEE CEC 2022基准函数集上的比较结果（$d = 20$）}{Comparison result of BEXEA and its competitors on IEEE CEC 2022 benchmark function set with $d = 20$}
 \label{t:bexea_CEC22_Table}
 \resizebox{\textwidth}{!}{\begin{tabular}{lccccc}
 \toprule
@@ -180,29 +180,29 @@ Ranking & 7.6 & 3.3 & 2.2 & \textbf{1.1} \\
 \end{tabular}}
 \end{table}
 
-在CEC 2022测试中，BEXEA的平均排名位居第一。Wilcoxon检验表明，BEXEA在多数函数上占优，这主要得益于MAB机制对策略权重的实时调整，以及EU准则通过特征归因分析提升了样本评估效率。
+在CEC 2022基准函数集测试中，BEXEA的平均排名位居第一。Wilcoxon秩和检验表明，BEXEA在多数函数上占优，这主要得益于MAB机制对策略权重的实时调整，以及EU准则通过特征归因分析提升了样本评估效率。
 
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{figures/chapter5/BEXEA-CEC22-CC.png}
-\bicaption{BEXEA与竞争算法在IEEE CEC 2022测试套件上的收敛曲线（$d = 20$）}{Convergence curves of BEXEA and its competitors on the IEEE CEC 2022 test suite ($d = 20$)}
+\bicaption{BEXEA与竞争算法在IEEE CEC 2022基准函数集上的收敛曲线（$d = 20$）}{Convergence curves of BEXEA and its competitors on the IEEE CEC 2022 benchmark function set ($d = 20$)}
     \label{fig:bexea_CEC22_CC}
 \end{figure}
 
 收敛曲线（图\ref{fig:bexea_CEC22_CC}）显示，在F4、F6等挑战性函数上，BEXEA能够更快逼近优值，体现了自适应搜索在协调探索与开发方面的灵活性。散点分布（图\ref{fig:bexea_CEC22_Plots}）则表明BEXEA的结果分布更集中，算法稳定性较好。
 
-在高维场景（表\ref{t:bexea_CEC05_Table}）中，BEXEA的性能优势仍然明显。在100维环境下，MAB驱动的策略切换机制能够较好地应对复杂搜索景观，在维持种群多样性的同时降低陷入局部最优的风险，说明该方法具有较好的高维扩展能力。
+在高维场景（表\ref{t:bexea_CEC05_Table}）中，BEXEA的性能优势仍然明显。在100维环境下，MAB驱动的策略切换机制能够较好地应对复杂搜索景观，在维持种群多样性的同时降低陷入局部极值的风险，说明该方法具有良好的高维可扩展能力。
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{figures/chapter5/BEXEA-Plots.png}
-\bicaption{BEXEA与竞争算法在IEEE CEC 2022测试套件上的散点图和排名图（$d = 20$）}{Combined scatter and rank plots of BEXEA and its competitors on the IEEE CEC 2022 test suite ($d = 20$)}
+\bicaption{BEXEA与竞争算法在IEEE CEC 2022基准函数集上的散点图和排名图（$d = 20$）}{Combined scatter and rank plots of BEXEA and its competitors on the IEEE CEC 2022 benchmark function set ($d = 20$)}
     \label{fig:bexea_CEC22_Plots}
 \end{figure}
 
 \begin{table}[htbp]
 \centering
-\bicaption{BEXEA与竞争算法在昂贵函数测试套件上的比较结果（$d = 50$和$d = 100$）}{Comparison results of BEXEA and its competitors on the expensive functions test suite with $d = 50$ and $d = 100$}
+\bicaption{BEXEA与竞争算法在高维场景基准函数集上的比较结果（$d = 50$和$d = 100$）}{Comparison results of BEXEA and its competitors on the high-dimensional benchmark function set with $d = 50$ and $d = 100$}
 \label{t:bexea_CEC05_Table}
 \resizebox{\textwidth}{!}{\begin{tabular}{lccccc}
 \toprule
@@ -287,7 +287,7 @@ Ranking & 2.4                & 2.4                         & \textbf{1.2}       
 \end{tabular}}
 \end{table}
 
-采样准则的消融分析见表\ref{t:bexea_EU_Table}。结果表明，缺少采样筛选环节会导致算法性能下降。EU准则与代理模型预测相结合后，在多项任务中表现出较好的互补性，整体排名也位居前列。这说明利用特征重要性引导采样决策，能够更有效地分配评估预算，并增强优化过程的可解释性。
+采样准则的消融分析见表\ref{t:bexea_EU_Table}。结果表明，缺少采样筛选环节会导致算法求解精度下降。EU准则与代理模型预测相结合后，在多项任务中表现出较好的互补性，整体排名也位居前列。这说明利用特征重要性归因引导采样决策，能够更有效地分配有限评估预算，并增强优化过程的可解释性。
 
 \begin{table}
 \centering
@@ -360,7 +360,7 @@ BEXEA     & \textbf{7.9995E+07(1.12E+05)} & \textbf{7.9771E+07} & \textbf{8.0219
 \end{tabular}}
 \end{table}
 
-表\ref{t:bexea_Oil_Exp_Table}显示，BEXEA在核心经济指标上优于对比算法。其平均NPV相较次优算法有明显提升，同时在求解一致性和运行效率方面也表现较好。
+表\ref{t:bexea_Oil_Exp_Table}显示，BEXEA在核心经济指标上优于所有对比算法。其平均净现值（NPV）相较次优算法有明显提升，同时在求解一致性和运行效率方面也表现出显著优势。
 
 \begin{figure}
     \centering
@@ -374,4 +374,4 @@ BEXEA     & \textbf{7.9995E+07(1.12E+05)} & \textbf{7.9771E+07} & \textbf{8.0219
 \section{本章小结}
 本章针对代理辅助昂贵优化中搜索策略僵化和采样准则缺乏解释性等问题，构建了BEXEA算法。该方法通过融合多臂赌博机的自适应机制与可解释人工智能思想，实现了搜索资源分配与采样决策的协同调控。
 
-实验结果表明，BEXEA在不同维度的标准测试函数上均表现出较强的寻优能力。在油藏产量优化这一典型工程算例中，算法的收敛速度与求解精度进一步验证了其处理高维复杂工程问题的有效性。消融实验则从不同角度分析了自适应策略演化和多准则采样对整体性能的提升作用。BEXEA在增强搜索自适应性的同时，也通过特征归因分析提高了采样决策的可解释性，为昂贵优化问题提供了一种可行的求解思路。
+实验结果表明，BEXEA在不同维度的标准基准函数集测试中均展现出较强的寻优能力。在油藏产量优化这一典型工程应用中，算法的收敛速度与求解精度进一步验证了其处理高维复杂高昂代价优化问题的有效性。消融实验则从不同角度分析了自适应策略演化和可解释不确定性采样准则对整体性能的提升作用。BEXEA在增强搜索自适应性的同时，也通过特征归因分析提高了采样决策的可解释性，为高昂评估代价优化问题提供了一种可行的求解框架。
