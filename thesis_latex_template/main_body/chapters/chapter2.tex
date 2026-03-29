@@ -28,7 +28,7 @@ v_i = x_{r1} + F \cdot (x_{r2} - x_{r3})
 
 回溯搜索算法（BSA）由Civicioglu\cite{ibsa_ref53}于2013年提出，是一种利用历史种群记忆进行搜索的进化算法。其主要流程包括初始化、Selection-I、变异、交叉和Selection-II五个阶段，其中变异策略利用当前种群与历史种群之间的差异生成候选解：
 \begin{equation}
-\boldsymbol{Mutant} = \boldsymbol{X} + F \cdot (\boldsymbol{OldX} - \boldsymbol{X})
+Mutant = X + F \cdot (OldX - X)
 \end{equation}
 其中，$F = 3 \cdot rndn$。历史记忆机制增强了算法的全局探索潜力，但由于变异与交叉过程具有较强的随机性，BSA在局部精细搜索方面仍存在不足\cite{ibsa_ref63}。Zhao\cite{ibsa_ref57}和Nama\cite{ibsa_ref59}等学者提出的改进方案，为第三章中IBSA算法的设计提供了重要参考。
 
