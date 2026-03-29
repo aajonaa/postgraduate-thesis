@@ -44,14 +44,14 @@
 \textbf{（1）初始化：}初始种群按公式\eqref{ibsa_eq_1}在搜索空间内均匀随机生成。
 \begin{equation}
 \label{ibsa_eq_1}
-X_i,_j=U(low_j,\ up_j)
+X_{i,j}=U(low_j,\ up_j)
 \end{equation}
 \noindent 其中，$i\in[1,N]$为个体索引，$j\in[1,D]$为维度索引，$low$和$up$分别为变量的下界和上界。
 
 \textbf{（2）选择I：}该阶段维护历史种群$OldX$，为变异提供方向参考。$OldX$初始化方式与$X$相同（公式\eqref{ibsa_eq_2}），随后按公式\eqref{ibsa_eq_3}以一定概率更新为当前种群，并经公式\eqref{ibsa_eq_4}随机置换以增加多样性。
 \begin{equation}
 \label{ibsa_eq_2}
-OldX_i,_j=U(low_j,\ up_j)
+OldX_{i,j}=U(low_j,\ up_j)
 \end{equation}
 \begin{equation}
 \label{ibsa_eq_3}
@@ -82,7 +82,7 @@ map_{i,\,u\left(1:\left\lceil M \cdot \operatorname{rand} \cdot D\right\rceil \r
 \end{equation}
 \begin{equation}
 \label{ibsa_eq_7}
-map_i,_{\operatorname{randi}\left(D\right)}=1
+map_{i,\operatorname{randi}\left(D\right)}=1
 \end{equation}
 \begin{equation}
 \label{ibsa_eq_8}
