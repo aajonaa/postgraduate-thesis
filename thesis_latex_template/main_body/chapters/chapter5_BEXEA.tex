@@ -7,7 +7,7 @@
 
 代理模型、搜索策略和采样准则构成了SAEA框架的核心。尽管RBF、Kriging等模型已被广泛使用\cite{regis2013evolutionary,sun2017surrogate,buche2005accelerating,liu2013gaussian,loshchilov2010comparison,guo2018heterogeneous,zhou2005study,chavez2016polynomial}，但现有搜索机制仍较为僵化，往往依赖预设的固定模式\cite{khaldi2024surrogate,stanovov2023surrogate,mallipeddi2015evolving,lv2023multi,yu2025surrogate,li2020surrogate,lin2024surrogate}，在面对不同函数特性时缺乏自适应调节能力。同时，EI等常用采样准则虽然能够兼顾探索与开发\cite{mockus1994application,jones1998efficient}，但其决策过程缺少直观解释，难以说明候选解被优先评估的具体依据，因此在实际工程应用中不利于建立方法可信度。
 
-针对上述挑战，本章从搜索策略自适应演化和采样决策可解释性两个方面展开研究。一方面，将多臂赌博机机制引入搜索框架，利用实时环境反馈引导搜索模式的动态切换\cite{slivkins2019introduction}；另一方面，借鉴SHAP思想\cite{nohara2022explanation}构建特征重要性评估组件，提出兼顾优化潜力与决策依据的可解释不确定性准则。
+针对上述挑战，本章从搜索策略自适应演化和采样决策可解释性两个方面展开研究。一方面，将多臂赌博机机制引入搜索框架，利用实时环境反馈引导搜索模式的动态切换\cite{slivkins2019introduction}；另一方面，借鉴SHapley Additive exPlanations（SHAP）思想\cite{nohara2022explanation}构建特征重要性评估组件，提出兼顾优化潜力与决策依据的可解释不确定性准则。
 
 为验证BEXEA的性能，本章设置了两类验证场景：首先利用标准昂贵优化基准函数考察算法的全局搜索性能，随后通过油藏产量优化算例检验算法在高保真模拟环境中的应用效果。油藏产量优化具有仿真耗时长、非线性程度高和变量耦合复杂等典型特征，是评估算法样本利用效率的重要应用场景。
 
@@ -20,7 +20,7 @@
 本节介绍BEXEA的整体框架，并重点说明赌博机驱动的自适应搜索机制与可解释不确定性准则。
 \subsection{算法框架}
 
-BEXEA包括初始化和主循环两个阶段。初始化阶段采用拉丁超立方采样生成初始种群，并依据评估结果构建RBF代理模型；同时，为EDA与QPSO两种策略设置初始奖励和探索率等参数。
+BEXEA包括初始化和主循环两个阶段。初始化阶段采用拉丁超立方采样生成初始种群，并依据评估结果构建RBF代理模型；同时，为分布估计算法（Estimation of Distribution Algorithm, EDA）与量子粒子群优化算法（Quantum-behaved Particle Swarm Optimization, QPSO）两种策略设置初始奖励和探索率等参数。
 
 在主循环过程中，算法同步更新代理模型以吸收最新样本信息。随后利用带停滞触发机制的$\epsilon$-贪心策略，在侧重宏观分布探索的EDA与专注于局部精细搜索的QPSO之间进行动态切换。这种互补组合为赌博机机制提供了更灵活的优化路径。
 
@@ -111,7 +111,7 @@ EU准则融合贝叶斯优化与可解释人工智能思想，为采样决策提
 
 \subsection{油藏问题描述}
 
-本节将算法应用于油藏产量优化任务，目标是在权衡注水与生产成本的前提下寻找最优井控方案，以实现净现值（NPV）最大化。
+本节将算法应用于油藏产量优化任务，目标是在权衡注水与生产成本的前提下寻找最优井控方案，以实现净现值（Net Present Value, NPV）最大化。
 
 实验采用经典的Egg模型。系统包含8口注水井和4口生产井，决策空间为40维。单次油藏模拟涉及多相流偏微分方程求解，计算开销很高。在仅有200次评估预算的条件下寻找较优控制方案，对算法的样本利用效率提出了严格要求。
 
