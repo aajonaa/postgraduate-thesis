@@ -83,7 +83,7 @@ EU准则融合贝叶斯优化与可解释人工智能思想，为采样决策提
 
 \subsection{实验设置}
 
-本研究采用两组基准测试。第一组为IEEE CEC 2022测试集（$d=20$），用于考察算法在标准维度下的优化能力；第二组为高维场景测试套件（$d=50$和$d=100$），涵盖单峰、多峰旋转和混合函数。统计分析采用Friedman检验与Wilcoxon秩和检验，显著性水平设为$\alpha=0.05$。
+本研究采用两组基准测试。第一组为IEEE CEC 2022测试集（$d = 20$），用于考察算法在标准维度下的优化能力；第二组为高维场景测试套件（$d = 50$和$d = 100$），涵盖单峰、多峰旋转和混合函数。统计分析采用Friedman检验与Wilcoxon秩和检验，显著性水平设为$\alpha = 0.05$。
 
 对比算法包括TSA-BFEA、KTA2、DESO等七种SAEAs，参数采用原作者推荐设置。BEXEA的衰减因子设为0.3，近邻数设为8。所有任务的函数评估上限均为1000次，并独立运行20次。
 
@@ -110,7 +110,7 @@ EU准则融合贝叶斯优化与可解释人工智能思想，为采样决策提
 
 \begin{table}[htbp]
 \centering
-\bicaption{BEXEA与竞争算法在IEEE CEC 2022测试套件上的比较结果（$d=20$）}{Comparison result of BEXEA and its competitors on IEEE CEC 2022 test suite with $d=20$}
+\bicaption{BEXEA与竞争算法在IEEE CEC 2022测试套件上的比较结果（$d = 20$）}{Comparison result of BEXEA and its competitors on IEEE CEC 2022 test suite with $d = 20$}
 \label{t:bexea_CEC22_Table}
 \resizebox{\textwidth}{!}{\begin{tabular}{lccccc}
 \toprule
@@ -163,7 +163,7 @@ Ranking & 7.6 & 3.3 & 2.2 & \textbf{1.1} \\
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{figures/chapter5/BEXEA-CEC22-CC.png}
-    \bicaption{BEXEA与竞争算法在IEEE CEC 2022测试套件上的收敛曲线（$d=20$）}{Convergence curves of BEXEA and its competitors on the IEEE CEC 2022 test suite ($d=20$)}
+\bicaption{BEXEA与竞争算法在IEEE CEC 2022测试套件上的收敛曲线（$d = 20$）}{Convergence curves of BEXEA and its competitors on the IEEE CEC 2022 test suite ($d = 20$)}
     \label{fig:bexea_CEC22_CC}
 \end{figure}
 
@@ -174,13 +174,13 @@ Ranking & 7.6 & 3.3 & 2.2 & \textbf{1.1} \\
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{figures/chapter5/BEXEA-Plots.png}
-    \bicaption{BEXEA与竞争算法在IEEE CEC 2022测试套件上的散点图和排名图（$d=20$）}{Combined scatter and rank plots of BEXEA and its competitors on the IEEE CEC 2022 test suite ($d=20$)}
+\bicaption{BEXEA与竞争算法在IEEE CEC 2022测试套件上的散点图和排名图（$d = 20$）}{Combined scatter and rank plots of BEXEA and its competitors on the IEEE CEC 2022 test suite ($d = 20$)}
     \label{fig:bexea_CEC22_Plots}
 \end{figure}
 
 \begin{table}[htbp]
 \centering
-\bicaption{BEXEA与竞争算法在昂贵函数测试套件上的比较结果（$d=50$和$d=100$）}{Comparison results of BEXEA and its competitors on the expensive functions test suite with $d=50$ and $d=100$}
+\bicaption{BEXEA与竞争算法在昂贵函数测试套件上的比较结果（$d = 50$和$d = 100$）}{Comparison results of BEXEA and its competitors on the expensive functions test suite with $d = 50$ and $d = 100$}
 \label{t:bexea_CEC05_Table}
 \resizebox{\textwidth}{!}{\begin{tabular}{lccccc}
 \toprule
