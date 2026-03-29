@@ -36,7 +36,7 @@ BEXEA包括初始化和主循环两个阶段。初始化阶段采用拉丁超立
 \subsection{多臂赌博机驱动的自适应搜索}
 在线策略选择机制能够利用优化过程中的即时反馈动态调节探索与开发行为\cite{xie2023surrogate,gong2024surrogate}。通过将$\epsilon$-贪心MAB嵌入SAEA框架，本文实现了EDA与QPSO策略的在线切换，并辅以停滞检测机制增强算法跳出局部极值的能力。
 
-策略选择被抽象为二臂赌博机问题。在每次迭代中，算法根据策略评分和探索概率执行动作；获得评估结果后，再计算即时奖励并更新策略价值估计$Q(a)$。
+策略选择被抽象为二臂赌博机问题。在每次决策中，算法根据策略评分和探索概率执行动作；获得评估结果后，再计算即时奖励并更新策略价值估计$Q(a)$。
 
 本章采用的$\epsilon$-贪心逻辑为：
 \begin{equation}
@@ -48,9 +48,31 @@ a_{FEs} =
 \end{equation}
 其中$\epsilon$设为0.1至0.3，通过维持适度探索避免算法过早固化到某一策略。
 
-奖励函数综合考虑适应度改进量与策略特有的搜索贡献。EDA阶段更重视能够提升种群多样性的行为，QPSO阶段则将解的可解释性评分纳入考量。这样的多准则奖励设计有助于算法识别不同策略在不同搜索阶段的作用。
+为使奖励反馈同时刻画真实优化收益与策略特有贡献，本文定义第$FEs$次真实评估后的即时奖励为
+\begin{equation}
+r_{FEs}(a_{FEs}) = \lambda \Delta f_{FEs} + (1-\lambda)c_{FEs}(a_{FEs}),
+\end{equation}
+\begin{equation}
+\Delta f_{FEs} = \max\left\{0,\frac{f^\star_{FEs-1}-f(\mathbf{x}_{FEs})}{\left|f^\star_{FEs-1}\right|+\varepsilon_f}\right\}
+\end{equation}
+\begin{equation}
+c_{FEs}(a_{FEs}) =
+\begin{cases}
+\displaystyle \frac{\mathcal{D}_{FEs}-\mathcal{D}_{FEs-1}}{\left|\mathcal{D}_{FEs-1}\right|+\varepsilon_d}, & a_{FEs}=a_{\mathrm{EDA}}, \\[10pt]
+\displaystyle \frac{\mathrm{EU}(\mathbf{x}_{FEs})-\mathrm{EU}_{\min}}{\mathrm{EU}_{\max}-\mathrm{EU}_{\min}+\varepsilon_u}, & a_{FEs}=a_{\mathrm{QPSO}}.
+\end{cases}
+\end{equation}
+其中，$r_{FEs}(a_{FEs})$表示所选策略$a_{FEs}$在第$FEs$次真实评估后获得的即时奖励，$\Delta f_{FEs}$表示归一化适应度改进量，$f^\star_{FEs-1}$为当前历史最优适应度值，$f(\mathbf{x}_{FEs})$为候选解$\mathbf{x}_{FEs}$的真实适应度值。$c_{FEs}(a_{FEs})$表示策略特有的搜索贡献，其中$\mathcal{D}_{FEs}$为与第$FEs$次真实评估对应的种群多样性指标，用于刻画EDA对全局探索的促进作用；$\mathrm{EU}(\mathbf{x}_{FEs})$为QPSO生成候选解的可解释不确定性得分，$\mathrm{EU}_{\min}$与$\mathrm{EU}_{\max}$分别为当前候选集上该得分的最小值与最大值。$\lambda \in [0,1]$为奖励平衡系数，$\varepsilon_f$、$\varepsilon_d$与$\varepsilon_u$为防止分母为零的极小正数。
 
-价值更新采用指数近因加权平均，在兼顾历史表现的同时强调近期收益。当搜索进程停滞（连续多次迭代未发现优解）时，算法通过提高探索率尝试非贪心策略，以重新激活全局搜索。这种动态调节机制更适合复杂问题在不同搜索阶段的需求差异。
+策略价值估计采用指数近因加权平均进行更新，即
+\begin{equation}
+Q_{FEs+1}(a)=
+\begin{cases}
+(1-\beta)Q_{FEs}(a) + \beta r_{FEs}(a_{FEs}), & a=a_{FEs}, \\
+Q_{FEs}(a), & a \neq a_{FEs},
+\end{cases}
+\end{equation}
+其中，$Q_{FEs}(a)$表示第$FEs$次真实评估时策略$a$的价值估计，$\beta \in (0,1]$为指数近因加权平均的更新系数。较大的$\beta$使价值估计对近期反馈更加敏感，较小的$\beta$则保留更多历史经验。当搜索进程停滞（连续多次真实评估未发现优解）时，算法通过提高探索率尝试非贪心策略，以重新激活全局搜索。这种动态调节机制更适合复杂问题在不同搜索阶段的需求差异。
 
 图\ref{fig:bexea_MAB}展示了这一过程。算法通过“决策—评估—反馈”循环，逐步形成与当前搜索景观相匹配的策略偏好，在收敛效率与解质量之间实现协调。
 
