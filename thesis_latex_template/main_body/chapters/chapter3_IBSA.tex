@@ -173,11 +173,11 @@ IBSA的主要步骤如下：
 
 \textbf{步骤1~~初始化：}准备变量$X$、$OldX$、$BestFitness$、$PreBestFitness$、$BestX$、$map$、$s$和$flag$。
 
-\textbf{步骤2~~选择-I：}通过比较适应度的变化计算$s$，并根据$flag$决定是否更新历史种群。
+\textbf{步骤2~~选择I：}通过比较适应度的变化计算$s$，并根据$flag$决定是否更新历史种群。
 
 \textbf{步骤3~~变异和交叉：}根据$s$确定切换概率$p$，选择相应的变异策略，并更新$flag$。
 
-\textbf{步骤4~~选择-II：}根据适应度优劣迭代更新$X$，同步更新当前最优解$BestX$。
+\textbf{步骤4~~选择II：}根据适应度优劣迭代更新$X$，同步更新当前最优解$BestX$。
 
 上述过程循环执行，直至满足终止条件。IBSA算法流程如图\ref{fig:flowchart_IBSA}所示。
 
