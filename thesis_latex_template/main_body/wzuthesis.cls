@@ -165,7 +165,9 @@ BoldItalicFont = * Bold Italic
 \RequirePackage[font=footnotesize,tableposition=top]{caption} % 设置插图和表格标题字体和位置
 
 % 参考文献设置
-\RequirePackage[numbers,sort&compress,super]{natbib} % 设置参考文献格式（上标样式）
+\RequirePackage[numbers,sort&compress]{natbib} % 设置参考文献格式
+% 上标带中括号样式：[1] 右上角
+\bibpunct{[}{]}{,}{s}{}{,}
 
 % 设定时间为中文日期
 \ctexset{today=small}
