@@ -123,7 +123,7 @@ s+1, & \text{otherwise}
 \end{equation}
 \begin{equation}
 \label{ibsa_eq_11}
-p\ =\frac{sqrt\left(\frac{t}{Max\_FEs}\right)}{1\ +\ exp\left(-s\right)}
+p\ =\frac{sqrt\left(\frac{t}{MaxFEs}\right)}{1\ +\ exp\left(-s\right)}
 \end{equation}
 为了增强历史种群的导向性，改进后的$OldX$更新逻辑与当前搜索模式相联动。在全局交叉较为活跃的阶段，当前种群通常包含更丰富的空间信息，此时将其更新到历史库中，能够为变异方向提供更有效的参考。这一机制改变了BSA原有较为盲目的回溯方式，使历史信息的积累与搜索动态保持一致。
 \begin{equation}
@@ -143,8 +143,8 @@ flag=
 \label{ibsa_eq_14}
 m_i=
 \begin{cases}
-1, & rand>\left(\frac{t}{Max\_FEs}\right)\wedge 3\\
-unifrnd\left(-\frac{t}{Max\_FEs},\frac{t}{Max\_FEs}\right), & \text{otherwise}
+1, & rand>\left(\frac{t}{MaxFEs}\right)\wedge 3\\
+unifrnd\left(-\frac{t}{MaxFEs},\frac{t}{MaxFEs}\right), & \text{otherwise}
 \end{cases}
 \end{equation}
 通过对精英与非精英个体实施差异化控制，IBSA能够推动最优个体在当前优势区域进行更深入的挖掘。虽然这会增加算法逻辑的复杂度，但对高维优化问题而言，充分利用精英信息是必要的。变异算子与精英更新逻辑的调整如式\eqref{ibsa_eq_15}与式\eqref{ibsa_eq_16}所示。
