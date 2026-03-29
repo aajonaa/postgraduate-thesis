@@ -123,7 +123,7 @@ s+1, & \text{otherwise}
 \end{equation}
 \begin{equation}
 \label{ibsa_eq_11}
-p=\frac{\sqrt{\frac{t}{MaxFEs}}}{1+\exp\left(-s\right)}
+p=\frac{\sqrt{\frac{FEs}{MaxFEs}}}{1+\exp\left(-s\right)}
 \end{equation}
 为了增强历史种群的导向性，改进后的$OldX$更新逻辑与当前搜索模式相联动。在全局交叉较为活跃的阶段，当前种群通常包含更丰富的空间信息，此时将其更新到历史库中，能够为变异方向提供更有效的参考。这一机制改变了BSA原有较为盲目的回溯方式，使历史信息的积累与搜索动态保持一致。
 \begin{equation}
@@ -138,13 +138,13 @@ flag=
 0, & \text{otherwise}
 \end{cases}
 \end{equation}
-针对普通个体，本文引入了自适应扰动向量$m$。其扰动幅度会随迭代进程由大到小逐步收缩，从而使算法在前期保持较强的随机搜索能力以探索未知区域，在后期则更加聚焦于局部搜索，并在尽量保持多样性的前提下提升寻优精度。
+针对普通个体，本文引入了自适应扰动向量$m$。其扰动幅度会随函数评估次数由大到小逐步收缩，从而使算法在前期保持较强的随机搜索能力以探索未知区域，在后期则更加聚焦于局部搜索，并在尽量保持多样性的前提下提升寻优精度。
 \begin{equation}
 \label{ibsa_eq_14}
 m_i=
 \begin{cases}
-1, & \operatorname{rand}>\left(\frac{t}{MaxFEs}\right)\wedge 3\\
-\operatorname{unifrnd}\left(-\frac{t}{MaxFEs},\frac{t}{MaxFEs}\right), & \text{otherwise}
+1, & \operatorname{rand}>\left(\frac{FEs}{MaxFEs}\right)\wedge 3\\
+\operatorname{unifrnd}\left(-\frac{FEs}{MaxFEs},\frac{FEs}{MaxFEs}\right), & \text{otherwise}
 \end{cases}
 \end{equation}
 通过对精英与非精英个体实施差异化控制，IBSA能够推动最优个体在当前优势区域进行更深入的挖掘。虽然这会增加算法逻辑的复杂度，但对高维优化问题而言，充分利用精英信息是必要的。变异算子与精英更新逻辑的调整如式\eqref{ibsa_eq_15}与式\eqref{ibsa_eq_16}所示。
@@ -201,17 +201,17 @@ IBSA的主要步骤如下：
 V型函数将连续位置映射为翻转概率。若该概率表明翻转可能改善适应度，则执行翻转（公式\eqref{ibsa_eq_18}）；否则保持原值不变。这一机制使种群个体能够在二值空间的顶点之间有效搜索。
 \begin{equation}
 \label{ibsa_eq_17}
-V\left(X^j_i\left(t\right)\right)=\left|\frac{2}{\pi}*\arctan\left(\frac{\pi}{2}*X^j_i\left(t\right)\right)\right|
+V\left(X^j_i\left(FEs\right)\right)=\left|\frac{2}{\pi}*\arctan\left(\frac{\pi}{2}*X^j_i\left(FEs\right)\right)\right|
 \end{equation}
 \begin{equation}
 \label{ibsa_eq_18}
-X^j_i\left(t+1\right)=
+X^j_i\left(FEs+1\right)=
 \begin{cases}
-1, & r\ge V\left(P^j_i\left(t\right)\right)\\
-0, & r<V\left(P^j_i\left(t\right)\right)
+1, & r\ge V\left(P^j_i\left(FEs\right)\right)\\
+0, & r<V\left(P^j_i\left(FEs\right)\right)
 \end{cases}
 \end{equation}
-\noindent 其中，$X^j_i\left(t\right)$表示第$t$次迭代时第$i$个个体在第$j$维上的位置。
+\noindent 其中，$X^j_i\left(FEs\right)$表示函数评估次数为$FEs$时第$i$个个体在第$j$维上的位置，$X^j_i\left(FEs+1\right)$表示下一次函数评估后的对应状态。
 
 特征优化的过程本质上是在特征数量与分类精度之间寻求平衡。在剔除冗余特征、降低维度的同时，必须尽量保持模型的分类性能。这种对压缩率和准确率的双重要求，驱动着bIBSA不断调整其搜索方向。
 

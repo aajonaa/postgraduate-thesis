@@ -40,9 +40,9 @@ BEXEA包括初始化和主循环两个阶段。初始化阶段采用拉丁超立
 
 本章采用的$\epsilon$-贪心逻辑为：
 \begin{equation}
-a_t =
+a_{FEs} =
 \begin{cases}
-\argmax\limits_a Q_t(a) & \text{with probability } 1-\epsilon \\
+\argmax\limits_a Q_{FEs}(a) & \text{with probability } 1-\epsilon \\
 \text{random strategy} & \text{with probability } \epsilon
 \end{cases}
 \end{equation}

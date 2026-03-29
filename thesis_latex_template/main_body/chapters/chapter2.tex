@@ -35,26 +35,26 @@ Mutant = X + F \cdot (OldX - X)
 \subsection{探索与开发平衡性}
 \label{sec:ch2_balance_diversity}
 
-为定量分析算法在搜索过程中的动态行为，本文引入基于种群多样性的度量指标。维度多样性$\text{Div}(t)$定义为：
+为定量分析算法在搜索过程中的动态行为，本文引入基于种群多样性的度量指标。维度多样性$\text{Div}(FEs)$定义为：
 \begin{equation}
-\text{Div}(t)=\frac{1}{D}\sum^D_{j=1}{\frac{1}{N}\sum^N_{i=1}{\left|\operatorname{median}\left(X^j\left(t\right)\right)-X^j_i\left(t\right)\right|}}
+\text{Div}(FEs)=\frac{1}{D}\sum^D_{j=1}{\frac{1}{N}\sum^N_{i=1}{\left|\operatorname{median}\left(X^j\left(FEs\right)\right)-X^j_i\left(FEs\right)\right|}}
 \end{equation}
 
 在此基础上，探索率与开发率分别定义为：
 \begin{equation}
-\text{Exploration}=\frac{\text{Div}\left(t\right)}{\text{Div}_{\max}}\times 100\%
+\text{Exploration}=\frac{\text{Div}\left(FEs\right)}{\text{Div}_{\max}}\times 100\%
 \end{equation}
 \begin{equation}
-\text{Exploitation}=\frac{\left|\text{Div}\left(t\right)-\text{Div}_{\max}\right|}{\text{Div}_{\max}}\times 100\%
+\text{Exploitation}=\frac{\left|\text{Div}\left(FEs\right)-\text{Div}_{\max}\right|}{\text{Div}_{\max}}\times 100\%
 \end{equation}
-进一步地，基于种群质心的欧氏距离多样性$I_C(t)$为：
+进一步地，基于种群质心的欧氏距离多样性$I_C(FEs)$为：
 \begin{equation}
-I_C(t) = \sqrt{\sum^{N}_{i=1}{\sum^{D}_{j=1}{{\left(X^j_i\left(t\right)-C^j(t)\right)}^{2}}}}
+I_C(FEs) = \sqrt{\sum^{N}_{i=1}{\sum^{D}_{j=1}{{\left(X^j_i\left(FEs\right)-C^j(FEs)\right)}^{2}}}}
 \end{equation}
 \begin{equation}
-C^j(t) = \frac{1}{N}\sum^N_{i=1}{X^j_i\left(t\right)}
+C^j(FEs) = \frac{1}{N}\sum^N_{i=1}{X^j_i\left(FEs\right)}
 \end{equation}
-$I_C(t)$越大，说明种群整体分散程度越高，算法更偏向于探索；$I_C(t)$较小时，种群逐渐聚集，算法则更偏向于开发。理想的寻优过程通常要求算法在前期保持较强的种群多样性，并在后期逐步向极值点收敛。后续章节将利用上述指标量化评估算法的动态搜索行为。
+$I_C(FEs)$越大，说明种群整体分散程度越高，算法更偏向于探索；$I_C(FEs)$较小时，种群逐渐聚集，算法则更偏向于开发。理想的寻优过程通常要求算法在前期保持较强的种群多样性，并在后期逐步向极值点收敛。后续章节将利用上述指标量化评估算法的动态搜索行为。
 
 \section{特征选择与图像分割问题简介}
 
@@ -122,11 +122,11 @@ Kriging模型（高斯过程模型）\cite{buche2005accelerating,liu2013gaussian
 
 多臂赌博机（MAB）问题描述了决策者如何在多个候选动作之间权衡已知高收益选择与未知探索\cite{slivkins2019introduction}，其核心在于处理探索与开发的平衡。在优化算法中，可以将不同搜索算子视为不同的臂，并根据环境反馈自适应调整选择概率\cite{xie2023surrogate,gong2024surrogate}。
 
-上置信界（UCB）策略是解决MAB问题的经典方法之一\cite{auer2002finite}，其在第$t$轮选择具有最高上置信界的臂：
+上置信界（UCB）策略是解决MAB问题的经典方法之一\cite{auer2002finite}，其在函数评估次数为$FEs$时选择具有最高上置信界的臂：
 \begin{equation}
-a_t = \argmax_{a} \left[ Q_t(a) + c \sqrt{\frac{\ln t}{N_t(a)}} \right]
+a_{FEs} = \argmax_{a} \left[ Q_{FEs}(a) + c \sqrt{\frac{\ln FEs}{N_{FEs}(a)}} \right]
 \end{equation}
-其中，$Q_t(a)$为臂$a$的估计收益均值，$N_t(a)$为臂$a$被选择的次数，$c$为探索系数。UCB策略的关键在于：$Q_t(a)$鼓励选择历史表现较好的臂，而探索项$c \sqrt{\ln t / N_t(a)}$则鼓励尝试被选次数较少的臂。第五章将在此基础上构建赌博机驱动的自适应搜索机制，通过将异构搜索模式映射为不同的臂，实现搜索策略的动态分配。
+其中，$Q_{FEs}(a)$为臂$a$的估计收益均值，$N_{FEs}(a)$为臂$a$被选择的次数，$c$为探索系数。UCB策略的关键在于：$Q_{FEs}(a)$鼓励选择历史表现较好的臂，而探索项$c \sqrt{\ln FEs / N_{FEs}(a)}$则鼓励尝试被选次数较少的臂。第五章将在此基础上构建赌博机驱动的自适应搜索机制，通过将异构搜索模式映射为不同的臂，实现搜索策略的动态分配。
 
 \section{基准测试与统计检验}
 
