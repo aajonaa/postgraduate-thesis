@@ -78,7 +78,7 @@ Mutant = X + F \cdot \left(OldX - X\right)
 \textbf{（4）交叉：}交叉阶段通过二值映射矩阵$map$控制试验种群$T$的生成。$map$按概率选择全局交叉（公式\eqref{ibsa_eq_6}）或局部交叉（公式\eqref{ibsa_eq_7}），最终由公式\eqref{ibsa_eq_8}从$Mutant$和$X$中组合生成$T$。
 \begin{equation}
 \label{ibsa_eq_6}
-map_{i,\,u\left(1:\left\lceil M \cdot \operatorname{rand} \cdot D\right\rceil \right)} = 1 \mid u=\operatorname{permuting}\left(1,2,3,\dots,D\right),\ \operatorname{rand}\in \left(0,1\right)
+map_{i,u\left(1:\left\lceil M \cdot \operatorname{rand} \cdot D\right\rceil \right)} = 1 \mid u=\operatorname{permuting}\left(1,2,3,\dots,D\right),\ \operatorname{rand}\in \left(0,1\right)
 \end{equation}
 \begin{equation}
 \label{ibsa_eq_7}
