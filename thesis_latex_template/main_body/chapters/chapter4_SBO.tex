@@ -110,7 +110,7 @@ w_4\times \left(\left(1-w_1-w_2\right)\times x_i+w_1\times x^e_r+w_2\times x_b\r
 参数$w_3$用于动态平衡探索与开发。其计算方式如下：
 \begin{equation}
 \label{sbo_eq_5}
-w_3={\mathrm{tanh} \left({\left(\frac{\sqrt{\left|MaxFEs-randn\times FEs\right|}}{i}\right)}^{\frac{FEs}{MaxFEs}}\right)\ }
+w_3=\tanh\left({\left(\frac{\sqrt{\left|MaxFEs-randn\times FEs\right|}}{i}\right)}^{\frac{FEs}{MaxFEs}}\right)
 \end{equation}
 当$rand\ge w_3$时，算法采用由因子$w_4$控制的随机步长，从而增强跳出局部最优的能力。
 \begin{equation}

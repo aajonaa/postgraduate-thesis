@@ -123,7 +123,7 @@ s+1, & \text{otherwise}
 \end{equation}
 \begin{equation}
 \label{ibsa_eq_11}
-p\ =\frac{sqrt\left(\frac{t}{MaxFEs}\right)}{1\ +\ exp\left(-s\right)}
+p=\frac{\sqrt{\frac{t}{MaxFEs}}}{1+\exp\left(-s\right)}
 \end{equation}
 为了增强历史种群的导向性，改进后的$OldX$更新逻辑与当前搜索模式相联动。在全局交叉较为活跃的阶段，当前种群通常包含更丰富的空间信息，此时将其更新到历史库中，能够为变异方向提供更有效的参考。这一机制改变了BSA原有较为盲目的回溯方式，使历史信息的积累与搜索动态保持一致。
 \begin{equation}
@@ -201,7 +201,7 @@ IBSA的主要步骤如下：
 V型函数将连续位置映射为翻转概率。若该概率表明翻转可能改善适应度，则执行翻转（公式\eqref{ibsa_eq_18}）；否则保持原值不变。这一机制使种群个体能够在二值空间的顶点之间有效搜索。
 \begin{equation}
 \label{ibsa_eq_17}
-V\left(X^j_i\left(t\right)\right)=\left|\frac{2}{\pi}*\mathrm{atan}\mathrm{}\left(\frac{\pi}{2}*X^j_i\left(t\right)\right)\right|
+V\left(X^j_i\left(t\right)\right)=\left|\frac{2}{\pi}*\arctan\left(\frac{\pi}{2}*X^j_i\left(t\right)\right)\right|
 \end{equation}
 \begin{equation}
 \label{ibsa_eq_18}
