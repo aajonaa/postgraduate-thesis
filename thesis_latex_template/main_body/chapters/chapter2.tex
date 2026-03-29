@@ -16,7 +16,7 @@ v_i^{t+1} = \omega v_i^t + c_1 r_1 (pbest_i - x_i^t) + c_2 r_2 (gbest - x_i^t)
 \begin{equation}
 x_i^{t+1} = x_i^t + v_i^{t+1}
 \end{equation}
-其中，$\omega$为惯性权重，$c_1$和$c_2$为学习因子，$r_1$和$r_2$为$[0,1]$上的随机数，$pbest_i$和$gbest$分别表示个体历史最优位置与群体全局最优位置。由于机理清晰、实现简便，PSO已广泛用于函数优化、神经网络训练和组合优化等领域。除PSO外，灰狼优化算法（GWO）\cite{ibsa_ref81}通过模拟灰狼的等级结构和围捕行为开展群体搜索，蚁群优化算法（ACO）\cite{ibsa_ref25}借助信息素沉积机制求解离散优化问题，人工蜂群算法（ABC）\cite{ibsa_ref27}则通过模拟蜜蜂觅食实现全局寻优。这些方法通过不同的信息传递与反馈机制，共同构成了群体智能搜索的基本方法体系。
+其中，$\omega$为惯性权重，$c_1$和$c_2$为学习因子，$r_1$和$r_2$为$[0,1]$上的随机数，$pbest_i$和$gbest$分别表示个体历史最优位置与群体全局最优位置。由于机理清晰、实现简便，PSO已广泛用于函数优化、神经网络训练等连续优化相关任务；经过适当的离散化或编码设计后，也可用于部分组合优化问题。除PSO外，灰狼优化算法（GWO）\cite{ibsa_ref81}通过模拟灰狼的等级结构和围捕行为开展群体搜索，蚁群优化算法（ACO）\cite{ibsa_ref25}借助信息素沉积机制求解离散优化问题，人工蜂群算法（ABC）\cite{ibsa_ref27}则通过模拟蜜蜂觅食实现全局寻优。这些方法通过不同的信息传递与反馈机制，共同构成了群体智能搜索的基本方法体系。
 
 与模拟群体行为的方法不同，进化算法更侧重于对遗传变异规律的工程模拟\cite{sbo_ref11}。差分进化（DE）\cite{ibsa_ref34}结构简洁，在实值优化任务中表现稳定，已成为代理辅助优化中的常用搜索工具。常用的DE/rand/1变异策略通过向量差分驱动搜索：
 \begin{equation}
@@ -97,7 +97,7 @@ T(x) = \left| \operatorname{erf}\left(\frac{\sqrt{\pi}}{2} x\right) \right|
 \begin{equation}
 \mathcal{F} = \boldsymbol{\Psi} \mathcal{W}
 \end{equation}
-其中$\boldsymbol{\Psi}_{ij} = \phi(\|x_i - x_j\|)$。由于训练速度快，且对高维非线性分布具有较好的拟合能力\cite{kudela2022recent}，RBF被选作第五章中的基础代理模型。
+其中$\boldsymbol{\Psi}_{ij} = \phi(\|x_i - x_j\|)$。在实际应用中，RBF常用的基函数包括多二次、反多二次、高斯和薄板样条等形式，不同基函数会影响模型的平滑性、插值精度与外推能力\cite{forrester2008engineering,kudela2022recent}。由于训练速度快，且对高维非线性分布具有较好的拟合能力\cite{kudela2022recent}，RBF被选作第五章中的基础代理模型。
 
 图\ref{fig:ch2_RBF_prediction}展示了利用六个均匀分布样本对一维函数进行RBF近似的结果\cite{forrester2008engineering}。其中，白色圆圈表示样本点，黑色实线代表真实目标函数曲线，红色虚线代表RBF预测函数。从图中可以看出，RBF模型能够在样本点处实现精确插值，并在样本点之间给出平滑近似。
 
@@ -108,7 +108,7 @@ T(x) = \left| \operatorname{erf}\left(\frac{\sqrt{\pi}}{2} x\right) \right|
     \label{fig:ch2_RBF_prediction}
 \end{figure}
 
-Kriging模型（高斯过程模型）\cite{buche2005accelerating,liu2013gaussian}除给出预测值外，还能提供不确定性估计，因此常与采样决策结合使用。为从候选解中筛选最值得进行真实评估的样本，通常需要引入采样准则\cite{zhan2020expected}。期望改进（EI）\cite{jones1998efficient}定义为：
+Kriging模型（高斯过程模型）\cite{buche2005accelerating,liu2013gaussian}除给出预测值外，还能提供不确定性估计，因此常与采样决策结合使用。该模型通常通过选择高斯、指数或Mat\'ern等相关函数刻画样本间的空间关联，并结合似然估计确定相应超参数；其详细推导与参数求解过程可参见相关文献\cite{buche2005accelerating,liu2013gaussian,forrester2008engineering}。为从候选解中筛选最值得进行真实评估的样本，通常需要引入采样准则\cite{zhan2020expected}。期望改进（EI）\cite{jones1998efficient}定义为：
 \begin{equation}
 EI(x) = (f_{min} - \hat{f}(x)) \Phi\left(\frac{f_{min} - \hat{f}(x)}{s(x)}\right) + s(x) \phi\left(\frac{f_{min} - \hat{f}(x)}{s(x)}\right)
 \end{equation}
