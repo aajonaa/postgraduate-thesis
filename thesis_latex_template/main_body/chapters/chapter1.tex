@@ -17,7 +17,7 @@
 
 \subsection{元启发式优化算法研究现状}
 
-元启发式算法在复杂优化问题求解中具有独特优势，其设计灵感主要源于对自然界生物行为或物理规律的抽象。按照机制差异，可将其大致划分为生物启发类算法（如PSO\cite{ibsa_ref26}、GWO\cite{ibsa_ref81}）、进化计算类算法（如GA\cite{ibsa_ref33}、DE\cite{ibsa_ref34}）、物理化学过程模拟类算法（如SA\cite{ibsa_ref29}、EO\cite{ibsa_ref32}）以及人类行为模仿类算法（如TLBO\cite{ibsa_ref37}、BSO\cite{ibsa_ref40}）。近年来，HHO\cite{ibsa_ref83}、SCA\cite{ibsa_ref31}和RIME\cite{sbo_ref49}等新型算法相继提出，进一步拓展了元启发式算法的研究范围。
+元启发式算法在复杂优化问题求解中具有独特优势，其设计灵感主要源于对自然界生物行为或物理规律的抽象。按照机制差异，可将其大致划分为生物启发类算法（如粒子群优化算法（Particle Swarm Optimization, PSO）\cite{ibsa_ref26}、灰狼优化器（Grey Wolf Optimizer, GWO）\cite{ibsa_ref81}）、进化计算类算法（如遗传算法（Genetic Algorithm, GA）\cite{ibsa_ref33}、差分进化算法（Differential Evolution, DE）\cite{ibsa_ref34}）、物理化学过程模拟类算法（如模拟退火算法（Simulated Annealing, SA）\cite{ibsa_ref29}、均衡优化器（Equilibrium Optimizer, EO）\cite{ibsa_ref32}）以及人类行为模仿类算法（如基于教学的优化算法（Teaching-Learning-Based Optimization, TLBO）\cite{ibsa_ref37}、头脑风暴优化算法（Brain Storm Optimization, BSO）\cite{ibsa_ref40}）。近年来，哈里斯鹰优化算法（Harris Hawks Optimizer, HHO）\cite{ibsa_ref83}、正弦余弦算法（Sine Cosine Algorithm, SCA）\cite{ibsa_ref31}和冰凌优化算法（Rime Optimization Algorithm, RIME）\cite{sbo_ref49}等新型算法相继提出，进一步拓展了元启发式算法的研究范围。
 
 现有改进研究主要围绕自适应参数控制、异构策略融合和种群多样性维持展开，目标在于提升算法的收敛速度与跨场景稳定性。Li等人\cite{ibsa_ref76}通过多策略增强提高了北苍鹰算法的工程应用性能；Nadimi-Shahraki等人\cite{ibsa_ref88}对灰狼优化器进行了机制改进，增强了其求解复杂约束问题的能力；Nenavath与Jatoth\cite{ibsa_ref87}则通过融合正弦余弦算子与差分变异，提升了算法的全局优化性能。针对BSA算法，Zhao等人\cite{ibsa_ref57}引入种群控制因子以增强搜索精度，Chen等人\cite{ibsa_ref63}则利用知识学习机制改善了其演化效率。
 
@@ -56,7 +56,7 @@
   \label{fig:overall-framework}
 \end{figure}
 
-本文围绕复杂任务中的共性瓶颈，沿三条相互支撑的研究路径展开：针对特征选择中的平衡性问题，提出IBSA及其离散变体bIBSA；针对图像分割中的策略协调问题，构建状态驱动的SBO算法；针对昂贵优化中的样本效率问题，提出赌博机驱动的BEXEA框架。各核心章节均按照“算法建模—基准测评—工程验证”的思路展开，从而使全文的论证逻辑更为连贯。
+本文围绕复杂任务中的共性瓶颈，沿三条相互支撑的研究路径展开：针对特征选择中的平衡性问题，提出基于精英引导变异策略的改进回溯搜索算法（Improved Backtracking Search Algorithm, IBSA）及其离散变体二值改进回溯搜索算法（Binary Improved BSA, bIBSA）；针对图像分割中的策略协调问题，构建基于状态的优化算法（Status-Based Optimization, SBO）；针对昂贵优化中的样本效率问题，提出赌博机驱动的可解释代理辅助进化算法（Bandit-driven Explainable Surrogate-assisted Evolutionary Algorithm, BEXEA）框架。各核心章节均按照“算法建模—基准测评—工程验证”的思路展开，从而使全文的论证逻辑更为连贯。
 
 从全文结构看，各章节并非简单并列展开，而是遵循“既有框架优化—全新机制探索—复杂场景扩展”的递进逻辑。第三章围绕BSA框架中的精英信息利用问题展开，验证改进策略在连续优化和特征选择中的适用性；第四章面向复杂连续域中的策略协调问题，提出新的SBO算法并分析其状态驱动机制；第五章则进一步扩展至昂贵优化场景，在前述搜索思想的基础上引入代理模型和赌博机决策，形成适用于极低评估预算的BEXEA方法。
 
