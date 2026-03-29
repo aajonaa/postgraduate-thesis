@@ -101,8 +101,8 @@ x^2_i, & \text{otherwise}
 \label{sbo_eq_4}
 x_{i'}=
 \begin{cases}
-\left(1-w_1-w_2\right)\times x_i+w_1\times x^e_r+w_2\times x_b, & \operatorname{rand}<w_3\\
-w_4\times \left(\left(1-w_1-w_2\right)\times x_i+w_1\times x^e_r+w_2\times x_b\right), & \text{otherwise}
+\left(1-w_1-w_2\right)\cdot x_i+w_1\cdot x^e_r+w_2\cdot x_b, & \operatorname{rand}<w_3\\
+w_4\cdot \left(\left(1-w_1-w_2\right)\cdot x_i+w_1\cdot x^e_r+w_2\cdot x_b\right), & \text{otherwise}
 \end{cases}
 \end{equation}
 权重参数$w_1$和$w_2$由$\operatorname{randn}$生成，用于引入必要的随机性以维持种群多样性。
@@ -110,7 +110,7 @@ w_4\times \left(\left(1-w_1-w_2\right)\times x_i+w_1\times x^e_r+w_2\times x_b\r
 参数$w_3$用于动态平衡探索与开发。其计算方式如下：
 \begin{equation}
 \label{sbo_eq_5}
-w_3=\tanh\left({\left(\frac{\sqrt{\left|MaxFEs-\operatorname{randn}\times FEs\right|}}{i}\right)}^{\frac{FEs}{MaxFEs}}\right)
+w_3=\tanh\left({\left(\frac{\sqrt{\left|MaxFEs-\operatorname{randn}\cdot FEs\right|}}{i}\right)}^{\frac{FEs}{MaxFEs}}\right)
 \end{equation}
 当$\operatorname{rand}\ge w_3$时，算法采用由因子$w_4$控制的随机步长，从而增强跳出局部最优的能力。
 \begin{equation}
