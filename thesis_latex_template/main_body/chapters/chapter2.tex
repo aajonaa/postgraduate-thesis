@@ -110,11 +110,11 @@ T(x) = \left| \operatorname{erf}\left(\frac{\sqrt{\pi}}{2} x\right) \right|
 
 Kriging模型（高斯过程模型）\cite{buche2005accelerating,liu2013gaussian}除给出预测值外，还能提供不确定性估计，因此常与采样决策结合使用。该模型通常通过选择高斯、指数或Mat\'ern等相关函数刻画样本间的空间关联，并结合似然估计确定相应超参数；其详细推导与参数求解过程可参见相关文献\cite{buche2005accelerating,liu2013gaussian,forrester2008engineering}。为从候选解中筛选最值得进行真实评估的样本，通常需要引入采样准则\cite{zhan2020expected}。期望改进（EI）\cite{jones1998efficient}定义为：
 \begin{equation}
-EI(x) = (f_{min} - \hat{f}(x)) \Phi\left(\frac{f_{min} - \hat{f}(x)}{s(x)}\right) + s(x) \phi\left(\frac{f_{min} - \hat{f}(x)}{s(x)}\right)
+\operatorname{EI}(x) = (f_{min} - \hat{f}(x)) \Phi\left(\frac{f_{min} - \hat{f}(x)}{s(x)}\right) + s(x) \phi\left(\frac{f_{min} - \hat{f}(x)}{s(x)}\right)
 \end{equation}
 其中，$f_{min}$为当前最优值，$\hat{f}(x)$和$s(x)$分别为代理模型的预测均值和标准差，$\Phi$和$\phi$分别为标准正态分布的累积分布函数和概率密度函数。置信下界（LCB）则定义为：
 \begin{equation}
-LCB(x) = \hat{f}(x) - \kappa \cdot s(x)
+\operatorname{LCB}(x) = \hat{f}(x) - \kappa \cdot s(x)
 \end{equation}
 其中，$\kappa$越大，策略越倾向于探索。EI和LCB都体现了对探索与开发的综合权衡，使代理辅助优化能够在有限评估预算下做出更合理的采样决策。
 
