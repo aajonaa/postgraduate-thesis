@@ -35,7 +35,7 @@ Mutant = X + F \cdot (OldX - X)
 \subsection{探索与开发平衡性}
 \label{sec:ch2_balance_diversity}
 
-为定量分析算法在搜索过程中的动态行为，本文引入基于种群多样性的度量指标。维度多样性$\text{Div}(FEs)$定义为：
+为定量分析算法在搜索过程中的动态行为，本文引入基于种群多样性的度量指标。其中，$FEs$表示函数评估次数，维度多样性$\text{Div}(FEs)$定义为：
 \begin{equation}
 \text{Div}(FEs)=\frac{1}{D}\sum^D_{j=1}{\frac{1}{N}\sum^N_{i=1}{\left|\operatorname{median}\left(X^j\left(FEs\right)\right)-X^j_i\left(FEs\right)\right|}}
 \end{equation}
@@ -54,7 +54,7 @@ I_C(FEs) = \sqrt{\sum^{N}_{i=1}{\sum^{D}_{j=1}{{\left(X^j_i\left(FEs\right)-C^j(
 \begin{equation}
 C^j(FEs) = \frac{1}{N}\sum^N_{i=1}{X^j_i\left(FEs\right)}
 \end{equation}
-$I_C(FEs)$越大，说明种群整体分散程度越高，算法更偏向于探索；$I_C(FEs)$较小时，种群逐渐聚集，算法则更偏向于开发。理想的寻优过程通常要求算法在前期保持较强的种群多样性，并在后期逐步向极值点收敛。后续章节将利用上述指标量化评估算法的动态搜索行为。
+$I_C(FEs)$越大，说明种群整体分散程度越高，算法更偏向于探索；$I_C(FEs)$较小时，种群逐渐聚集，算法则更偏向于开发。其中，$\text{Div}_{\max}$表示维度多样性的最大值。理想的寻优过程通常要求算法在前期保持较强的种群多样性，并在后期逐步向极值点收敛。后续章节将利用上述指标量化评估算法的动态搜索行为。
 
 \section{特征选择与图像分割问题简介}
 
