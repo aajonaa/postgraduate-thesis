@@ -233,7 +233,7 @@ Ranking & 7.6 & 3.9 & 1.8 & \textbf{1.3} \\
 \end{table}
 
 
-\noindent \textbf{核心机制解构}
+\noindent 核心机制解构
 
 消融实验验证了自适应搜索机制的必要性。表\ref{t:bexea_MAB_Table}显示，BEXEA的整体性能优于各单一策略版本。由此可见，MAB驱动的灵活切换机制是算法适应不同搜索景观并在多阶段维持较好性能的关键因素。
 
@@ -296,7 +296,7 @@ Ranking & 3.8                         & 2.3                         & 2.2       
 \end{table}
 
 
-\noindent \textbf{参数敏感性}
+\noindent 参数敏感性
 
 超参数$\beta$与$\mathcal{K}$的设置对算法稳定性具有重要影响。衰减因子决定策略更新对近期搜索表现的敏感程度，而近邻数则直接影响局部不确定性的估计精度。图\ref{fig:bexea_Beta}与图\ref{fig:bexea_K}展示了不同参数设置下的性能比较。综合权衡收敛速度与求解精度后，本文采用的参数配置在多数测试中表现较为均衡。
 
