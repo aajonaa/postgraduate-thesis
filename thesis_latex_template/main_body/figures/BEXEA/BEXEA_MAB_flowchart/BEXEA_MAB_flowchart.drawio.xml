@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36 Edg/146.0.0.0" version="29.6.6">
+  <diagram name="Page-1" id="_IQ4Lpzq3JAd5EjpT3Fw">
+    <mxGraphModel dx="1418" dy="760" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="1" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=default;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="600" width="680" x="150" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0ccff;strokeColor=#8800aa;fontSize=15;sketch=1;curveFitting=1;jiggle=2;fontFamily=Garamond;opacity=50;flipH=1;" value="Compute \(\text{EU}(\boldsymbol{x}\))&lt;br&gt;\(r_t=r_\text{imm}+\alpha \cdot \text{EU}(\boldsymbol{x})\)" vertex="1">
+          <mxGeometry height="50" width="180" x="620" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d0e0ff;strokeColor=#0055aa;fontSize=15;sketch=1;curveFitting=1;jiggle=2;gradientColor=none;fillStyle=hachure;fontFamily=Garamond;opacity=50;" value="Initialization&lt;br&gt;\(Q(a) = 0\) for all strategies&lt;br&gt;Set \(\epsilon\), stagnation count = 0" vertex="1">
+          <mxGeometry height="60" width="200" x="380" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fillColor=#ffccaa;strokeColor=#aa5500;fontSize=15;sketch=1;curveFitting=1;jiggle=2;fontFamily=Garamond;opacity=50;" value="Stagnation count ≥ \(\mathcal{S}\)?" vertex="1">
+          <mxGeometry height="50" width="150" x="405" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0ffcc;strokeColor=#55aa00;fontSize=15;sketch=1;curveFitting=1;jiggle=2;fontFamily=Garamond;opacity=50;" value="\(\epsilon\)-greedy selection:&lt;br&gt;\(\arg\max{Q(a)}\) or random" vertex="1">
+          <mxGeometry height="50" width="180" x="165" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe0cc;strokeColor=#aa5500;fontSize=15;sketch=1;curveFitting=1;jiggle=2;fontFamily=Garamond;opacity=50;flipH=1;" value="Increase \(\epsilon\)&amp;nbsp;= min(\(\epsilon\)×1.1, 0.3)&lt;br&gt;Select random strategy" vertex="1">
+          <mxGeometry height="50" width="180" x="620" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ccf5ff;strokeColor=#0088aa;fontSize=15;sketch=1;curveFitting=1;jiggle=2;fontFamily=Garamond;opacity=50;" value="Apply Strategy:&lt;br&gt;Generate new solution \(\boldsymbol{x}\)" vertex="1">
+          <mxGeometry height="50" width="200" x="380" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1f7c4;strokeColor=#118a4d;fontSize=15;sketch=1;curveFitting=1;jiggle=2;fontFamily=Garamond;opacity=50;" value="Evaluate fitness \(f(\boldsymbol{x})\)&lt;br&gt;Compute immediate reward" vertex="1">
+          <mxGeometry height="50" width="200" x="380" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff0cc;strokeColor=#aa8800;fontSize=15;sketch=1;curveFitting=1;jiggle=2;fontFamily=Garamond;opacity=50;" value="Compute \(\mathcal{D}iv\)&lt;br&gt;\(r_t=r_\text{imm}+\alpha \cdot \frac{\mathcal{D}iv}{d} \)" vertex="1">
+          <mxGeometry height="50" width="170" x="170" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#aa0055;fontSize=15;shadow=0;sketch=1;curveFitting=1;jiggle=2;fontFamily=Garamond;opacity=50;" value="Update strategy value:&lt;br&gt;\(\text{Q}_{t+1}(a_t)=(1-\beta)\cdot\text{Q}_t(a_t)\)&lt;br&gt;Update stagnation count" vertex="1">
+          <mxGeometry height="60" width="200" x="380" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="12" parent="1" style="text;html=1;fontSize=15;fontColor=#000000;align=center;verticalAlign=middle;fontFamily=Garamond;" value="Next Iteration" vertex="1">
+          <mxGeometry height="30" width="100" x="640" y="655" as="geometry" />
+        </mxCell>
+        <mxCell id="13" edge="1" parent="1" source="4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0055aa;exitX=0.5;exitY=1;entryX=0.5;entryY=0;fontFamily=Garamond;fontSize=15;" target="5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="14" edge="1" parent="1" source="5" style="edgeStyle=elbowEdgeStyle;rounded=0;strokeColor=#aa5500;html=1;fontFamily=Garamond;fontSize=15;" target="7" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="15" edge="1" parent="1" source="5" style="edgeStyle=elbowEdgeStyle;rounded=0;strokeColor=#aa5500;html=1;fontFamily=Garamond;fontSize=15;" target="6" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="16" edge="1" parent="1" source="6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#55aa00;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontFamily=Garamond;fontSize=15;" target="8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="255" y="375" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="17" edge="1" parent="1" source="7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#aa5500;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontFamily=Garamond;fontSize=15;" target="8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="710" y="375" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="18" edge="1" parent="1" source="8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#0088aa;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Garamond;fontSize=15;" target="9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="19" edge="1" parent="1" source="9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#118a4d;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontFamily=Garamond;fontSize=15;" target="26">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="515" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="20" edge="1" parent="1" source="26" style="edgeStyle=elbowEdgeStyle;rounded=0;strokeColor=#aa5500;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Garamond;fontSize=15;" target="10" value="EDA">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="430" y="555" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="21" edge="1" parent="1" source="26" style="edgeStyle=elbowEdgeStyle;rounded=0;strokeColor=#aa5500;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Garamond;fontSize=15;" target="3" value="QPSO">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+            <mxPoint x="530" y="555" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="22" edge="1" parent="1" source="10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#aa8800;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Garamond;fontSize=15;" target="11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="255" y="670" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="23" edge="1" parent="1" source="3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#8800aa;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Garamond;fontSize=15;" target="11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="710" y="610" />
+              <mxPoint x="480" y="610" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="24" edge="1" parent="1" source="11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;strokeColor=#aa0055;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Garamond;fontSize=15;" target="12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="25" edge="1" parent="1" source="12" style="edgeStyle=elbowEdgeStyle;rounded=0;strokeColor=#aa0055;html=1;fontFamily=Garamond;fontSize=15;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="810" y="450" />
+            </Array>
+            <mxPoint x="480" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="26" parent="1" style="shape=rhombus;whiteSpace=wrap;html=1;fillColor=#ffccaa;strokeColor=#aa5500;fontSize=15;sketch=1;curveFitting=1;jiggle=2;fontFamily=Garamond;opacity=50;" value="Which strategy?" vertex="1">
+          <mxGeometry height="50" width="150" x="405" y="530" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

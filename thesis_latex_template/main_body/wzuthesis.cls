@@ -166,6 +166,8 @@ BoldItalicFont = * Bold Italic
 
 % 参考文献设置
 \RequirePackage[numbers,sort&compress]{natbib} % 设置参考文献格式
+% 上标带中括号样式：[1] 右上角
+\bibpunct{[}{]}{,}{s}{}{,}
 
 % 设定时间为中文日期
 \ctexset{today=small}
@@ -209,7 +211,7 @@ BoldItalicFont = * Bold Italic
 \fancypagestyle{main}{
     \fancyhf{}
     \ifdefined\blind
-        \fancyhead[c]{\zihao{5}\songti XXX硕士学位论文}
+        \fancyhead[c]{\zihao{5}\songti 硕士学位论文}
     \else
         \fancyhead[c]{\zihao{5}\songti 温州大学硕士学位论文}
     \fi
@@ -277,7 +279,7 @@ BoldItalicFont = * Bold Italic
 %\setlength\heavyrulewidth{0.2em} % 表格线宽
 % F19 图题表题 宋体五号
 \DeclareCaptionFormat{scutcaption}{\fontsize{10.5}{10.5}\selectfont#1#2#3}
-\captionsetup{format=scutcaption}
+\captionsetup{format=scutcaption,justification=centering}
 \DeclareCaptionLabelFormat{opening}{#2)}
 \subcaptionsetup[figure]{labelformat=opening}
 
@@ -548,7 +550,7 @@ BoldItalicFont = * Bold Italic
           nameformat = {\zihao{4}\heiti},
           titleformat = {\zihao{4}\heiti},
           beforeskip = {0.5\baselineskip},
-          afterskip = {0.5\baselineskip plus 0.3\baselineskip minus 0.3\baselineskip},
+          afterskip = {0.5\baselineskip},
          },
         subsection = {
                 format = {\zihao{4}\heiti},
@@ -556,7 +558,7 @@ BoldItalicFont = * Bold Italic
                 nameformat = {\zihao{4}\heiti},
                 titleformat = {\zihao{4}\heiti},
                 beforeskip = {0.5\baselineskip},
-                afterskip = {0.5\baselineskip plus 0.1\baselineskip minus 0.1\baselineskip},
+                afterskip = {0.5\baselineskip},
             },
         subsubsection = {
                 fixskip = true,
@@ -565,10 +567,16 @@ BoldItalicFont = * Bold Italic
                 nameformat = {\zihao{-4}\heiti},
                 titleformat = {\zihao{-4}\heiti},
                 beforeskip = {0.5\baselineskip},
-                afterskip = {0.5\baselineskip plus 0.1\baselineskip minus 0.1\baselineskip},
+                afterskip = {0.5\baselineskip},
             }
     }
     \zihao{-4}\songti \linespread{1.2}\selectfont
+    \raggedbottom
+    % 缩减公式前后间距，使行文更紧凑
+    \setlength{\abovedisplayskip}{6pt plus 2pt minus 2pt}
+    \setlength{\belowdisplayskip}{6pt plus 2pt minus 2pt}
+    \setlength{\abovedisplayshortskip}{2pt plus 1pt}
+    \setlength{\belowdisplayshortskip}{4pt plus 2pt minus 1pt}
     %\pagestyle{plain}
     \mainpagestyle
 }
@@ -592,7 +600,7 @@ BoldItalicFont = * Bold Italic
           nameformat = {\zihao{4}\heiti},
           titleformat = {\zihao{4}\heiti},
           beforeskip = {0.5\baselineskip},
-          afterskip = {0.5\baselineskip plus 0.3\baselineskip minus 0.3\baselineskip},
+          afterskip = {0.5\baselineskip},
          },
         subsection = {
                 format = {\zihao{4}\heiti},
@@ -600,7 +608,7 @@ BoldItalicFont = * Bold Italic
                 nameformat = {\zihao{4}\heiti},
                 titleformat = {\zihao{4}\heiti},
                 beforeskip = {0.5\baselineskip},
-                afterskip = {0.5\baselineskip plus 0.1\baselineskip minus 0.1\baselineskip},
+                afterskip = {0.5\baselineskip},
             },
         subsubsection = {
                 fixskip = true,
@@ -609,7 +617,7 @@ BoldItalicFont = * Bold Italic
                 nameformat = {\zihao{-4}\heiti},
                 titleformat = {\zihao{-4}\heiti},
                 beforeskip = {0.5\baselineskip},
-                afterskip = {0.5\baselineskip plus 0.1\baselineskip minus 0.1\baselineskip},
+                afterskip = {0.5\baselineskip},
             }
     }
     \zihao{-4}\songti \linespread{1.2}\selectfont
@@ -670,7 +678,7 @@ BoldItalicFont = * Bold Italic
 
 % 设置公式的编号为短杠形式
 \renewcommand\theequation{%
-    公式\thechapter-\arabic{equation}}
+    \thechapter-\arabic{equation}}
 % 设置图, 表的编号为短杠形式
 \renewcommand\thefigure{\arabic{chapter}-\arabic{figure}}
 \renewcommand\thetable{\arabic{chapter}-\arabic{table}}

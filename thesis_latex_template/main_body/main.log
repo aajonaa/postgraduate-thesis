@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  5 MAR 2026 15:09
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  24 MAY 2026 05:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1384,43 +1384,6 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/algorithms\algorithm.st
-y
-Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
-Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
-nment
-\@float@every@algorithm=\toks46
-\c@algorithm=\count428
-)
-(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/algorithmicx\algpseudoc
-ode.sty
-Package: algpseudocode 
-
-(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/algorithmicx\algorithmi
-cx.sty
-Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
-
-Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count429
-\c@ALG@rem=\count430
-\c@ALG@nested=\count431
-\ALG@tlm=\skip140
-\ALG@thistlm=\skip141
-\c@ALG@Lnr=\count432
-\c@ALG@blocknr=\count433
-\c@ALG@storecount=\count434
-\c@ALG@tmpcounter=\count435
-\ALG@tmplength=\skip142
-)
-Document Style - pseudocode environments for use with the `algorithmicx' style
-) (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/graphics\rotating.sty
-Package: rotating 2025/01/14 v2.16e rotated objects in LaTeX
-\c@r@tfl@t=\count436
-\rotFPtop=\skip143
-\rotFPbot=\skip144
-\rot@float@box=\box82
-\rot@mess@toks=\toks47
-)
 (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
 
@@ -1435,29 +1398,333 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 Package pdflscape Info: Auto-detected driver: dvipdfm (xetex) on input line 98.
 
 ))
-(main.aux)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.
+sty
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.st
+y
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-common.tex
+\pgfutil@everybye=\toks46
+\pgfutil@tempdima=\dimen315
+\pgfutil@tempdimb=\dimen316
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-latex.def
+\pgfutil@abb=\box82
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.
+code.tex
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex)
+Package: pgfrcs 2025-08-29 v3.1.11a (3.1.11a)
+))
+Package: pgf 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.
+sty
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.
+sty
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s.code.tex
+Package: pgfsys 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@x=\dimen317
+\pgf@y=\dimen318
+\pgf@xa=\dimen319
+\pgf@ya=\dimen320
+\pgf@xb=\dimen321
+\pgf@yb=\dimen322
+\pgf@xc=\dimen323
+\pgf@yc=\dimen324
+\pgf@xd=\dimen325
+\pgf@yd=\dimen326
+\w@pgf@writea=\write4
+\r@pgf@reada=\read3
+\c@pgf@counta=\count428
+\c@pgf@countb=\count429
+\c@pgf@countc=\count430
+\c@pgf@countd=\count431
+\t@pgf@toka=\toks47
+\t@pgf@tokb=\toks48
+\t@pgf@tokc=\toks49
+\pgf@sys@id@count=\count432
+
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.c
+fg
+File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
+)
+Driver file for pgf: pgfsys-xetex.def
+
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-xetex.def
+File: pgfsys-xetex.def 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-dvipdfmx.def
+File: pgfsys-dvipdfmx.def 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-common-pdf.def
+File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
+)
+\pgfsys@objnum=\count433
+)))
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+ssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfsyssoftpath@smallbuffer@items=\count434
+\pgfsyssoftpath@bigbuffer@items=\count435
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+sprotocol.code.tex
+File: pgfsysprotocol.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+))
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+e.code.tex
+Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.
+code.tex)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparse
+r.code.tex
+\pgfmath@dimen=\dimen327
+\pgfmath@count=\count436
+\pgfmath@box=\box83
+\pgfmath@toks=\toks50
+\pgfmath@stack@operand=\toks51
+\pgfmath@stack@operation=\toks52
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.code.tex)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.basic.code.tex)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.trigonometric.code.tex)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.random.code.tex)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.comparison.code.tex)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.base.code.tex)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.round.code.tex)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.misc.code.tex)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.integerarithmetics.code.tex)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.
+code.tex)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat
+.code.tex
+\c@pgfmathroundto@lastzeros=\count437
+))
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.
+tex)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epoints.code.tex
+File: pgfcorepoints.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@picminx=\dimen328
+\pgf@picmaxx=\dimen329
+\pgf@picminy=\dimen330
+\pgf@picmaxy=\dimen331
+\pgf@pathminx=\dimen332
+\pgf@pathmaxx=\dimen333
+\pgf@pathminy=\dimen334
+\pgf@pathmaxy=\dimen335
+\pgf@xx=\dimen336
+\pgf@xy=\dimen337
+\pgf@yx=\dimen338
+\pgf@yy=\dimen339
+\pgf@zx=\dimen340
+\pgf@zy=\dimen341
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@path@lastx=\dimen342
+\pgf@path@lasty=\dimen343
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathusage.code.tex
+File: pgfcorepathusage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@shorten@end@additional=\dimen344
+\pgf@shorten@start@additional=\dimen345
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+escopes.code.tex
+File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfpic=\box84
+\pgf@hbox=\box85
+\pgf@layerbox@main=\box86
+\pgf@picture@serial@count=\count438
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+egraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgflinewidth=\dimen346
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+etransformations.code.tex
+File: pgfcoretransformations.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@pt@x=\dimen347
+\pgf@pt@y=\dimen348
+\pgf@pt@temp=\dimen349
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+equick.code.tex
+File: pgfcorequick.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eobjects.code.tex
+File: pgfcoreobjects.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+earrows.code.tex
+File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowsep=\dimen350
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eshade.code.tex
+File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@max=\dimen351
+\pgf@sys@shading@range@num=\count439
+\pgf@shadingcount=\count440
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eimage.code.tex
+File: pgfcoreimage.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eexternal.code.tex
+File: pgfcoreexternal.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfexternal@startupbox=\box87
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+elayers.code.tex
+File: pgfcorelayers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+etransparency.code.tex
+File: pgfcoretransparency.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epatterns.code.tex
+File: pgfcorepatterns.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+erdf.code.tex
+File: pgfcorerdf.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)))
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+shapes.code.tex
+File: pgfmoduleshapes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfnodeparttextbox=\box88
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+plot.code.tex
+File: pgfmoduleplot.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
+mp-version-0-65.sty
+Package: pgfcomp-version-0-65 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@nodesepstart=\dimen352
+\pgf@nodesepend=\dimen353
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
+mp-version-1-18.sty
+Package: pgfcomp-version-1-18 2025-08-29 v3.1.11a (3.1.11a)
+))
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.st
+y (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex))
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.
+code.tex
+Package: pgffor 2025-08-29 v3.1.11a (3.1.11a)
+\pgffor@iter=\dimen354
+\pgffor@skip=\dimen355
+\pgffor@stack=\toks53
+\pgffor@toks=\toks54
+))
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z\tikz.code.tex
+Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
+
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgf@plot@mark@count=\count441
+\pgfplotmarksize=\dimen356
+)
+\tikz@lastx=\dimen357
+\tikz@lasty=\dimen358
+\tikz@lastxsaved=\dimen359
+\tikz@lastysaved=\dimen360
+\tikz@lastmovetox=\dimen361
+\tikz@lastmovetoy=\dimen362
+\tikzleveldistance=\dimen363
+\tikzsiblingdistance=\dimen364
+\tikz@figbox=\box89
+\tikz@figbox@bg=\box90
+\tikz@tempbox=\box91
+\tikz@tempbox@bg=\box92
+\tikztreelevel=\count442
+\tikznumberofchildren=\count443
+\tikznumberofcurrentchild=\count444
+\tikz@fig@count=\count445
+
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+matrix.code.tex
+File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfmatrixcurrentrow=\count446
+\pgfmatrixcurrentcolumn=\count447
+\pgf@matrix@numberofcolumns=\count448
+)
+\tikz@expandcount=\count449
+
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)))
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowinset=\dimen365
+\pgfarrowlength=\dimen366
+\pgfarrowwidth=\dimen367
+\pgfarrowlinewidth=\dimen368
+)
+(C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 73.
-LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 75.
+LaTeX Font Info:    ... okay on input line 75.
 
 Package fontspec Info: 
 (fontspec)             Adjusting the maths setup (use [no-math] to avoid
@@ -1465,63 +1732,63 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup9
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 73.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 73.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 73.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 73.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 73.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 73.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 73.
-LaTeX Font Info:    Redeclaring math accent \check on input line 73.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 73.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 73.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 73.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 73.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 73.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 73.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 73.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 73.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 73.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 73.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 73.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 73.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 73.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 73.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 73.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 73.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 75.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 75.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 75.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 75.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 75.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 75.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 75.
+LaTeX Font Info:    Redeclaring math accent \check on input line 75.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 75.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 75.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 75.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 75.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 75.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 75.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 75.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 75.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 75.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 75.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 75.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 75.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 75.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 75.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 75.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 75.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 73.
+(Font)              `operators' in the math version `normal' on input line 75.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 7
-3.
+5.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 73.
+(Font)              `operators' in the math version `bold' on input line 75.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/m/n on input line 
-73.
+75.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/m/n on 
-input line 73.
+input line 75.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/TimesNewRoman(0)/m/it on input line
- 73.
+ 75.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/b/n on input line 
-73.
+75.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 73.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 75.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/Consolas(0)/m/n on input line 73.
+(Font)                  OT1/cmtt/m/n --> TU/Consolas(0)/m/n on input line 75.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/b/n on 
-input line 73.
+input line 75.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> TU/TimesNewRoman(0)/b/it on input lin
-e 73.
+e 75.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 73.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 75.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/Consolas(0)/b/n on input line 73.
+(Font)                  OT1/cmtt/m/n --> TU/Consolas(0)/b/n on input line 75.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1560,34 +1827,33 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 \symgns@font=\mathgroup10
 LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
 (Font)                  TS1/TimesNewRoman(0)/m/n --> TS1/TimesNewRoman(0)/b/n o
-n input line 73.
-Package gensymb Info: Math companion symbols declared on input line 73.
-LaTeX Info: Redefining \degree on input line 73.
-LaTeX Info: Redefining \celsius on input line 73.
+n input line 75.
+Package gensymb Info: Math companion symbols declared on input line 75.
+LaTeX Info: Redefining \degree on input line 75.
+LaTeX Info: Redefining \celsius on input line 75.
 Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
-erthousand on input line 73.
-LaTeX Info: Redefining \ohm on input line 73.
-Package gensymb Info: Using \textohm for \ohm on input line 73.
-Package gensymb Info: Using \textmu for \micro on input line 73.
+erthousand on input line 75.
+LaTeX Info: Redefining \ohm on input line 75.
+Package gensymb Info: Using \textohm for \ohm on input line 75.
+Package gensymb Info: Using \textmu for \micro on input line 75.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
-Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count437
+\c@lstlisting=\count450
 Package tocbasic Info: omitting babel extension for `lol'
-(tocbasic)             because of missing \bbl@set@language on input line 73.
+(tocbasic)             because of missing \bbl@set@language on input line 75.
 
 (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/fmtcount\fc-english.def
 File: fc-english.def 2016/01/12
 )
-Package hyperref Info: Option `CJKbookmarks' set `true' on input line 73.
-Package hyperref Info: Link coloring OFF on input line 73.
+Package hyperref Info: Option `CJKbookmarks' set `true' on input line 75.
+Package hyperref Info: Link coloring OFF on input line 75.
  (main.out) (main.out)
-\@outlinefile=\write4
-\openout4 = `main.out'.
+\@outlinefile=\write5
+\openout5 = `main.out'.
 
-Package bicaption Info: Main language is not set on input line 73.
+Package bicaption Info: Main language is not set on input line 75.
 
 Package fontspec Info: 
 (fontspec)             Font family 'AdobeSongStd-Light.otf(1)' created for
@@ -1609,41 +1875,41 @@ anguage=dflt;"
 anguage=dflt;"
 
 
-Underfull \hbox (badness 10000) detected at line 76
+Underfull \hbox (badness 10000) detected at line 78
 \TU/AdobeSongStd-Light.otf(1)/m/n/12.045 分 类 号：| 
  []
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 76.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 78.
 
 (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 76.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 78.
 
 
 (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for TS1+TimesNewRoman(0) on
- input line 76.
-LaTeX Font Info:    No file TS1TimesNewRoman(0).fd. on input line 76.
+ input line 78.
+LaTeX Font Info:    No file TS1TimesNewRoman(0).fd. on input line 78.
 
 
 LaTeX Font Warning: Font shape `TS1/TimesNewRoman(0)/m/n' undefined
-(Font)              using `TS1/cmr/m/n' instead on input line 76.
+(Font)              using `TS1/cmr/m/n' instead on input line 78.
 
 
-Underfull \hbox (badness 10000) detected at line 76
+Underfull \hbox (badness 10000) detected at line 78
 \TU/TimesNewRoman(0)/m/n/12.045 UDC:
  []
 
 
-Underfull \hbox (badness 10000) detected at line 76
+Underfull \hbox (badness 10000) detected at line 78
 \TU/AdobeSongStd-Light.otf(1)/m/n/12.045 学 号：| 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 76
+Underfull \hbox (badness 10000) detected at line 78
 \TU/AdobeSongStd-Light.otf(1)/m/n/12.045 密 级\TU/TimesNewRoman(0)/m/n/12.045 :
  []
 
@@ -1701,7 +1967,7 @@ anguage=dflt;embolden=4;slant=0.167;"
 File: title.png Graphic file (type bmp)
 <title.png>
 
-Underfull \hbox (badness 10000) detected at line 76
+Underfull \hbox (badness 10000) detected at line 78
 \TU/AdobeSongStd-Light.otf(1)/m/n/15.05624 作 者 姓 名：| 
  []
 
@@ -1729,32 +1995,32 @@ anguage=dflt;slant=0.167;"
 anguage=dflt;embolden=4;slant=0.167;"
 
 
-Underfull \hbox (badness 10000) detected at line 76
+Underfull \hbox (badness 10000) detected at line 78
 \TU/AdobeSongStd-Light.otf(1)/m/n/15.05624 培 养 类 型：| 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 76
+Underfull \hbox (badness 10000) detected at line 78
 \TU/AdobeSongStd-Light.otf(1)/m/n/15.05624 学 位 类 型：| 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 76
+Underfull \hbox (badness 10000) detected at line 78
 \TU/AdobeSongStd-Light.otf(1)/m/n/15.05624 专 业 名 称：| 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 76
+Underfull \hbox (badness 10000) detected at line 78
 \TU/AdobeSongStd-Light.otf(1)/m/n/15.05624 研 究 方 向：| 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 76
+Underfull \hbox (badness 10000) detected at line 78
 \TU/AdobeSongStd-Light.otf(1)/m/n/15.05624 指 导 教 师：| 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 76
+Underfull \hbox (badness 10000) detected at line 78
 \TU/AdobeSongStd-Light.otf(1)/m/n/15.05624 完 成 日 期：| 
  []
 
@@ -1769,2047 +2035,288 @@ Underfull \hbox (badness 10000) detected at line 76
 
 ] [4] (main.toc [5
 
-]
-Underfull \vbox (badness 1371) has occurred while \output is active []
+] [6])
+\tf@toc=\write6
+\openout6 = `main.toc'.
 
- [6])
-\tf@toc=\write5
-\openout5 = `main.toc'.
-
-
-[7] (chapters/chapter1.tex
+ [7] (chapters/chapter1.tex
 1
 [1
 
 
-] [2] [3]) (chapters/chapter2.tex [4]
+] [2] [3]
+File: figures/chapter1/thesis_overview_refined.drawio.png Graphic file (type bm
+p)
+<figures/chapter1/thesis_overview_refined.drawio.png>
+ [4]) (chapters/chapter2.tex [5]
 2
-[5
+[6
 
-]
+] [7]
 
 LaTeX Font Warning: Font shape `TS1/TimesNewRoman(0)/b/n' undefined
-(Font)              using `TS1/TimesNewRoman(0)/m/n' instead on input line 44.
+(Font)              using `TS1/TimesNewRoman(0)/m/n' instead on input line 82.
 
-[6] [7] [8]
+[8]
 File: figures/chapter5/rbf_plot.png Graphic file (type bmp)
 <figures/chapter5/rbf_plot.png>
-
-Underfull \vbox (badness 1616) has occurred while \output is active []
-
- [9]
-[10] [11] [12]) (chapters/chapter3_IBSA.tex [13]
+ [9] [10]) (chapters/chapter3_IBSA.tex [11]
 3
-[14
+[12
 
-]
-Underfull \vbox (badness 2351) has occurred while \output is active []
-
- [15]
-File: figures/chapter3/fig1_classification_of_MAs.png Graphic file (type bmp)
-<figures/chapter3/fig1_classification_of_MAs.png>
-
-[16] [17] [18] [19] [20]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [21]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [22]
-[23]
-Overfull \hbox (97.20583pt too wide) in paragraph at lines 326--326
-[]|\TU/TimesNewRoman(0)/m/n/12.045 Initialize $\OML/cmm/m/it/12.045 X;  OldX;  
-BestFitness;  PreBestFitness;  BestX;  map;  s;   flag$\TU/TimesNewRoman(0)/m/n
-/12.045 ;| 
- []
-
-
-Overfull \hbox (25.93439pt too wide) in paragraph at lines 329--329
-[]|\TU/TimesNewRoman(0)/m/n/12.045 Update $\OML/cmm/m/it/12.045 BestFitness;  P
-reBestFitness;  BestX;  BestX[]idx$\TU/TimesNewRoman(0)/m/n/12.045 ;| 
- []
-
+] [13] [14]
 File: figures/chapter3/fig2_flowchart_IBSA.png Graphic file (type bmp)
 <figures/chapter3/fig2_flowchart_IBSA.png>
-[24] [25]
+ [15] [16]
 File: figures/chapter3/fig3_wrapper_feature_selection.png Graphic file (type bm
 p)
 <figures/chapter3/fig3_wrapper_feature_selection.png>
- [26] [27] [28] [29] [30]
+ [17] [18] [19] [20]
+File: figures/chapter3/IBSA_fs_evaluate_flowchart_refined.drawio.png Graphic fi
+le (type bmp)
+<figures/chapter3/IBSA_fs_evaluate_flowchart_refined.drawio.png>
+ [21]
 File: figures/chapter3/fig4_balance_and_diversity.png Graphic file (type bmp)
 <figures/chapter3/fig4_balance_and_diversity.png>
- [31]
-Underfull \hbox (badness 10000) in paragraph at lines 527--527
-[]|\TU/TimesNewRoman(0)/b/n/12.045 Table \TU/TimesNewRoman(0)/m/n/12.045 1\TU/T
-imesNewRoman(0)/b/n/12.045 .
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 527--527
-\TU/TimesNewRoman(0)/m/n/12.045 Parameters
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 527--527
-\TU/TimesNewRoman(0)/m/n/12.045 setting for
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 527--527
-\TU/TimesNewRoman(0)/m/n/12.045 involved
- []
-
-
-Underfull \hbox (badness 4048) in paragraph at lines 531--531
-[]|$\OML/cmm/m/it/12.045 Beta[]in  \OT1/cmr/m/n/12.045 =  0\OML/cmm/m/it/12.045
- :\OT1/cmr/m/n/12.045 2;  \OML/cmm/m/it/12.045 beta[]ax  \OT1/cmr/m/n/12.045 =
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
-[]|$\OML/cmm/m/it/12.045 m  \OT1/cmr/m/n/12.045 =
- []
-
-
-Underfull \hbox (badness 7704) in paragraph at lines 536--536
-\OT1/cmr/m/n/12.045 10;  \OML/cmm/m/it/12.045 P^^K  \OT1/cmr/m/n/12.045 =
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [32]
-[33]
-Underfull \hbox (badness 10000) in alignment at lines 557--621
-[] [] [] [] [] [] [] [] [] [] [] [] [] [] []
- []
-
-[34
-
-] [35] [36
-
-]
-Underfull \hbox (badness 10000) in alignment at lines 637--701
-[] [] [] [] [] [] [] [] [] [] [] [] []
- []
-
-[37
-
-] [38]
-File: figures/chapter3/fig5_friedman_ranking_basic.png Graphic file (type bmp)
-<figures/chapter3/fig5_friedman_ranking_basic.png>
-File: figures/chapter3/fig6_convergence_basic_MAs.png Graphic file (type bmp)
-<figures/chapter3/fig6_convergence_basic_MAs.png>
- [39
-
-] [40] [41]
-Underfull \hbox (badness 10000) in alignment at lines 748--812
-[] [] [] [] [] [] [] [] [] [] [] [] [] []
- []
-
-[42
-
-] [43]
-Underfull \hbox (badness 10000) in paragraph at lines 820--820
-[]|\TU/TimesNewRoman(0)/m/n/12.045 IBSA vs
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 820--820
-[]|\TU/TimesNewRoman(0)/m/n/12.045 IBSA vs
- []
-
-
-Underfull \hbox (badness 1454) in paragraph at lines 820--820
-[]|\TU/TimesNewRoman(0)/m/n/12.045 IBSA vs RD-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 820--820
-[]|\TU/TimesNewRoman(0)/m/n/12.045 IBSA vs
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 820--820
-[]|\TU/TimesNewRoman(0)/m/n/12.045 IBSA vs
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 820--820
-[]|\TU/TimesNewRoman(0)/m/n/12.045 IBSA vs
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 822--822
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 822--822
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.902E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 822--822
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.733E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 822--822
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.733E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 822--822
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.733E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 823--823
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.163E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 823--823
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.597E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 823--823
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 823--823
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 823--823
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 824--824
-[]|\TU/TimesNewRoman(0)/m/n/12.045 5.170E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 824--824
-[]|\TU/TimesNewRoman(0)/m/n/12.045 5.984E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 824--824
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.067E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 824--824
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 824--824
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 825--825
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 825--825
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.480E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 825--825
-[]|\TU/TimesNewRoman(0)/m/n/12.045 9.754E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 825--825
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.353E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 825--825
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 826--826
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 826--826
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.176E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 826--826
-[]|\TU/TimesNewRoman(0)/m/n/12.045 6.250E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 826--826
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 826--826
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 827--827
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 827--827
-[]|\TU/TimesNewRoman(0)/m/n/12.045 8.307E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 827--827
-[]|\TU/TimesNewRoman(0)/m/n/12.045 3.112E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 827--827
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 827--827
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 828--828
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 828--828
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.452E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 828--828
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.204E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 828--828
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.127E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 828--828
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 829--829
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 829--829
-[]|\TU/TimesNewRoman(0)/m/n/12.045 8.972E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 829--829
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.529E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 829--829
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 829--829
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 830--830
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 830--830
-[]|\TU/TimesNewRoman(0)/m/n/12.045 8.290E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 830--830
-[]|\TU/TimesNewRoman(0)/m/n/12.045 9.777E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 830--830
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.353E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 830--830
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 831--831
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 831--831
-[]|\TU/TimesNewRoman(0)/m/n/12.045 6.984E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 831--831
-[]|\TU/TimesNewRoman(0)/m/n/12.045 3.379E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 831--831
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 831--831
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 832--832
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 832--832
-[]|\TU/TimesNewRoman(0)/m/n/12.045 3.683E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 832--832
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.921E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 832--832
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 832--832
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 833--833
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 833--833
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 833--833
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 833--833
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 833--833
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 834--834
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 834--834
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 834--834
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 834--834
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 834--834
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 835--835
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 835--835
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.025E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 835--835
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.360E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 835--835
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 835--835
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 836--836
-[]|\TU/TimesNewRoman(0)/m/n/12.045 4.286E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 836--836
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.197E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 836--836
-[]|\TU/TimesNewRoman(0)/m/n/12.045 9.842E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 836--836
-[]|\TU/TimesNewRoman(0)/m/n/12.045 3.065E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 836--836
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 837--837
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 837--837
-[]|\TU/TimesNewRoman(0)/m/n/12.045 4.449E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 837--837
-[]|\TU/TimesNewRoman(0)/m/n/12.045 5.193E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 837--837
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.108E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 837--837
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 838--838
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 838--838
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.156E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 838--838
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 838--838
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 838--838
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 839--839
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 839--839
-[]|\TU/TimesNewRoman(0)/m/n/12.045 5.307E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 839--839
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.802E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 839--839
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 839--839
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 840--840
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 840--840
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.359E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 840--840
-[]|\TU/TimesNewRoman(0)/m/n/12.045 4.528E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 840--840
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.238E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 840--840
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 841--841
-[]|\TU/TimesNewRoman(0)/m/n/12.045 7.514E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 841--841
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.779E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 841--841
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.370E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 841--841
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 841--841
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 842--842
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 842--842
-[]|\TU/TimesNewRoman(0)/m/n/12.045 4.048E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 842--842
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.846E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 842--842
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.603E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 842--842
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 843--843
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 843--843
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.708pt too wide) in paragraph at lines 843--843
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.000E+00| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 843--843
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 843--843
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 843--843
-[]|\TU/TimesNewRoman(0)/m/n/12.045 8.857E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 844--844
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 844--844
-[]|\TU/TimesNewRoman(0)/m/n/12.045 5.000E-
- []
-
-
-Overfull \hbox (2.708pt too wide) in paragraph at lines 844--844
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.000E+00| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 844--844
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 844--844
-[]|\TU/TimesNewRoman(0)/m/n/12.045 5.000E-
- []
-
-
-Overfull \hbox (9.93434pt too wide) in paragraph at lines 844--844
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.000E+00| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 845--845
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 845--845
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.708pt too wide) in paragraph at lines 845--845
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.000E+00| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 845--845
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.733E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 845--845
-[]|\TU/TimesNewRoman(0)/m/n/12.045 3.125E-
- []
-
-
-Overfull \hbox (9.93434pt too wide) in paragraph at lines 845--845
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.000E+00| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 846--846
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 846--846
-[]|\TU/TimesNewRoman(0)/m/n/12.045 5.000E-
- []
-
-
-Overfull \hbox (2.708pt too wide) in paragraph at lines 846--846
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.000E+00| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 846--846
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.733E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 846--846
-[]|\TU/TimesNewRoman(0)/m/n/12.045 6.250E-
- []
-
-
-Overfull \hbox (9.93434pt too wide) in paragraph at lines 846--846
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.000E+00| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 847--847
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 847--847
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 847--847
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.733E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 847--847
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.733E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 847--847
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.733E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 848--848
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 848--848
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.708pt too wide) in paragraph at lines 848--848
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.000E+00| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 848--848
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.733E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 848--848
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.733E-
- []
-
-
-Overfull \hbox (9.93434pt too wide) in paragraph at lines 848--848
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.000E+00| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 849--849
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 849--849
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 849--849
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 849--849
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.563E-
- []
-
-
-Overfull \hbox (9.93434pt too wide) in paragraph at lines 849--849
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.000E+00| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 850--850
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.057E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 850--850
-[]|\TU/TimesNewRoman(0)/m/n/12.045 7.343E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 850--850
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.639E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 850--850
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 850--850
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.650E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 851--851
-[]|\TU/TimesNewRoman(0)/m/n/12.045 IBSA vs
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 851--851
-[]|\TU/TimesNewRoman(0)/m/n/12.045 IBSA vs DE-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 851--851
-[]|\TU/TimesNewRoman(0)/m/n/12.045 IBSA vs AL-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 851--851
-[]|\TU/TimesNewRoman(0)/m/n/12.045 IBSA vs
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 851--851
-[]|\TU/TimesNewRoman(0)/m/n/12.045 IBSA vs
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 852--852
-[]|\TU/TimesNewRoman(0)/m/n/12.045 p-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 852--852
-[]|\TU/TimesNewRoman(0)/m/n/12.045 p-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 852--852
-[]|\TU/TimesNewRoman(0)/m/n/12.045 p-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 853--853
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.733E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 853--853
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.733E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 853--853
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.733E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 853--853
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (9.93434pt too wide) in paragraph at lines 853--853
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.000E+00| 
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 854--854
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.359E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 854--854
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 854--854
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.639E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 854--854
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 854--854
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.765E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 855--855
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 855--855
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.921E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 855--855
-[]|\TU/TimesNewRoman(0)/m/n/12.045 5.307E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 855--855
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.921E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 855--855
-[]|\TU/TimesNewRoman(0)/m/n/12.045 5.752E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 856--856
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 856--856
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 856--856
-[]|\TU/TimesNewRoman(0)/m/n/12.045 9.316E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 856--856
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 856--856
-[]|\TU/TimesNewRoman(0)/m/n/12.045 9.316E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 857--857
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 857--857
-[]|\TU/TimesNewRoman(0)/m/n/12.045 6.250E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 857--857
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 857--857
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 857--857
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 858--858
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 858--858
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 858--858
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 858--858
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 858--858
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.397E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 859--859
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.353E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 859--859
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 859--859
-[]|\TU/TimesNewRoman(0)/m/n/12.045 3.182E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 859--859
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 859--859
-[]|\TU/TimesNewRoman(0)/m/n/12.045 7.712E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 860--860
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 860--860
-[]|\TU/TimesNewRoman(0)/m/n/12.045 3.790E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 860--860
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.921E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 860--860
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 860--860
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.369E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 861--861
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.353E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 861--861
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 861--861
-[]|\TU/TimesNewRoman(0)/m/n/12.045 4.716E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 861--861
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 861--861
-[]|\TU/TimesNewRoman(0)/m/n/12.045 7.731E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 862--862
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 862--862
-[]|\TU/TimesNewRoman(0)/m/n/12.045 5.752E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 862--862
-[]|\TU/TimesNewRoman(0)/m/n/12.045 3.182E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 862--862
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 862--862
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.921E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 863--863
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 863--863
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 863--863
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.709E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 863--863
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 863--863
-[]|\TU/TimesNewRoman(0)/m/n/12.045 3.112E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 864--864
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 864--864
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 864--864
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.127E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 864--864
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 864--864
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 865--865
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 865--865
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 865--865
-[]|\TU/TimesNewRoman(0)/m/n/12.045 3.182E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 865--865
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 865--865
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 866--866
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 866--866
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.360E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 866--866
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 866--866
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 866--866
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.921E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 867--867
-[]|\TU/TimesNewRoman(0)/m/n/12.045 4.449E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 867--867
-[]|\TU/TimesNewRoman(0)/m/n/12.045 6.583E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 867--867
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.059E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 867--867
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 867--867
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.849E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 868--868
-[]|\TU/TimesNewRoman(0)/m/n/12.045 6.339E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 868--868
-[]|\TU/TimesNewRoman(0)/m/n/12.045 4.286E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 868--868
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.477E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 868--868
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 868--868
-[]|\TU/TimesNewRoman(0)/m/n/12.045 9.918E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 869--869
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 869--869
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 869--869
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.127E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 869--869
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 869--869
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 870--870
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 870--870
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 870--870
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 870--870
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 870--870
-[]|\TU/TimesNewRoman(0)/m/n/12.045 7.271E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 871--871
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.605E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 871--871
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.036E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 871--871
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.067E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 871--871
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 871--871
-[]|\TU/TimesNewRoman(0)/m/n/12.045 9.426E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 872--872
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 872--872
-[]|\TU/TimesNewRoman(0)/m/n/12.045 3.515E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 872--872
-[]|\TU/TimesNewRoman(0)/m/n/12.045 6.320E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 872--872
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.973E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 872--872
-[]|\TU/TimesNewRoman(0)/m/n/12.045 7.514E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 873--873
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 873--873
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 873--873
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 873--873
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 873--873
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.163E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 874--874
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 874--874
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 874--874
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 874--874
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 874--874
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 875--875
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 875--875
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 875--875
-[]|\TU/TimesNewRoman(0)/m/n/12.045 5.520E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 875--875
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 875--875
-[]|\TU/TimesNewRoman(0)/m/n/12.045 5.602E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 876--876
-[]|\TU/TimesNewRoman(0)/m/n/12.045 3.787E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 876--876
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.733E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 876--876
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.733E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 876--876
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 876--876
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 877--877
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.561E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 877--877
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.733E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 877--877
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.697E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 877--877
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 877--877
-[]|\TU/TimesNewRoman(0)/m/n/12.045 2.529E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 878--878
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.733E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 878--878
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.733E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 878--878
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 878--878
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 878--878
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 879--879
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.733E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 879--879
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.733E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 879--879
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 879--879
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 879--879
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.582E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 880--880
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 880--880
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 880--880
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 880--880
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 880--880
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 881--881
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 881--881
-[]|\TU/TimesNewRoman(0)/m/n/12.045 3.724E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 881--881
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Overfull \hbox (2.3349pt too wide) in paragraph at lines 881--881
-[]|\TU/TimesNewRoman(0)/m/n/12.045 1.734E-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 881--881
-[]|\TU/TimesNewRoman(0)/m/n/12.045 6.339E-
- []
-
-
-Overfull \hbox (107.44281pt too wide) in alignment at lines 818--882
-[] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
- []
-
-
-ignored: Infinite glue shrinkage found in box being split [44
-
-]
-ignored: Infinite glue shrinkage found in box being split [45]
-ignored: Infinite glue shrinkage f
-ound in box being split [46]
-File: figures/chapter3/fig7_friedman_ranking_advanced.png Graphic file (type bm
-p)
-<figures/chapter3/fig7_friedman_ranking_advanced.png>
- [47]
-File: figures/chapter3/fig8_convergence_advanced_MAs.png Graphic file (type bmp
-)
-<figures/chapter3/fig8_convergence_advanced_MAs.png>
-
-Underfull \vbox (badness 7186) has occurred while \output is active []
-
- [48]
-Underfull \vbox (badness 3826) has occurred while \output is active []
-
- [49]
-Overfull \hbox (17.33588pt too wide) in paragraph at lines 991--992
-[]\TU/TimesNewRoman(0)/m/n/12.045 bIBSA \TU/AdobeSongStd-Light.otf(0)/m/n/12.04
-5 的 分 类 准 确 率 通 过 计 算 $\OML/cmm/m/it/12.045 L$ \TU/AdobeSongStd-Light.otf(0)/m/
-n/12.045 次 运 行 的 平 均 分 类 错 误 率 来 评 估，|  如 公 式[]所
- []
-
-[50] [51]
-Underfull \hbox (badness 10000) in alignment at lines 1043--1070
-[] [] [] [] [] [] [] [] [] [] []
- []
-
-[52
-
-] [53
-
-]
-Underfull \hbox (badness 10000) in alignment at lines 1088--1115
-[] [] [] [] [] [] [] [] [] [] []
- []
-
-[54
-
-]
-Underfull \hbox (badness 10000) in alignment at lines 1125--1152
-[] [] [] [] [] [] [] [] [] [] []
- []
-
-[55
-
-
-] [56
-
-]
-Underfull \hbox (badness 10000) in alignment at lines 1168--1195
-[] [] [] [] [] [] [] [] [] [] []
- []
-
-[57
-
-]
-File: figures/chapter3/fig9_convergence_feature_selection.png Graphic file (typ
-e bmp)
-<figures/chapter3/fig9_convergence_feature_selection.png>
- [58
-
-] [59]) (chapters/chapter4_SBO.tex [60]
+ [22])
+(chapters/chapter4_SBO.tex [23]
 4
-File: figures/chapter4/fig01_classification_of_MAs.png Graphic file (type bmp)
-<figures/chapter4/fig01_classification_of_MAs.png>
-[61
+[24
 
-]
-Underfull \vbox (badness 2351) has occurred while \output is active []
-
- [62]
-Overfull \hbox (6.84113pt too wide) in paragraph at lines 56--57
-\TU/TimesNewRoman(0)/m/n/12.045 [[]] \TU/AdobeSongStd-Light.otf(0)/m/n/12.045 通
- 过 有 效 地 平 衡 重 量 和 材 料 强 度 之 间 的 权 衡 来 优 化 结 构 设 计；|  改 进 的 \TU/TimesNewRoman(0
-)/m/n/12.045 TLBO |\TU/AdobeSongStd-Light.otf(0)/m/n/12.045 （\TU/TimesNewRoman(
-0)/m/n/12.045 ITLBO\TU/AdobeSongStd-Light.otf(0)/m/n/12.045 ）|
- []
-
-[63] [64] [65] [66]
+] [25]
 File: figures/chapter4/fig02_elite_engagement.png Graphic file (type bmp)
 <figures/chapter4/fig02_elite_engagement.png>
- [67] [68]
 File: figures/chapter4/fig03_resource_acquisition.png Graphic file (type bmp)
 <figures/chapter4/fig03_resource_acquisition.png>
- [69]
+ [26] [27]
 File: figures/chapter4/fig04_flowchart_SBO.png Graphic file (type bmp)
 <figures/chapter4/fig04_flowchart_SBO.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [70]
-[71] [72]
-File: figures/chapter4/fig05_balance_diversity_convergence.png Graphic file (ty
-pe bmp)
-<figures/chapter4/fig05_balance_diversity_convergence.png>
-
-
-LaTeX Warning: Float too large for page by 56.9189pt on input line 510.
-
-[73] [74]
-File: figures/chapter4/fig06_search_history_trajectory.png Graphic file (type b
-mp)
-<figures/chapter4/fig06_search_history_trajectory.png>
-
-
-LaTeX Warning: Float too large for page by 19.47647pt on input line 525.
-
-[75] [76]
-Underfull \hbox (badness 10000) in alignment at lines 556--588
-[] [] [] [] [] []
- []
-
-[77
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 615--615
-[]|\TU/TimesNewRoman(0)/b/n/12.045 Table \TU/TimesNewRoman(0)/m/n/12.045 2\TU/T
-imesNewRoman(0)/b/n/12.045 .
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 615--615
-\TU/TimesNewRoman(0)/m/n/12.045 Parameter
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 615--615
-\TU/TimesNewRoman(0)/m/n/12.045 settings for
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 615--615
-\TU/TimesNewRoman(0)/m/n/12.045 involved
- []
-
-
-Overfull \hbox (236.78664pt too wide) in paragraph at lines 624--624
-[]|$\OML/cmm/m/it/12.045 v[][]v[][]w[][]w[][]$\TU/TimesNewRoman(0)/m/n/12.045 C
-MAES| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 624--624
-[]|$\OML/cmm/m/it/12.045 ^^U \OT1/cmr/m/n/12.045 = 4 + [] \OML/cmm/m/it/12.045 
-; w[] \OT1/cmr/m/n/12.045 =
- []
-
-
-Overfull \hbox (170.48335pt too wide) in paragraph at lines 625--625
-\OT1/cmr/m/n/12.045 0\OML/cmm/m/it/12.045 :\OT1/cmr/m/n/12.045 5\OML/cmm/m/it/1
-2.045 ; p[][][][]$\TU/TimesNewRoman(0)/m/n/12.045 LSHADE_cnEpSin| 
- []
-
-
-Underfull \hbox (badness 10000) in alignment at lines 614--630
-[] []
- []
-
-
-ignored: Infinite glue shrinkage found in box being split [78
-
-]
-File: figures/chapter4/fig07_performance_heatmap.png Graphic file (type bmp)
-<figures/chapter4/fig07_performance_heatmap.png>
- [79] [80]
-File: figures/chapter4/fig08_convergence_curves_30dim.png Graphic file (type bm
-p)
-<figures/chapter4/fig08_convergence_curves_30dim.png>
-File: figures/chapter4/fig09_box_plots_30dim.png Graphic file (type bmp)
-<figures/chapter4/fig09_box_plots_30dim.png>
-File: figures/chapter4/fig10_friedman_rank.png Graphic file (type bmp)
-<figures/chapter4/fig10_friedman_rank.png>
- [81] [82] [83] [84]
-Underfull \hbox (badness 10000) in alignment at lines 697--725
-[] [] [] [] [] [] [] [] []
- []
-
-[85
-
-]
-Overfull \hbox (12.84567pt too wide) in paragraph at lines 736--737
-\TU/TimesNewRoman(0)/m/n/12.045 CPSO\TU/AdobeSongStd-Light.otf(0)/m/n/12.045 、|
- \TU/TimesNewRoman(0)/m/n/12.045 CLPSO\TU/AdobeSongStd-Light.otf(0)/m/n/12.045 
-、| \TU/TimesNewRoman(0)/m/n/12.045 CGPSO \TU/AdobeSongStd-Light.otf(0)/m/n/12.0
-45 和 \TU/TimesNewRoman(0)/m/n/12.045 MSPSO\TU/AdobeSongStd-Light.otf(0)/m/n/12.
-045 ）|  以 及 五 种 进 化 算 法  |（\TU/TimesNewRoman(0)/m/n/12.045 CMAES\TU/AdobeSongSt
-d-Light.otf(0)/m/n/12.045 、| \TU/TimesNewRoman(0)/m/n/12.045 DECLS\TU/AdobeSong
-Std-Light.otf(0)/m/n/12.045 、| \TU/TimesNewRoman(0)/m/n/12.045 LSHADE_cnEpSin\T
-U/AdobeSongStd-Light.otf(0)/m/n/12.045 、|
- []
-
-[86
-
-]
-Underfull \hbox (badness 10000) in alignment at lines 754--765
-[] [] [] [] [] [] [] []
- []
-
-[87
-
-]
-File: figures/chapter4/fig11_runtime_performance.png Graphic file (type bmp)
-<figures/chapter4/fig11_runtime_performance.png>
- [88
-
-] [89]
-File: figures/chapter4/fig12_flowchart_bSBO_wrapper.png Graphic file (type bmp)
-
-<figures/chapter4/fig12_flowchart_bSBO_wrapper.png>
-
-Underfull \hbox (badness 10000) in alignment at lines 852--864
-[] [] [] []
- []
-
-
-ignored: Infinite glue shrinkage found in box being split [90] [91]
-Underfull \hbox (badness 10000) in alignment at lines 882--906
-[] [] [] [] [] [] [] [] [] [] []
- []
-
-[92
-
-] [93
-
-]
-Underfull \hbox (badness 10000) in alignment at lines 924--948
-[] [] [] [] [] [] [] [] [] [] []
- []
-
-[94
-
-]
-Underfull \hbox (badness 10000) in alignment at lines 958--982
-[] [] [] [] [] [] [] [] [] [] []
- []
-
-[95
-
-
-]
-File: figures/chapter4/fig13_friedman_rank_feature_selection.png Graphic file (
-type bmp)
-<figures/chapter4/fig13_friedman_rank_feature_selection.png>
-File: figures/chapter4/fig14_convergence_bSBO.png Graphic file (type bmp)
-<figures/chapter4/fig14_convergence_bSBO.png>
- [96
-
-] [97]
-File: figures/chapter4/fig15_original_images_2D_histogram.png Graphic file (typ
-e bmp)
-<figures/chapter4/fig15_original_images_2D_histogram.png>
- [98] [99]
+ [28]
 File: figures/chapter4/fig16_flowchart_image_segmentation.png Graphic file (typ
 e bmp)
 <figures/chapter4/fig16_flowchart_image_segmentation.png>
- [100]
-File: figures/chapter4/fig17_heatmap_PSNR_FSIM_SSIM.png Graphic file (type bmp)
-
-<figures/chapter4/fig17_heatmap_PSNR_FSIM_SSIM.png>
-File: figures/chapter4/fig18_convergence_entropy.png Graphic file (type bmp)
-<figures/chapter4/fig18_convergence_entropy.png>
+ [29]
+File: figures/chapter4/fig05_balance_diversity_convergence.png Graphic file (ty
+pe bmp)
+<figures/chapter4/fig05_balance_diversity_convergence.png>
+File: figures/chapter4/fig10_friedman_rank.png Graphic file (type bmp)
+<figures/chapter4/fig10_friedman_rank.png>
 File: figures/chapter4/fig19_jet_colormap_segmentation.png Graphic file (type b
 mp)
 <figures/chapter4/fig19_jet_colormap_segmentation.png>
- [101] [102] [103]) (chapters/chapter5_BEXEA.tex
-[104]
+ [30] [31] [32] [33]) (chapters/chapter5_BEXEA.tex [34]
 5
-[105
+[35
 
 ]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [106]
-[107]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 63.
 File: figures/chapter5/BEXEAStructure.png Graphic file (type bmp)
 <figures/chapter5/BEXEAStructure.png>
- [108]
-Underfull \vbox (badness 1014) has occurred while \output is active []
-
- [109]
+ [36]
 File: figures/chapter5/BEXEA-MAB.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-MAB.png>
-
-[110]
-Underfull \vbox (badness 5985) has occurred while \output is active []
-
- [111]
 File: figures/chapter5/explainable-uncertainty-criteria-legend.png Graphic file
  (type bmp)
 <figures/chapter5/explainable-uncertainty-criteria-legend.png>
-
-[112] [113]
-LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 286.
+ [37] [38] [39]
+File: figures/chapter5/BEXEA_application_workflow_refined.drawio.png Graphic fi
+le (type bmp)
+<figures/chapter5/BEXEA_application_workflow_refined.drawio.png>
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 135.
 File: figures/chapter5/BEXEA-CEC22-CC.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-CEC22-CC.png>
- [114
+ [40
 
-] [115] [116]
+] [41] [42]
 File: figures/chapter5/BEXEA-Plots.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-Plots.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [117]
-[118] [119]
+ [43] [44]
 File: figures/chapter5/beta.png Graphic file (type bmp)
 <figures/chapter5/beta.png>
 File: figures/chapter5/k.png Graphic file (type bmp)
 <figures/chapter5/k.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [120]
-[121]
 File: figures/chapter5/runBEXEA-OilReservoir-sampled-CC.png Graphic file (type 
 bmp)
 <figures/chapter5/runBEXEA-OilReservoir-sampled-CC.png>
- [122] [123]
-Overfull \hbox (6.4638pt too wide) in paragraph at lines 494--495
-[]\TU/AdobeSongStd-Light.otf(0)/m/n/12.045 本 章 提 出 了 基 于 可 解 释 不 确 定 性 准 则 辅 助 
-的 赌 博 机 驱 动 自 适 应 搜 索 \TU/TimesNewRoman(0)/m/n/12.045 SAEA |\TU/AdobeSongStd-Li
-ght.otf(0)/m/n/12.045 （\TU/TimesNewRoman(0)/m/n/12.045 BEXEA\TU/AdobeSongStd-Li
-ght.otf(0)/m/n/12.045 ） ，|
- []
-
-) (chapters/chapter6.tex [124]
+ [45] [46] [47] [48] [49])
+(chapters/chapter6.tex [50]
 6
-[125
+[51
 
-]) [126] (main.bbl [127
+]) [52] (main.bbl [53
 
-] [128]
-Underfull \hbox (badness 2012) in paragraph at lines 202--206
+]
+Underfull \hbox (badness 2012) in paragraph at lines 161--165
 []\TU/TimesNewRoman(0)/m/n/12.045 KENNEDY J, EBERHART R.  Particle swarm optimi
 zation[C]//Proceedings of
  []
 
-[129] [130] [131] [132] [133] [134] [135] [136] [137] [138] [139] [140]
-[141] [142] [143] [144]) [145] [146
+[54] [55] [56] [57] [58] [59] [60] [61]) [62] (chapters/appendix.tex
+Overfull \hbox (0.7984pt too wide) in paragraph at lines 19--19
+ []|\TU/TimesNewRoman(0)/m/n/7.52812 Sign| 
+ []
 
-] [147
+
+Overfull \hbox (0.7984pt too wide) in paragraph at lines 19--19
+ []|\TU/TimesNewRoman(0)/m/n/7.52812 Sign| 
+ []
+
+
+Overfull \hbox (0.7984pt too wide) in paragraph at lines 19--19
+ []|\TU/TimesNewRoman(0)/m/n/7.52812 Sign| 
+ []
+
+
+Overfull \hbox (0.7984pt too wide) in paragraph at lines 19--19
+ []|\TU/TimesNewRoman(0)/m/n/7.52812 Sign| 
+ []
+
+
+Overfull \hbox (0.7984pt too wide) in paragraph at lines 19--19
+ []|\TU/TimesNewRoman(0)/m/n/7.52812 Sign| 
+ []
+
+
+Overfull \hbox (0.7984pt too wide) in paragraph at lines 19--20
+ []|\TU/TimesNewRoman(0)/m/n/7.52812 Sign| 
+ []
+
+
+Overfull \hbox (0.7984pt too wide) in paragraph at lines 63--63
+ []|\TU/TimesNewRoman(0)/m/n/7.52812 Sign| 
+ []
+
+
+Overfull \hbox (0.7984pt too wide) in paragraph at lines 63--63
+ []|\TU/TimesNewRoman(0)/m/n/7.52812 Sign| 
+ []
+
+
+Overfull \hbox (0.7984pt too wide) in paragraph at lines 63--63
+ []|\TU/TimesNewRoman(0)/m/n/7.52812 Sign| 
+ []
+
+
+Overfull \hbox (0.7984pt too wide) in paragraph at lines 63--63
+ []|\TU/TimesNewRoman(0)/m/n/7.52812 Sign| 
+ []
+
+
+Overfull \hbox (0.7984pt too wide) in paragraph at lines 63--63
+ []|\TU/TimesNewRoman(0)/m/n/7.52812 Sign| 
+ []
+
+
+Overfull \hbox (0.7984pt too wide) in paragraph at lines 63--64
+ []|\TU/TimesNewRoman(0)/m/n/7.52812 Sign| 
+ []
+
+
+ignored: Infinite glue shrinkage found in box being split [63
+
+] [64]
+ignored: Infinite glue shrinkage found in box being split [65] (chapters/appendix_
+ch4.tex
+Overfull \hbox (1.58434pt too wide) in paragraph at lines 8--8
+ []|\TU/TimesNewRoman(0)/m/n/5 LSHADE_cnEpSin| 
+ []
+
+
+Overfull \hbox (1.58434pt too wide) in paragraph at lines 78--78
+ []|\TU/TimesNewRoman(0)/m/n/5 LSHADE_cnEpSin| 
+ []
+
+
+ignored: Infinite glue shrinkage found in box being split [66]
+Overfull \hbox (1.58434pt too wide) in paragraph at lines 148--148
+ []|\TU/TimesNewRoman(0)/m/n/5 LSHADE_cnEpSin| 
+ []
+
+
+ignored: Infinite glue shrinkage found in box being split [67]
+Overfull \hbox (1.58434pt too wide) in paragraph at lines 218--218
+ []|\TU/TimesNewRoman(0)/m/n/5 LSHADE_cnEpSin| 
+ []
+
+
+ignored: Infinite glue shrinkage found in box being split [68]
+Overfull \hbox (0.15865pt too wide) in alignment at lines 285--322
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 331--331
+[]|\TU/TimesNewRoman(0)/m/n/7.52812 SBO vs
+ []
+
+
+Overfull \hbox (0.32782pt too wide) in alignment at lines 327--364
+ [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+ignored: Infinite glue shrinkage found in box being split [69]
+Overfull \hbox (0.15865pt too wide) in alignment at lines 368--405
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 414--414
+[]|\TU/TimesNewRoman(0)/m/n/7.52812 SBO vs
+ []
+
+
+Overfull \hbox (0.32782pt too wide) in alignment at lines 410--447
+ [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+ignored: Infinite glue shrinkage found in box being split [70]
+Overfull \hbox (0.15865pt too wide) in alignment at lines 451--488
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+ignored: Infinite glue shrinkage found in box being split [71]
+Underfull \hbox (badness 10000) in paragraph at lines 497--497
+[]|\TU/TimesNewRoman(0)/m/n/7.52812 SBO vs
+ []
+
+
+Overfull \hbox (0.32782pt too wide) in alignment at lines 493--530
+ [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (0.15865pt too wide) in alignment at lines 534--571
+ [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+ignored: Infinite glue shrinkage found in box being split [72]
+Underfull \hbox (badness 10000) in paragraph at lines 580--580
+[]|\TU/TimesNewRoman(0)/m/n/7.52812 SBO vs
+ []
+
+
+Overfull \hbox (0.32782pt too wide) in alignment at lines 576--613
+ [] [] [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+ignored: Infinite glue shrinkage found in box being split [73] [74]
+ignored: Infinite glue shrinka
+ge found in box being split [75])
+Overfull \hbox (1.09486pt too wide) in alignment at lines 236--267
+ [] [] [] [] [] [] [] [] [] [] [] 
+ []
+
+
+ignored: Infinite glue shrinkage found in box being split [76]) [77] [78
+
+] [79
 
 ]
-runsystem(latexminted cleantemp  --timestamp 20260305150952 FAD58DE7366495DB465
+runsystem(latexminted cleantemp  --timestamp 20260524054931 FAD58DE7366495DB465
 0CFEFAC2FCD61)...disabled (restricted).
 
  (main.aux)
@@ -3822,15 +2329,15 @@ L3 programming layer <2022/08/05>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 2578C587B27CA245348BDF5267BC0CA3;10692.
+(rerunfilecheck)             Checksum: 726782E3EF5F753583CCA962B55AAA80;7716.
  ) 
 Here is how much of TeX's memory you used:
- 30926 strings out of 402983
- 691228 string characters out of 5448483
- 1534708 words of memory out of 5000000
- 59065 multiletter control sequences out of 15000+600000
- 665803 words of font info for 259 fonts, out of 8000000 for 9000
+ 39585 strings out of 402983
+ 877432 string characters out of 5448483
+ 1696423 words of memory out of 5000000
+ 67559 multiletter control sequences out of 15000+600000
+ 661982 words of font info for 243 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 125i,16n,125p,1682b,1091s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 125i,12n,125p,1194b,850s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (156 pages).
+Output written on main.pdf (88 pages).

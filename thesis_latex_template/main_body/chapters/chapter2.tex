@@ -1,303 +1,145 @@
 % Chapter 2: 相关理论及技术 (Related Theory and Technology)
 \chapter{相关理论及技术}
 
-本章介绍本文研究所涉及的基础理论和关键技术，为后续第三章至第五章的研究工作奠定理论基础。
+本章梳理后续研究所涉及的理论与技术背景，内容涵盖元启发式算法机制、应用场景建模、代理辅助优化策略以及统计分析方法，为后续算法设计与实验论证提供必要的理论基础。
 
-\section{元启发式算法基础}
+\section{元启发式优化算法}
 
-元启发式算法（Meta-heuristic Algorithms, MAs）是一类高层次的、与问题无关的算法框架，通过借鉴自然界或社会现象中的智能机制来指导搜索过程。与精确优化方法不同，元启发式算法不保证找到全局最优解，但能在合理的时间内找到满意的近优解，特别适用于搜索空间庞大、目标函数复杂的NP-hard问题。
+元启发式算法（Metaheuristic Algorithms, MAs）是处理复杂优化任务的重要工具，在应对大规模搜索空间和缺乏显式解结构的NP-hard问题时具有较强的适应性\cite{ibsa_ref4,sbo_ref1}。按照设计灵感的不同，这类方法大致可分为群体智能、进化计算、自然规律模拟和人类行为模仿等类型\cite{sbo_ref11}。尽管具体更新机制存在差异，但其共同目标在于协调探索（Exploration）与开发（Exploitation），在全局探索与局部开发之间取得平衡\cite{ibsa_ref75}。
 
-元启发式算法的核心挑战在于\textbf{探索（Exploration）}与\textbf{利用（Exploitation）}之间的平衡。探索是指在搜索空间中广泛采样以发现潜在的最优区域，利用则是在已发现的有前景区域内进行精细化搜索以提高解的精度。过度探索导致收敛缓慢，过度利用则容易陷入局部最优。如何有效平衡二者是元启发式算法设计的核心问题。
+\subsection{群体智能与进化算法}
 
-\subsection{群体智能算法}
-
-群体智能算法利用社会性生物的集体行为和自组织特性来实现优化搜索。这类算法的核心思想是：大量简单个体通过遵循基本的交互规则，能够共同展现出复杂且全局有效的行为。
-
-\textbf{粒子群优化算法（Particle Swarm Optimization, PSO）}由Kennedy和Eberhart于1995年提出，模拟鸟群觅食过程中的信息共享行为。每个粒子根据自身的历史最优位置和群体的全局最优位置来更新速度和位置。PSO因其概念简单、参数少和收敛速度快而成为最广泛使用的群体智能算法之一。粒子位置和速度的更新公式为：
+群体智能算法通过个体间的信息共享与协同更新实现全局探索\cite{sbo_ref18}。粒子群优化算法（Particle Swarm Optimization, PSO）\cite{ibsa_ref26}是其中最具代表性的方法之一，其基本更新规则如下：
 \begin{equation}
 v_i^{t+1} = \omega v_i^t + c_1 r_1 (pbest_i - x_i^t) + c_2 r_2 (gbest - x_i^t)
 \end{equation}
 \begin{equation}
 x_i^{t+1} = x_i^t + v_i^{t+1}
 \end{equation}
-其中，$\omega$为惯性权重，$c_1$和$c_2$为学习因子，$r_1$和$r_2$为[0,1]上的随机数，$pbest_i$为粒子$i$的历史最优位置，$gbest$为群体全局最优位置。
+其中，$x_i^t$和$v_i^t$分别表示第$t$次迭代时第$i$个粒子的位置与速度，$\omega$为惯性权重，$c_1$和$c_2$为学习因子，$r_1$和$r_2$为$[0,1]$上的随机数，$pbest_i$和$gbest$分别表示个体历史最优位置与群体全局最优位置。由于机理清晰、实现简便，PSO已广泛用于函数优化、神经网络训练等连续优化相关任务；经过适当的离散化或编码设计后，也可用于部分组合优化问题。除PSO外，灰狼优化器（Grey Wolf Optimizer, GWO）\cite{ibsa_ref81}通过模拟灰狼的等级结构和围捕行为开展群体搜索，蚁群优化算法（Ant Colony Optimization, ACO）\cite{ibsa_ref25}借助信息素沉积机制求解离散优化问题，人工蜂群算法（Artificial Bee Colony, ABC）\cite{ibsa_ref27}则通过模拟蜜蜂觅食实现全局寻优。这些方法通过不同的信息传递与反馈机制，共同构成了群体智能搜索的基本方法体系。
 
-\textbf{灰狼优化算法（Grey Wolf Optimizer, GWO）}由Mirjalili等人于2014年提出，模拟灰狼的社会等级和协作捕猎行为。灰狼群体被划分为alpha（$\alpha$）、beta（$\beta$）、delta（$\delta$）和omega（$\omega$）四个等级，分别代表当前最优、次优和第三优解。搜索过程中，每匹狼根据三个领导者的位置更新自身位置，实现对猎物的包围和攻击。
-
-\textbf{蚁群优化算法（Ant Colony Optimization, ACO）}由Dorigo于1992年提出，模仿蚂蚁通过信息素进行路径搜索的行为。蚂蚁在搜索路径上释放信息素，较短路径上的信息素浓度更高，从而吸引更多蚂蚁选择该路径，形成正反馈机制，最终收敛至近优路径。
-
-\subsection{进化算法}
-
-进化算法以达尔文进化论为理论基础，模拟生物群体的自然选择和遗传变异过程。其基本框架包括种群初始化、适应度评估、选择、交叉和变异等操作。
-
-\textbf{遗传算法（Genetic Algorithm, GA）}是最早的进化算法之一，由Holland于1975年提出。GA使用二进制或实数编码表示个体，通过选择（如轮盘赌选择、锦标赛选择）保留优良个体，通过交叉操作组合父代个体的基因片段产生后代，通过变异操作引入新的基因变体以维持种群多样性。
-
-\textbf{差分进化算法（Differential Evolution, DE）}由Storn和Price于1997年提出，是一种简单而高效的实数编码进化算法。DE的核心在于其独特的差分变异策略，通过两个个体的差向量来扰动第三个个体，生成变异个体。常用的变异策略"DE/rand/1"定义为：
+与模拟群体行为的方法不同，进化算法更侧重于对遗传变异规律的工程模拟\cite{sbo_ref11}。差分进化算法（Differential Evolution, DE）\cite{ibsa_ref34}结构简洁，在实值优化任务中表现稳定，已成为代理辅助优化中的常用搜索工具。常用的DE/rand/1变异策略通过向量差分驱动搜索：
 \begin{equation}
 v_i = x_{r1} + F \cdot (x_{r2} - x_{r3})
 \end{equation}
-其中，$x_{r1}$、$x_{r2}$和$x_{r3}$为种群中随机选取的三个不同个体，$F$为缩放因子。DE因其控制参数少和搜索性能强而在SAEAs研究中被广泛使用。
+其中，$x_{r1}$、$x_{r2}$和$x_{r3}$为从种群中随机选取的三个不同个体，缩放因子$F$与交叉概率$CR$共同调节变异幅度和种群多样性。该机制在保持较好收敛稳定性的同时\cite{ibsa_ref55}，也为后续章节中的算法设计提供了参考。
 
-\subsection{分布估计算法}
-\label{sec:ch2_eda}
+\subsection{回溯搜索算法}
 
-分布估计算法（Estimation of Distribution Algorithm, EDA）通过概率模型估计有前景解的分布，展现了有效的搜索能力\cite{chen2020language, liu2023surrogate}。与传统遗传算子不同，EDA通过拟合输入种群$\mathcal{P}=\{\boldsymbol{x}_1,\boldsymbol{x}_2,...,\boldsymbol{x}_N\}$（其中每个$\boldsymbol{x}_i \in \mathbb{R}^d$，$d$为问题维度）及其对应的适应度值$\mathcal{F}=\{f(\boldsymbol{x}_1),f(\boldsymbol{x}_2),...,f(\boldsymbol{x}_N)\}$来构建分布模型，从而生成后代个体。使用多元高斯分布对种群进行建模时，通过均值向量$\boldsymbol{\mu}$和协方差矩阵$\boldsymbol{\mathcal{C}ov}$进行表征：
-
+回溯搜索算法（Backtracking Search Algorithm, BSA）由Civicioglu\cite{ibsa_ref53}于2013年提出，是一种利用历史种群记忆进行搜索的进化算法。其主要流程包括初始化、Selection-I、变异、交叉和Selection-II五个阶段，其中变异策略利用当前种群与历史种群之间的差异生成候选解：
 \begin{equation}
-    \boldsymbol{\mu} = \frac{1}{N}\sum\limits_{i=1}^{N}\boldsymbol{x}_i
+Mutant = X + F \cdot (OldX - X)
+\end{equation}
+其中，$F = 3 \cdot \operatorname{randn}$。历史记忆机制增强了算法的全局探索潜力，但由于变异与交叉过程具有较强的随机性，BSA在局部开发方面仍存在不足\cite{ibsa_ref63}。Zhao\cite{ibsa_ref57}和Nama\cite{ibsa_ref59}等学者提出的改进方案，为第三章中IBSA算法的设计提供了重要参考。
+
+\subsection{探索与开发平衡性}
+\label{sec:ch2_balance_diversity}
+
+为定量分析算法在搜索过程中的动态行为，本文引入基于种群多样性的度量指标。其中，$FEs$表示函数评估次数，维度多样性$\text{Div}(FEs)$定义为：
+\begin{equation}
+\text{Div}(FEs)=\frac{1}{D}\sum^D_{j=1}{\frac{1}{N}\sum^N_{i=1}{\left|\operatorname{median}\left(X^j\left(FEs\right)\right)-X^j_i\left(FEs\right)\right|}}
 \end{equation}
 
+在此基础上，探索率与开发率分别定义为：
 \begin{equation}
-    \boldsymbol{\mathcal{C}ov} = \frac{1}{N-1}\sum\limits_{i=1}^N(\boldsymbol{x}_i-\boldsymbol{\mu})(\boldsymbol{x}_i-\boldsymbol{\mu})^T
+\text{Exploration}=\frac{\text{Div}\left(FEs\right)}{\text{Div}_{\max}}\cdot 100\%
 \end{equation}
-
-模型拟合完成后，从高斯分布$\mathcal{N}(\boldsymbol{\mu},\boldsymbol{\mathcal{C}ov})$中采样生成新的种群。本文第五章的BEXEA算法将EDA作为核心搜索策略之一。
-
-\subsection{量子行为粒子群优化算法}
-\label{sec:ch2_qpso}
-
-量子行为粒子群优化算法（Quantum-behaved Particle Swarm Optimization, QPSO）是PSO的一种变体，引入量子机制以概率方式而非确定性方式建模粒子位置，在提高收敛速度的同时减少了计算时间\cite{sun2012quantum, li2025multi}。QPSO消除了速度概念，使用基于以局部吸引子为中心的势阱的量子启发位置更新机制。
-
-对于粒子位置更新，首先确定截至当前迭代的个体最优位置和全局最优位置：
-
 \begin{equation}
-    pbest_i = \argmin_{\tau \leq t} f(\boldsymbol{x}_i^\tau)
+\text{Exploitation}=\frac{\left|\text{Div}\left(FEs\right)-\text{Div}_{\max}\right|}{\text{Div}_{\max}}\cdot 100\%
 \end{equation}
-
+进一步地，基于种群质心的欧氏距离多样性$I_C(FEs)$为：
 \begin{equation}
-    gbest = \argmin_i f(pbest_i)
+I_C(FEs) = \sqrt{\sum^{N}_{i=1}{\sum^{D}_{j=1}{{\left(X^j_i\left(FEs\right)-C^j(FEs)\right)}^{2}}}}
 \end{equation}
-
-确定个体最优和全局最优位置后，计算每个粒子$i$在维度$j$上的局部吸引子：
-
 \begin{equation}
-    p_{ij} = \varphi_{ij} \cdot pbest_{ij} + (1-\varphi_{ij}) \cdot gbest_j, \quad \varphi_{ij} \sim \mathcal{U}(0,1)
+C^j(FEs) = \frac{1}{N}\sum^N_{i=1}{X^j_i\left(FEs\right)}
 \end{equation}
+$I_C(FEs)$越大，说明种群整体分散程度越高，算法更偏向于探索；$I_C(FEs)$较小时，种群逐渐聚集，算法则更偏向于开发。其中，$\text{Div}_{\max}$表示维度多样性的最大值。理想的寻优过程通常要求算法在前期保持较强的种群多样性，并在后期逐步向极值点收敛。后续章节将利用上述指标量化评估算法的动态搜索行为。
 
-基于局部吸引子，从量子概率分布中采样粒子位置：
+\section{特征选择与图像分割问题简介}
 
-\begin{equation}
-    \boldsymbol{x}_{ij}^{t+1} = p_{ij} \pm \alpha \left| mbest_j - \boldsymbol{x}_{ij}^t \right| \cdot \ln \left(\frac{1}{u_{ij}} \right), \quad u_{ij} \sim \mathcal{U}(0,1)
-\end{equation}
-其中$mbest = \frac{1}{N} \sum\limits_{i=1}^N pbest_i$为均值最优位置，$\pm$以0.5的概率随机选择，$\alpha$为收缩-扩张系数，在迭代过程中从1线性递减至0.5。本文第五章的BEXEA算法将QPSO作为另一核心搜索策略。
+本文关注的高维特征选择与图像分割，本质上都可以表述为特定搜索空间中的参数寻优问题。前者需要在离散组合空间中筛选最优特征子集，后者则需要在连续灰度空间中确定最优分割阈值。
 
-\section{回溯搜索算法}
+\subsection{特征选择问题定义}
 
-回溯搜索算法（Backtracking Search Algorithm, BSA）由Civicioglu于2013年提出，是一种基于种群的进化算法，以其独特的历史种群记忆机制和优秀的全局探索能力著称。BSA的搜索过程包括以下五个阶段：
+特征选择（Feature Selection, FS）通过剔除冗余维度，在简化模型结构的同时提升其任务表征能力\cite{ibsa_ref50}。主流方法包括过滤式、嵌入式和包裹式三类\cite{sbo_ref61}：过滤式依赖统计量进行独立评价，虽然效率较高，但难以刻画特征间的交互关系\cite{sbo_ref62}；嵌入式将选择过程整合进学习器训练；包裹式则以分类器性能为反馈导向，尽管计算开销较大，但得到的特征子集通常具有更强的判别能力\cite{ibsa_ref23,sbo_ref64}。
 
-\textbf{（1）初始化}。在搜索空间内随机生成初始种群$\boldsymbol{X}$和历史种群$\boldsymbol{OldX}$，每个个体的每个维度在对应的上下界内均匀分布。
-
-\textbf{（2）选择I（Selection-I）}。在每次迭代开始时，BSA通过一个随机决策来决定是否更新历史种群。若$a < b$（$a$和$b$为均匀随机数），则将当前种群$\boldsymbol{X}$保存为新的历史种群$\boldsymbol{OldX}$。随后对$\boldsymbol{OldX}$进行随机排列，这使得BSA能够利用过去的搜索经验，体现了"回溯"的思想。
-
-\textbf{（3）变异}。BSA的变异策略利用当前种群和历史种群的差异来生成变异个体：
-\begin{equation}
-\boldsymbol{Mutant} = \boldsymbol{X} + F \cdot (\boldsymbol{OldX} - \boldsymbol{X})
-\end{equation}
-其中，$F = 3 \cdot rndn$，$rndn$服从标准正态分布。变异方向由历史种群和当前种群之间的差向量决定。
-
-\textbf{（4）交叉}。BSA提供两种交叉方式——全局交叉和局部交叉，通过随机选择来决定每次迭代使用哪种方式。全局交叉同时改变多个决策变量，而局部交叉仅修改单个决策变量。交叉操作通过二进制矩阵$\boldsymbol{map}$来控制最终试验个体$\boldsymbol{T}$中各维度的来源。
-
-\textbf{（5）选择II（Selection-II）}。采用贪婪选择策略，将每个试验个体与当前种群中的对应个体进行比较，保留适应度更优的个体进入下一代。
-
-BSA的独特优势在于其历史种群记忆机制为算法提供了丰富的搜索方向信息，增强了探索能力。然而，BSA的变异和交叉过程具有较强的随机性，可能导致搜索方向不可预测，限制了其在最优区域附近的局部利用能力。本文第三章和第四章的研究工作均以BSA为基础，分别从不同角度对其进行改进。
-
-\section{特征选择技术}
-
-特征选择旨在从原始特征集合中选取一个最优子集，在保持或提高模型性能的同时减少特征数量。对于高维数据集，特征选择不仅能降低计算复杂度、缓解维数灾难，还能提高模型的泛化能力和可解释性。
-
-\subsection{特征选择方法分类}
-
-\textbf{过滤式方法（Filter Methods）}独立于学习算法，基于特征自身的统计特性（如相关系数、信息增益、卡方检验等）对特征进行排序和选择。优点是计算效率高，缺点是忽略了特征之间的交互作用以及特征与分类器之间的依赖关系。
-
-\textbf{嵌入式方法（Embedded Methods）}将特征选择过程嵌入到模型训练过程中，如LASSO（Least Absolute Shrinkage and Selection Operator）回归通过L1正则化实现特征选择，决策树通过信息增益或基尼不纯度选择分裂特征。这类方法兼顾了效率和性能，但特征选择结果与所用学习算法绑定。
-
-\textbf{包裹式方法（Wrapper Methods）}将学习算法的预测性能作为特征子集的评价标准，通过搜索算法在特征空间中搜索最优子集。包裹式方法能够考虑特征之间的相互作用，通常能获得比过滤式方法更优的特征子集，但计算成本较高。
-
-\subsection{基于元启发式的包裹式特征选择}
-
-在包裹式特征选择中，特征选择问题被转化为一个二值优化问题：每个特征对应一个0/1决策变量，1表示选择该特征，0表示不选择。元启发式算法被广泛用作搜索引擎来探索$2^D$规模的特征子空间（$D$为原始特征数量）。
-
-由于大多数元启发式算法是为连续优化问题设计的，将其应用于特征选择需要通过转换函数将连续值映射为二值。常用的转换函数包括S型（Sigmoid）函数和V型函数。V型转换函数定义为：
+在基于元启发式的包裹式特征选择中，每个特征对应一个0/1决策变量，问题可视为二值优化。由于多数元启发式算法面向连续空间，通常需借助V型传递函数完成二值化：
 \begin{equation}
 T(x) = \left| \operatorname{erf}\left(\frac{\sqrt{\pi}}{2} x\right) \right|
 \end{equation}
-其中erf为误差函数。若$T(x_i^d) > rand$（$rand$为[0,1]上的均匀随机数），则对应维度取值翻转；否则保持不变。V型函数的特点是输入值越大，原始位置翻转的概率越高。本文第三章的bIBSA采用V型转换函数实现二值化。
+其中，$x_i^d$表示第$i$个个体在第$d$维上的取值。若$T(x_i^d) > \operatorname{rand}$，则对应维度取值翻转，否则保持不变。为同时兼顾分类误差和特征压缩率，适应度函数定义如下：
+\begin{equation}
+\text{Fitness}=\alpha\cdot \gamma_R\left(N\right)+\beta\cdot \frac{\left|R\right|}{\left|N\right|}
+\end{equation}
+其中，$\gamma_R(\cdot)$表示错误率函数，$R$和$N$分别为所选特征数和总特征数，$\alpha$与$\beta$为平衡分类误差和特征压缩率的权重系数。
+后续实验将从平均适应度、分类错误率、所选特征数和运行时间四个方面评估算法表现。
 
-\section{代理辅助优化技术}
+\subsection{多阈值图像分割问题}
 
-代理辅助优化是解决昂贵优化问题的核心技术，通过构建廉价的代理模型来近似昂贵的真实目标函数，从而减少精确函数评估次数。
+多阈值图像分割通过设置多个阈值将图像灰度空间划分为若干区域，是图像分割中的常见预处理步骤\cite{sbo_ref79,sbo_ref80}。若图像灰度级为$L$，则阈值向量可表示为：
+\begin{equation}
+\boldsymbol{T} = [t_1, t_2, \ldots, t_K], \quad 0 \le t_1 < t_2 < \cdots < t_K \le L-1
+\end{equation}
+其中$K$为阈值个数。随着$K$的增加，候选解空间会迅速膨胀，传统穷举方法难以在可接受时间内获得满意结果。采用元启发式算法在此类大规模搜索空间中搜索最优阈值组合，已成为该领域的常用方法\cite{sbo_ref82}。第四章将引入Renyi熵准则评估分割质量，并利用所提算法搜索最优阈值配置，以提高乳腺癌组织学图像的分割精细度\cite{sbo_ref83}。
 
-\subsection{代理模型}
+\section{代理辅助昂贵优化技术}
+
+在评估代价较高的优化问题（Expensive Optimization Problems, EOPs）中，单次目标函数评估通常依赖高保真仿真或复杂工程计算，计算成本较高\cite{liu2023airfoils,kumar2024optimization}。代理辅助进化算法（Surrogate-Assisted Evolutionary Algorithms, SAEAs）通过构建低成本近似模型来逼近真实目标函数，从而减少真实评估次数\cite{he2023review,jin2018data}，这也为第五章的算法设计提供了理论基础。
+
+\subsection{代理模型与采样准则}
 \label{sec:ch2_surrogate_models}
 
-\textbf{径向基函数（Radial Basis Function, RBF）}模型是一种基于距离的插值方法，以固定数量的精确评估样本为起点。其预测值由已知样本点处的基函数加权组合得到：
+代理模型用于学习真实目标函数的近似映射关系\cite{kudela2022recent}。径向基函数（Radial Basis Function, RBF）模型是一种基于距离的插值方法\cite{regis2013evolutionary}，其预测值可表示为已知样本点基函数值的加权组合：
 \begin{equation}
 \hat{f}(x) = \sum_{i=1}^{n} \lambda_i \phi(\|x - x_i\|)
 \end{equation}
-其中，$\phi$为基函数（如高斯函数$\phi(r) = e^{-r^2/\sigma^2}$、多二次函数$\phi(r) = \sqrt{r^2 + c^2}$等），$\lambda_i$为待定系数，$x_i$为已知样本点。为确定系数，RBF模型必须满足插值条件$\hat{f}(x_i) = f(x_i)$，将其写成矩阵形式：
+由插值条件$\hat{f}(x_i) = f(x_i)$可得矩阵形式：
 \begin{equation}
 \mathcal{F} = \boldsymbol{\Psi} \mathcal{W}
 \end{equation}
-其中$\boldsymbol{\Psi}$为核矩阵，其元素$\boldsymbol{\Psi}_{ij} = \phi(\|x_i - x_j\|)$，系数$\mathcal{W}$可通过求解该线性系统获得。RBF模型的优点是训练速度快、适应性强，在SAEAs研究中日益受到青睐。
-\label{sec:ch2_rbf}
+其中，$\lambda_i$为第$i$个样本点对应的插值权重，$\phi(\cdot)$表示径向基函数，$\mathcal{F}$为函数值向量，$\boldsymbol{\Psi}$为插值矩阵，$\mathcal{W}$为权重向量，且$\boldsymbol{\Psi}_{ij} = \phi(\|x_i - x_j\|)$。在实际应用中，RBF常用的基函数包括多二次、反多二次、高斯和薄板样条等形式，不同基函数会影响模型的平滑性、插值精度与外推能力\cite{forrester2008engineering,kudela2022recent}。由于训练速度快，且对高维非线性分布具有较好的拟合能力\cite{kudela2022recent}，RBF被选作第五章中的基础代理模型。
 
-图\ref{fig:ch2_RBF_prediction}展示了利用六个均匀分布样本对一维函数进行RBF近似的结果\cite{forrester2008engineering}。白色圆圈表示空间中的样本点，黑色实线代表真实适应度景观，红色虚线代表RBF预测函数。从图中可以看出，RBF模型对样本点进行了插值，在样本点处的估计误差为零，而在样本点之间误差逐渐增大。
+图\ref{fig:ch2_RBF_prediction}展示了利用六个均匀分布样本对一维函数进行RBF近似的结果\cite{forrester2008engineering}。其中，白色圆圈表示样本点，黑色实线代表真实目标函数曲线，红色虚线代表RBF预测函数。从图中可以看出，RBF模型能够在样本点处实现精确插值，并在样本点之间给出平滑近似。
 
-\begin{figure}[ht]
+\begin{figure}[!b]
     \centering
-    \includegraphics[width=\linewidth]{figures/chapter5/rbf_plot.png}
+    \includegraphics[width=0.92\linewidth]{figures/chapter5/rbf_plot.png}
     \bicaption{一维函数上的RBF预测}{RBF prediction on a 1-dimensional function}
     \label{fig:ch2_RBF_prediction}
 \end{figure}
 
-\textbf{Kriging模型}（也称高斯过程模型）不仅提供预测值，还能给出预测的不确定性估计。Kriging模型假设目标函数是一个高斯过程的实现：
+Kriging模型（高斯过程模型）\cite{buche2005accelerating,liu2013gaussian}除给出预测值外，还能提供不确定性估计，因此常与采样决策结合使用。该模型通常通过选择高斯、指数或Mat\'ern等相关函数刻画样本间的空间关联，并结合似然估计确定相应超参数；其详细推导与参数求解过程可参见相关文献\cite{buche2005accelerating,liu2013gaussian,forrester2008engineering}。为从候选解中筛选最值得进行真实评估的样本，通常需要引入采样准则\cite{zhan2020expected}。期望改进准则（Expected Improvement, EI）\cite{jones1998efficient}定义为：
 \begin{equation}
-f(x) = \mu + Z(x)
+\operatorname{EI}(x) = (f_{min} - \hat{f}(x)) \Phi\left(\frac{f_{min} - \hat{f}(x)}{s(x)}\right) + s(x) \phi\left(\frac{f_{min} - \hat{f}(x)}{s(x)}\right)
 \end{equation}
-其中，$\mu$为全局趋势，$Z(x)$为均值为零的高斯过程。Kriging模型的不确定性量化能力使其特别适用于贝叶斯优化框架，但训练成本较高。
-
-\subsection{填充准则}
-
-填充准则用于从代理模型预测的候选解中选择最有价值的个体进行真实目标函数评估。
-
-\textbf{期望改进（Expected Improvement, EI）}准则源自高效全局优化（Efficient Global Optimization, EGO），综合考虑预测值和不确定性：
+其中，$f_{min}$为当前最优值，$\hat{f}(x)$和$s(x)$分别为代理模型的预测均值和标准差，$\Phi$和$\phi$分别为标准正态分布的累积分布函数和概率密度函数。置信下界准则（Lower Confidence Bound, LCB）则定义为：
 \begin{equation}
-EI(x) = (f_{min} - \hat{f}(x)) \Phi\left(\frac{f_{min} - \hat{f}(x)}{s(x)}\right) + s(x) \phi\left(\frac{f_{min} - \hat{f}(x)}{s(x)}\right)
+\operatorname{LCB}(x) = \hat{f}(x) - \kappa \cdot s(x)
 \end{equation}
-其中，$f_{min}$为当前最优值，$\hat{f}(x)$和$s(x)$分别为代理模型的预测均值和标准差，$\Phi$和$\phi$分别为标准正态分布的累积分布函数和概率密度函数。EI准则的第一项偏好预测值好的区域（利用），第二项偏好不确定性高的区域（探索），从而自然地平衡了探索与利用。
+其中，$\kappa$越大，策略越倾向于探索。EI和LCB都体现了对探索与开发的综合权衡，使代理辅助优化能够在有限评估预算下做出更合理的采样决策。
 
-\textbf{置信下界（Lower Confidence Bound, LCB）}准则定义为预测均值减去不确定性的加权项：
+\subsection{多臂赌博机策略}
+
+多臂赌博机（Multi-Armed Bandit, MAB）问题描述了决策者如何在多个候选动作之间权衡已知高收益策略的利用与未知动作的探索\cite{slivkins2019introduction}，其核心在于处理探索与开发的平衡。在优化算法中，可以将不同搜索算子视为不同的臂，并根据环境反馈自适应调整选择概率\cite{xie2023surrogate,gong2024surrogate}。
+
+上置信界（Upper Confidence Bound, UCB）策略是解决MAB问题的经典方法之一\cite{auer2002finite}，其在函数评估次数为$FEs$时选择具有最高上置信界的臂：
 \begin{equation}
-LCB(x) = \hat{f}(x) - \kappa \cdot s(x)
+a_{FEs} = \argmax_{a} \left[ Q_{FEs}(a) + c \sqrt{\frac{\ln FEs}{N_{FEs}(a)}} \right]
 \end{equation}
-其中，$\kappa$为权衡参数。LCB通过调节$\kappa$值来控制探索与利用的平衡程度。
+其中，$Q_{FEs}(a)$为臂$a$的估计收益均值，$N_{FEs}(a)$为臂$a$被选择的次数，$c$为探索系数。UCB策略的关键在于：收益均值$Q_{FEs}(a)$鼓励选择历史表现较好的臂，而探索项则鼓励尝试被选次数较少的臂。第五章将在此基础上构建赌博机驱动的自适应搜索机制，通过将异构搜索模式映射为不同的臂，实现搜索策略的动态分配。
 
-\section{多臂赌博机问题}
-
-多臂赌博机（Multi-Armed Bandit, MAB）问题是强化学习中的经典问题，描述了一个决策者面对多台老虎机（臂）时如何选择以最大化累积收益的问题。MAB问题的核心挑战同样是探索与利用的平衡：选择已知收益较高的臂（利用）还是尝试收益未知的臂（探索）。
-
-\textbf{上置信界（Upper Confidence Bound, UCB）}策略是解决MAB问题的经典方法之一。UCB在每一轮选择具有最高上置信界的臂：
-\begin{equation}
-a_t = \argmax_{a} \left[ Q_t(a) + c \sqrt{\frac{\ln t}{N_t(a)}} \right]
-\end{equation}
-其中，$Q_t(a)$为臂$a$的估计收益均值，$N_t(a)$为臂$a$被选择的次数，$t$为当前轮次，$c$为探索系数。UCB公式的第一项代表对高收益臂的偏好（利用），第二项对选择次数少的臂给予奖励（探索），两项共同实现了探索与利用的平衡。
-
-在本文第五章的BEXEA中，多臂赌博机机制被引入代理辅助进化算法的搜索策略选择中。将探索模式和利用模式设计为两个臂，通过强化学习根据环境反馈自主调整搜索模式，替代了传统的人工设计搜索策略切换规则，实现了搜索策略的自适应选择。
-
-\section{基准测试函数与统计检验}
+\section{基准测试与统计检验}
 
 \subsection{基准测试函数}
 
-基准测试函数是评估优化算法性能的标准工具，提供了具有已知最优解的测试问题集合，便于算法之间的公平比较。
-
-\textbf{IEEE CEC（Congress on Evolutionary Computation）2017测试套件}包含30个测试函数（F1-F30），涵盖单峰函数、简单多峰函数、混合函数和组合函数四大类别，支持10、30、50和100维等多种维度设置。该测试套件的函数设计更为复杂，能够全面考察算法的探索能力、利用能力以及在不同问题特征下的鲁棒性。本文第三章和第四章均采用IEEE CEC 2017测试套件作为全局优化性能的主要评估基准。
-
-\textbf{IEEE CEC 2022测试套件}是面向昂贵优化问题设计的最新基准测试集，包含12个测试函数，涵盖单峰、多峰、混合和组合类型。该测试套件专门针对函数评估次数受限的场景，适合评估代理辅助进化算法的性能。本文第五章采用该测试套件评估BEXEA的性能。
+基准测试函数为算法性能评估提供了统一且可复现的比较环境\cite{ibsa_ref4}。IEEE进化计算大会（IEEE Congress on Evolutionary Computation, IEEE CEC）2017基准函数集包含30个函数，覆盖单峰（F1--F3）、多峰（F4--F10）、混合（F11--F20）和组合（F21--F30）四类问题\cite{ibsa_ref88}，能够从不同维度评估算法的搜索能力，是第三章和第四章的主要测评基准。IEEE CEC 2022基准函数集面向函数评估受限的昂贵优化场景，包含12个函数\cite{kumar2024optimization}，最大评估次数受到严格限制，本文在第五章中利用其评估BEXEA的性能。
 
 \subsection{统计检验方法}
 \label{sec:ch2_stat_tests}
 
-为确保实验结果的统计显著性，本文采用以下统计检验方法：
-
-\textbf{Wilcoxon秩和检验}是一种非参数统计检验方法，用于比较两种算法在多个测试函数上的性能差异是否具有统计显著性。在显著性水平$\alpha = 0.05$下，若$p$值小于0.05，则认为两种算法存在显著差异。
-
-\textbf{Friedman检验}是一种非参数方差分析方法，用于同时比较多种算法的整体性能排名。Friedman检验首先对每个测试函数上的算法性能进行排名，然后计算平均排名，检验各算法之间是否存在显著差异。较低的平均排名表示算法的整体性能更优。
-
-在后续各章的实验结果分析中，符号"+"、"="和"-"分别表示所提算法的性能显著优于、与对比算法性能相当和显著劣于对比算法（显著性水平$\alpha = 0.05$）。后续各章不再重复上述统计检验方法和符号约定的定义。
-
-\section{算法性能评估指标}
-
-为便于后续各章的实验分析，本节统一定义用于评估元启发式算法性能的度量指标，涵盖探索与利用平衡性度量以及特征选择评估指标。
-
-\subsection{探索与利用平衡性度量}
-\label{sec:ch2_balance_diversity}
-
-探索与利用的平衡是元启发式算法设计的核心问题。为定量评估算法在搜索过程中的探索和利用行为，本文采用以下基于种群多样性的度量指标。
-
-\textbf{维度多样性}$\text{Div}(t)$衡量种群在各维度上的分散程度，定义为：
-
-\begin{equation}
-\label{eq:ch2_div}
-\text{Div}(t)=\frac{1}{D}\sum^D_{j=1}{\frac{1}{N}\sum^N_{i=1}{\left|\operatorname{median}\left(X^j\left(t\right)\right)-X^j_i\left(t\right)\right|}}
-\end{equation}
-其中，$X^j_i\left(t\right)$表示第$i$个个体在第$t$次迭代时第$j$维的值，$D$为问题维度，$N$为种群规模。
-
-\textbf{探索率}将探索表示为给定时间$t$时维度多样性相对于进化过程中记录的最大多样性的函数：
-
-\begin{equation}
-\label{eq:ch2_exploration}
-\text{Exploration}=\frac{\text{Div}\left(t\right)}{\text{Div}_{\max}}\times 100\%
-\end{equation}
-
-\textbf{利用率}反映了种群向最优区域收敛的程度：
-
-\begin{equation}
-\label{eq:ch2_exploitation}
-\text{Exploitation}=\frac{\left|\text{Div}\left(t\right)-\text{Div}_{\max}\right|}{\text{Div}_{\max}}\times 100\%
-\end{equation}
-其中$\text{Div}_{\max}$为观察到的最大多样性。
-
-此外，种群多样性还可通过欧几里得距离进行度量。基于种群质心的欧几里得距离多样性$I_C(t)$定义为：
-
-\begin{equation}
-\label{eq:ch2_ic}
-I_C(t) = \sqrt{\sum^{N}_{i=1}{\sum^{D}_{j=1}{{\left(X^j_i\left(t\right)-C^j(t)\right)}^{2}}}}
-\end{equation}
-
-其中质心$C^j(t)$由下式确定：
-
-\begin{equation}
-\label{eq:ch2_centroid}
-C^j(t) = \frac{1}{N}\sum^N_{i=1}{X^j_i\left(t\right)}
-\end{equation}
-
-$I_C(t)$反映了每个个体与种群质心之间的累计欧几里得距离。较大的值表示更广泛的分散，意味着个体之间具有较高的多样性水平。
-
-\subsection{特征选择评估指标}
-\label{sec:ch2_fs_metrics}
-
-在基于元启发式的包裹式特征选择中，需要综合评估算法的多方面性能。本文采用以下评估指标。
-
-\textbf{适应度函数}。特征选择的目标是在最小化所选特征数量的同时尽可能提高分类精度。适应度函数定义为：
-
-\begin{equation}
-\label{eq:ch2_fitness}
-\text{Fitness}=\alpha\cdot \gamma_R\left(N\right)+\beta\cdot \frac{\left|R\right|}{\left|N\right|}
-\end{equation}
-其中，$\gamma_R(\cdot)$表示计算所选特征子集$R$相关错误率的函数，$R$和$N$分别表示当前选择的特征和数据集中的总特征数。系数$\alpha$和$\beta$分别控制分类错误率和特征子集大小的权重，本文设$\alpha=0.05$、$\beta=0.95$。分类器采用KNN（$K=5$），评估采用10折交叉验证。
-
-\textbf{平均适应度}。算法在每个数据集上$L$次独立运行的整体适应度：
-
-\begin{equation}
-\label{eq:ch2_avg_fitness}
-\overline{\text{Fitness}} = \frac{1}{L}\sum^L_{i=1}{\text{fitness}\left(i\right)}
-\end{equation}
-其中$\text{fitness}(i)$为第$i$次运行获得的适应度值。
-
-\textbf{平均分类错误率}。算法$L$次运行的平均分类错误率：
-
-\begin{equation}
-\label{eq:ch2_avg_error}
-\overline{\text{Error}}= \frac{1}{L}\sum^L_{i=1}{\left(1-\text{Accuracy}\left(i\right)\right)}
-\end{equation}
-其中$\text{Accuracy}(i)$指第$i$次运行的分类准确率。
-
-\textbf{平均选择特征数}。算法在$L$次运行中选择的平均特征数：
-
-\begin{equation}
-\label{eq:ch2_avg_features}
-\overline{\text{Features}} = \frac{1}{L}\sum^L_{i=1}{\text{Size}\left(i\right)}
-\end{equation}
-其中$\text{Size}(i)$表示第$i$次运行中选择的特征数。
-
-\textbf{平均运行时间}。算法$L$次运行的平均运行时间：
-
-\begin{equation}
-\label{eq:ch2_avg_time}
-\overline{\text{Time}}= \frac{1}{L}\sum^L_{i=1}{\text{Runtime}\left(i\right)}
-\end{equation}
-其中$\text{Runtime}(i)$为第$i$次运行所用的时间。
+为保证实验比较的统计有效性，本文采用非参数统计检验对算法结果进行分析。Wilcoxon秩和检验\cite{ibsa_ref95}是一种成对比较方法，通过分析两组独立样本的排名差异判断二者差异是否具有统计显著性。Friedman检验\cite{derrac2011practical}则适用于多组比较，可评价多个算法在多个测试函数上的整体排名差异。在后文的实验分析中，符号‘+’、‘=’与‘$-$’分别表示所提算法在显著性水平$\alpha = 0.05$下优于、等同或劣于对比方法。
 
 \section{本章小结}
 
-本章系统介绍了本文研究所涉及的基础理论和关键技术。首先，概述了元启发式算法的基本概念和分类，重点介绍了群体智能算法和进化算法的代表性方法，并进一步阐述了分布估计算法和量子行为粒子群优化算法的原理。其次，详细阐述了回溯搜索算法的原理和搜索机制，为第三章IBSA和第四章SBO的改进工作奠定了基础。然后，介绍了特征选择技术的分类和基于元启发式的包裹式特征选择方法。随后，阐述了代理辅助优化的关键技术，包括代理模型和填充准则。接着，介绍了多臂赌博机问题的基本概念和UCB策略，以及基准测试函数和统计检验方法。最后，统一定义了算法性能评估的度量指标，包括探索与利用平衡性度量和特征选择评估指标。这些理论和技术为后续三章的研究工作提供了必要的理论支撑。
+本章围绕后续研究涉及的元启发式算法基础、应用场景建模、代理辅助优化技术以及统计测评方法进行了梳理，为第三至第五章的算法设计与实验分析提供了必要背景。

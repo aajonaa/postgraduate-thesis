@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="embed.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.6">
+  <diagram name="Page-1" id="EW_nZoKmAQW6WlgcIXFC">
+    <mxGraphModel dx="946" dy="665" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6e6e6;strokeColor=#333333;fontFamily=Helvetica;fontSize=14;arcSize=10;" value="&lt;b style=&quot;font-size: 15px;&quot;&gt;井控方案&lt;/b&gt;&lt;br&gt;&lt;b&gt;8&lt;/b&gt; 口注水井与 &lt;b&gt;4&lt;/b&gt; 口生产井&lt;br&gt;共 &lt;b&gt;40&lt;/b&gt; 个决策变量" vertex="1">
+          <mxGeometry height="80" width="220" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontFamily=Helvetica;fontSize=14;arcSize=15;" value="Egg 油藏模型&lt;br&gt;&lt;font color=&quot;#3366ff&quot;&gt;高保真数值模拟&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="340" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;fontFamily=Helvetica;fontSize=14;arcSize=15;" value="生产响应&lt;br&gt;&lt;font color=&quot;#3366ff&quot;&gt;&lt;i&gt;Q&lt;sub&gt;o,t&lt;/sub&gt;, Q&lt;sub&gt;w,t&lt;/sub&gt;, Q&lt;sub&gt;i,t&lt;/sub&gt;&lt;/i&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="580" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6e6e6;strokeColor=#333333;fontFamily=Helvetica;fontSize=14;arcSize=15;" value="&lt;b style=&quot;font-size: 15px;&quot;&gt;经济评价&lt;/b&gt;&lt;br&gt;&lt;b&gt;最大化净现值 &lt;i&gt;NPV&lt;/i&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="340" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="6" edge="1" parent="1" source="2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;labelBackgroundColor=none;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;spacingTop=-25;" target="3" value="&lt;i&gt;&lt;b style=&quot;font-size: 14px; color: #003366;&quot;&gt;X&lt;/b&gt;&lt;/i&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7" edge="1" parent="1" source="3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;" target="4" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8" edge="1" parent="1" source="4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="5" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9" edge="1" parent="1" source="2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#b3b3b3;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="5" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="150" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
