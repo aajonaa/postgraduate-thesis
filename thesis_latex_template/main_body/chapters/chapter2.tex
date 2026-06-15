@@ -5,18 +5,18 @@
 
 \section{元启发式优化算法}
 
-元启发式算法（Metaheuristic Algorithms, MAs）是处理复杂优化任务的重要工具，在应对大规模搜索空间和缺乏显式解结构的NP-hard问题时具有较强的适应性\cite{ibsa_ref4,sbo_ref1}。按照设计灵感的不同，这类方法大致可分为群体智能、进化计算、自然规律模拟和人类行为模仿等类型\cite{sbo_ref11}。尽管具体更新机制存在差异，但其共同目标在于协调探索（Exploration）与开发（Exploitation），在扩大搜索覆盖面和加强局部精细搜索之间取得平衡\cite{ibsa_ref75}。
+元启发式算法（Metaheuristic Algorithms, MAs）是处理复杂优化任务的重要工具，在应对大规模搜索空间和缺乏显式解结构的NP-hard问题时具有较强的适应性\cite{ibsa_ref4,sbo_ref1}。按照设计灵感的不同，这类方法大致可分为群体智能、进化计算、自然规律模拟和人类行为模仿等类型\cite{sbo_ref11}。尽管具体更新机制存在差异，但其共同目标在于协调探索（Exploration）与开发（Exploitation），在全局探索与局部开发之间取得平衡\cite{ibsa_ref75}。
 
 \subsection{群体智能与进化算法}
 
-群体智能算法通过个体间的信息共享与协同更新实现全局搜索\cite{sbo_ref18}。粒子群优化算法（Particle Swarm Optimization, PSO）\cite{ibsa_ref26}是其中最具代表性的方法之一，其基本更新规则如下：
+群体智能算法通过个体间的信息共享与协同更新实现全局探索\cite{sbo_ref18}。粒子群优化算法（Particle Swarm Optimization, PSO）\cite{ibsa_ref26}是其中最具代表性的方法之一，其基本更新规则如下：
 \begin{equation}
 v_i^{t+1} = \omega v_i^t + c_1 r_1 (pbest_i - x_i^t) + c_2 r_2 (gbest - x_i^t)
 \end{equation}
 \begin{equation}
 x_i^{t+1} = x_i^t + v_i^{t+1}
 \end{equation}
-其中，$x_i^t$和$v_i^t$分别表示第$t$次迭代时第$i$个粒子的位置与速度，$\omega$为惯性权重，$c_1$和$c_2$为学习因子，$r_1$和$r_2$为$[0,1]$上的随机数，$pbest_i$和$gbest$分别表示个体历史最优位置与群体全局最优位置。由于机理清晰、实现简便，PSO已广泛用于函数优化、神经网络训练等连续优化相关任务；经过适当的离散化或编码设计后，也可用于部分组合优化问题。除PSO外，灰狼优化算法（Grey Wolf Optimizer, GWO）\cite{ibsa_ref81}通过模拟灰狼的等级结构和围捕行为开展群体搜索，蚁群优化算法（Ant Colony Optimization, ACO）\cite{ibsa_ref25}借助信息素沉积机制求解离散优化问题，人工蜂群算法（Artificial Bee Colony, ABC）\cite{ibsa_ref27}则通过模拟蜜蜂觅食实现全局寻优。这些方法通过不同的信息传递与反馈机制，共同构成了群体智能搜索的基本方法体系。
+其中，$x_i^t$和$v_i^t$分别表示第$t$次迭代时第$i$个粒子的位置与速度，$\omega$为惯性权重，$c_1$和$c_2$为学习因子，$r_1$和$r_2$为$[0,1]$上的随机数，$pbest_i$和$gbest$分别表示个体历史最优位置与群体全局最优位置。由于机理清晰、实现简便，PSO已广泛用于函数优化、神经网络训练等连续优化相关任务；经过适当的离散化或编码设计后，也可用于部分组合优化问题。除PSO外，灰狼优化器（Grey Wolf Optimizer, GWO）\cite{ibsa_ref81}通过模拟灰狼的等级结构和围捕行为开展群体搜索，蚁群优化算法（Ant Colony Optimization, ACO）\cite{ibsa_ref25}借助信息素沉积机制求解离散优化问题，人工蜂群算法（Artificial Bee Colony, ABC）\cite{ibsa_ref27}则通过模拟蜜蜂觅食实现全局寻优。这些方法通过不同的信息传递与反馈机制，共同构成了群体智能搜索的基本方法体系。
 
 与模拟群体行为的方法不同，进化算法更侧重于对遗传变异规律的工程模拟\cite{sbo_ref11}。差分进化算法（Differential Evolution, DE）\cite{ibsa_ref34}结构简洁，在实值优化任务中表现稳定，已成为代理辅助优化中的常用搜索工具。常用的DE/rand/1变异策略通过向量差分驱动搜索：
 \begin{equation}
@@ -30,7 +30,7 @@ v_i = x_{r1} + F \cdot (x_{r2} - x_{r3})
 \begin{equation}
 Mutant = X + F \cdot (OldX - X)
 \end{equation}
-其中，$F = 3 \cdot \operatorname{randn}$。历史记忆机制增强了算法的全局探索潜力，但由于变异与交叉过程具有较强的随机性，BSA在局部精细搜索方面仍存在不足\cite{ibsa_ref63}。Zhao\cite{ibsa_ref57}和Nama\cite{ibsa_ref59}等学者提出的改进方案，为第三章中IBSA算法的设计提供了重要参考。
+其中，$F = 3 \cdot \operatorname{randn}$。历史记忆机制增强了算法的全局探索潜力，但由于变异与交叉过程具有较强的随机性，BSA在局部开发方面仍存在不足\cite{ibsa_ref63}。Zhao\cite{ibsa_ref57}和Nama\cite{ibsa_ref59}等学者提出的改进方案，为第三章中IBSA算法的设计提供了重要参考。
 
 \subsection{探索与开发平衡性}
 \label{sec:ch2_balance_diversity}
@@ -81,11 +81,11 @@ T(x) = \left| \operatorname{erf}\left(\frac{\sqrt{\pi}}{2} x\right) \right|
 \begin{equation}
 \boldsymbol{T} = [t_1, t_2, \ldots, t_K], \quad 0 \le t_1 < t_2 < \cdots < t_K \le L-1
 \end{equation}
-其中$K$为阈值个数。随着$K$的增加，候选解空间会迅速膨胀，传统穷举方法难以在可接受时间内获得满意结果。采用元启发式算法在此类大规模搜索空间中高效搜索最优阈值组合，已成为该领域的主流做法\cite{sbo_ref82}。第四章将引入Renyi熵准则评估分割质量，并利用所提算法搜索最优阈值配置，以提高乳腺癌组织学图像的分割精细度\cite{sbo_ref83}。
+其中$K$为阈值个数。随着$K$的增加，候选解空间会迅速膨胀，传统穷举方法难以在可接受时间内获得满意结果。采用元启发式算法在此类大规模搜索空间中搜索最优阈值组合，已成为该领域的常用方法\cite{sbo_ref82}。第四章将引入Renyi熵准则评估分割质量，并利用所提算法搜索最优阈值配置，以提高乳腺癌组织学图像的分割精细度\cite{sbo_ref83}。
 
 \section{代理辅助昂贵优化技术}
 
-在高昂评估代价优化问题（Expensive Optimization Problems, EOPs）中，单次目标函数评估通常依赖高保真仿真或复杂工程计算，成本极高\cite{liu2023airfoils,kumar2024optimization}。代理辅助进化算法（Surrogate-Assisted Evolutionary Algorithms, SAEAs）通过构建低成本近似模型来逼近真实目标函数，从而减少真实评估次数\cite{he2023review,jin2018data}，这也为第五章的算法设计提供了理论基础。
+在评估代价较高的优化问题（Expensive Optimization Problems, EOPs）中，单次目标函数评估通常依赖高保真仿真或复杂工程计算，计算成本较高\cite{liu2023airfoils,kumar2024optimization}。代理辅助进化算法（Surrogate-Assisted Evolutionary Algorithms, SAEAs）通过构建低成本近似模型来逼近真实目标函数，从而减少真实评估次数\cite{he2023review,jin2018data}，这也为第五章的算法设计提供了理论基础。
 
 \subsection{代理模型与采样准则}
 \label{sec:ch2_surrogate_models}
@@ -127,18 +127,18 @@ Kriging模型（高斯过程模型）\cite{buche2005accelerating,liu2013gaussian
 \begin{equation}
 a_{FEs} = \argmax_{a} \left[ Q_{FEs}(a) + c \sqrt{\frac{\ln FEs}{N_{FEs}(a)}} \right]
 \end{equation}
-其中，$Q_{FEs}(a)$为臂$a$的估计收益均值，$N_{FEs}(a)$为臂$a$被选择的次数，$c$为探索系数。UCB策略的关键在于：$Q_{FEs}(a)$鼓励选择历史表现较好的臂，而探索项$c \sqrt{\ln FEs / N_{FEs}(a)}$则鼓励尝试被选次数较少的臂。第五章将在此基础上构建赌博机驱动的自适应搜索机制，通过将异构搜索模式映射为不同的臂，实现搜索策略的动态分配。
+其中，$Q_{FEs}(a)$为臂$a$的估计收益均值，$N_{FEs}(a)$为臂$a$被选择的次数，$c$为探索系数。UCB策略的关键在于：收益均值$Q_{FEs}(a)$鼓励选择历史表现较好的臂，而探索项则鼓励尝试被选次数较少的臂。第五章将在此基础上构建赌博机驱动的自适应搜索机制，通过将异构搜索模式映射为不同的臂，实现搜索策略的动态分配。
 
 \section{基准测试与统计检验}
 
 \subsection{基准测试函数}
 
-基准测试函数为算法性能评估提供了统一且可复现的比较环境\cite{ibsa_ref4}。IEEE CEC 2017基准函数集包含30个函数，覆盖单峰（F1--F3）、多峰（F4--F10）、混合（F11--F20）和组合（F21--F30）四类问题\cite{ibsa_ref88}，能够从不同维度评估算法的搜索能力，是第三章和第四章的主要测评基准。IEEE CEC 2022基准函数集面向函数评估受限的高昂代价优化场景，包含12个函数\cite{kumar2024optimization}，最大评估次数受到严格限制，本文在第五章中利用其评估BEXEA的性能。
+基准测试函数为算法性能评估提供了统一且可复现的比较环境\cite{ibsa_ref4}。IEEE进化计算大会（IEEE Congress on Evolutionary Computation, IEEE CEC）2017基准函数集包含30个函数，覆盖单峰（F1--F3）、多峰（F4--F10）、混合（F11--F20）和组合（F21--F30）四类问题\cite{ibsa_ref88}，能够从不同维度评估算法的搜索能力，是第三章和第四章的主要测评基准。IEEE CEC 2022基准函数集面向函数评估受限的昂贵优化场景，包含12个函数\cite{kumar2024optimization}，最大评估次数受到严格限制，本文在第五章中利用其评估BEXEA的性能。
 
 \subsection{统计检验方法}
 \label{sec:ch2_stat_tests}
 
-为保证实验比较的统计有效性，本文采用非参数统计检验对算法结果进行分析。Wilcoxon秩和检验（Wilcoxon Rank-Sum Test）\cite{ibsa_ref95}是一种成对比较方法，通过分析两组独立样本的排名差异判断二者差异是否具有统计显著性。Friedman检验（Friedman Test）\cite{derrac2011practical}则适用于多组比较，可同时评价多个算法在多个测试函数上的整体排名差异。在后文的实验分析中，符号’+’、’=’与’$-$’分别表示所提算法在显著性水平$\alpha = 0.05$下优于、等同或劣于对比方法。
+为保证实验比较的统计有效性，本文采用非参数统计检验对算法结果进行分析。Wilcoxon秩和检验\cite{ibsa_ref95}是一种成对比较方法，通过分析两组独立样本的排名差异判断二者差异是否具有统计显著性。Friedman检验\cite{derrac2011practical}则适用于多组比较，可评价多个算法在多个测试函数上的整体排名差异。在后文的实验分析中，符号‘+’、‘=’与‘$-$’分别表示所提算法在显著性水平$\alpha = 0.05$下优于、等同或劣于对比方法。
 
 \section{本章小结}
 

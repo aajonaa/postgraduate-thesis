@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  30 MAR 2026 07:46
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  24 MAY 2026 05:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1905,8 +1905,41 @@ Underfull \hbox (badness 10000) detected at line 78
 
 
 Underfull \hbox (badness 10000) detected at line 78
+\TU/AdobeSongStd-Light.otf(1)/m/n/12.045 学 号：| 
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 78
 \TU/AdobeSongStd-Light.otf(1)/m/n/12.045 密 级\TU/TimesNewRoman(0)/m/n/12.045 :
  []
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "楷体/I" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "华文行楷/BI" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: 
+(fontspec)             Could not resolve font "华文行楷/I" (it probably doesn't
+(fontspec)             exist).
+
+
+Package fontspec Info: 
+(fontspec)             Font family '华文行楷(0)' created for font '华文行楷' with
+(fontspec)             options [Script={CJK},BoldFont={楷体}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"华文行楷/OT:script=hani;language=dflt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"楷体/OT:script=hani;language=dflt;"
 
 
 Package fontspec Info: 
@@ -1931,6 +1964,51 @@ anguage=dflt;slant=0.167;"
 (fontspec)             <->"[./fonts/AdobeHeitiStd-Regular.otf]/OT:script=hani;l
 anguage=dflt;embolden=4;slant=0.167;"
 
+File: title.png Graphic file (type bmp)
+<title.png>
+
+Underfull \hbox (badness 10000) detected at line 78
+\TU/AdobeSongStd-Light.otf(1)/m/n/15.05624 作 者 姓 名：| 
+ []
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'AdobeKaitiStd-Regular.otf(0)' created for
+(fontspec)             font 'AdobeKaitiStd-Regular.otf' with options
+(fontspec)             [Script={CJK},Path={./fonts/},AutoFakeBold={4},AutoFakeS
+lant={0.167}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[./fonts/AdobeKaitiStd-Regular.otf]/OT:script=hani;l
+anguage=dflt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[./fonts/AdobeKaitiStd-Regular.otf]/OT:script=hani;l
+anguage=dflt;embolden=4;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"[./fonts/AdobeKaitiStd-Regular.otf]/OT:script=hani;l
+anguage=dflt;slant=0.167;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->"[./fonts/AdobeKaitiStd-Regular.otf]/OT:script=hani;l
+anguage=dflt;embolden=4;slant=0.167;"
+
+
+Underfull \hbox (badness 10000) detected at line 78
+\TU/AdobeSongStd-Light.otf(1)/m/n/15.05624 培 养 类 型：| 
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 78
+\TU/AdobeSongStd-Light.otf(1)/m/n/15.05624 学 位 类 型：| 
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 78
+\TU/AdobeSongStd-Light.otf(1)/m/n/15.05624 专 业 名 称：| 
+ []
+
 
 Underfull \hbox (badness 10000) detected at line 78
 \TU/AdobeSongStd-Light.otf(1)/m/n/15.05624 研 究 方 向：| 
@@ -1938,31 +2016,22 @@ Underfull \hbox (badness 10000) detected at line 78
 
 
 Underfull \hbox (badness 10000) detected at line 78
+\TU/AdobeSongStd-Light.otf(1)/m/n/15.05624 指 导 教 师：| 
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 78
 \TU/AdobeSongStd-Light.otf(1)/m/n/15.05624 完 成 日 期：| 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [1
+[1
 
 
 
 
-]
-[1] [2]
-Overfull \hbox (8.21765pt too wide) in paragraph at lines 78--78
-\TU/TimesNewRoman(0)/m/n/14.05249 and scientific computing. In high-dimensional
- data analysis, the exponential growth
- []
+] [2] [1
 
-
-Overfull \hbox (4.3126pt too wide) in paragraph at lines 78--78
-\TU/TimesNewRoman(0)/m/n/14.05249 fidelity simulation-driven expensive optimiza
-tion, limited evaluation budgets place
- []
-
-[3
+] [2] [3
 
 ] [4] (main.toc [5
 
@@ -1975,25 +2044,15 @@ tion, limited evaluation budgets place
 [1
 
 
-] [2]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [3]
+] [2] [3]
 File: figures/chapter1/thesis_overview_refined.drawio.png Graphic file (type bm
 p)
 <figures/chapter1/thesis_overview_refined.drawio.png>
-
-[4]) (chapters/chapter2.tex [5]
+ [4]) (chapters/chapter2.tex [5]
 2
+[6
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6
-
-]
-Underfull \vbox (badness 2617) has occurred while \output is active []
-
- [7]
+] [7]
 
 LaTeX Font Warning: Font shape `TS1/TimesNewRoman(0)/b/n' undefined
 (Font)              using `TS1/TimesNewRoman(0)/m/n' instead on input line 82.
@@ -2001,115 +2060,76 @@ LaTeX Font Warning: Font shape `TS1/TimesNewRoman(0)/b/n' undefined
 [8]
 File: figures/chapter5/rbf_plot.png Graphic file (type bmp)
 <figures/chapter5/rbf_plot.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [9]
-Overfull \hbox (8.6276pt too wide) in paragraph at lines 129--131
-\TU/TimesNewRoman(0)/m/n/12.045 UCB \TU/AdobeSongStd-Light.otf(0)/m/n/12.045 策 
-略 的 关 键 在 于：| $\OML/cmm/m/it/12.045 Q[]\OT1/cmr/m/n/12.045 (\OML/cmm/m/it/12.04
-5 a\OT1/cmr/m/n/12.045 )$ \TU/AdobeSongStd-Light.otf(0)/m/n/12.045 鼓 励 选 择 历 史 
-表 现 较 好 的 臂，|  而 探 索 项 $\OML/cmm/m/it/12.045 c[]$
- []
-
-
-Overfull \hbox (6.26375pt too wide) in paragraph at lines 141--142
-\TU/AdobeSongStd-Light.otf(0)/m/n/12.045 立 样 本 的 排 名 差 异 判 断 二 者 差 异 是 否 具 有 统 
-计 显 著 性。| \TU/TimesNewRoman(0)/m/n/12.045 Friedman \TU/AdobeSongStd-Light.otf(0
-)/m/n/12.045 检 验  |（\TU/TimesNewRoman(0)/m/n/12.045 Friedman Test\TU/AdobeSongS
-td-Light.otf(0)/m/n/12.045 ）|$[]$则
- []
-
-[10]) (chapters/chapter3_IBSA.tex [11]
+ [9] [10]) (chapters/chapter3_IBSA.tex [11]
 3
 [12
 
 ] [13] [14]
 File: figures/chapter3/fig2_flowchart_IBSA.png Graphic file (type bmp)
 <figures/chapter3/fig2_flowchart_IBSA.png>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [15]
-[16]
-Overfull \hbox (4.30255pt too wide) in paragraph at lines 213--215
-\TU/AdobeSongStd-Light.otf(0)/m/n/12.045 其 中，| $\OML/cmm/m/it/12.045 X[] []$ \T
-U/AdobeSongStd-Light.otf(0)/m/n/12.045 表 示 函 数 评 估 次 数 为 $\OML/cmm/m/it/12.045 
-FEs$ \TU/AdobeSongStd-Light.otf(0)/m/n/12.045 时 第 $\OML/cmm/m/it/12.045 i$ \TU/
-AdobeSongStd-Light.otf(0)/m/n/12.045 个 个 体 在 第 $\OML/cmm/m/it/12.045 j$ \TU/Ado
-beSongStd-Light.otf(0)/m/n/12.045 维 上 的 位 置，| $\OML/cmm/m/it/12.045 X[] []$
- []
-
+ [15] [16]
 File: figures/chapter3/fig3_wrapper_feature_selection.png Graphic file (type bm
 p)
 <figures/chapter3/fig3_wrapper_feature_selection.png>
-[17] [18] [19]
+ [17] [18] [19] [20]
 File: figures/chapter3/IBSA_fs_evaluate_flowchart_refined.drawio.png Graphic fi
 le (type bmp)
 <figures/chapter3/IBSA_fs_evaluate_flowchart_refined.drawio.png>
-
-Underfull \vbox (badness 2096) has occurred while \output is active []
-
- [20]
+ [21]
 File: figures/chapter3/fig4_balance_and_diversity.png Graphic file (type bmp)
 <figures/chapter3/fig4_balance_and_diversity.png>
-
-[21] [22]) (chapters/chapter4_SBO.tex [23]
+ [22])
+(chapters/chapter4_SBO.tex [23]
 4
 [24
 
 ] [25]
 File: figures/chapter4/fig02_elite_engagement.png Graphic file (type bmp)
 <figures/chapter4/fig02_elite_engagement.png>
- [26]
 File: figures/chapter4/fig03_resource_acquisition.png Graphic file (type bmp)
 <figures/chapter4/fig03_resource_acquisition.png>
+ [26] [27]
 File: figures/chapter4/fig04_flowchart_SBO.png Graphic file (type bmp)
 <figures/chapter4/fig04_flowchart_SBO.png>
- [27] [28]
+ [28]
 File: figures/chapter4/fig16_flowchart_image_segmentation.png Graphic file (typ
 e bmp)
 <figures/chapter4/fig16_flowchart_image_segmentation.png>
+ [29]
 File: figures/chapter4/fig05_balance_diversity_convergence.png Graphic file (ty
 pe bmp)
 <figures/chapter4/fig05_balance_diversity_convergence.png>
- [29] [30]
 File: figures/chapter4/fig10_friedman_rank.png Graphic file (type bmp)
 <figures/chapter4/fig10_friedman_rank.png>
 File: figures/chapter4/fig19_jet_colormap_segmentation.png Graphic file (type b
 mp)
 <figures/chapter4/fig19_jet_colormap_segmentation.png>
- [31] [32]) (chapters/chapter5_BEXEA.tex
-[33]
+ [30] [31] [32] [33]) (chapters/chapter5_BEXEA.tex [34]
 5
-[34
+[35
 
 ]
 File: figures/chapter5/BEXEAStructure.png Graphic file (type bmp)
 <figures/chapter5/BEXEAStructure.png>
-
-Underfull \vbox (badness 1448) has occurred while \output is active []
-
- [35]
+ [36]
 File: figures/chapter5/BEXEA-MAB.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-MAB.png>
 File: figures/chapter5/explainable-uncertainty-criteria-legend.png Graphic file
  (type bmp)
 <figures/chapter5/explainable-uncertainty-criteria-legend.png>
-
-[36] [37] [38]
+ [37] [38] [39]
 File: figures/chapter5/BEXEA_application_workflow_refined.drawio.png Graphic fi
 le (type bmp)
 <figures/chapter5/BEXEA_application_workflow_refined.drawio.png>
 LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 135.
 File: figures/chapter5/BEXEA-CEC22-CC.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-CEC22-CC.png>
- [39
+ [40
 
-] [40] [41]
+] [41] [42]
 File: figures/chapter5/BEXEA-Plots.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-Plots.png>
- [42] [43]
+ [43] [44]
 File: figures/chapter5/beta.png Graphic file (type bmp)
 <figures/chapter5/beta.png>
 File: figures/chapter5/k.png Graphic file (type bmp)
@@ -2117,12 +2137,12 @@ File: figures/chapter5/k.png Graphic file (type bmp)
 File: figures/chapter5/runBEXEA-OilReservoir-sampled-CC.png Graphic file (type 
 bmp)
 <figures/chapter5/runBEXEA-OilReservoir-sampled-CC.png>
- [44] [45] [46]) (chapters/chapter6.tex
-[47]
+ [45] [46] [47] [48] [49])
+(chapters/chapter6.tex [50]
 6
-[48
+[51
 
-]) [49] (main.bbl [50
+]) [52] (main.bbl [53
 
 ]
 Underfull \hbox (badness 2012) in paragraph at lines 161--165
@@ -2130,7 +2150,7 @@ Underfull \hbox (badness 2012) in paragraph at lines 161--165
 zation[C]//Proceedings of
  []
 
-[51] [52] [53] [54] [55] [56] [57] [58]) [59] (chapters/appendix.tex
+[54] [55] [56] [57] [58] [59] [60] [61]) [62] (chapters/appendix.tex
 Overfull \hbox (0.7984pt too wide) in paragraph at lines 19--19
  []|\TU/TimesNewRoman(0)/m/n/7.52812 Sign| 
  []
@@ -2191,10 +2211,10 @@ Overfull \hbox (0.7984pt too wide) in paragraph at lines 63--64
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [60
+ignored: Infinite glue shrinkage found in box being split [63
 
-] [61]
-ignored: Infinite glue shrinkage found in box being split [62] (chapters/appendix_
+] [64]
+ignored: Infinite glue shrinkage found in box being split [65] (chapters/appendix_
 ch4.tex
 Overfull \hbox (1.58434pt too wide) in paragraph at lines 8--8
  []|\TU/TimesNewRoman(0)/m/n/5 LSHADE_cnEpSin| 
@@ -2206,19 +2226,19 @@ Overfull \hbox (1.58434pt too wide) in paragraph at lines 78--78
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [63]
+ignored: Infinite glue shrinkage found in box being split [66]
 Overfull \hbox (1.58434pt too wide) in paragraph at lines 148--148
  []|\TU/TimesNewRoman(0)/m/n/5 LSHADE_cnEpSin| 
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [64]
+ignored: Infinite glue shrinkage found in box being split [67]
 Overfull \hbox (1.58434pt too wide) in paragraph at lines 218--218
  []|\TU/TimesNewRoman(0)/m/n/5 LSHADE_cnEpSin| 
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [65]
+ignored: Infinite glue shrinkage found in box being split [68]
 Overfull \hbox (0.15865pt too wide) in alignment at lines 285--322
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
@@ -2234,7 +2254,7 @@ Overfull \hbox (0.32782pt too wide) in alignment at lines 327--364
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [66]
+ignored: Infinite glue shrinkage found in box being split [69]
 Overfull \hbox (0.15865pt too wide) in alignment at lines 368--405
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
@@ -2250,13 +2270,13 @@ Overfull \hbox (0.32782pt too wide) in alignment at lines 410--447
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [67]
+ignored: Infinite glue shrinkage found in box being split [70]
 Overfull \hbox (0.15865pt too wide) in alignment at lines 451--488
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [68]
+ignored: Infinite glue shrinkage found in box being split [71]
 Underfull \hbox (badness 10000) in paragraph at lines 497--497
 []|\TU/TimesNewRoman(0)/m/n/7.52812 SBO vs
  []
@@ -2272,7 +2292,7 @@ Overfull \hbox (0.15865pt too wide) in alignment at lines 534--571
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [69]
+ignored: Infinite glue shrinkage found in box being split [72]
 Underfull \hbox (badness 10000) in paragraph at lines 580--580
 []|\TU/TimesNewRoman(0)/m/n/7.52812 SBO vs
  []
@@ -2282,19 +2302,21 @@ Overfull \hbox (0.32782pt too wide) in alignment at lines 576--613
  [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
-[70]
-ignored: Infinite glue shrinkage found in box being split [71]
-ignored: Infinite glue shrinkag
-e found in box being split [72])
+
+ignored: Infinite glue shrinkage found in box being split [73] [74]
+ignored: Infinite glue shrinka
+ge found in box being split [75])
 Overfull \hbox (1.09486pt too wide) in alignment at lines 236--267
  [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [73]) [74] [75
+ignored: Infinite glue shrinkage found in box being split [76]) [77] [78
+
+] [79
 
 ]
-runsystem(latexminted cleantemp  --timestamp 20260330074631 FAD58DE7366495DB465
+runsystem(latexminted cleantemp  --timestamp 20260524054931 FAD58DE7366495DB465
 0CFEFAC2FCD61)...disabled (restricted).
 
  (main.aux)
@@ -2307,15 +2329,15 @@ L3 programming layer <2022/08/05>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E0A8F798A5E4AA130D9B4B4DCBC591A7;7654.
+(rerunfilecheck)             Checksum: 726782E3EF5F753583CCA962B55AAA80;7716.
  ) 
 Here is how much of TeX's memory you used:
- 39532 strings out of 402983
- 877304 string characters out of 5448483
- 1698264 words of memory out of 5000000
- 67523 multiletter control sequences out of 15000+600000
- 661886 words of font info for 231 fonts, out of 8000000 for 9000
+ 39585 strings out of 402983
+ 877432 string characters out of 5448483
+ 1696423 words of memory out of 5000000
+ 67559 multiletter control sequences out of 15000+600000
+ 661982 words of font info for 243 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 125i,12n,125p,1564b,850s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 125i,12n,125p,1194b,850s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (83 pages).
+Output written on main.pdf (88 pages).

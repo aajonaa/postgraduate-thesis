@@ -1,0 +1,807 @@
+\begin{thebibliography}{126}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \DeclareUrlCommand\doi{\urlstyle{rm}}
+  \def\eprint#1#2{#2}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \let\eprint\href
+\fi
+
+\bibitem[Cao et~al.(2024)]{ibsa_ref1}
+CAO L, et~al.
+\newblock Decision-making optimization model for the targeted sustainable
+  maintenance of a complex road network\allowbreak[J].
+\newblock Journal of Cleaner Production, 2024, 434: 139891.
+
+\bibitem[Cai et~al.(2024)Cai, Guo, and Huang]{ibsa_ref3}
+CAI Q, GUO X, HUANG S.
+\newblock A self-supervised learning model for graph clustering optimization
+  problems\allowbreak[J].
+\newblock Knowledge-Based Systems, 2024, 290: 111549.
+
+\bibitem[Min et~al.(2017)Min, Lee, and Yoon]{ibsa_ref15}
+MIN S, LEE B, YOON S.
+\newblock Deep learning in bioinformatics\allowbreak[J].
+\newblock Briefings in Bioinformatics, 2017, 18\allowbreak (5): 851-869.
+
+\bibitem[Papadimitriou et~al.(1998)Papadimitriou and Steiglitz]{ibsa_ref4}
+PAPADIMITRIOU C~H, STEIGLITZ K.
+\newblock Combinatorial optimization: algorithms and complexity\allowbreak[M].
+\newblock Courier Corporation, 1998.
+
+\bibitem[Shendure et~al.(2017)]{ibsa_ref11}
+SHENDURE J, et~al.
+\newblock {DNA} sequencing at 40: past, present and future\allowbreak[J].
+\newblock Nature, 2017, 550\allowbreak (7676): 345-353.
+
+\bibitem[Toaza et~al.(2023)Toaza and Eszterg{\'a}r-Kiss]{ibsa_ref9}
+TOAZA B, ESZTERG{\'A}R-KISS D.
+\newblock A review of metaheuristic algorithms for solving {TSP}-based
+  scheduling optimization problems\allowbreak[J].
+\newblock Applied Soft Computing, 2023, 148: 110908.
+
+\bibitem[Rudin et~al.(2012)]{ibsa_ref8}
+RUDIN C, et~al.
+\newblock Machine learning for the {New York City} power grid\allowbreak[J].
+\newblock IEEE Transactions on Pattern Analysis and Machine Intelligence, 2012,
+  34\allowbreak (2): 328-345.
+
+\bibitem[Zhang et~al.(2020)]{ibsa_ref17}
+ZHANG T, et~al.
+\newblock Correlated differential privacy: feature selection in machine
+  learning\allowbreak[J].
+\newblock IEEE Transactions on Industrial Informatics, 2020, 16\allowbreak (3):
+  2115-2124.
+
+\bibitem[Cymerys et~al.(2024)Cymerys and Oszust]{ibsa_ref16}
+CYMERYS K, OSZUST M.
+\newblock Attraction--repulsion optimization algorithm for global optimization
+  problems\allowbreak[J].
+\newblock Swarm and Evolutionary Computation, 2024, 84: 101459.
+
+\bibitem[Li et~al.(2017)]{ibsa_ref50}
+LI J, et~al.
+\newblock Feature selection: a data perspective\allowbreak[J].
+\newblock ACM Computing Surveys, 2017, 50\allowbreak (6): 94.
+
+\bibitem[Qiao et~al.(2024)]{ibsa_ref45}
+QIAO L, et~al.
+\newblock A multi-level thresholding image segmentation method using hybrid
+  arithmetic optimization and {Harris Hawks} optimizer
+  algorithms\allowbreak[J].
+\newblock Expert Systems with Applications, 2024, 241: 122316.
+
+\bibitem[Barut et~al.(2024)Barut, Yildirim, and Tatar]{ibsa_ref48}
+BARUT C, YILDIRIM G, TATAR Y.
+\newblock An intelligent and interpretable rule-based metaheuristic approach to
+  task scheduling in cloud systems\allowbreak[J].
+\newblock Knowledge-Based Systems, 2024, 284: 111241.
+
+\bibitem[Heidari et~al.(2019)]{ibsa_ref83}
+HEIDARI A~A, et~al.
+\newblock {Harris hawks} optimization: algorithm and
+  applications\allowbreak[J].
+\newblock Future Generation Computer Systems, 2019, 97: 849-872.
+
+\bibitem[Li et~al.(2020)]{ibsa_ref28}
+LI S, et~al.
+\newblock Slime mould algorithm: a new method for stochastic
+  optimization\allowbreak[J].
+\newblock Future Generation Computer Systems, 2020, 111: 300-323.
+
+\bibitem[{\v{C}}repin{\v{s}}ek et~al.(2013){\v{C}}repin{\v{s}}ek, Liu, and
+  Mernik]{ibsa_ref75}
+{\v{C}}REPIN{\v{S}}EK M, LIU S~H, MERNIK M.
+\newblock Exploration and exploitation in evolutionary algorithms: a
+  survey\allowbreak[J].
+\newblock ACM Computing Surveys, 2013, 45\allowbreak (3): 1-33.
+
+\bibitem[Huang et~al.(2019)Huang, Li, and Yao]{ibsa_ref65}
+HUANG C, LI Y, YAO X.
+\newblock A survey of automatic parameter tuning methods for
+  metaheuristics\allowbreak[J].
+\newblock IEEE Transactions on Evolutionary Computation, 2019, 24\allowbreak
+  (2): 201-216.
+
+\bibitem[He et~al.(2023)He, Zhang, Gong, and Ji]{he2023review}
+HE C, ZHANG Y, GONG D, et~al.
+\newblock A review of surrogate-assisted evolutionary algorithms for expensive
+  optimization problems\allowbreak[J].
+\newblock Expert Systems with Applications, 2023, 217: 119495.
+
+\bibitem[Abualigah et~al.(2023)Abualigah, Almotairi, and Elaziz]{sbo_ref82}
+ABUALIGAH L, ALMOTAIRI K~H, ELAZIZ M~A.
+\newblock Multilevel thresholding image segmentation using meta-heuristic
+  optimization algorithms: comparative analysis, open challenges and new
+  trends\allowbreak[J].
+\newblock Applied Intelligence, 2023, 53\allowbreak (10): 11654-11704.
+
+\bibitem[Bolhasani et~al.(2020)]{sbo_ref83}
+BOLHASANI H, et~al.
+\newblock A histopathological image dataset for grading breast invasive ductal
+  carcinomas\allowbreak[J].
+\newblock Informatics in Medicine Unlocked, 2020, 19: 100341.
+
+\bibitem[Liu et~al.(2023)Liu, Chen, Lou, Wu, You, and Chen]{liu2023airfoils}
+LIU J, CHEN R, LOU J, et~al.
+\newblock Airfoils optimization based on deep reinforcement learning to improve
+  the aerodynamic performance of rotors\allowbreak[J].
+\newblock Aerospace Science and Technology, 2023, 143: 108737.
+
+\bibitem[Kumar et~al.(2024)Kumar, Yildiz, Mehta, Sait, Hussien, and
+  Yildiz]{kumar2024optimization}
+KUMAR S, YILDIZ B~S, MEHTA P, et~al.
+\newblock Optimization of vehicle crashworthiness problems using recent twelve
+  metaheuristic algorithms\allowbreak[J].
+\newblock Materials Testing, 2024, 66\allowbreak (11): 1890-1901.
+
+\bibitem[Reddy et~al.(2020)]{ibsa_ref49}
+REDDY G~T, et~al.
+\newblock Hybrid genetic algorithm and a fuzzy logic classifier for heart
+  disease diagnosis\allowbreak[J].
+\newblock Evolutionary Intelligence, 2020, 13\allowbreak (2): 185-196.
+
+\bibitem[Ramesh et~al.(2021)]{sbo_ref79}
+RAMESH K, et~al.
+\newblock A review of medical image segmentation algorithms\allowbreak[J].
+\newblock EAI Endorsed Transactions on Pervasive Health and Technology, 2021,
+  7\allowbreak (27): e6-e6.
+
+\bibitem[Kudela et~al.(2022)Kudela and Matousek]{kudela2022recent}
+KUDELA J, MATOUSEK R.
+\newblock Recent advances and applications of surrogate models for finite
+  element method computations: a review\allowbreak[J].
+\newblock Soft Computing, 2022, 26\allowbreak (24): 13709-13733.
+
+\bibitem[Kennedy et~al.(1995)Kennedy and Eberhart]{ibsa_ref26}
+KENNEDY J, EBERHART R.
+\newblock Particle swarm optimization\allowbreak[C]//\allowbreak
+Proceedings of ICNN'95 - International Conference on Neural Networks.
+\newblock 1995.
+
+\bibitem[Mirjalili et~al.(2014)Mirjalili, Mirjalili, and Lewis]{ibsa_ref81}
+MIRJALILI S, MIRJALILI S~M, LEWIS A.
+\newblock Grey wolf optimizer\allowbreak[J].
+\newblock Advances in Engineering Software, 2014, 69: 46-61.
+
+\bibitem[Holland(1992)]{ibsa_ref33}
+HOLLAND J~H.
+\newblock Genetic algorithms\allowbreak[J].
+\newblock Scientific American, 1992, 267\allowbreak (1): 66-73.
+
+\bibitem[Storn et~al.(1997)Storn and Price]{ibsa_ref34}
+STORN R, PRICE K.
+\newblock Differential evolution -- A simple and efficient heuristic for global
+  optimization over continuous spaces\allowbreak[J].
+\newblock Journal of Global Optimization, 1997, 11\allowbreak (4): 341-359.
+
+\bibitem[Bertsimas et~al.(1993)Bertsimas and Tsitsiklis]{ibsa_ref29}
+BERTSIMAS D, TSITSIKLIS J.
+\newblock Simulated annealing\allowbreak[J].
+\newblock Statistical Science, 1993, 8\allowbreak (1): 10-15.
+
+\bibitem[Faramarzi et~al.(2020)]{ibsa_ref32}
+FARAMARZI A, et~al.
+\newblock Equilibrium optimizer: a novel optimization algorithm\allowbreak[J].
+\newblock Knowledge-Based Systems, 2020, 191: 105190.
+
+\bibitem[Rao et~al.(2011)Rao, Savsani, and Vakharia]{ibsa_ref37}
+RAO R~V, SAVSANI V~J, VAKHARIA D~P.
+\newblock Teaching--learning-based optimization: a novel method for constrained
+  mechanical design optimization problems\allowbreak[J].
+\newblock Computer-Aided Design, 2011, 43\allowbreak (3): 303-315.
+
+\bibitem[Shi(2011)]{ibsa_ref40}
+SHI Y.
+\newblock Brain storm optimization algorithm\allowbreak[C]//\allowbreak
+Advances in Swarm Intelligence: Second International Conference, ICSI 2011,
+  Chongqing, China, June 12-15, 2011, Proceedings, Part I.
+\newblock Springer, 2011.
+
+\bibitem[Mirjalili(2016)]{ibsa_ref31}
+MIRJALILI S.
+\newblock {SCA}: a sine cosine algorithm for solving optimization
+  problems\allowbreak[J].
+\newblock Knowledge-Based Systems, 2016, 96: 120-133.
+
+\bibitem[Su et~al.(2023)]{sbo_ref49}
+SU H, et~al.
+\newblock {RIME}: a physics-based optimization\allowbreak[J].
+\newblock Neurocomputing, 2023, 532: 183-214.
+
+\bibitem[Li et~al.(2023)]{ibsa_ref76}
+LI K, et~al.
+\newblock A multi-strategy enhanced northern goshawk optimization algorithm for
+  global optimization and engineering design problems\allowbreak[J].
+\newblock Computer Methods in Applied Mechanics and Engineering, 2023, 415:
+  116199.
+
+\bibitem[Nadimi-Shahraki et~al.(2021)Nadimi-Shahraki, Taghian, and
+  Mirjalili]{ibsa_ref88}
+NADIMI-SHAHRAKI M~H, TAGHIAN S, MIRJALILI S.
+\newblock An improved grey wolf optimizer for solving engineering
+  problems\allowbreak[J].
+\newblock Expert Systems with Applications, 2021, 166: 113917.
+
+\bibitem[Nenavath et~al.(2018)Nenavath and Jatoth]{ibsa_ref87}
+NENAVATH H, JATOTH R~K.
+\newblock Hybridizing sine cosine algorithm with differential evolution for
+  global optimization and object tracking\allowbreak[J].
+\newblock Applied Soft Computing, 2018, 62: 1019-1043.
+
+\bibitem[Zhao et~al.(2017)]{ibsa_ref57}
+ZHAO L, et~al.
+\newblock Improved backtracking search algorithm based on population control
+  factor and optimal learning strategy\allowbreak[J].
+\newblock Mathematical Problems in Engineering, 2017, 2017.
+
+\bibitem[Chen et~al.(2019)]{ibsa_ref63}
+CHEN D, et~al.
+\newblock Backtracking search optimization algorithm based on knowledge
+  learning\allowbreak[J].
+\newblock Information Sciences, 2019, 473: 202-226.
+
+\bibitem[Guan et~al.(2023)Guan, Ren, Niu, Wang, and Shang]{gwca2023}
+GUAN Z, REN C, NIU J, et~al.
+\newblock Great wall construction algorithm: a novel meta-heuristic algorithm
+  for engineer problems\allowbreak[J/OL].
+\newblock Expert Systems with Applications, 2023, 233: 120905.
+\newblock DOI: \doi{10.1016/j.eswa.2023.120905}.
+
+\bibitem[Trojovsky et~al.(2023)Trojovsky and Dehghani]{waoa2023}
+TROJOVSKY P, DEHGHANI M.
+\newblock A new bio-inspired metaheuristic algorithm for solving optimization
+  problems based on walruses behavior\allowbreak[J/OL].
+\newblock Scientific Reports, 2023, 13\allowbreak (1): 8775.
+\newblock DOI: \doi{10.1038/s41598-023-35863-5}.
+
+\bibitem[Fu et~al.(2024)Fu, Li, Huang, Ma, Fan, and Zhu]{rbmo2024}
+FU S, LI K, HUANG H, et~al.
+\newblock Red-billed blue magpie optimizer: a novel metaheuristic algorithm for
+  2D/3D UAV path planning and engineering design problems\allowbreak[J/OL].
+\newblock Artificial Intelligence Review, 2024, 57: 134.
+\newblock DOI: \doi{10.1007/s10462-024-10716-3}.
+
+\bibitem[Fu et~al.(2024)Fu, Liu, Chen, and He]{sboa2024}
+FU Y, LIU D, CHEN J, et~al.
+\newblock Secretary bird optimization algorithm: a new metaheuristic for
+  solving global optimization problems\allowbreak[J/OL].
+\newblock Artificial Intelligence Review, 2024, 57: 123.
+\newblock DOI: \doi{10.1007/s10462-024-10729-y}.
+
+\bibitem[Zheng et~al.(2025)Zheng, Liu, and Liu]{ashsboa2025}
+ZHENG X, LIU R, LIU X.
+\newblock Simulation application of adaptive strategy hybrid secretary bird
+  optimization algorithm in multi-UAV 3D path planning\allowbreak[J/OL].
+\newblock Computers, 2025, 14\allowbreak (10): 439.
+\newblock DOI: \doi{10.3390/computers14100439}.
+
+\bibitem[Wolpert et~al.(1997)Wolpert and Macready]{sbo_ref95}
+WOLPERT D~H, MACREADY W~G.
+\newblock No free lunch theorems for optimization\allowbreak[J].
+\newblock IEEE Transactions on Evolutionary Computation, 1997, 1\allowbreak
+  (1): 67-82.
+
+\bibitem[Verleysen et~al.(2005)Verleysen and Fran{\c{c}}ois]{ibsa_ref18}
+VERLEYSEN M, FRAN{\c{C}}OIS D.
+\newblock The curse of dimensionality in data mining and time series
+  prediction\allowbreak[C]//\allowbreak
+Computational Intelligence and Bioinspired Systems.
+\newblock Berlin, Heidelberg: Springer Berlin Heidelberg, 2005.
+
+\bibitem[Jha et~al.(2021)Jha and Saha]{ibsa_ref20}
+JHA K, SAHA S.
+\newblock Incorporation of multimodal multiobjective optimization in designing
+  a filter based feature selection technique\allowbreak[J].
+\newblock Applied Soft Computing, 2021, 98: 106823.
+
+\bibitem[S et~al.(2023)S and K]{ibsa_ref21}
+S K~P, K P~K.
+\newblock An embedded feature selection approach for depression classification
+  using short text sequences\allowbreak[J].
+\newblock Applied Soft Computing, 2023, 147: 110828.
+
+\bibitem[Al-Yaseen et~al.(2022)Al-Yaseen, Idrees, and Almasoudy]{ibsa_ref23}
+AL-YASEEN W~L, IDREES A~K, ALMASOUDY F~H.
+\newblock Wrapper feature selection method based differential evolution and
+  extreme learning machine for intrusion detection system\allowbreak[J].
+\newblock Pattern Recognition, 2022, 132: 108912.
+
+\bibitem[Agrawal et~al.(2021)]{ibsa_ref95}
+AGRAWAL P, et~al.
+\newblock Metaheuristic algorithms on feature selection: a survey of one decade
+  of research (2009-2019)\allowbreak[J].
+\newblock IEEE Access, 2021, 9: 26766-26791.
+
+\bibitem[Mafarja et~al.(2018)Mafarja and Mirjalili]{ibsa_ref51}
+MAFARJA M, MIRJALILI S.
+\newblock Whale optimization approaches for wrapper feature
+  selection\allowbreak[J].
+\newblock Applied Soft Computing, 2018, 62: 441-453.
+
+\bibitem[Abdel-Basset et~al.(2021)Abdel-Basset, Ding, and
+  El-Shahat]{ibsa_ref42}
+ABDEL-BASSET M, DING W, EL-SHAHAT D.
+\newblock A hybrid {Harris Hawks} optimization algorithm with simulated
+  annealing for feature selection\allowbreak[J].
+\newblock Artificial Intelligence Review, 2021, 54\allowbreak (1): 593-637.
+
+\bibitem[Han et~al.(2017)]{ibsa_ref41}
+HAN F, et~al.
+\newblock A gene selection method for microarray data based on binary {PSO}
+  encoding gene-to-class sensitivity information\allowbreak[J].
+\newblock IEEE/ACM Transactions on Computational Biology and Bioinformatics,
+  2017, 14\allowbreak (1): 85-96.
+
+\bibitem[Faris et~al.(2018)]{ibsa_ref102}
+FARIS H, et~al.
+\newblock An efficient binary salp swarm algorithm with crossover scheme for
+  feature selection problems\allowbreak[J].
+\newblock Knowledge-Based Systems, 2018, 154: 43-67.
+
+\bibitem[Hu et~al.(2020)Hu, Pan, and Chu]{ibsa_ref97}
+HU P, PAN J~S, CHU S~C.
+\newblock Improved binary grey wolf optimizer and its application for feature
+  selection\allowbreak[J].
+\newblock Knowledge-Based Systems, 2020, 195: 105746.
+
+\bibitem[Moslemi(2023)]{fs_survey2023}
+MOSLEMI A.
+\newblock A tutorial-based survey on feature selection: recent advancements on
+  feature selection\allowbreak[J/OL].
+\newblock Engineering Applications of Artificial Intelligence, 2023, 126:
+  107136.
+\newblock DOI: \doi{10.1016/j.engappai.2023.107136}.
+
+\bibitem[Mostafa et~al.(2024)Mostafa, Mahmoud, Abd El-Hafeez, and
+  ElAraby]{dl_fs_review2024}
+MOSTAFA G, MAHMOUD H, ABD EL-HAFEEZ T, et~al.
+\newblock The power of deep learning in simplifying feature selection for
+  hepatocellular carcinoma: a review\allowbreak[J/OL].
+\newblock BMC Medical Informatics and Decision Making, 2024, 24: 287.
+\newblock DOI: \doi{10.1186/s12911-024-02682-1}.
+
+\bibitem[Potharlanka et~al.(2024)Potharlanka and Bhat]{deepq_meta_fs2024}
+POTHARLANKA J~L, BHAT N~M.
+\newblock Feature importance feedback with deep {Q} process in ensemble-based
+  metaheuristic feature selection algorithms\allowbreak[J/OL].
+\newblock Scientific Reports, 2024, 14: 2923.
+\newblock DOI: \doi{10.1038/s41598-024-53141-w}.
+
+\bibitem[Ray et~al.(2021)Ray, Reddy, and Banerjee]{ibsa_ref7}
+RAY P, REDDY S~S, BANERJEE T.
+\newblock Various dimension reduction techniques for high dimensional data
+  analysis: a review\allowbreak[J].
+\newblock Artificial Intelligence Review, 2021, 54\allowbreak (5): 3473-3515.
+
+\bibitem[Vieira et~al.(2013)]{sbo_ref73}
+VIEIRA S~M, et~al.
+\newblock Modified binary {PSO} for feature selection using {SVM} applied to
+  mortality prediction of septic patients\allowbreak[J].
+\newblock Applied Soft Computing, 2013, 13\allowbreak (8): 3494-3504.
+
+\bibitem[Jin et~al.(2018)Jin, Wang, Chugh, Guo, and Miettinen]{jin2018data}
+JIN Y, WANG H, CHUGH T, et~al.
+\newblock Data-driven evolutionary optimization: an overview and case
+  studies\allowbreak[J].
+\newblock IEEE Transactions on Evolutionary Computation, 2018, 23\allowbreak
+  (3): 442-458.
+
+\bibitem[Regis(2013)]{regis2013evolutionary}
+REGIS R~G.
+\newblock Evolutionary programming for high-dimensional constrained expensive
+  black-box optimization using radial basis functions\allowbreak[J].
+\newblock IEEE Transactions on Evolutionary Computation, 2013, 18\allowbreak
+  (3): 326-347.
+
+\bibitem[Buche et~al.(2005)Buche, Schraudolph, and
+  Koumoutsakos]{buche2005accelerating}
+BUCHE D, SCHRAUDOLPH N~N, KOUMOUTSAKOS P.
+\newblock Accelerating evolutionary algorithms with gaussian process fitness
+  function models\allowbreak[J].
+\newblock IEEE Transactions on Systems, Man, and Cybernetics, Part C
+  (Applications and Reviews), 2005, 35\allowbreak (2): 183-194.
+
+\bibitem[Liu et~al.(2013)Liu, Zhang, and Gielen]{liu2013gaussian}
+LIU B, ZHANG Q, GIELEN G~G.
+\newblock A gaussian process surrogate model assisted evolutionary algorithm
+  for medium scale expensive optimization problems\allowbreak[J].
+\newblock IEEE Transactions on Evolutionary Computation, 2013, 18\allowbreak
+  (2): 180-192.
+
+\bibitem[Mallipeddi et~al.(2015)Mallipeddi and Lee]{mallipeddi2015evolving}
+MALLIPEDDI R, LEE M.
+\newblock An evolving surrogate model-based differential evolution
+  algorithm\allowbreak[J].
+\newblock Applied Soft Computing, 2015, 34: 770-787.
+
+\bibitem[Stanovov et~al.(2023)Stanovov and Semenkin]{stanovov2023surrogate}
+STANOVOV V, SEMENKIN E.
+\newblock Surrogate-assisted automatic parameter adaptation design for
+  differential evolution\allowbreak[J].
+\newblock Mathematics, 2023, 11\allowbreak (13): 2937.
+
+\bibitem[Jones et~al.(1998)Jones, Schonlau, and Welch]{jones1998efficient}
+JONES D~R, SCHONLAU M, WELCH W~J.
+\newblock Efficient global optimization of expensive black-box
+  functions\allowbreak[J].
+\newblock Journal of Global optimization, 1998, 13: 455-492.
+
+\bibitem[Li et~al.(2023)Li, Gao, Tian, and Wang]{li2023elite}
+LI Z, GAO T, TIAN K, et~al.
+\newblock Elite-driven surrogate-assisted CMA-ES algorithm by improved lower
+  confidence bound method\allowbreak[J].
+\newblock Engineering with Computers, 2023, 39\allowbreak (4): 2543-2563.
+
+\bibitem[Xie et~al.(2023)Xie, Li, Wang, Cui, and Gong]{xie2023surrogate}
+XIE L, LI G, WANG Z, et~al.
+\newblock Surrogate-assisted evolutionary algorithm with model and infill
+  criterion auto-configuration\allowbreak[J].
+\newblock IEEE Transactions on Evolutionary Computation, 2023.
+
+\bibitem[Gong et~al.(2024)Gong, Yu, Kang, Qiao, Guo, and
+  Zeng]{gong2024surrogate}
+GONG Y, YU H, KANG L, et~al.
+\newblock A surrogate-assisted evolutionary algorithm with dual restricted
+  boltzmann machines and reinforcement learning-based adaptive strategy
+  selection\allowbreak[J].
+\newblock Swarm and Evolutionary Computation, 2024, 89: 101629.
+
+\bibitem[Zhen et~al.(2022)Zhen, Gong, and Wang]{zhen2022evolutionary}
+ZHEN H, GONG W, WANG L.
+\newblock Evolutionary sampling agent for expensive problems\allowbreak[J].
+\newblock IEEE Transactions on Evolutionary Computation, 2022, 27\allowbreak
+  (3): 716-727.
+
+\bibitem[Wei et~al.(2023)Wei, Chen, Mao, Hu, and Zhang]{wei2023efficient}
+WEI F~F, CHEN W~N, MAO W, et~al.
+\newblock An efficient two-stage surrogate-assisted differential evolution for
+  expensive inequality constrained optimization\allowbreak[J].
+\newblock IEEE Transactions on Systems, Man, and Cybernetics: Systems, 2023,
+  53\allowbreak (12): 7769-7782.
+
+\bibitem[Li et~al.(2021)Li, Gong, and Gu]{sbo_ref1}
+LI S, GONG W, GU Q.
+\newblock A comprehensive survey on meta-heuristic algorithms for parameter
+  extraction of photovoltaic models\allowbreak[J].
+\newblock Renewable and Sustainable Energy Reviews, 2021, 141: 110828.
+
+\bibitem[Bartz-Beielstein et~al.(2014)]{sbo_ref11}
+BARTZ-BEIELSTEIN T, et~al.
+\newblock Evolutionary algorithms\allowbreak[J].
+\newblock Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery,
+  2014, 4\allowbreak (3): 178-195.
+
+\bibitem[Mavrovouniotis et~al.(2017)Mavrovouniotis, Li, and Yang]{sbo_ref18}
+MAVROVOUNIOTIS M, LI C, YANG S.
+\newblock A survey of swarm intelligence for dynamic optimization: algorithms
+  and applications\allowbreak[J].
+\newblock Swarm and Evolutionary Computation, 2017, 33: 1-17.
+
+\bibitem[Dorigo et~al.(2006)Dorigo, Birattari, and Stutzle]{ibsa_ref25}
+DORIGO M, BIRATTARI M, STUTZLE T.
+\newblock Ant colony optimization\allowbreak[J].
+\newblock IEEE Computational Intelligence Magazine, 2006, 1\allowbreak (4):
+  28-39.
+
+\bibitem[Karaboga(2010)]{ibsa_ref27}
+KARABOGA D.
+\newblock Artificial bee colony algorithm\allowbreak[J].
+\newblock Scholarpedia, 2010, 5\allowbreak (3): 6915.
+
+\bibitem[Zhang et~al.(2009)Zhang and Sanderson]{ibsa_ref55}
+ZHANG J, SANDERSON A~C.
+\newblock {JADE}: adaptive differential evolution with optional external
+  archive\allowbreak[J].
+\newblock IEEE Transactions on Evolutionary Computation, 2009, 13\allowbreak
+  (5): 945-958.
+
+\bibitem[Civicioglu(2013)]{ibsa_ref53}
+CIVICIOGLU P.
+\newblock Backtracking search optimization algorithm for numerical optimization
+  problems\allowbreak[J].
+\newblock Applied Mathematics and Computation, 2013, 219\allowbreak (15):
+  8121-8144.
+
+\bibitem[Nama et~al.(2022)]{ibsa_ref59}
+NAMA S, et~al.
+\newblock A quantum mutation-based backtracking search algorithm\allowbreak[J].
+\newblock Artificial Intelligence Review, 2022, 55\allowbreak (4): 3019-3073.
+
+\bibitem[Li et~al.(2017)]{sbo_ref61}
+LI J, et~al.
+\newblock Feature selection: a data perspective\allowbreak[J].
+\newblock ACM Computing Surveys (CSUR), 2017, 50\allowbreak (6): 1-45.
+
+\bibitem[Thabtah et~al.(2020)]{sbo_ref62}
+THABTAH F, et~al.
+\newblock Least loss: a simplified filter method for feature
+  selection\allowbreak[J].
+\newblock Information Sciences, 2020, 534: 1-15.
+
+\bibitem[Chen et~al.(2015)Chen and Chen]{sbo_ref64}
+CHEN G, CHEN J.
+\newblock A novel wrapper method for feature selection and its
+  applications\allowbreak[J].
+\newblock Neurocomputing, 2015, 159: 219-226.
+
+\bibitem[Xu et~al.(2023)]{sbo_ref80}
+XU M, et~al.
+\newblock Research on fast multi-threshold image segmentation technique using
+  histogram analysis\allowbreak[J].
+\newblock Electronics, 2023, 12\allowbreak (21): 4446.
+
+\bibitem[Forrester et~al.(2008)Forrester, Sobester, and
+  Keane]{forrester2008engineering}
+FORRESTER A, SOBESTER A, KEANE A.
+\newblock Engineering design via surrogate modelling: a practical
+  guide\allowbreak[M].
+\newblock John Wiley \& Sons, 2008.
+
+\bibitem[Zhan et~al.(2020)Zhan and Xing]{zhan2020expected}
+ZHAN D, XING H.
+\newblock Expected improvement for expensive optimization: a
+  review\allowbreak[J].
+\newblock Journal of Global Optimization, 2020, 78\allowbreak (3): 507-544.
+
+\bibitem[Slivkins et~al.(2019)]{slivkins2019introduction}
+SLIVKINS A, et~al.
+\newblock Introduction to multi-armed bandits\allowbreak[J].
+\newblock Foundations and Trends{\textregistered} in Machine Learning, 2019,
+  12\allowbreak (1-2): 1-286.
+
+\bibitem[Auer et~al.(2002)Auer, Cesa-Bianchi, and Fischer]{auer2002finite}
+AUER P, CESA-BIANCHI N, FISCHER P.
+\newblock Finite-time analysis of the multiarmed bandit problem\allowbreak[J].
+\newblock Machine Learning, 2002, 47\allowbreak (2--3): 235-256.
+
+\bibitem[Derrac et~al.(2011)Derrac, Garc{\'i}a, Molina, and
+  Herrera]{derrac2011practical}
+DERRAC J, GARC{\'I}A S, MOLINA D, et~al.
+\newblock A practical tutorial on the use of nonparametric statistical tests as
+  a methodology for comparing evolutionary and swarm intelligence
+  algorithms\allowbreak[J].
+\newblock Swarm and Evolutionary Computation, 2011, 1\allowbreak (1): 3-18.
+
+\bibitem[Wang et~al.(2023)Wang, Yan, and Yang]{ibsa_ref13}
+WANG R, YAN J, YANG X.
+\newblock Unsupervised learning of graph matching with mixture of modes via
+  discrepancy minimization\allowbreak[J].
+\newblock IEEE Transactions on Pattern Analysis and Machine Intelligence, 2023,
+  45\allowbreak (8): 10500-10518.
+
+\bibitem[Luo et~al.(2024)]{ibsa_ref5}
+LUO C, et~al.
+\newblock {NuSC}: an effective local search algorithm for solving the set
+  covering problem\allowbreak[J].
+\newblock IEEE Transactions on Cybernetics, 2024, 54\allowbreak (3): 1403-1416.
+
+\bibitem[Vommi et~al.(2023)Vommi and Battula]{ibsa_ref22}
+VOMMI A~M, BATTULA T~K.
+\newblock A hybrid filter-wrapper feature selection using fuzzy {KNN} based on
+  bonferroni mean for medical datasets classification: a {COVID-19} case
+  study\allowbreak[J].
+\newblock Expert Systems with Applications, 2023, 218: 119612.
+
+\bibitem[Qian et~al.(2015)Qian, Yu, and Zhou]{ibsa_ref24}
+QIAN C, YU Y, ZHOU Z~H.
+\newblock Subset selection by {Pareto} optimization\allowbreak[J].
+\newblock Advances in Neural Information Processing Systems, 2015, 28.
+
+\bibitem[Gandomi et~al.(2013)Gandomi, Yang, and Alavi]{ibsa_ref66}
+GANDOMI A~H, YANG X~S, ALAVI A~H.
+\newblock Cuckoo search algorithm: a metaheuristic approach to solve structural
+  optimization problems\allowbreak[J].
+\newblock Engineering with Computers, 2013, 29: 17-35.
+
+\bibitem[Su et~al.(2016)Su, Wang, and Yao]{ibsa_ref67}
+SU Z, WANG H, YAO P.
+\newblock A hybrid backtracking search optimization algorithm for nonlinear
+  optimal control problems with complex dynamic constraints\allowbreak[J].
+\newblock Neurocomputing, 2016, 186: 182-194.
+
+\bibitem[Ay et~al.(2023)Ay, Ekinci, and Garip]{ibsa_ref70}
+AY {\c{S}}, EKINCI E, GARIP Z.
+\newblock A comparative analysis of meta-heuristic optimization algorithms for
+  feature selection on {ML}-based classification of heart-related
+  diseases\allowbreak[J].
+\newblock The Journal of Supercomputing, 2023, 79\allowbreak (11): 11797-11826.
+
+\bibitem[Mirjalili et~al.(2013)Mirjalili and Lewis]{ibsa_ref71}
+MIRJALILI S, LEWIS A.
+\newblock S-shaped versus {V}-shaped transfer functions for binary particle
+  swarm optimization\allowbreak[J].
+\newblock Swarm and Evolutionary Computation, 2013, 9: 1-14.
+
+\bibitem[Mafarja et~al.(2017)Mafarja and Mirjalili]{ibsa_ref72}
+MAFARJA M~M, MIRJALILI S.
+\newblock Hybrid whale optimization algorithm with simulated annealing for
+  feature selection\allowbreak[J].
+\newblock Neurocomputing, 2017, 260: 302-312.
+
+\bibitem[Meng et~al.(2021)]{sbo_ref2}
+MENG Z, et~al.
+\newblock A comparative study of metaheuristic algorithms for reliability-based
+  design optimization problems\allowbreak[J].
+\newblock Archives of Computational Methods in Engineering, 2021, 28\allowbreak
+  (3): 1853-1869.
+
+\bibitem[Dhiman(2021)]{sbo_ref3}
+DHIMAN G.
+\newblock {SSC}: a hybrid nature-inspired meta-heuristic optimization algorithm
+  for engineering applications\allowbreak[J].
+\newblock Knowledge-Based Systems, 2021, 222: 106926.
+
+\bibitem[Dhiman et~al.(2019)Dhiman and Kumar]{sbo_ref4}
+DHIMAN G, KUMAR V.
+\newblock Spotted hyena optimizer for solving complex and non-linear
+  constrained engineering problems\allowbreak[C]//\allowbreak
+Harmony Search and Nature Inspired Optimization Algorithms: Theory and
+  Applications, ICHSA 2018.
+\newblock Springer, 2019.
+
+\bibitem[Rodriguez et~al.(2023)Rodriguez, Arcos-Aviles, and Martinez]{sbo_ref5}
+RODRIGUEZ M, ARCOS-AVILES D, MARTINEZ W.
+\newblock Fuzzy logic-based energy management for isolated microgrid using
+  meta-heuristic optimization algorithms\allowbreak[J].
+\newblock Applied Energy, 2023, 335: 120771.
+
+\bibitem[Hao et~al.(2024)Hao, Zhang, and Zhou]{sbo_ref6}
+HAO H, ZHANG X, ZHOU A.
+\newblock Enhancing {SAEAs} with unevaluated solutions: a case study of
+  relation model for expensive optimization\allowbreak[J].
+\newblock Science China Information Sciences, 2024, 67\allowbreak (2): 1-18.
+
+\bibitem[Brindha(2021)]{sbo_ref12}
+BRINDHA S.
+\newblock A robust and adaptive fuzzy logic based differential evolution
+  algorithm using population diversity tuning for multi-objective
+  optimization\allowbreak[J].
+\newblock Engineering Applications of Artificial Intelligence, 2021, 102:
+  104240.
+
+\bibitem[Mavrovouniotis et~al.(2017)Mavrovouniotis, Van, and Yang]{sbo_ref19}
+MAVROVOUNIOTIS M, VAN M, YANG S.
+\newblock Pheromone modification strategy for the dynamic travelling salesman
+  problem with weight changes\allowbreak[C]//\allowbreak
+2017 IEEE Symposium Series on Computational Intelligence (SSCI).
+\newblock IEEE, 2017.
+
+\bibitem[Olivas et~al.(2019)]{sbo_ref24}
+OLIVAS F, et~al.
+\newblock Interval type-2 fuzzy logic for dynamic parameter adaptation in a
+  modified gravitational search algorithm\allowbreak[J].
+\newblock Information Sciences, 2019, 476: 159-175.
+
+\bibitem[\v{C}repin\v{s}ek et~al.(2012)\v{C}repin\v{s}ek, Liu, and
+  Mernik]{sbo_ref28}
+\v{C}REPIN\v{s}EK M, LIU S~H, MERNIK L.
+\newblock A note on teaching-learning-based optimization
+  algorithm\allowbreak[J].
+\newblock Information Sciences, 2012, 212: 79-93.
+
+\bibitem[Destin et~al.(2017)Destin and Debrosse]{sbo_ref29}
+DESTIN M, DEBROSSE R.
+\newblock Upward social mobility and identity\allowbreak[J].
+\newblock Current Opinion in Psychology, 2017, 18: 99-104.
+
+\bibitem[Oishi et~al.(2019)Oishi, Koo, and Buttrick]{sbo_ref43}
+OISHI S, KOO M, BUTTRICK N~R.
+\newblock The socioecological psychology of upward social
+  mobility\allowbreak[J].
+\newblock American Psychologist, 2019, 74\allowbreak (7): 751.
+
+\bibitem[Wegener(1991)]{sbo_ref44}
+WEGENER B.
+\newblock Job mobility and social ties: social resources, prior job, and status
+  attainment\allowbreak[J].
+\newblock American Sociological Review, 1991: 60-71.
+
+\bibitem[Ahmadi(2017)]{sbo_ref45}
+AHMADI S~A.
+\newblock Human behavior-based optimization: a novel metaheuristic approach to
+  solve complex optimization problems\allowbreak[J].
+\newblock Neural Computing and Applications, 2017, 28\allowbreak (1): 233-244.
+
+\bibitem[Lian et~al.(2024)]{sbo_ref46}
+LIAN J, et~al.
+\newblock The educational competition optimizer\allowbreak[J].
+\newblock International Journal of Systems Science, 2024, 55\allowbreak (15):
+  3185-3222.
+
+\bibitem[Deb(2000)]{sbo_ref47}
+DEB K.
+\newblock Introduction to selection\allowbreak[J].
+\newblock Evolutionary Computation, 2000, 1: 166-171.
+
+\bibitem[Heidari et~al.(2019)]{sbo_ref48}
+HEIDARI A~A, et~al.
+\newblock Harris hawks optimization: algorithm and applications\allowbreak[J].
+\newblock Future Generation Computer Systems, 2019, 97: 849-872.
+
+\bibitem[Sun et~al.(2017)Sun, Jin, Cheng, Ding, and Zeng]{sun2017surrogate}
+SUN C, JIN Y, CHENG R, et~al.
+\newblock Surrogate-assisted cooperative swarm optimization of high-dimensional
+  expensive problems\allowbreak[J].
+\newblock IEEE Transactions on Evolutionary Computation, 2017, 21\allowbreak
+  (4): 644-660.
+
+\bibitem[Loshchilov et~al.(2010)Loshchilov, Schoenauer, and
+  Sebag]{loshchilov2010comparison}
+LOSHCHILOV I, SCHOENAUER M, SEBAG M.
+\newblock Comparison-based optimizers need comparison-based
+  surrogates\allowbreak[C]//\allowbreak
+International conference on parallel problem solving from nature.
+\newblock Springer, 2010: 364-373.
+
+\bibitem[Guo et~al.(2018)Guo, Jin, Ding, and Chai]{guo2018heterogeneous}
+GUO D, JIN Y, DING J, et~al.
+\newblock Heterogeneous ensemble-based infill criterion for evolutionary
+  multiobjective optimization of expensive problems\allowbreak[J].
+\newblock IEEE transactions on cybernetics, 2018, 49\allowbreak (3): 1012-1025.
+
+\bibitem[Zhou et~al.(2005)Zhou, Ong, Nguyen, and Lim]{zhou2005study}
+ZHOU Z, ONG Y~S, NGUYEN M~H, et~al.
+\newblock A study on polynomial regression and gaussian process global
+  surrogate model in hierarchical surrogate-assisted evolutionary
+  algorithm\allowbreak[C]//\allowbreak
+2005 IEEE congress on evolutionary computation: Vol.~3.
+\newblock IEEE, 2005: 2832-2839.
+
+\bibitem[Ch{\'a}vez-Hurtado et~al.(2016)Ch{\'a}vez-Hurtado and
+  Rayas-S{\'a}nchez]{chavez2016polynomial}
+CH{\'A}VEZ-HURTADO J~L, RAYAS-S{\'A}NCHEZ J~E.
+\newblock Polynomial-based surrogate modeling of RF and microwave circuits in
+  frequency domain exploiting the multinomial theorem\allowbreak[J].
+\newblock IEEE Transactions on Microwave Theory and Techniques, 2016,
+  64\allowbreak (12): 4371-4381.
+
+\bibitem[Khaldi et~al.(2024)Khaldi and Draa]{khaldi2024surrogate}
+KHALDI M~I~E, DRAA A.
+\newblock Surrogate-assisted evolutionary optimisation: a novel blueprint and a
+  state of the art survey\allowbreak[J].
+\newblock Evolutionary Intelligence, 2024, 17\allowbreak (4): 2213-2243.
+
+\bibitem[Lv et~al.(2023)Lv, Niu, Li, and Sun]{lv2023multi}
+LV Z, NIU D, LI S, et~al.
+\newblock Multi-surrogate assisted PSO with adaptive speciation for expensive
+  multimodal multi-objective optimization\allowbreak[J].
+\newblock Applied Soft Computing, 2023, 147: 110724.
+
+\bibitem[Yu et~al.(2025)Yu and Meng]{yu2025surrogate}
+YU L, MENG Z.
+\newblock Surrogate-assisted differential evolution with multiple sampling
+  mechanisms for high-dimensional expensive problems\allowbreak[J].
+\newblock Information Sciences, 2025, 687: 121408.
+
+\bibitem[Li et~al.(2020)Li, Cai, Gao, and Shen]{li2020surrogate}
+LI F, CAI X, GAO L, et~al.
+\newblock A surrogate-assisted multiswarm optimization algorithm for
+  high-dimensional computationally expensive problems\allowbreak[J].
+\newblock IEEE transactions on cybernetics, 2020, 51\allowbreak (3): 1390-1402.
+
+\bibitem[Lin et~al.(2024)Lin and Meng]{lin2024surrogate}
+LIN X, MENG Z.
+\newblock Surrogate-assisted evolutionary framework with an ensemble of
+  teaching-learning and differential evolution for expensive
+  optimization\allowbreak[J].
+\newblock Information Sciences, 2024, 680: 121137.
+
+\bibitem[Mockus(1994)]{mockus1994application}
+MOCKUS J.
+\newblock Application of bayesian approach to numerical methods of global and
+  stochastic optimization\allowbreak[J].
+\newblock Journal of Global Optimization, 1994, 4: 347-365.
+
+\bibitem[Nohara et~al.(2022)Nohara, Matsumoto, Soejima, and
+  Nakashima]{nohara2022explanation}
+NOHARA Y, MATSUMOTO K, SOEJIMA H, et~al.
+\newblock Explanation of machine learning models using shapley additive
+  explanation and application for real data in hospital\allowbreak[J].
+\newblock Computer Methods and Programs in Biomedicine, 2022, 214: 106584.
+
+\end{thebibliography}

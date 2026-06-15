@@ -3,7 +3,7 @@
 \renewcommand{\thetable}{A-\arabic{table}}
 \setcounter{table}{0}
 
-本附录汇总了第3章中因正文篇幅限制而移出的补充统计结果，主要包括Wilcoxon检验$p$值矩阵以及特征选择实验的补充指标。
+本附录汇总了第3章中因正文篇幅限制而移出的补充统计结果，主要包括Wilcoxon检验$p$值矩阵以及特征选择实验的补充指标。其中，与基础元启发式算法和先进元启发式算法比较得到的Wilcoxon检验结果分别见表\ref{tab:appendix_ibsa_basic_wilcoxon}和表\ref{tab:appendix_ibsa_advanced_wilcoxon}。
 
 \section*{附录A 第3章全局优化补充统计结果}
 
@@ -11,7 +11,7 @@
 \scriptsize
 \setlength{\tabcolsep}{1.5pt}
 \begin{longtable}{p{0.28in}>{\centering\arraybackslash}p{0.70in}>{\centering\arraybackslash}p{0.18in}>{\centering\arraybackslash}p{0.70in}>{\centering\arraybackslash}p{0.18in}>{\centering\arraybackslash}p{0.70in}>{\centering\arraybackslash}p{0.18in}>{\centering\arraybackslash}p{0.70in}>{\centering\arraybackslash}p{0.18in}>{\centering\arraybackslash}p{0.70in}>{\centering\arraybackslash}p{0.18in}>{\centering\arraybackslash}p{0.70in}>{\centering\arraybackslash}p{0.18in}}
-\caption{与基础元启发式算法比较得到的Wilcoxon检验P值}\\
+\caption{与基础元启发式算法比较得到的Wilcoxon检验P值}\label{tab:appendix_ibsa_basic_wilcoxon}\\
 \caption*{Table \thetable. P-value of Wilcoxon test obtained from comparison with basic MAs}\\
 \toprule
 Fun & \multicolumn{2}{c}{IBSA vs BSA} & \multicolumn{2}{c}{IBSA vs SMA} & \multicolumn{2}{c}{IBSA vs DE} & \multicolumn{2}{c}{IBSA vs PSO} & \multicolumn{2}{c}{IBSA vs GSA} & \multicolumn{2}{c}{IBSA vs BA} \\ 
@@ -98,7 +98,7 @@ Fun & \multicolumn{2}{c}{IBSA vs SCA} & \multicolumn{2}{c}{IBSA vs CS} & \multic
 \scriptsize
 \setlength{\tabcolsep}{0pt}
 \begin{longtable}{p{0.35in}>{\centering\arraybackslash}p{0.2in}>{\centering\arraybackslash}p{0.3in}>{\centering\arraybackslash}p{0.2in}>{\centering\arraybackslash}p{0.1in}>{\centering\arraybackslash}p{0.3in}>{\centering\arraybackslash}p{0.3in}>{\centering\arraybackslash}p{0.2in}>{\centering\arraybackslash}p{0.6in}>{\centering\arraybackslash}p{0.1in}>{\centering\arraybackslash}p{0.2in}>{\centering\arraybackslash}p{0.3in}>{\centering\arraybackslash}p{0.3in}>{\centering\arraybackslash}p{0.1in}>{\centering\arraybackslash}p{0.1in}>{\centering\arraybackslash}p{0.4in}>{\centering\arraybackslash}p{0.2in}>{\centering\arraybackslash}p{0.1in}>{\centering\arraybackslash}p{0.1in}>{\centering\arraybackslash}p{0.5in}>{\centering\arraybackslash}p{0.2in}>{\centering\arraybackslash}p{0.2in}}
-\caption{与先进元启发式算法比较得到的Wilcoxon检验P值}\\
+\caption{与先进元启发式算法比较得到的Wilcoxon检验P值}\label{tab:appendix_ibsa_advanced_wilcoxon}\\
 \caption*{Table \thetable. P-value of Wilcoxon test obtained from comparison with advance MAs}\\
 \toprule
 Fun & \multicolumn{4}{p{0.8in}}{IBSA vs CGPSO} & \multicolumn{3}{p{0.8in}}{IBSA vs SADE} & \multicolumn{3}{p{1.0in}}{IBSA vs RDWOA} & \multicolumn{4}{p{0.9in}}{IBSA vs CLPSO} & \multicolumn{4}{p{0.8in}}{IBSA vs CAGWO} & \multicolumn{3}{p{0.9in}}{IBSA vs SCADE} \\ 
@@ -185,7 +185,7 @@ Fun & \multicolumn{4}{p{0.8in}}{IBSA vs CGPSO} & \multicolumn{3}{p{0.8in}}{IBSA 
 \scriptsize
 \setlength{\tabcolsep}{2pt}
 \begin{longtable}{p{1.0in}>{\centering\arraybackslash}p{0.32in}>{\centering\arraybackslash}p{0.48in}>{\centering\arraybackslash}p{0.48in}>{\centering\arraybackslash}p{0.48in}>{\centering\arraybackslash}p{0.48in}>{\centering\arraybackslash}p{0.48in}>{\centering\arraybackslash}p{0.48in}>{\centering\arraybackslash}p{0.48in}>{\centering\arraybackslash}p{0.48in}>{\centering\arraybackslash}p{0.48in}}
-\caption{bIBSA与其他算法平均选中特征数比较}\\
+\caption{bIBSA与其他算法平均选中特征数比较}\label{tab:appendix_bibsa_selected_features}\\
 \caption*{Table \thetable. Comparison between bIBSA and other algorithms on average of selected features}\\
 \toprule
 \textbf{Function} & \textbf{Metric} & \textbf{bIBSA} & \textbf{BMFO} & \textbf{BGWO} & \textbf{BGSA} & \textbf{BPSO} & \textbf{BALO} & \textbf{BBA} & \textbf{BSSA} & \textbf{BWOA} \\ 
@@ -220,7 +220,7 @@ Fun & \multicolumn{4}{p{0.8in}}{IBSA vs CGPSO} & \multicolumn{3}{p{0.8in}}{IBSA 
 
 \section*{附录C 第4章补充实验结果}
 
-第4章正文保留了SBO在全局优化与图像分割中的关键图示和核心结论，完整的Avg/Std结果、Wilcoxon检验矩阵以及图像分割量化结果汇总于本附录。
+第4章正文保留了SBO在全局优化与图像分割中的关键图示和核心结论，完整的Avg/Std结果、Wilcoxon检验矩阵以及图像分割量化结果汇总于本附录。其中，SBO在10、30、50和100维问题上的Wilcoxon检验结果分别见表\ref{tab:appendix_sbo_wilcoxon_10d}、表\ref{tab:appendix_sbo_wilcoxon_30d}、表\ref{tab:appendix_sbo_wilcoxon_50d}和表\ref{tab:appendix_sbo_wilcoxon_100d}。
 
 \begingroup
 \scriptsize
@@ -234,7 +234,7 @@ Fun & \multicolumn{4}{p{0.8in}}{IBSA vs CGPSO} & \multicolumn{3}{p{0.8in}}{IBSA 
 \scriptsize
 \setlength{\tabcolsep}{1pt}
 \begin{longtable}{p{0.85in}>{\centering\arraybackslash}p{0.30in}>{\centering\arraybackslash}p{0.54in}>{\centering\arraybackslash}p{0.54in}>{\centering\arraybackslash}p{0.54in}>{\centering\arraybackslash}p{0.54in}>{\centering\arraybackslash}p{0.54in}>{\centering\arraybackslash}p{0.54in}>{\centering\arraybackslash}p{0.54in}>{\centering\arraybackslash}p{0.54in}>{\centering\arraybackslash}p{0.54in}}
-\caption{bIBSA与其他算法平均错误率比较}\\
+\caption{bIBSA与其他算法平均错误率比较}\label{tab:appendix_bibsa_error_rate}\\
 \caption*{Table \thetable. Comparison between bIBSA and other algorithms on average of error rate}\\
 \toprule
 \textbf{Function} & \textbf{Metric} & \textbf{bIBSA} & \textbf{BMFO} & \textbf{BGWO} & \textbf{BGSA} & \textbf{BPSO} & \textbf{BALO} & \textbf{BBA} & \textbf{BSSA} & \textbf{BWOA} \\ 
@@ -274,7 +274,7 @@ Fun & \multicolumn{4}{p{0.8in}}{IBSA vs CGPSO} & \multicolumn{3}{p{0.8in}}{IBSA 
 \scriptsize
 \setlength{\tabcolsep}{2pt}
 \begin{longtable}{p{1.0in}>{\centering\arraybackslash}p{0.32in}>{\centering\arraybackslash}p{0.48in}>{\centering\arraybackslash}p{0.48in}>{\centering\arraybackslash}p{0.48in}>{\centering\arraybackslash}p{0.48in}>{\centering\arraybackslash}p{0.48in}>{\centering\arraybackslash}p{0.48in}>{\centering\arraybackslash}p{0.48in}>{\centering\arraybackslash}p{0.48in}>{\centering\arraybackslash}p{0.48in}}
-\caption{bIBSA与其他算法平均运行时间比较}\\
+\caption{bIBSA与其他算法平均运行时间比较}\label{tab:appendix_bibsa_runtime}\\
 \caption*{Table \thetable. Comparison between bIBSA and other algorithms on average of run time}\\
 \toprule
 \textbf{Function} & \textbf{Metric} & \textbf{bIBSA} & \textbf{BMFO} & \textbf{BGWO} & \textbf{BGSA} & \textbf{BPSO} & \textbf{BALO} & \textbf{BBA} & \textbf{BSSA} & \textbf{BWOA} \\ 

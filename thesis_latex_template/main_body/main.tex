@@ -37,10 +37,10 @@
 \cmajor{计算机科学与技术}       % 专业名称
 \cclass{计算机软件与理论}              % 研究方向
 \cmentor{陈慧灵教授} % 指导老师
-\cdata{2025年3月1日} %完成时间
+\cdata{2026年5月23日} %完成时间
 \blindcode{} % 盲审代码
 %%===================================================
-\def\blind{}       % 盲审版把这条注释打开
+% \def\blind{}       % 盲审版把这条注释打开
 
 \ifdefined\blind
     \cauthor{XXX}
@@ -50,24 +50,24 @@
 
 
 \cabstract{
-随着大数据与人工智能技术的发展，工程设计、生物医学和科学计算等领域不断出现高维、非线性和多模态的复杂优化问题。在高维数据分析中，特征空间的指数级增长容易引发“维数灾难”，使特征选择成为提升机器学习模型性能与可解释性的关键环节；在高保真仿真驱动的昂贵优化中，有限评估预算又对算法的样本利用效率提出了更高要求。元启发式算法因无需梯度信息、全局搜索能力较强且适用范围广，已成为求解此类问题的重要工具。然而，现有方法在探索与开发平衡、搜索策略自适应以及高昂评估代价约束下的样本利用效率等方面仍存在不足，进而影响其在特征选择、图像分割和工程优化中的应用效果。围绕这些共性难点，本文针对复杂优化问题中的元启发式算法改进方法开展研究，提出三种改进算法，并在全局优化、高维医学数据特征选择、多阈值图像分割和高昂代价优化问题中验证其有效性。主要研究工作如下：
+高维数据分析、医学图像处理和高保真仿真驱动的工程设计中，常见维度高、非线性强、多模态和评估代价高等复杂优化问题。元启发式算法因无需梯度信息、全局探索能力较强且适用范围广，已成为求解此类问题的重要工具。然而，现有方法仍存在探索与开发平衡不足、搜索策略自适应能力有限以及高昂评估代价约束下样本利用效率不高等问题。围绕这些共性难点，本文从精英信息利用、状态驱动搜索和代理辅助自适应采样三个层面开展研究，提出三种改进元启发式算法，并在全局优化、高维医学数据特征选择、多阈值图像分割和昂贵优化任务中验证其有效性。主要研究工作如下：
 
-（1）针对回溯搜索算法（BSA）随机性较强、探索与开发失衡的问题，提出了基于精英引导变异策略的改进回溯搜索算法（IBSA）。通过改进变异与交叉机制，加强对精英个体信息的利用，提高了算法在最优解邻域附近的局部搜索能力。在IEEE CEC 2017基准函数上与23种算法的对比结果表明，IBSA在收敛速度和求解精度方面均显著优于原始BSA，且综合性能位于对比算法前列。进一步构造二值版本bIBSA，并将其应用于12个医学数据集的特征选择任务。实验结果表明，该方法能够在保持分类性能的同时实现有效的特征子集压缩。
+（1）针对回溯搜索算法（Backtracking Search Algorithm, BSA）随机性较强、探索与开发失衡的问题，提出了基于精英引导变异策略的改进回溯搜索算法（Improved Backtracking Search Algorithm, IBSA）。该方法改进变异与交叉机制，加强精英个体信息利用，增强对优质解邻域的局部开发能力。在IEEE进化计算大会（IEEE Congress on Evolutionary Computation, IEEE CEC）2017基准函数上与23种算法的对比结果表明，IBSA在收敛速度和求解精度方面优于原始BSA，综合性能位于对比算法前列。进一步构造二值版本bIBSA，并将其应用于12个医学数据集的特征选择任务。实验结果表明，该方法能够在保持分类性能的同时实现有效的特征子集压缩。
 
-（2）受社会系统中状态调整与资源分配行为的启发，提出了基于状态的优化算法（SBO）。该算法模拟社会中个体向优势群体靠拢、学习并获取资源的过程，构建了兼顾搜索广度与局部精炼能力的动态搜索机制。在IEEE CEC 2017基准函数集的10、30、50和100维测试问题上的实验表明，SBO展现出优越的综合寻优性能。此外，在乳腺癌组织学图像的6、12和18阈值级别下，SBO均取得了具有竞争力的多阈值分割结果。
+（2）受社会系统中状态调整与资源分配行为的启发，提出了基于状态的优化算法（Status-based Optimization, SBO）。该算法模拟个体向优势群体靠拢、学习并获取资源的过程，构建兼顾全局探索与局部开发能力的动态搜索机制。在IEEE CEC 2017基准函数集10、30、50和100维测试问题上的实验表明，SBO具有较好的综合寻优性能和维度扩展稳定性。此外，在乳腺癌组织学图像的6、12和18阈值级别下，SBO取得了较好的多阈值分割结果。
 
-（3）针对高昂评估代价优化中现有代理辅助进化算法搜索策略固定、采样准则可解释性不足的问题，提出了赌博机驱动的自适应搜索代理辅助进化算法（BEXEA）。该方法引入多臂赌博机机制，根据环境反馈动态调整搜索模式，以实现探索与开发的自适应平衡；同时提出可解释不确定性准则，将特征差异熵融入期望改进（EI）准则，以增强采样决策的可解释性并提高样本利用效率。在两组复杂基准测试集和油藏产量优化问题上的数值实验表明，BEXEA在多数测试中优于七种具有代表性的代理辅助进化算法。
+（3）针对昂贵优化中代理辅助进化算法搜索策略固定、采样准则可解释性不足的问题，提出了赌博机驱动的自适应搜索代理辅助进化算法（Bandit-driven Explainable Surrogate-assisted Evolutionary Algorithm, BEXEA）。该方法引入多臂赌博机机制，根据环境反馈动态调整搜索模式；同时提出可解释不确定性准则，将特征差异熵融入期望改进（Expected Improvement, EI）准则，以增强采样决策的可解释性并提高样本利用效率。在复杂基准测试集和油藏产量优化问题上的数值实验表明，BEXEA在多数测试中优于七种具有代表性的代理辅助进化算法。
 }
 \ckeywords{元启发式算法，特征选择，图像分割，昂贵优化，代理辅助进化算法}
 
 \eabstract{
-With the rapid development of big data and artificial intelligence, complex optimization problems characterized by high dimensionality, nonlinearity, and multimodality are increasingly encountered in engineering design, biomedicine, and scientific computing. In high-dimensional data analysis, the exponential growth of feature spaces often leads to the ``curse of dimensionality,'' making feature selection essential for improving model performance and interpretability. In high-fidelity simulation-driven expensive optimization, limited evaluation budgets place stringent demands on sample efficiency. Metaheuristic algorithms do not require gradient information and offer strong global search capability. Owing to their broad applicability, they have become an important class of methods for solving such problems. Nevertheless, existing methods still suffer from shortcomings in balancing exploration and exploitation, adapting search strategies, and improving sample efficiency under resource-constrained, high-cost evaluation settings. These limitations reduce their effectiveness in feature selection, image segmentation, and engineering optimization. To address these common challenges, this thesis investigates improved metaheuristic algorithms for complex optimization problems. Three improved algorithms are proposed and evaluated on global optimization, feature selection for high-dimensional medical data, multi-threshold image segmentation, and high-cost expensive optimization problems. The main contributions are summarized as follows:
+Complex optimization problems in high-dimensional data analysis, medical image processing, and simulation-driven engineering design usually involve high dimensionality, nonlinearity, multimodality, or high evaluation cost. Metaheuristic algorithms are useful for such problems because they do not require gradient information and have strong global search capability. However, existing methods still face limitations in balancing exploration and exploitation, adapting search strategies, and improving sample efficiency under expensive evaluations. To address these issues, this thesis investigates improved metaheuristic algorithms from three aspects: elite information utilization, status-driven search, and surrogate-assisted adaptive sampling. Three algorithms are proposed and evaluated on global optimization, high-dimensional medical data feature selection, multi-threshold image segmentation, and expensive optimization tasks. The main contributions are summarized as follows:
 
-(1) To mitigate the imbalance between exploration and exploitation caused by the strong randomness of the Backtracking Search Algorithm (BSA), an Improved Backtracking Search Algorithm (IBSA) with an elite-guided mutation strategy is proposed. By redesigning the mutation and crossover operators to better exploit elite information, IBSA strengthens local search in the neighborhood of high-quality solutions. Comparative results on the IEEE CEC 2017 benchmark functions against 23 algorithms show that IBSA outperforms the original BSA in both convergence speed and solution accuracy, and ranks among the top-performing methods overall. A binary version, bIBSA, is further developed for feature selection on 12 medical datasets, and the results indicate that it can effectively compress the feature subset while maintaining classification performance.
+(1) To mitigate the imbalance between exploration and exploitation caused by the strong randomness of the Backtracking Search Algorithm (BSA), an Improved Backtracking Search Algorithm (IBSA) with an elite-guided mutation strategy is proposed. By improving mutation and crossover operators, IBSA strengthens the use of elite information and enhances local search around high-quality solutions. Comparisons with 23 algorithms on the IEEE Congress on Evolutionary Computation (IEEE CEC) 2017 benchmark functions show that IBSA outperforms the original BSA in convergence speed and solution accuracy. A binary version, bIBSA, is further developed for feature selection on 12 medical datasets, and the results indicate that it can compress feature subsets while maintaining classification performance.
 
-(2) Inspired by status adjustment and resource allocation behaviors in social systems, a Status-based Optimization algorithm (SBO) is proposed. SBO simulates how individuals approach advantageous peers, learn from them, and acquire resources, thereby forming a dynamic search mechanism that balances broad exploration and local refinement. Experiments on the IEEE CEC 2017 benchmark function set with dimensions of 10, 30, 50, and 100 demonstrate the superior and competitive optimization performance of SBO. In addition, SBO achieves competitive results in multi-threshold image segmentation on breast cancer histology images at threshold levels of 6, 12, and 18.
+(2) Inspired by status adjustment and resource allocation behaviors in social systems, a Status-based Optimization algorithm (SBO) is proposed. SBO simulates how individuals approach advantageous peers, learn from them, and acquire resources, thereby forming a dynamic mechanism that balances broad exploration and local refinement. Experiments on the IEEE CEC 2017 benchmark functions with dimensions of 10, 30, 50, and 100 demonstrate the optimization performance and scalability of SBO. SBO also achieves competitive results in multi-threshold segmentation of breast cancer histology images.
 
-(3) To address the fixed search strategies and limited interpretability of sampling criteria in existing surrogate-assisted evolutionary algorithms for high-cost expensive optimization, a surrogate-assisted evolutionary algorithm with bandit-driven adaptive search (BEXEA) is proposed. The algorithm introduces a multi-armed bandit mechanism to dynamically adjust search modes according to environmental feedback, thereby adaptively balancing exploration and exploitation. An explainable uncertainty criterion is further designed by incorporating the entropy of feature differences into Expected Improvement (EI), which improves the interpretability of sampling decisions and enhances sample efficiency. Numerical experiments on two challenging benchmark suites and an oil reservoir production optimization problem show that BEXEA outperforms seven representative surrogate-assisted evolutionary algorithms on most tests.
+(3) To address fixed search strategies and limited interpretability of sampling criteria in surrogate-assisted evolutionary algorithms for expensive optimization, a surrogate-assisted evolutionary algorithm with bandit-driven adaptive search (BEXEA) is proposed. BEXEA uses a multi-armed bandit mechanism to adjust search modes according to environmental feedback. An explainable uncertainty criterion is further designed by incorporating the entropy of feature differences into Expected Improvement (EI), which improves the interpretability of sampling decisions and enhances sample efficiency. Experiments on benchmark suites and an oil reservoir production optimization problem show that BEXEA outperforms seven representative surrogate-assisted evolutionary algorithms on most tests.
 }
 % 英文文关键词(每个关键词之间用,分开, 最后一个关键词不打标点符号。)
 \ekeywords{metaheuristic algorithm, feature selection, image segmentation, expensive optimization, surrogate-assisted evolutionary algorithm}
@@ -138,8 +138,8 @@ With the rapid development of big data and artificial intelligence, complex opti
         \setlength{\labelsep}{0.5em}
 
         \item XXX[J]. Neurocomputing. \textbf{（SCI收录，已录用，第四章的研究成果）}
-        \item XXX[J]. \textbf{（审稿中，第三章的研究成果）}
-        \item XXX[J]. \textbf{（审稿中，第五章的研究成果）}
+        \item XXX[J]. \textbf{（投稿中，第三章的研究成果）}
+        \item XXX[J]. \textbf{（投稿中，第五章的研究成果）}
     \end{enumerate}
 \else
     \begin{enumerate}
@@ -148,8 +148,8 @@ With the rapid development of big data and artificial intelligence, complex opti
         \setlength{\labelsep}{0.5em}
 
         \item Wang J, Chen Y, Lu C, Heidari A A, Wu Z, Chen H. The Status-based Optimization: Algorithm and Comprehensive Performance Analysis[J]. Neurocomputing. \textbf{（第一单位：温州大学，SCI中科院2区，JCR Q1，第一作者，已录用，第四章的研究成果）}
-        \item Wang J, Chen Y, Zou H, Lu C, Heidari A A, Liu L, Chen H, Liang G. Elite Leading Mutation Backtracking Search Algorithm for High-Dimensional Medical Data Feature Selection[J]. \textbf{（审稿中，第三章的研究成果）}
-        \item Wang J, Chen Y, Lu C, Heidari A A, Liu L, Chen H. Bandit-Driven Adaptive Search in Surrogate-Assisted Evolutionary Algorithm with Explainable Uncertainty Criteria[J]. \textbf{（审稿中，第五章的研究成果）}
+        \item Wang J, Chen Y, Zou H, Lu C, Heidari A A, Liu L, Chen H, Liang G. Elite Leading Mutation Backtracking Search Algorithm for High-Dimensional Medical Data Feature Selection[J]. \textbf{（投稿中，第三章的研究成果）}
+        \item Wang J, Chen Y, Lu C, Heidari A A, Liu L, Chen H. Bandit-Driven Adaptive Search in Surrogate-Assisted Evolutionary Algorithm with Explainable Uncertainty Criteria[J]. \textbf{（投稿中，第五章的研究成果）}
     \end{enumerate}
 \fi
 
@@ -165,7 +165,7 @@ With the rapid development of big data and artificial intelligence, complex opti
         \setlength{\itemindent}{0em}
         \setlength{\labelsep}{0.5em}
 
-        \item 发明专利：一种多阈值图像分割方法、装置、计算机设备及存储介质，申请号：2025110129939，第二发明人，已授权。
+        \item 发明专利：一种多阈值图像分割方法、装置、计算机设备及存储介质，专利号：ZL 2025 1 1012993.9，授权公告号：CN 120510173 B，第二发明人，已授权。
     \end{enumerate}
 
     \begin{enumerate}[label=\arabic*., start=3]

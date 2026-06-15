@@ -5,9 +5,9 @@
 
 现实中的优化任务普遍具有高维、非线性和多模态等特征，这类NP-hard问题广泛存在于工程设计\cite{ibsa_ref1}、机器学习超参数调优\cite{ibsa_ref3}以及生物信息学\cite{ibsa_ref15}等领域。面对结构复杂、规模庞大的搜索空间，传统确定性算法往往依赖梯度或解析性质，因此难以稳定获得高质量解\cite{ibsa_ref4}。随着数据采集与计算能力的持续提升，高维复杂数据已广泛出现在医疗诊断\cite{ibsa_ref11}、路径规划\cite{ibsa_ref9}和金融服务\cite{ibsa_ref8}等场景中。这类数据通常包含大量冗余或无效信息，会增加存储与计算负担，并削弱学习模型的表征能力和预测精度\cite{ibsa_ref17}。
 
-元启发式算法主要通过引入随机搜索机制，并借鉴自然界中的生物演化、群体协作或物理规律开展寻优，具有无需梯度信息、应用灵活和全局搜索能力较强等特点，已成为求解复杂优化问题的重要方法\cite{ibsa_ref16}。目前，该类方法已广泛应用于特征选择\cite{ibsa_ref50}、多阈值图像分割\cite{ibsa_ref45}及调度优化\cite{ibsa_ref48}等任务。例如，Harris Hawks算法在工程约束优化中展现出具有竞争力的收敛速度与求解精度\cite{ibsa_ref83}，黏菌算法在多模态景观搜索中亦展现出较强的鲁棒性与搜索稳定性\cite{ibsa_ref28}。
+元启发式算法主要通过引入随机搜索机制，并借鉴自然界中的生物演化、群体协作或物理规律开展寻优，具有无需梯度信息、应用灵活和全局探索能力较强等特点，已成为求解复杂优化问题的重要方法\cite{ibsa_ref16}。目前，该类方法已广泛应用于特征选择\cite{ibsa_ref50}、多阈值图像分割\cite{ibsa_ref45}及调度优化\cite{ibsa_ref48}等任务。例如，哈里斯鹰优化算法（Harris Hawks Optimizer, HHO）在工程约束优化中取得了较好的收敛速度与求解精度\cite{ibsa_ref83}，黏菌算法（Slime Mould Algorithm, SMA）在多模态优化问题中亦表现出较强的鲁棒性与搜索稳定性\cite{ibsa_ref28}。
 
-尽管元启发式算法已经取得了大量研究进展，但现有方法仍面临若干关键瓶颈。首先，探索与开发失衡问题依然突出\cite{ibsa_ref75}，容易导致搜索前期覆盖不足或后期陷入局部极值。以高维医学数据特征选择为例，指数级扩张的搜索空间要求算法在保持诊断性能的同时有效剔除冗余特征，否则不仅会增加分类器的计算负担，也容易导致模型过拟合并削弱泛化性能。其次，搜索策略选择和参数设定往往较为依赖人工经验\cite{ibsa_ref65}，限制了算法在不同问题场景中的适应能力。例如，在多阈值图像分割任务中，噪声干扰和灰度不均会显著改变搜索景观，静态机制难以长期保持稳定性能。此外，在高昂评估代价的优化场景中，真实评估成本极高，样本利用效率往往直接影响优化结果\cite{he2023review}。以油藏产量优化和翼型设计为代表的工程问题，单次评估通常都需要复杂的数值仿真；如果采样缺乏针对性，有限的计算资源便会被迅速消耗。基于此，本文从精英信息利用、自适应策略调控以及代理辅助下的自适应采样与可解释决策三个方面切入，研究元启发式算法的改进机制及其应用路径。
+尽管元启发式算法已经取得了大量研究进展，但现有方法仍面临若干关键瓶颈。首先，探索与开发失衡问题依然突出\cite{ibsa_ref75}，容易导致搜索前期覆盖不足或后期陷入局部极值。以高维医学数据特征选择为例，指数级扩张的搜索空间要求算法在保持诊断性能的同时有效剔除冗余特征，否则不仅会增加分类器的计算负担，也容易导致模型过拟合并削弱泛化性能。其次，搜索策略选择和参数设定往往较为依赖人工经验\cite{ibsa_ref65}，限制了算法在不同问题场景中的适应能力。例如，在多阈值图像分割任务中，噪声干扰和灰度不均会显著改变目标函数特性，静态机制难以长期保持稳定性能。此外，在评估代价较高的优化场景中，单次真实评估成本较高，样本利用效率往往直接影响优化结果\cite{he2023review}。以油藏产量优化和翼型设计为代表的工程问题，单次评估通常都需要复杂的数值仿真；如果采样缺乏针对性，有限的计算资源便会被迅速消耗。基于此，本文从精英信息利用、自适应策略调控以及代理辅助下的自适应采样与可解释决策三个方面切入，研究元启发式算法的改进机制及其应用路径。
 
 从应用层面看，高维特征选择、图像分割和昂贵工程优化虽然形式不同，但本质上都指向有限计算资源下的高效寻优。特征选择强调在离散空间中压缩维度，并提升模型的可解释性与诊断精度\cite{ibsa_ref50}；多阈值图像分割要求在连续灰度域内精确确定分割阈值，直接影响病灶提取的可靠性\cite{sbo_ref82,sbo_ref83}；昂贵优化则更加关注单次评估的实际价值，力求以尽可能少的高保真仿真调用次数获得更优的决策方案\cite{liu2023airfoils,kumar2024optimization}。因此，这三类问题分别对应了探索与开发平衡、策略自适应和样本效率提升等核心研究难点，也为本文提供了具有代表性的应用场景。
 
@@ -17,17 +17,17 @@
 
 \subsection{元启发式优化算法研究现状}
 
-元启发式算法在复杂优化问题求解中具有独特优势，其设计灵感主要源于对自然界生物行为或物理规律的抽象。按照机制差异，可将其大致划分为生物启发类算法（如粒子群优化算法（Particle Swarm Optimization, PSO）\cite{ibsa_ref26}、灰狼优化器（Grey Wolf Optimizer, GWO）\cite{ibsa_ref81}）、进化计算类算法（如遗传算法（Genetic Algorithm, GA）\cite{ibsa_ref33}、差分进化算法（Differential Evolution, DE）\cite{ibsa_ref34}）、物理化学过程模拟类算法（如模拟退火算法（Simulated Annealing, SA）\cite{ibsa_ref29}、均衡优化器（Equilibrium Optimizer, EO）\cite{ibsa_ref32}）以及人类行为模仿类算法（如基于教学的优化算法（Teaching-Learning-Based Optimization, TLBO）\cite{ibsa_ref37}、头脑风暴优化算法（Brain Storm Optimization, BSO）\cite{ibsa_ref40}）。近年来，哈里斯鹰优化算法（Harris Hawks Optimizer, HHO）\cite{ibsa_ref83}、正弦余弦算法（Sine Cosine Algorithm, SCA）\cite{ibsa_ref31}和冰凌优化算法（Rime Optimization Algorithm, RIME）\cite{sbo_ref49}等新型算法相继提出，进一步拓展了元启发式算法的研究范围。
+元启发式算法在复杂优化问题求解中具有较好的适用性，其设计灵感主要源于对自然界生物行为或物理规律的抽象。按照机制差异，可将其大致划分为生物启发类算法（如粒子群优化算法（Particle Swarm Optimization, PSO）\cite{ibsa_ref26}、灰狼优化器（Grey Wolf Optimizer, GWO）\cite{ibsa_ref81}）、进化计算类算法（如遗传算法（Genetic Algorithm, GA）\cite{ibsa_ref33}、差分进化算法（Differential Evolution, DE）\cite{ibsa_ref34}）、物理化学过程模拟类算法（如模拟退火算法（Simulated Annealing, SA）\cite{ibsa_ref29}、均衡优化器（Equilibrium Optimizer, EO）\cite{ibsa_ref32}）以及人类行为模仿类算法（如教与学优化算法（Teaching-Learning-Based Optimization, TLBO）\cite{ibsa_ref37}、头脑风暴优化算法（Brain Storm Optimization, BSO）\cite{ibsa_ref40}）。近年来，HHO\cite{ibsa_ref83}、正弦余弦算法（Sine Cosine Algorithm, SCA）\cite{ibsa_ref31}和雾凇优化算法（Rime Optimization Algorithm, RIME）\cite{sbo_ref49}等新型算法相继提出，进一步拓展了元启发式算法的研究范围。
 
-现有改进研究主要围绕自适应参数控制、异构策略融合和种群多样性维持展开，目标在于提升算法的收敛速度与跨场景稳定性。Li等人\cite{ibsa_ref76}通过多策略增强提高了北苍鹰算法的工程应用性能；Nadimi-Shahraki等人\cite{ibsa_ref88}对灰狼优化器进行了机制改进，增强了其求解复杂约束问题的能力；Nenavath与Jatoth\cite{ibsa_ref87}则通过融合正弦余弦算子与差分变异，提升了算法的全局优化性能。针对BSA算法，Zhao等人\cite{ibsa_ref57}引入种群控制因子以增强搜索精度，Chen等人\cite{ibsa_ref63}则利用知识学习机制改善了其演化效率。
+现有改进研究主要围绕自适应参数控制、异构策略融合和种群多样性维持展开，目标在于提升算法的收敛速度与跨场景稳定性。Li等人\cite{ibsa_ref76}通过多策略增强提高了北苍鹰算法的工程应用性能；Nadimi-Shahraki等人\cite{ibsa_ref88}对灰狼优化器进行了机制改进，增强了其求解复杂约束问题的能力；Nenavath与Jatoth\cite{ibsa_ref87}则通过融合正弦余弦算子与差分变异，提升了算法的全局优化性能。针对回溯搜索算法（Backtracking Search Algorithm, BSA），Zhao等人\cite{ibsa_ref57}引入种群控制因子以增强搜索精度，Chen等人\cite{ibsa_ref63}则利用知识学习机制改善了其演化效率。
 
-从近三年的研究进展看，元启发式算法的发展重点正由单一算子设计逐步转向跨场景验证与工程适用性提升。2023年提出的GWCA算法通过模拟长城修筑过程中的分工协作提升了约束优化性能，WaOA算法则基于海象集群行为构建了多阶段搜索框架\cite{gwca2023,waoa2023}。2024年，RBMO和SBOA算法相继提出，分别借鉴红嘴蓝鹊的捕食协作机制和秘书鸟的防御行为设计新的演化规则\cite{rbmo2024,sboa2024}。2025年，研究者进一步将关注点转向复杂动态环境下的策略稳健性，例如ASHSBOA通过自适应学习策略提升了三维路径规划的效率\cite{ashsboa2025}。
+从近三年的研究进展看，元启发式算法的发展重点正由单一算子设计逐步转向跨场景验证与工程适用性提升。2023年提出的长城建造算法（Great Wall Construction Algorithm, GWCA）通过模拟长城修筑过程中的分工协作提升了约束优化性能，海象优化算法（Walrus Optimization Algorithm, WaOA）则基于海象集群行为构建了多阶段搜索框架\cite{gwca2023,waoa2023}。2024年，红嘴蓝鹊优化器（Red-billed Blue Magpie Optimizer, RBMO）和蛇鹭优化算法（Secretary Bird Optimization Algorithm, SBOA）相继提出，分别借鉴红嘴蓝鹊的捕食协作机制和蛇鹭的防御行为设计新的演化规则\cite{rbmo2024,sboa2024}。2025年，研究者进一步将关注点转向复杂动态环境下的策略稳健性，例如自适应策略混合蛇鹭优化算法（Adaptive Strategy Hybrid Secretary Bird Optimization Algorithm, ASHSBOA）通过自适应学习策略提升了三维路径规划的效率\cite{ashsboa2025}。
 
 “无免费午餐”定理揭示了优化领域的基本事实：不存在适用于所有场景的通用算法\cite{sbo_ref95}。因此，面向特定任务开展定制化算法设计具有必要性。尽管前人已取得大量成果，但探索与开发失衡、经验调参依赖以及复杂环境下的稳定性不足等问题仍未得到根本解决。特别是在高维特征选择和图像分割等实际应用中，算法性能常出现明显波动。如何设计兼具环境适应能力与策略自适应性的改进算法，仍是计算智能领域的重要研究方向。
 
 \subsection{特征选择方法研究现状}
 
-在现代数据分析场景中，海量高维数据使维度灾难问题更加突出。这类数据往往包含大量噪声和重复信息，容易削弱模型的泛化能力\cite{ibsa_ref17,ibsa_ref18}。特征选择（Feature Selection, FS）是缓解这一问题的重要手段，其目标是在压缩维度的同时保留最具判别力的特征子集，从而提升模型性能和结果解释性\cite{ibsa_ref50}。现有方法大致可分为过滤式、嵌入式和包裹式三类：过滤式依赖统计指标进行独立评价，计算效率较高，但难以刻画特征间的复杂交互关系\cite{ibsa_ref20}；嵌入式将特征选择过程与学习器训练相结合，兼顾了效率与模型适配性\cite{ibsa_ref21}；包裹式则以分类器性能为优化反馈，虽然计算开销较大，但在特定任务中通常能够获得更优的特征子集\cite{ibsa_ref23}。
+在现代数据分析场景中，海量高维数据使维数灾难问题更加突出。这类数据往往包含大量噪声和重复信息，容易削弱模型的泛化能力\cite{ibsa_ref17,ibsa_ref18}。特征选择（Feature Selection, FS）是缓解这一问题的重要手段，其目标是在压缩维度的同时保留最具判别力的特征子集，从而提升模型性能和结果解释性\cite{ibsa_ref50}。现有方法大致可分为过滤式、嵌入式和包裹式三类：过滤式依赖统计指标进行独立评价，计算效率较高，但难以刻画特征间的复杂交互关系\cite{ibsa_ref20}；嵌入式将特征选择过程与学习器训练相结合，兼顾了效率与模型适配性\cite{ibsa_ref21}；包裹式则以分类器性能为优化反馈，虽然计算开销较大，但在特定任务中通常能够获得更优的特征子集\cite{ibsa_ref23}。
 
 由于包裹式特征选择本质上属于离散组合优化问题，元启发式算法凭借较强的搜索能力而被广泛用于该领域\cite{ibsa_ref95}。Mafarja等人\cite{ibsa_ref51}研究了鲸鱼优化算法在特征选择中的应用；Abdel-Basset等人\cite{ibsa_ref42}通过融合模拟退火策略提升了HHO的局部优化能力。在医学诊断场景中，Han等人\cite{ibsa_ref41}利用改进PSO处理微阵列数据中的基因选择问题，Faris等人\cite{ibsa_ref102}则提出了带交叉机制的二值樽海鞘群算法。此外，Hu等人\cite{ibsa_ref97}的研究表明，灰狼优化器在特征选择任务中同样具有较好的效果。
 
@@ -37,17 +37,17 @@
 
 \subsection{代理辅助进化算法研究现状}
 
-在昂贵优化问题中，单次适应度评估往往涉及流体计算、有限元分析等高保真仿真过程，计算代价极大\cite{liu2023airfoils,kumar2024optimization}。代理辅助进化算法（SAEAs）通过低成本近似模型代替真实目标函数，以减少高保真仿真的调用频次\cite{he2023review,jin2018data}。围绕有限预算下的高效搜索这一目标，相关研究逐步形成了以模型近似、策略调节和采样决策协同改进为特征的研究脉络。
+在昂贵优化问题中，单次适应度评估往往涉及流体计算、有限元分析等高保真仿真过程，计算代价较高\cite{liu2023airfoils,kumar2024optimization}。代理辅助进化算法（Surrogate-Assisted Evolutionary Algorithms, SAEAs）通过低成本近似模型代替真实目标函数，以减少高保真仿真的调用频次\cite{he2023review,jin2018data}。围绕有限预算下的高效搜索这一目标，相关研究主要集中在模型近似、策略调节和采样决策协同改进等方面。
 
-在模型构建方面，RBF\cite{regis2013evolutionary}与Kriging\cite{buche2005accelerating,liu2013gaussian}应用最为广泛。搜索策略层面，差分进化及其变体仍是目前的主流引擎\cite{mallipeddi2015evolving,stanovov2023surrogate}。在采样决策方面，研究者提出了EI\cite{jones1998efficient}、LCB\cite{li2023elite}等准则，用以权衡预测值与不确定性。近年来，Xie等人\cite{xie2023surrogate}尝试对模型与准则进行自动配置，Gong等人\cite{gong2024surrogate}则引入强化学习机制动态调整搜索行为。
+在模型构建方面，径向基函数（Radial Basis Function, RBF）模型\cite{regis2013evolutionary}与Kriging模型\cite{buche2005accelerating,liu2013gaussian}应用最为广泛。搜索策略层面，差分进化及其变体仍是代理辅助优化中的常用搜索方法\cite{mallipeddi2015evolving,stanovov2023surrogate}。在采样决策方面，研究者提出了期望改进（Expected Improvement, EI）\cite{jones1998efficient}、置信下界（Lower Confidence Bound, LCB）\cite{li2023elite}等准则，用以权衡预测值与不确定性。近年来，Xie等人\cite{xie2023surrogate}尝试对模型与准则进行自动配置，Gong等人\cite{gong2024surrogate}则引入强化学习机制动态调整搜索行为。
 
-随着SAEA在航空航天设计、能源系统调优等领域的应用不断扩展，研究重点已由“减少评估次数”逐渐转向“提升决策质量”。这也意味着优化框架需要具备更强的反馈调节能力。Zhen等人\cite{zhen2022evolutionary}提出的演化采样技术，以及Wei等人\cite{wei2023efficient}设计的两阶段辅助框架，均为有限预算下的自适应采样提供了参考。如何降低算法对预设参数的依赖、提高采样过程的自适应能力，仍有待进一步研究。
+随着SAEAs在航空航天设计、能源系统调优等领域的应用不断扩展，研究重点已由“减少评估次数”逐渐转向“提升决策质量”。因此，优化框架需要具备更好的反馈调节能力。Zhen等人\cite{zhen2022evolutionary}提出的演化采样技术，以及Wei等人\cite{wei2023efficient}设计的两阶段辅助框架，均为有限预算下的自适应采样提供了参考。如何降低算法对预设参数的依赖、提高采样过程的自适应能力，仍有待进一步研究。
 
-现有文献为元启发式算法的演进提供了丰富借鉴，但在搜索机制协调、跨任务迁移以及昂贵预算约束下的资源分配方面仍有进一步研究空间。针对这些薄弱环节，本文聚焦连续优化、离散特征选择和代理辅助昂贵优化三个维度，尝试形成贯穿全文的算法设计与验证思路。
+现有文献为元启发式算法的演进提供了重要研究基础，但在搜索机制协调、跨任务迁移以及昂贵预算约束下的资源分配方面仍有进一步研究空间。针对上述问题，本文聚焦连续优化、离散特征选择和代理辅助昂贵优化三个方向，尝试形成贯穿全文的算法设计与验证思路。
 
 \section{总体技术框架}
 
-针对特征选择、图像分割和昂贵优化中的关键难题，本文提出了三种改进方案，并分别在医学特征选择、乳腺癌组织学图像分割和油藏产量优化中验证其性能。三项核心研究分别围绕探索与开发平衡、自适应搜索以及样本效率提升三条主线展开。总体技术框架如图~\ref{fig:overall-framework}所示。
+针对特征选择、图像分割和昂贵优化中的关键难题，本文提出了三种改进方案，并分别在医学特征选择、乳腺癌组织学图像分割和油藏产量优化中验证其性能。虽然三类任务的应用背景不同，但均具有搜索空间复杂、解析信息不足和计算资源受限等特征，因而可以统一归入复杂优化问题下的元启发式算法研究范畴。三项核心研究分别围绕探索与开发平衡、自适应搜索以及样本效率提升三条主线展开，共同服务于提升复杂优化场景下算法求解效率和应用可靠性的目标。总体技术框架如图~\ref{fig:overall-framework}所示。
 
 \begin{figure}[htbp]
   \centering
@@ -56,7 +56,7 @@
   \label{fig:overall-framework}
 \end{figure}
 
-本文围绕复杂任务中的共性瓶颈，沿三条相互支撑的研究路径展开：针对特征选择中的平衡性问题，提出基于精英引导变异策略的改进回溯搜索算法（Improved Backtracking Search Algorithm, IBSA）及其离散变体二值改进回溯搜索算法（Binary Improved BSA, bIBSA）；针对图像分割中的策略协调问题，构建基于状态的优化算法（Status-Based Optimization, SBO）；针对昂贵优化中的样本效率问题，提出赌博机驱动的可解释代理辅助进化算法（Bandit-driven Explainable Surrogate-assisted Evolutionary Algorithm, BEXEA）框架。各核心章节均按照“算法建模—基准测评—工程验证”的思路展开，从而使全文的论证逻辑更为连贯。
+本文围绕复杂任务中的共性问题，沿三条相互支撑的研究路径展开：针对特征选择中的平衡性问题，提出基于精英引导变异策略的改进回溯搜索算法（Improved Backtracking Search Algorithm, IBSA）及其离散变体二值改进回溯搜索算法（Binary Improved Backtracking Search Algorithm, bIBSA）；针对图像分割中的策略协调问题，构建基于状态的优化算法（Status-Based Optimization, SBO）；针对昂贵优化中的样本效率问题，提出赌博机驱动的可解释代理辅助进化算法（Bandit-driven Explainable Surrogate-assisted Evolutionary Algorithm, BEXEA）框架。上述研究不是对三个独立应用的简单并列，而是从连续优化、离散组合优化和昂贵优化三个层面考察元启发式算法在复杂环境中的改进路径。各核心章节均按照“算法建模—基准测评—工程验证”的思路展开，从而使全文的论证逻辑更为连贯。
 
 从全文结构看，各章节并非简单并列展开，而是遵循“既有框架优化—全新机制探索—复杂场景扩展”的递进逻辑。第三章围绕BSA框架中的精英信息利用问题展开，验证改进策略在连续优化和特征选择中的适用性；第四章面向复杂连续域中的策略协调问题，提出新的SBO算法并分析其状态驱动机制；第五章则进一步扩展至昂贵优化场景，在前述搜索思想的基础上引入代理模型和赌博机决策，形成适用于极低评估预算的BEXEA方法。
 

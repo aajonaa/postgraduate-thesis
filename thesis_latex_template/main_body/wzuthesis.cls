@@ -211,7 +211,7 @@ BoldItalicFont = * Bold Italic
 \fancypagestyle{main}{
     \fancyhf{}
     \ifdefined\blind
-        \fancyhead[c]{\zihao{5}\songti XXX硕士学位论文}
+        \fancyhead[c]{\zihao{5}\songti 硕士学位论文}
     \else
         \fancyhead[c]{\zihao{5}\songti 温州大学硕士学位论文}
     \fi
@@ -279,7 +279,7 @@ BoldItalicFont = * Bold Italic
 %\setlength\heavyrulewidth{0.2em} % 表格线宽
 % F19 图题表题 宋体五号
 \DeclareCaptionFormat{scutcaption}{\fontsize{10.5}{10.5}\selectfont#1#2#3}
-\captionsetup{format=scutcaption}
+\captionsetup{format=scutcaption,justification=centering}
 \DeclareCaptionLabelFormat{opening}{#2)}
 \subcaptionsetup[figure]{labelformat=opening}
 
@@ -550,7 +550,7 @@ BoldItalicFont = * Bold Italic
           nameformat = {\zihao{4}\heiti},
           titleformat = {\zihao{4}\heiti},
           beforeskip = {0.5\baselineskip},
-          afterskip = {0.5\baselineskip plus 0.3\baselineskip minus 0.3\baselineskip},
+          afterskip = {0.5\baselineskip},
          },
         subsection = {
                 format = {\zihao{4}\heiti},
@@ -558,7 +558,7 @@ BoldItalicFont = * Bold Italic
                 nameformat = {\zihao{4}\heiti},
                 titleformat = {\zihao{4}\heiti},
                 beforeskip = {0.5\baselineskip},
-                afterskip = {0.5\baselineskip plus 0.1\baselineskip minus 0.1\baselineskip},
+                afterskip = {0.5\baselineskip},
             },
         subsubsection = {
                 fixskip = true,
@@ -567,10 +567,11 @@ BoldItalicFont = * Bold Italic
                 nameformat = {\zihao{-4}\heiti},
                 titleformat = {\zihao{-4}\heiti},
                 beforeskip = {0.5\baselineskip},
-                afterskip = {0.5\baselineskip plus 0.1\baselineskip minus 0.1\baselineskip},
+                afterskip = {0.5\baselineskip},
             }
     }
     \zihao{-4}\songti \linespread{1.2}\selectfont
+    \raggedbottom
     % 缩减公式前后间距，使行文更紧凑
     \setlength{\abovedisplayskip}{6pt plus 2pt minus 2pt}
     \setlength{\belowdisplayskip}{6pt plus 2pt minus 2pt}
@@ -599,7 +600,7 @@ BoldItalicFont = * Bold Italic
           nameformat = {\zihao{4}\heiti},
           titleformat = {\zihao{4}\heiti},
           beforeskip = {0.5\baselineskip},
-          afterskip = {0.5\baselineskip plus 0.3\baselineskip minus 0.3\baselineskip},
+          afterskip = {0.5\baselineskip},
          },
         subsection = {
                 format = {\zihao{4}\heiti},
@@ -607,7 +608,7 @@ BoldItalicFont = * Bold Italic
                 nameformat = {\zihao{4}\heiti},
                 titleformat = {\zihao{4}\heiti},
                 beforeskip = {0.5\baselineskip},
-                afterskip = {0.5\baselineskip plus 0.1\baselineskip minus 0.1\baselineskip},
+                afterskip = {0.5\baselineskip},
             },
         subsubsection = {
                 fixskip = true,
@@ -616,7 +617,7 @@ BoldItalicFont = * Bold Italic
                 nameformat = {\zihao{-4}\heiti},
                 titleformat = {\zihao{-4}\heiti},
                 beforeskip = {0.5\baselineskip},
-                afterskip = {0.5\baselineskip plus 0.1\baselineskip minus 0.1\baselineskip},
+                afterskip = {0.5\baselineskip},
             }
     }
     \zihao{-4}\songti \linespread{1.2}\selectfont
