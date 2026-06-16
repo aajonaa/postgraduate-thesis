@@ -132,6 +132,9 @@ EU准则融合贝叶斯优化与可解释人工智能思想，为采样决策提
 
 \begin{table}[htbp]
 \centering
+\footnotesize
+\renewcommand{\arraystretch}{0.88}
+\setlength{\tabcolsep}{3pt}
 \bicaption{BEXEA与竞争算法在IEEE CEC 2022基准函数集上的比较结果（$d = 20$）}{Comparison result of BEXEA and its competitors on IEEE CEC 2022 benchmark function set with $d = 20$}
 \label{t:bexea_CEC22_Table}
 \resizebox{\textwidth}{!}{\begin{tabular}{lccccc}
@@ -181,9 +184,9 @@ Ranking & 7.6 & 3.3 & 2.2 & \textbf{1.1} \\
 
 表\ref{t:bexea_CEC22_Table}显示，在CEC 2022基准函数集测试中，BEXEA的平均排名位居第一。Wilcoxon秩和检验表明，BEXEA在多数函数上占优，主要原因在于MAB机制能够实时调整策略权重，EU准则也通过特征归因分析提高了样本评估效率。
 
-\begin{figure}
+\begin{figure}[!htbp]
     \centering
-    \includegraphics[width=\linewidth]{figures/chapter5/BEXEA-CEC22-CC.png}
+    \includegraphics[width=0.82\textwidth]{figures/chapter5/BEXEA-CEC22-CC.png}
 \bicaption{BEXEA与竞争算法在IEEE CEC 2022基准函数集上的收敛曲线（$d = 20$）}{Convergence curves of BEXEA and its competitors on the IEEE CEC 2022 benchmark function set ($d = 20$)}
     \label{fig:bexea_CEC22_CC}
 \end{figure}
@@ -194,15 +197,18 @@ Ranking & 7.6 & 3.3 & 2.2 & \textbf{1.1} \\
 
 从计算开销角度看，BEXEA在每次真实评估前需要维护代理模型、计算局部不确定性并更新赌博机奖励，因此单次采样决策比固定搜索策略更复杂。但在昂贵优化场景中，真实函数评估通常占据主要时间成本，减少无效评估比单步决策开销更关键。高维基准测试结果表明，BEXEA在有限评估预算下仍能保持较好的收敛质量，说明其额外策略调度成本能够被样本效率提升所抵消。
 
-\begin{figure}
+\begin{figure}[!htbp]
     \centering
-    \includegraphics[width=\textwidth]{figures/chapter5/BEXEA-Plots.png}
+    \includegraphics[width=0.92\textwidth]{figures/chapter5/BEXEA-Plots.png}
 \bicaption{BEXEA与竞争算法在IEEE CEC 2022基准函数集上的散点图和排名图（$d = 20$）}{Combined scatter and rank plots of BEXEA and its competitors on the IEEE CEC 2022 benchmark function set ($d = 20$)}
     \label{fig:bexea_CEC22_Plots}
 \end{figure}
 
 \begin{table}[htbp]
 \centering
+\footnotesize
+\renewcommand{\arraystretch}{0.88}
+\setlength{\tabcolsep}{3pt}
 \bicaption{BEXEA与竞争算法在高维场景基准函数集上的比较结果（$d = 50$和$d = 100$）}{Comparison results of BEXEA and its competitors on the high-dimensional benchmark function set with $d = 50$ and $d = 100$}
 \label{t:bexea_CEC05_Table}
 \resizebox{\textwidth}{!}{\begin{tabular}{lccccc}
@@ -259,8 +265,11 @@ Ranking & 7.6 & 3.9 & 1.8 & \textbf{1.3} \\
 
 消融实验验证了自适应搜索机制的必要性。表\ref{t:bexea_MAB_Table}显示，BEXEA的整体性能优于各单一策略版本。由此可见，MAB驱动的灵活切换机制是算法适应不同问题特征并在多阶段维持较好性能的关键因素。
 
-\begin{table}
+\begin{table}[!htbp]
 \centering
+\footnotesize
+\renewcommand{\arraystretch}{0.90}
+\setlength{\tabcolsep}{4pt}
 \bicaption{BEXEA与不同臂变体比较结果}{Comparison results of BEXEA and its different arm variants}
 \label{t:bexea_MAB_Table}
 \resizebox{\textwidth}{!}{
@@ -289,8 +298,11 @@ Ranking & 2.4                & 2.4                         & \textbf{1.2}       
 
 采样准则的消融分析见表\ref{t:bexea_EU_Table}。结果表明，缺少采样筛选环节会导致算法求解精度下降。EU准则与代理模型预测相结合后，在多项任务中表现出较好的互补性，整体排名也位居前列。这说明利用特征重要性归因引导采样决策，能够更有效地分配有限评估预算，并增强优化过程的可解释性。
 
-\begin{table}
+\begin{table}[!htbp]
 \centering
+\footnotesize
+\renewcommand{\arraystretch}{0.90}
+\setlength{\tabcolsep}{4pt}
 \bicaption{BEXEA与不同准则变体比较结果}{Comparison results of BEXEA and its different criteria variants}
 \label{t:bexea_EU_Table}
 \resizebox{\textwidth}{!}{
@@ -322,16 +334,16 @@ Ranking & 3.8                         & 2.3                         & 2.2       
 
 超参数$\beta$与$\mathcal{K}$的设置对算法稳定性具有重要影响。衰减因子决定策略更新对近期搜索表现的敏感程度，而近邻数则直接影响局部不确定性的估计精度。图\ref{fig:bexea_Beta}与图\ref{fig:bexea_K}展示了不同参数设置下的性能比较。综合权衡收敛速度与求解精度后，本文采用的参数配置在多数测试中表现较为均衡。
 
-\begin{figure}
+\begin{figure}[!htbp]
     \centering
-    \includegraphics[width=\textwidth]{figures/chapter5/beta.png}
+    \includegraphics[width=0.90\textwidth]{figures/chapter5/beta.png}
     \bicaption{不同$\beta$设置下BEXEA的性能}{Performance of BEXEA under different $\beta$ settings}
     \label{fig:bexea_Beta}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[!htbp]
     \centering
-    \includegraphics[width=\textwidth]{figures/chapter5/k.png}
+    \includegraphics[width=0.90\textwidth]{figures/chapter5/k.png}
     \bicaption{不同$\mathcal{K}$设置下BEXEA的性能}{Performance of BEXEA under different $\mathcal{K}$ settings}
     \label{fig:bexea_K}
 \end{figure}
@@ -342,6 +354,9 @@ Ranking & 3.8                         & 2.3                         & 2.2       
 
 \begin{table}[htbp]
 \centering
+\footnotesize
+\renewcommand{\arraystretch}{0.92}
+\setlength{\tabcolsep}{4pt}
 \bicaption{BEXEA与其他SAEAs在油藏产量优化问题上的比较结果}{Comparison results of BEXEA and other SAEAs on the oil reservoir production optimization problem}
 \label{t:bexea_Oil_Exp_Table}
 \resizebox{\textwidth}{!}{
@@ -363,9 +378,9 @@ BEXEA     & \textbf{7.9995E+07(1.12E+05)} & \textbf{7.9771E+07} & \textbf{8.0219
 
 表\ref{t:bexea_Oil_Exp_Table}显示，BEXEA在核心经济指标上优于所有对比算法。其平均净现值（NPV）高于次优算法，同时标准差更小，说明求解结果具有较好一致性。从运行时间看，BEXEA的平均耗时为$2.1334\times10^4$，低于所有对比SAEAs，表明其在油藏产量优化中不仅提升了经济目标值，也减少了达到高质量方案所需的实际计算开销。
 
-\begin{figure}
+\begin{figure}[!htbp]
     \centering
-    \includegraphics[width=\textwidth]{figures/chapter5/runBEXEA-OilReservoir-sampled-CC.png}
+    \includegraphics[width=0.88\textwidth]{figures/chapter5/runBEXEA-OilReservoir-sampled-CC.png}
     \bicaption{BEXEA与其他SAEAs在油藏产量优化问题上的收敛曲线}{Convergence curves of BEXEA and other SAEAs on the oil reservoir production optimization problem}
     \label{fig:bexea_Oil_Exp_Figure}
 \end{figure}

@@ -1,6 +1,7 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  24 MAY 2026 05:49
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.3.5)  16 JUN 2026 12:00
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
 **./main.tex
 (main.tex
@@ -1705,26 +1706,26 @@ File: tikzlibrarypositioning.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 92.
+LaTeX Font Info:    ... okay on input line 92.
 
 Package fontspec Info: 
 (fontspec)             Adjusting the maths setup (use [no-math] to avoid
@@ -1732,63 +1733,63 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup9
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 75.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 75.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 75.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 75.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 75.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 75.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 75.
-LaTeX Font Info:    Redeclaring math accent \check on input line 75.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 75.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 75.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 75.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 75.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 75.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 92.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 92.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 92.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 92.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 92.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 92.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 92.
+LaTeX Font Info:    Redeclaring math accent \check on input line 92.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 92.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 92.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 92.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 92.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 92.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 92.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 92.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 92.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 92.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 92.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 92.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 92.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 92.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 92.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 92.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 92.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 75.
+(Font)              `operators' in the math version `normal' on input line 92.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 7
-5.
+(Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 9
+2.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 75.
+(Font)              `operators' in the math version `bold' on input line 92.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/m/n on input line 
-75.
+92.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/m/n on 
-input line 75.
+input line 92.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/TimesNewRoman(0)/m/it on input line
- 75.
+ 92.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/b/n on input line 
-75.
+92.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 75.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 92.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/Consolas(0)/m/n on input line 75.
+(Font)                  OT1/cmtt/m/n --> TU/Consolas(0)/m/n on input line 92.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/b/n on 
-input line 75.
+input line 92.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> TU/TimesNewRoman(0)/b/it on input lin
-e 75.
+e 92.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 75.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 92.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/Consolas(0)/b/n on input line 75.
+(Font)                  OT1/cmtt/m/n --> TU/Consolas(0)/b/n on input line 92.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1827,33 +1828,33 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 \symgns@font=\mathgroup10
 LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
 (Font)                  TS1/TimesNewRoman(0)/m/n --> TS1/TimesNewRoman(0)/b/n o
-n input line 75.
-Package gensymb Info: Math companion symbols declared on input line 75.
-LaTeX Info: Redefining \degree on input line 75.
-LaTeX Info: Redefining \celsius on input line 75.
+n input line 92.
+Package gensymb Info: Math companion symbols declared on input line 92.
+LaTeX Info: Redefining \degree on input line 92.
+LaTeX Info: Redefining \celsius on input line 92.
 Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
-erthousand on input line 75.
-LaTeX Info: Redefining \ohm on input line 75.
-Package gensymb Info: Using \textohm for \ohm on input line 75.
-Package gensymb Info: Using \textmu for \micro on input line 75.
+erthousand on input line 92.
+LaTeX Info: Redefining \ohm on input line 92.
+Package gensymb Info: Using \textohm for \ohm on input line 92.
+Package gensymb Info: Using \textmu for \micro on input line 92.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count450
 Package tocbasic Info: omitting babel extension for `lol'
-(tocbasic)             because of missing \bbl@set@language on input line 75.
+(tocbasic)             because of missing \bbl@set@language on input line 92.
 
 (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/fmtcount\fc-english.def
 File: fc-english.def 2016/01/12
 )
-Package hyperref Info: Option `CJKbookmarks' set `true' on input line 75.
-Package hyperref Info: Link coloring OFF on input line 75.
+Package hyperref Info: Option `CJKbookmarks' set `true' on input line 92.
+Package hyperref Info: Link coloring OFF on input line 92.
  (main.out) (main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
-Package bicaption Info: Main language is not set on input line 75.
+Package bicaption Info: Main language is not set on input line 92.
 
 Package fontspec Info: 
 (fontspec)             Font family 'AdobeSongStd-Light.otf(1)' created for
@@ -1875,41 +1876,41 @@ anguage=dflt;"
 anguage=dflt;"
 
 
-Underfull \hbox (badness 10000) detected at line 78
+Underfull \hbox (badness 10000) detected at line 95
 \TU/AdobeSongStd-Light.otf(1)/m/n/12.045 分 类 号：| 
  []
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 78.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 95.
 
 (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 78.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 95.
 
 
 (C:\Users\admin\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for TS1+TimesNewRoman(0) on
- input line 78.
-LaTeX Font Info:    No file TS1TimesNewRoman(0).fd. on input line 78.
+ input line 95.
+LaTeX Font Info:    No file TS1TimesNewRoman(0).fd. on input line 95.
 
 
 LaTeX Font Warning: Font shape `TS1/TimesNewRoman(0)/m/n' undefined
-(Font)              using `TS1/cmr/m/n' instead on input line 78.
+(Font)              using `TS1/cmr/m/n' instead on input line 95.
 
 
-Underfull \hbox (badness 10000) detected at line 78
+Underfull \hbox (badness 10000) detected at line 95
 \TU/TimesNewRoman(0)/m/n/12.045 UDC:
  []
 
 
-Underfull \hbox (badness 10000) detected at line 78
+Underfull \hbox (badness 10000) detected at line 95
 \TU/AdobeSongStd-Light.otf(1)/m/n/12.045 学 号：| 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 78
+Underfull \hbox (badness 10000) detected at line 95
 \TU/AdobeSongStd-Light.otf(1)/m/n/12.045 密 级\TU/TimesNewRoman(0)/m/n/12.045 :
  []
 
@@ -1967,7 +1968,7 @@ anguage=dflt;embolden=4;slant=0.167;"
 File: title.png Graphic file (type bmp)
 <title.png>
 
-Underfull \hbox (badness 10000) detected at line 78
+Underfull \hbox (badness 10000) detected at line 95
 \TU/AdobeSongStd-Light.otf(1)/m/n/15.05624 作 者 姓 名：| 
  []
 
@@ -1995,32 +1996,32 @@ anguage=dflt;slant=0.167;"
 anguage=dflt;embolden=4;slant=0.167;"
 
 
-Underfull \hbox (badness 10000) detected at line 78
+Underfull \hbox (badness 10000) detected at line 95
 \TU/AdobeSongStd-Light.otf(1)/m/n/15.05624 培 养 类 型：| 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 78
+Underfull \hbox (badness 10000) detected at line 95
 \TU/AdobeSongStd-Light.otf(1)/m/n/15.05624 学 位 类 型：| 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 78
+Underfull \hbox (badness 10000) detected at line 95
 \TU/AdobeSongStd-Light.otf(1)/m/n/15.05624 专 业 名 称：| 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 78
+Underfull \hbox (badness 10000) detected at line 95
 \TU/AdobeSongStd-Light.otf(1)/m/n/15.05624 研 究 方 向：| 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 78
+Underfull \hbox (badness 10000) detected at line 95
 \TU/AdobeSongStd-Light.otf(1)/m/n/15.05624 指 导 教 师：| 
  []
 
 
-Underfull \hbox (badness 10000) detected at line 78
+Underfull \hbox (badness 10000) detected at line 95
 \TU/AdobeSongStd-Light.otf(1)/m/n/15.05624 完 成 日 期：| 
  []
 
@@ -2045,9 +2046,9 @@ Underfull \hbox (badness 10000) detected at line 78
 
 
 ] [2] [3]
-File: figures/chapter1/thesis_overview_refined.drawio.png Graphic file (type bm
-p)
-<figures/chapter1/thesis_overview_refined.drawio.png>
+File: figures/chapter1/thesis_overview_refined-Page-4.drawio (2).png Graphic fi
+le (type bmp)
+<figures/chapter1/thesis_overview_refined-Page-4.drawio (2).png>
  [4]) (chapters/chapter2.tex [5]
 2
 [6
@@ -2071,65 +2072,64 @@ File: figures/chapter3/fig2_flowchart_IBSA.png Graphic file (type bmp)
 File: figures/chapter3/fig3_wrapper_feature_selection.png Graphic file (type bm
 p)
 <figures/chapter3/fig3_wrapper_feature_selection.png>
- [17] [18] [19] [20]
+ [17] [18]
 File: figures/chapter3/IBSA_fs_evaluate_flowchart_refined.drawio.png Graphic fi
 le (type bmp)
 <figures/chapter3/IBSA_fs_evaluate_flowchart_refined.drawio.png>
- [21]
+ [19]
 File: figures/chapter3/fig4_balance_and_diversity.png Graphic file (type bmp)
 <figures/chapter3/fig4_balance_and_diversity.png>
- [22])
-(chapters/chapter4_SBO.tex [23]
+ [20] [21]) (chapters/chapter4_SBO.tex
+[22]
 4
-[24
+[23
 
-] [25]
+] [24]
 File: figures/chapter4/fig02_elite_engagement.png Graphic file (type bmp)
 <figures/chapter4/fig02_elite_engagement.png>
+ [25]
 File: figures/chapter4/fig03_resource_acquisition.png Graphic file (type bmp)
 <figures/chapter4/fig03_resource_acquisition.png>
- [26] [27]
 File: figures/chapter4/fig04_flowchart_SBO.png Graphic file (type bmp)
 <figures/chapter4/fig04_flowchart_SBO.png>
- [28]
+ [26] [27]
 File: figures/chapter4/fig16_flowchart_image_segmentation.png Graphic file (typ
 e bmp)
 <figures/chapter4/fig16_flowchart_image_segmentation.png>
- [29]
 File: figures/chapter4/fig05_balance_diversity_convergence.png Graphic file (ty
 pe bmp)
 <figures/chapter4/fig05_balance_diversity_convergence.png>
+ [28] [29]
 File: figures/chapter4/fig10_friedman_rank.png Graphic file (type bmp)
 <figures/chapter4/fig10_friedman_rank.png>
 File: figures/chapter4/fig19_jet_colormap_segmentation.png Graphic file (type b
 mp)
 <figures/chapter4/fig19_jet_colormap_segmentation.png>
- [30] [31] [32] [33]) (chapters/chapter5_BEXEA.tex [34]
+ [30]) (chapters/chapter5_BEXEA.tex [31]
 5
-[35
+[32
 
 ]
 File: figures/chapter5/BEXEAStructure.png Graphic file (type bmp)
 <figures/chapter5/BEXEAStructure.png>
- [36]
+ [33]
 File: figures/chapter5/BEXEA-MAB.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-MAB.png>
+ [34]
 File: figures/chapter5/explainable-uncertainty-criteria-legend.png Graphic file
  (type bmp)
 <figures/chapter5/explainable-uncertainty-criteria-legend.png>
- [37] [38] [39]
+ [35]
 File: figures/chapter5/BEXEA_application_workflow_refined.drawio.png Graphic fi
 le (type bmp)
 <figures/chapter5/BEXEA_application_workflow_refined.drawio.png>
-LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 135.
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 138.
 File: figures/chapter5/BEXEA-CEC22-CC.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-CEC22-CC.png>
- [40
-
-] [41] [42]
+ [36]
 File: figures/chapter5/BEXEA-Plots.png Graphic file (type bmp)
 <figures/chapter5/BEXEA-Plots.png>
- [43] [44]
+ [37] [38] [39]
 File: figures/chapter5/beta.png Graphic file (type bmp)
 <figures/chapter5/beta.png>
 File: figures/chapter5/k.png Graphic file (type bmp)
@@ -2137,12 +2137,12 @@ File: figures/chapter5/k.png Graphic file (type bmp)
 File: figures/chapter5/runBEXEA-OilReservoir-sampled-CC.png Graphic file (type 
 bmp)
 <figures/chapter5/runBEXEA-OilReservoir-sampled-CC.png>
- [45] [46] [47] [48] [49])
-(chapters/chapter6.tex [50]
+ [40] [41] [42]) (chapters/chapter6.tex
+[43]
 6
-[51
+[44
 
-]) [52] (main.bbl [53
+]) [45] (main.bbl [46
 
 ]
 Underfull \hbox (badness 2012) in paragraph at lines 161--165
@@ -2150,7 +2150,7 @@ Underfull \hbox (badness 2012) in paragraph at lines 161--165
 zation[C]//Proceedings of
  []
 
-[54] [55] [56] [57] [58] [59] [60] [61]) [62] (chapters/appendix.tex
+[47] [48] [49] [50] [51] [52] [53] [54]) [55] (chapters/appendix.tex
 Overfull \hbox (0.7984pt too wide) in paragraph at lines 19--19
  []|\TU/TimesNewRoman(0)/m/n/7.52812 Sign| 
  []
@@ -2211,10 +2211,10 @@ Overfull \hbox (0.7984pt too wide) in paragraph at lines 63--64
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [63
+ignored: Infinite glue shrinkage found in box being split [56
 
-] [64]
-ignored: Infinite glue shrinkage found in box being split [65] (chapters/appendix_
+] [57]
+ignored: Infinite glue shrinkage found in box being split [58] (chapters/appendix_
 ch4.tex
 Overfull \hbox (1.58434pt too wide) in paragraph at lines 8--8
  []|\TU/TimesNewRoman(0)/m/n/5 LSHADE_cnEpSin| 
@@ -2226,19 +2226,19 @@ Overfull \hbox (1.58434pt too wide) in paragraph at lines 78--78
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [66]
+ignored: Infinite glue shrinkage found in box being split [59]
 Overfull \hbox (1.58434pt too wide) in paragraph at lines 148--148
  []|\TU/TimesNewRoman(0)/m/n/5 LSHADE_cnEpSin| 
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [67]
+ignored: Infinite glue shrinkage found in box being split [60]
 Overfull \hbox (1.58434pt too wide) in paragraph at lines 218--218
  []|\TU/TimesNewRoman(0)/m/n/5 LSHADE_cnEpSin| 
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [68]
+ignored: Infinite glue shrinkage found in box being split [61]
 Overfull \hbox (0.15865pt too wide) in alignment at lines 285--322
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
@@ -2254,7 +2254,7 @@ Overfull \hbox (0.32782pt too wide) in alignment at lines 327--364
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [69]
+ignored: Infinite glue shrinkage found in box being split [62]
 Overfull \hbox (0.15865pt too wide) in alignment at lines 368--405
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
@@ -2270,13 +2270,13 @@ Overfull \hbox (0.32782pt too wide) in alignment at lines 410--447
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [70]
+ignored: Infinite glue shrinkage found in box being split [63]
 Overfull \hbox (0.15865pt too wide) in alignment at lines 451--488
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [71]
+ignored: Infinite glue shrinkage found in box being split [64]
 Underfull \hbox (badness 10000) in paragraph at lines 497--497
 []|\TU/TimesNewRoman(0)/m/n/7.52812 SBO vs
  []
@@ -2292,7 +2292,7 @@ Overfull \hbox (0.15865pt too wide) in alignment at lines 534--571
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [72]
+ignored: Infinite glue shrinkage found in box being split [65]
 Underfull \hbox (badness 10000) in paragraph at lines 580--580
 []|\TU/TimesNewRoman(0)/m/n/7.52812 SBO vs
  []
@@ -2303,20 +2303,20 @@ Overfull \hbox (0.32782pt too wide) in alignment at lines 576--613
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [73] [74]
+ignored: Infinite glue shrinkage found in box being split [66] [67]
 ignored: Infinite glue shrinka
-ge found in box being split [75])
+ge found in box being split [68])
 Overfull \hbox (1.09486pt too wide) in alignment at lines 236--267
  [] [] [] [] [] [] [] [] [] [] [] 
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [76]) [77] [78
+ignored: Infinite glue shrinkage found in box being split [69]) [70] [71
 
-] [79
+] [72
 
 ]
-runsystem(latexminted cleantemp  --timestamp 20260524054931 FAD58DE7366495DB465
+runsystem(latexminted cleantemp  --timestamp 20260616120032 FAD58DE7366495DB465
 0CFEFAC2FCD61)...disabled (restricted).
 
  (main.aux)
@@ -2332,12 +2332,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 726782E3EF5F753583CCA962B55AAA80;7716.
  ) 
 Here is how much of TeX's memory you used:
- 39585 strings out of 402983
- 877432 string characters out of 5448483
- 1696423 words of memory out of 5000000
- 67559 multiletter control sequences out of 15000+600000
- 661982 words of font info for 243 fonts, out of 8000000 for 9000
+ 39594 strings out of 402983
+ 877733 string characters out of 5448483
+ 1696392 words of memory out of 5000000
+ 67567 multiletter control sequences out of 15000+600000
+ 663890 words of font info for 251 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  125i,12n,125p,1194b,850s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (88 pages).
+Output written on main.pdf (81 pages).

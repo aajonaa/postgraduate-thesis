@@ -20,6 +20,23 @@
 \setlength\LTleft{\fill}
 \setlength\LTright{\fill}
 
+% Keep large floats close to the surrounding text and avoid sparse float-only pages.
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.82}
+\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.75}
+\setcounter{topnumber}{4}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{5}
+\setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{10pt plus 2pt minus 2pt}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother
+
 % English/CJK text fonts are handled by wzuthesis.cls (Times New Roman + Adobe fonts)
 
 %%===============论文信息=============================
@@ -27,7 +44,7 @@
                                 % 中文题目
 \etitle{Research on Improved Metaheuristic Algorithms and Their Applications in Complex Optimization Problems}                     % 英文题目
 
-\cauthor{王\ 健}            % 作者姓名
+\cauthor{}            % 作者姓名
 \fen{TP18}                  % 分类号
 \udc{004.8}                    % UDC
 \id{23451350032}               % 学号
@@ -36,8 +53,8 @@
 \pylx{全日制统招硕士}         % 培养类型
 \cmajor{计算机科学与技术}       % 专业名称
 \cclass{计算机软件与理论}              % 研究方向
-\cmentor{陈慧灵教授} % 指导老师
-\cdata{2026年5月23日} %完成时间
+\cmentor{} % 指导老师
+\cdata{2026年6月14日} %完成时间
 \blindcode{} % 盲审代码
 %%===================================================
 % \def\blind{}       % 盲审版把这条注释打开
